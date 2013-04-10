@@ -32,9 +32,25 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
 
 gem 'rspec-rails'
+gem 'slim-rails'
+gem 'mysql2'
+gem 'simple_form'
+gem 'configatron'
+
+group :development do
+  gem 'capistrano'
+  gem 'letter_opener'
+  gem 'quiet_assets'
+  gem 'thin'
+  gem 'debugger'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+end
