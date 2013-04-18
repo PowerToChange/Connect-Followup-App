@@ -35,14 +35,14 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
-
 gem 'rspec-rails'
 gem 'slim-rails'
 gem 'mysql2'
 gem 'simple_form'
 gem 'configatron'
+
+gem 'rubycas-client'
+
 
 group :development do
   gem 'capistrano'
@@ -50,8 +50,17 @@ group :development do
   gem 'quiet_assets'
   gem 'thin'
   gem 'debugger'
+
+  gem 'pry'
+  gem 'pry-debugger'
+  gem 'pry-rails'
+  gem 'sextant'
+  gem 'better_errors'
 end
 
 group :test do
   gem 'factory_girl_rails'
+
+  gem 'pry'
+  gem 'pry-debugger'
 end
