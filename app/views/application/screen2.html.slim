@@ -1,0 +1,74 @@
+
+.row-fluid.contact
+  img.img-rounded src="#{asset_path('leonard.jpg')}" style="max-height:100px; margin-right:20px;"
+
+  div style="display:inline-block;"
+    .row-fluid
+      strong
+        big
+          a Frank Dude
+      .controls
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+
+  .pull-right
+    .btn-group
+      = link_to_icon "user", "#", class: "btn btn-large"
+      = link_to_icon "comment", "#", class: "btn btn-large"
+
+div style="height:20px;"
+
+.row-fluid
+  ul
+    li Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    li incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    li nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    li Duis aute irure dolor in reprehenderit in voluptate velit esse
+
+.row-fluid
+  h3 Progress
+  form.form-inline
+    label.radio.inline
+      input type="radio" name="progressRadios"
+      | Uncontacted
+    label.radio.inline
+      input type="radio" name="progressRadios"
+      | In-progress
+    label.radio.inline
+      input type="radio" name="progressRadios" checked="checked"
+      span.text-success Completed
+
+hr
+
+.row-fluid
+  h3
+    | Notes | History
+    .btn-group.pull-right
+      = link_to_icon "plus-sign", "#", class: "btn btn-large"
+      = link_to "woo-hoo!", "#", class: "btn btn-large btn-success"
+
+.row-fluid style="margin:10px 0;"
+  div.badge style="display:inline-block; vertical-align:top; margin-right:10px;"
+      i.icon-user.icon-large
+  div style="display:inline-block;"
+    strong Called&nbsp;
+    | on 12-12-10
+    div
+      | He said "Yeah, let's meet..."
+
+.row-fluid style="margin:10px 0;"
+  div.badge style="display:inline-block; vertical-align:top; margin-right:10px;"
+      i.icon-envelope.icon-large
+  div style="display:inline-block;"
+    strong Emailed&nbsp;
+    | on 12-12-10
+    div
+      | No reply
+
+hr
