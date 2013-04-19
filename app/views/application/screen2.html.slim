@@ -51,7 +51,7 @@ hr
     | Notes | History
     .btn-group.pull-right
       = link_to_icon "plus-sign", "#", class: "btn btn-large"
-      = link_to "woo-hoo!", "#", class: "btn btn-large btn-success"
+      = link_to "woo-hoo!", "#rejoiceablesModal", "data-toggle" => "modal", class: "btn btn-large btn-success"
 
 .row-fluid style="margin:10px 0;"
   div.badge style="display:inline-block; vertical-align:top; margin-right:10px;"
@@ -72,3 +72,27 @@ hr
       | No reply
 
 hr
+
+
+#rejoiceablesModal.modal.hide.fade role="dialog"
+  .modal-header
+    button.close type="button" data-dismiss="modal" ×
+    | Woo hoo! <br> Add a rejoiceable
+  .modal-body
+    .row-fluid
+      .span6
+        button.btn.btn-large.btn-info type="button" data-dismiss="modal" Built relationship
+      .span6
+        button.btn.btn-large.btn-info type="button" data-dismiss="modal" Spiritual conversation
+    .row-fluid
+      .span12
+    .row-fluid
+      .span6
+        button.btn.btn-large.btn-info type="button" data-dismiss="modal" Gospel presentation
+      .span6
+        button.btn.btn-large.btn-info type="button" data-dismiss="modal" Indicated decision
+    .row-fluid
+      .span12
+    .row-fluid
+      .span6
+        button.btn.btn-large.btn-info type="button" data-dismiss="modal" Spirit filled life
