@@ -1,0 +1,91 @@
+
+.row-fluid
+  form.pull-left
+    button.btn
+      i.icon-ok
+      | &nbsp; Completed Contact
+
+  form.pull-right
+    .input-prepend
+      .add-on
+        i.icon-search
+      input type="text" placeholder="search"
+
+h2
+  | Survey Title 1 #{ link_to_icon "plus-sign", "#", class: "btn btn-large pull-right" }
+
+hr
+.row-fluid.contact
+  img.img-rounded src="#{asset_path('leonard.jpg')}" style="max-height:60px; margin-right:20px;"
+
+  div style="display:inline-block;"
+    .row-fluid
+      strong
+        a Frank Dude
+      .controls
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+
+  .pull-right
+    .btn-group
+      = link_to_icon "user", "#", class: "btn btn-large"
+      = link_to_icon "comment", "#", class: "btn btn-large"
+
+hr
+.row-fluid.contact
+  img.img-rounded src="#{asset_path('kevin.jpg')}" style="max-height:60px; margin-right:20px;"
+
+  div style="display:inline-block;"
+    .row-fluid
+      strong
+        a Hurm Man
+      .controls
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+
+  .pull-right
+    .btn-group
+      = link_to_icon "user", "#", class: "btn btn-large"
+      = link_to_icon "comment", "#", class: "btn btn-large"
+
+hr
+
+h2
+  | Survey Title 2 #{ link_to_icon "plus-sign", "#", class: "btn btn-large pull-right" }
+
+hr
+.row-fluid.contact
+  img.img-rounded src="#{asset_path('clarence.jpg')}" style="max-height:60px; margin-right:20px;"
+
+  div style="display:inline-block;"
+    .row-fluid
+      strong
+        a Sticky Man
+      .controls
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+        | -
+        span.badge
+          i.icon-ok-circle
+
+  .pull-right
+    .btn-group
+      = link_to_icon "user", "#", class: "btn btn-large"
+      = link_to_icon "comment", "#", class: "btn btn-large"
+
+hr

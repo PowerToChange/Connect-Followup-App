@@ -26,16 +26,16 @@ html lang="en"
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.brand href="#"ConnectFollowup
+            a.brand href="#" Connect
+            .brand | &nbsp; #{@page_title}
             .container-fluid.nav-collapse
               ul.nav.pull-right
-                li Welcome, #{@current_user}
-                li= link_to "Logout", auth_logout_path
+                li= link_to_icon "home", "#", class: "pull-right"
 
     .container-fluid
 
       .row-fluid
-        .span9
+        .span12
           = bootstrap_flash
           = yield
 

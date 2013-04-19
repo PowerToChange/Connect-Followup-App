@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
   def index
   end
 
+  def screen
+    @page_title = "Screen #{params[:screen]}"
+    render "screen#{params[:screen]}"
+  end
+
   def logged_in?
     current_user.present?
   end

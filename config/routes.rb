@@ -3,6 +3,7 @@ ConnectFollowup::Application.routes.draw do
   get "auth/login"
   get "auth/logout"
   get "application/welcome"
+  get "application/screen/:screen", to: "application#screen"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
