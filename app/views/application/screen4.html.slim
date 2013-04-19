@@ -1,0 +1,99 @@
+
+h3 Survey Name
+
+hr
+
+p
+  a
+    big
+      strong Jim&nbsp;
+  | is studying at McMaster. He wants to know about small groups.
+
+.row-fluid
+  .btn-group
+    a.btn.btn-large
+      i.icon-plus
+    a.btn.btn-large
+      i.icon-user
+    a.btn.btn-large
+      i.icon-comment
+
+  .pull-right.btn-group
+    a.btn
+      i.icon-arrow-left
+    a.btn
+      i.icon-arrow-right
+
+hr
+
+h3 Filter options:
+.row-fluid
+  big
+    = link_to "< edit >", "#filterModal", "data-toggle" => "modal"
+
+  .pull-right.btn-group
+    a.btn.btn-large
+      i.icon-user
+    a.btn.btn-large 1st
+    a.btn.btn-large
+      i.icon-fire
+      i.icon-fire
+      i.icon-fire
+
+hr
+
+.row-fluid
+  button.btn.btn-large.btn-info type="button" data-dismiss="modal" style="margin-right:30px;"
+    | Survey <span class="badge badge-info">3</span>
+  button.btn.btn-info type="button" data-dismiss="modal" my connections
+
+
+
+#filterModal.modal.hide.fade role="dialog"
+  .modal-header
+    button.close type="button" data-dismiss="modal" ×
+    h3 Show only
+
+  .modal-body
+    .row-fluid
+      .rotate style="margin:10px 10px 0 20px;" gender
+      .btn-group data-toggle="buttons-checkbox"
+        button.btn.btn-large type="button"
+          i.icon-user
+          | <br> <small>male</small>
+        button.btn.btn-large type="button"
+          i.icon-user
+          | <br> <small>female</small>
+
+    .row-fluid
+      .span12
+
+    .row-fluid
+      .rotate style="margin:10px 10px 0 20px;" year
+      .btn-group data-toggle="buttons-checkbox"
+        button.btn.btn-large type="button"
+          | 1st <br> <small>the young + restless</small>
+        button.btn.btn-large type="button"
+          | 2 3 4 5 6 grad <br> <small>everything else!</small>
+
+    .row-fluid
+      .span12
+
+    .row-fluid
+      .rotate style="margin:10px 10px 0 20px;" interest
+      .btn-group data-toggle="buttons-checkbox"
+        button.btn.btn-large type="button"
+          i.icon-fire
+          i.icon-fire
+          i.icon-fire
+          | <br> <small>Hot! Ouch</small>
+        button.btn.btn-large type="button"
+          i.icon-fire
+          i.icon-fire
+          | <br> <small>Medium</small>
+        button.btn.btn-large type="button"
+          i.icon-fire
+          | <br> <small>Mild</small>
+
+  .modal-footer
+    button.btn.btn-primary data-dismiss="modal" Submit

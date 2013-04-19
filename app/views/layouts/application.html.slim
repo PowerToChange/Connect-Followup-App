@@ -29,9 +29,10 @@ html lang="en"
             a.brand href="#" Connect
             .brand | &nbsp; #{@page_title}
             .container-fluid.nav-collapse
-              ul.nav.pull-right
-                li= link_to_icon "arrow-left", "#", class: "icon-large"
-                li= link_to_icon "home", "#", class: "icon-large"
+              .nav.pull-right
+                .btn-group
+                  = link_to_icon "arrow-left", "#", class: "btn"
+                  = link_to_icon "home", "#", class: "btn"
 
     .container-fluid
 
@@ -40,7 +41,7 @@ html lang="en"
           = bootstrap_flash
           = yield
 
-      footer
+      footer style="margin-top:100px;"
         p &copy; Power to Change 2013
     /!
       Javascripts
