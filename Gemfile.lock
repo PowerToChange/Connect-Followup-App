@@ -62,6 +62,7 @@ GEM
     commonjs (0.2.6)
     configatron (2.10.0)
       yamler (>= 0.1.0)
+    crack (0.3.2)
     daemons (1.1.9)
     debugger (1.5.0)
       columnize (>= 0.3.1)
@@ -213,6 +214,10 @@ GEM
     uglifier (2.0.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    vcr (2.4.0)
+    webmock (1.11.0)
+      addressable (>= 2.2.7)
+      crack (>= 0.3.2)
     yamler (0.1.0)
 
 PLATFORMS
@@ -246,3 +251,5 @@ DEPENDENCIES
   thin
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  vcr
+  webmock

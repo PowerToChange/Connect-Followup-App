@@ -1,0 +1,33 @@
+body.list_view {
+  .navbar {
+    margin-bottom: 0;
+    .btn-navbar {
+      margin-right: 0;
+    }
+    .brand {
+      padding-left: 5px;
+    }
+  }
+  footer {
+    padding: 20px;
+  }
+}
+
+ul.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    &:hover {
+      background: #5768C7;
+      color: white;
+    }
+  }
+}

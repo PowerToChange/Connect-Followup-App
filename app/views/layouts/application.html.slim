@@ -17,12 +17,12 @@ html lang="en"
     link href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed"
     link href="favicon.ico" rel="shortcut icon"
 
-  body
-    - if @current_user
+  body class="#{controller_name} #{action_name} #{yield(:body_class)}"
+    - if logged_in?
       .navbar.navbar-fluid-top
         .navbar-inner
           .container-fluid
-            a.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse"
+            a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse"
               span.icon-bar
               span.icon-bar
               span.icon-bar

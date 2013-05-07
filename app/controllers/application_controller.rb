@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :require_login, except: [:welcome]
   before_filter CASClient::Frameworks::Rails::Filter, except: :welcome
 
+  helper_method :current_user, :logged_in?
+
   def welcome
     redirect_to :root if logged_in?
   end

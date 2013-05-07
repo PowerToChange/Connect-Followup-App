@@ -1,2 +1,6 @@
-h1 Surveys#index
-p Find me in app/views/surveys/index.html.slim
+- content_for(:body_class) { 'list_view' }
+ul.list
+  - @activities.each do |a|
+    li
+      .title
+        = a.subject

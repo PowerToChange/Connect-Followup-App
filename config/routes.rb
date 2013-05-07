@@ -1,6 +1,6 @@
 ConnectFollowup::Application.routes.draw do
 
-  get "surveys/index"
+  resources :surveys
 
   get "auth/login"
   get "auth/logout"
