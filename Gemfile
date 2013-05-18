@@ -42,7 +42,7 @@ gem 'simple_form'
 gem 'configatron'
 
 gem 'rubycas-client'
-gem 'civicrm', :git => 'https://github.com/AdrianTeh/civicrm_gem.git'
+gem 'civicrm', :git => 'git@github.com:PowerToChange/civicrm_gem.git', :branch => 'request_json'
 
 
 group :development do

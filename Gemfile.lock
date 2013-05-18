@@ -1,8 +1,9 @@
 GIT
-  remote: https://github.com/AdrianTeh/civicrm_gem.git
-  revision: b2302a79c63c778e14849d1a3bd726c389a8d6e3
+  remote: git@github.com:PowerToChange/civicrm_gem.git
+  revision: 509d376d71af81cd85491605d427a587b7c7ffb7
+  branch: request_json
   specs:
-    civicrm (1.0.0)
+    civicrm (1.0.1)
       activemodel
       activesupport
       nokogiri
