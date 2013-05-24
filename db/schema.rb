@@ -11,6 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130523225848) do
+
+  create_table "custom_fields", :force => true do |t|
+    t.integer  "survey_id"
+    t.integer  "custom_field_id"
+    t.string   "label"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "custom_fields", ["survey_id"], :name => "index_custom_fields_on_survey_id"
+
+  create_table "surveys", :force => true do |t|
+    t.integer  "activity_type_id"
+    t.string   "title"
+    t.integer  "custom_group_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "surveys", ["activity_type_id"], :name => "index_surveys_on_activity_type_id"
+  add_index "surveys", ["custom_group_id"], :name => "index_surveys_on_custom_group_id"
 
 end

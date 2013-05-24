@@ -8,9 +8,9 @@ describe SurveysController do
       subject
       response.should be_success
     end
-    it 'should request surveys from Civicrm', :vcr do
-      CiviCrm::Activity.should_receive(:find)
+    it 'assigns @surveys' do
       subject
+      assigns(:surveys).should_not be_nil
     end
   end
 end

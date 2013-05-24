@@ -1,6 +1,6 @@
 - content_for(:body_class) { 'list_view' }
 ul.list
-  - @activities.each do |a|
+  - @surveys.each do |s|
     li
       .title
-        = a.subject
+        = s.title

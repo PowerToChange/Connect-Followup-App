@@ -35,7 +35,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 gem 'capistrano'
 
-gem 'rspec-rails'
+
 gem 'slim-rails'
 gem 'mysql2'
 gem 'simple_form'
@@ -59,10 +59,16 @@ group :development do
   gem 'better_errors'
 end
 
-group :test do
+group :development, :test do
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'vcr'
-  gem 'webmock'
+  gem 'webmock', '~> 1.9.3'
   gem 'pry'
   gem 'pry-debugger'
 end
