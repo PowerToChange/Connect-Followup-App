@@ -43,7 +43,8 @@ gem 'configatron'
 
 gem 'rubycas-client'
 gem 'civicrm', :git => 'git@github.com:PowerToChange/civicrm_gem.git'
-
+gem 'activeadmin'
+gem 'gravatar_image_tag'
 
 group :development do
   gem 'capistrano'

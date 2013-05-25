@@ -1,6 +1,16 @@
 - content_for(:body_class) { 'list_view' }
-ul.list
-  - @surveys.each do |s|
-    li
-      .title
-        = s.title
+- @surveys.each do |survey|
+  .survey
+    .title
+      = survey.title
+    ul.contacts
+      - survey.responses.each do |r|
+        li
+          .avatar
+            = gravatar_image_tag(r.contact.email)
+          .info
+            h5
+              = r.contact.display_name
+            = r.contact.email
+      - if survey.responses.size.zero?
+        li No contacts found

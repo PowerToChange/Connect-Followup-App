@@ -39,9 +39,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  # Database cleaner configuration
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do

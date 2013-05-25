@@ -6,5 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Survey.reset_callbacks(:save)
-Survey.where(activity_type_id: 32, custom_group_id: 9, title: 'September Launch 2012').first_or_create
+Survey.where(activity_type_id: 32).first_or_create
