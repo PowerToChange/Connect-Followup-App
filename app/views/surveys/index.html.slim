@@ -5,12 +5,14 @@
       = survey.title
     ul.contacts
       - survey.responses.each do |r|
-        li
+        li data-url=survey_response_path(survey,r)
           .avatar
             = gravatar_image_tag(r.contact.email)
           .info
             h5
               = r.contact.display_name
             = r.contact.email
+          .arrow
+            i class="icon-chevron-right icon-large"
       - if survey.responses.size.zero?
         li No contacts found

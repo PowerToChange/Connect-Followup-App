@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+(function($) {
+  $(document).ready(function(){
+    $('.survey ul.contacts > li').click(function(){
+      window.location = $(this).data('url');
+    });
+    $('a.prev-page').click(function(){
+      parent.history.back();
+      return false;
+    });
+  })
+})(jQuery);

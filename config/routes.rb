@@ -4,7 +4,9 @@ ConnectFollowup::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :surveys
+  resources :surveys do
+    resources :responses
+  end
 
   get "auth/login"
   get "auth/logout"

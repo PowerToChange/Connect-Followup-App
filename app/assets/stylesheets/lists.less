@@ -37,23 +37,58 @@ ul.contacts {
   padding: 0;
   margin: 0;
   li {
+    position: relative;
     padding: 20px;
     overflow: hidden;
     border-bottom: 1px solid #ddd;
     cursor: pointer;
-    &:hover {
+    &.inactive {
+      cursor: auto;
+    }
+    &:hover:not(.inactive) {
       background: #5768C7;
       color: white;
     }
-    .avatar {
-      width: 64px;
-      height: 64px;
-      background: #eee;
-      float: left;
+    .actions {
+      position: absolute;
+      right: 20px;
+      top: 20px;
     }
-    .info {
-      padding-left: 90px;
-      h5 { line-height: 0; font-size: 16px;}
+    .arrow {
+      position: absolute;
+      right: 20px;
+      top: 40px;
     }
   }
 }
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  background: #eee;
+  float: left;
+}
+.info {
+  padding-left: 80px;
+  h5 { line-height: 0; font-size: 16px;}
+}
+.well.square {
+  .border-radius(0);
+  margin-bottom: 0;
+}
+.more {
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid #f1f1f1;
+  dl { margin-bottom: 3px; margin-top: 0; overflow: hidden;}
+  dt {float: left;}
+  dd { margin-left: 100px; }
+}
+
+h4 { margin-top: 0;}
+
+.table thead { background: white; }
+.table-striped tbody > tr:nth-child(even) > td, .table-striped tbody > tr:nth-child(even) > th {
+  background: white;
+}
+

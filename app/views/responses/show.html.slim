@@ -1,0 +1,36 @@
+- content_for(:body_class) { 'list_view' }
+ul.contacts
+  li.inactive
+    .avatar
+      = gravatar_image_tag(@response.contact.email)
+    .info
+      h5
+        = @response.contact.display_name
+      = @response.contact.email
+      .more
+        dl
+          dt Gender
+          dd= @response.contact.gender
+        dl
+          dt Phone
+          dd= @response.contact.phone
+        dl
+          dt IM
+          dd= @response.contact.im
+
+    .actions
+      .btn-group
+        = link_to_icon "user", "#", class: "btn"
+        = link_to_icon "comment", "#", class: "btn"
+
+div class=['well','square']
+  h4 #{@response.survey.title} Survey
+  table class=['table','table-bordered','table-striped']
+    thead
+      tr
+        th Question
+        th width="150" Answer
+    - @response.answers.each do |a|
+      tr
+        td= a.label
+        td= a.answer
