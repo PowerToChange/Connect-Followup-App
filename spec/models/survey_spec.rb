@@ -57,11 +57,12 @@ describe Survey do
   describe '#responses' do
     let(:survey) { create(:survey_without_callbacks, :activity_type_id => 32) }
     let!(:custom_field) { create(:custom_field, :custom_field_id => 64, :survey_id => survey.id) }
-    let(:act_1) { double() }
-    let(:act_2) { double() }
+    let(:act_1) { double(:count => nil, :target_contact_id => [1234], :custom_64 => 'Answer') }
+    let(:act_2) { double(:count => nil, :target_contact_id => [1235], :custom_64 => 'Answer') }
+    let(:act_3) { double(:count => 0) }
     subject { survey.responses }
     before do
-      CiviCrm::Activity.stub(:where).and_return([act_1,act_2])
+      CiviCrm::Activity.stub(:where).and_return([act_1,act_2,act_3])
     end
     it 'fetches activities from civicrm' do
       CiviCrm::Activity.should_receive(:where).with(hash_including(:activity_type_id => 32, 'return.custom_64' => 1))

@@ -23,10 +23,10 @@ class Survey < ActiveRecord::Base
       resp = []
       catch (:completed) do
         while 0 < 1 do
-          resp += CiviCrm::Activity.where(params.merge!({:rowCount => per_page, :offset => page})).map do |response|
+          CiviCrm::Activity.where(params.merge!({:rowCount => per_page, :offset => page})).each do |response|
             throw :completed if response.count.present?
-            Response.new(self, response) if response.target_contact_id.any?
-          end.compact
+            resp << Response.new(self, response) if response.target_contact_id.any?
+          end
           page += per_page
           puts ">>> Fetching records... #{page}"
         end
