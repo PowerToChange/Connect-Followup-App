@@ -14,8 +14,8 @@ $ rails server
 
 ## Admin Access
 
-Go to `http://localhost:3000/admin`
-Email: *admin@example.com*
-Password: *password*
+1. Go to `http://localhost:3000/admin`
+2. Email: *admin@example.com*
+3. Password: *password*
 
 Note: Make sure you are signed into your CAS account before accessing admin login page, otherwise it will redirect you back to the welcome page requesting for CAS login.
