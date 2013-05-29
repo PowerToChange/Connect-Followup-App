@@ -29,10 +29,12 @@ html lang="en"
             a.brand href="#" Connect
             .brand | &nbsp; #{@page_title}
             .container-fluid.nav-collapse
-              .nav.pull-right
-                .btn-group
+              .nav
+                div class=['btn-group','pull-left']
                   = link_to_icon "arrow-left", "javascript:void(0)", class: "btn prev-page"
                   = link_to_icon "home", root_path, class: "btn"
+                div class=['btn-group','pull-right']
+                  = link_to_icon "off", log_out_path, class: "btn"
 
     .container-fluid
 

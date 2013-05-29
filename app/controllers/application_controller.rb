@@ -1,17 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :require_login, except: [:welcome]
-  before_filter CASClient::Frameworks::Rails::Filter, except: :welcome
-
   helper_method :current_user, :logged_in?
-
-  def welcome
-    redirect_to :root if logged_in?
-  end
-
-  def index
-  end
 
   def screen
     @page_title = "Screen #{params[:screen]}"
@@ -28,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def require_login
-    redirect_to :application_welcome unless logged_in?
+  def authenticate_user!
+    redirect_to log_in_path unless logged_in?
   end
 end

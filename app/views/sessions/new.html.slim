@@ -1,0 +1,5 @@
+- content_for(:body_class) { 'list_view' }
+div class=['well','square']
+  / = link_to 'Login', surveys_path, :class => 'btn btn-large btn-block'
+  = simple_form_for :session, :url => sessions_path do |f|
+    = f.button :submit, 'Login', :class => 'btn btn-large btn-block'
