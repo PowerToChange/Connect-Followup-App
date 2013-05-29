@@ -16,3 +16,6 @@
             i class="icon-chevron-right icon-large"
       - if survey.responses.size.zero?
         li No contacts found
+- if @surveys.empty?
+  .well
+    ' There are currently no surveys available

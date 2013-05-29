@@ -4,6 +4,7 @@ ConnectFollowup::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  resources :connections
   resources :surveys do
     resources :responses
   end

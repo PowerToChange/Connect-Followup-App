@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529195639) do
+ActiveRecord::Schema.define(:version => 20130529203015) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -55,6 +55,17 @@ ActiveRecord::Schema.define(:version => 20130529195639) do
   end
 
   add_index "custom_fields", ["survey_id"], :name => "index_custom_fields_on_survey_id"
+
+  create_table "leads", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "survey_id"
+    t.string   "response_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "leads", ["survey_id"], :name => "index_leads_on_survey_id"
+  add_index "leads", ["user_id"], :name => "index_leads_on_user_id"
 
   create_table "survey_users", :force => true do |t|
     t.integer  "user_id"

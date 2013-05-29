@@ -11,7 +11,7 @@ describe SessionsController do
       login_user
       it 'redirects to my connections page' do
         subject
-        response.should redirect_to(surveys_path)
+        response.should redirect_to(connections_path)
       end
     end
   end
@@ -36,7 +36,7 @@ describe SessionsController do
     subject { get :index }
     it 'redirects to my connections page' do
       subject
-      response.should redirect_to(surveys_path)
+      response.should redirect_to(connections_path)
     end
   end
 end

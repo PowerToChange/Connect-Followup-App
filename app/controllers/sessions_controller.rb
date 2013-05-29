@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
   before_filter CASClient::Frameworks::Rails::Filter, :except => [:new,:destroy,:create]
 
   def index
-    redirect_to surveys_path
+    redirect_to connections_path
   end
   def new
-    redirect_to surveys_path if logged_in?
+    redirect_to connections_path if logged_in?
   end
   def create
     CASClient::Frameworks::Rails::Filter.filter(self)

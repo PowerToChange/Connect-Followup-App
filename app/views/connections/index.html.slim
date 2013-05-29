@@ -1,0 +1,21 @@
+- content_for(:body_class) { 'list_view' }
+- @connections.each do |conn|
+  .survey
+    .title
+      = conn.survey.title
+    ul.contacts
+      - conn.leads.each do |r|
+        li data-url=survey_response_path(conn.survey,r)
+          .avatar
+            = gravatar_image_tag(r.contact.email)
+          .info
+            h5
+              = r.contact.display_name
+            = r.contact.email
+          .arrow
+            i class="icon-chevron-right icon-large"
+      - if conn.leads.size.zero?
+        li No leads found for survey
+- if @connections.empty?
+  .well
+    ' There are no assigned surveys for your user account. Please contact your administrator to find out more.
