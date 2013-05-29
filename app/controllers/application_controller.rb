@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= session[:cas_user]
+    @current_user ||= User.find_by_email(session[:cas_user]) if session[:cas_user]
   end
 
   private

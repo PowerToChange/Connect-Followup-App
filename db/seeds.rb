@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# Create admin user
 AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
-
-# Create one survey
 Survey.where(activity_type_id: 32).first_or_create
+User.create(:email => 'adrian@ballistiq.com')
