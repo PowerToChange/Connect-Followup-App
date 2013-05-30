@@ -3,6 +3,7 @@
   .survey
     .title
       = conn.survey.title
+      = link_to_icon "plus-sign", survey_path(conn.survey), class: "btn pull-right add-lead"
     ul.contacts
       - conn.leads.each do |r|
         li data-url=survey_response_path(conn.survey,r)

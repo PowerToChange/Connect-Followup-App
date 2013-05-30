@@ -1,0 +1,31 @@
+- content_for(:body_class) { 'list_view' }
+.survey
+  .title
+    = @survey.title
+
+  #responses class=['carousel','slide']
+    div class=['carousel-inner','contacts']
+      - @responses.each do |r|
+        div class=['item', r == @responses.first ? 'active' : '' ]
+          .avatar
+            = gravatar_image_tag(r.contact.email)
+          .info
+            h5
+              = r.contact.display_name
+            = r.contact.email
+          .actions
+            div class=['btn-group','btn-group-vertical']
+              - if !current_user.leads.map(&:response_id).include?(r.response.id)
+                = link_to_icon 'plus-sign', survey_leads_path(@survey, :lead => { :response_id => r.response.id }), :method => :post, :class => 'btn btn-small'
+              - else
+                = link_to_icon 'ok-sign', 'javascript:void(0)', :class => 'btn disabled'
+
+              = link_to_icon 'info-sign', survey_response_path(@survey,r), :class => 'btn btn-small'
+
+    .carousel-nav
+      = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
+      = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
+
+div class=['well','square']
+  h4 Filter Options
+  ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue lectus. Mauris quis tristique nunc. Integer ut ipsum sit amet ligula euismod facilisis.

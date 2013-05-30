@@ -19,4 +19,14 @@ describe SurveysController do
       assigns(:surveys).should =~ [survey, survey_others]
     end
   end
+
+  describe "GET /surveys/:id", :vcr do
+    let!(:survey) { create(:survey_without_callbacks) }
+    subject { get :show, :id => survey.id }
+    it { should be_success }
+    it 'assigns @survey' do
+      subject
+      assigns(:survey).should == survey
+    end
+  end
 end

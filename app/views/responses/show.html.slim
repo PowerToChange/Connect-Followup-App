@@ -9,6 +9,9 @@ ul.contacts
       = @response.contact.email
       .more
         dl
+          dt Organization
+          dd= @response.contact.organization_name
+        dl
           dt Gender
           dd= @response.contact.gender
         dl

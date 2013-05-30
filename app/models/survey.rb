@@ -2,6 +2,7 @@ class Survey < ActiveRecord::Base
   has_many :custom_fields
   has_many :survey_users
   has_many :users, :through => :survey_users
+  has_many :leads
 
   attr_accessible :activity_type_id, :custom_group_id, :title
 

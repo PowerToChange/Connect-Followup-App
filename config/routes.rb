@@ -7,6 +7,7 @@ ConnectFollowup::Application.routes.draw do
   resources :connections
   resources :surveys do
     resources :responses
+    resources :leads
   end
 
   resources :sessions

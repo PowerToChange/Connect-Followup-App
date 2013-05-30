@@ -24,5 +24,9 @@
       parent.history.back();
       return false;
     });
+
+    $('.carousel').carousel({
+      interval: false
+    })
   })
 })(jQuery);
