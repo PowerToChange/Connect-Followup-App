@@ -9,3 +9,4 @@
 AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
 Survey.where(activity_type_id: 32).first_or_create
 User.create(:email => 'adrian@ballistiq.com')
+User.create(:email => 'leonard@ballistiq.com')
