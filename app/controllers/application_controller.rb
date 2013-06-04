@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :cas_logged_in?
 
   def screen
     @page_title = "Screen #{params[:screen]}"
@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
+  end
+
+  def cas_logged_in?
+    session[:cas_user].present?
   end
 
   def current_user

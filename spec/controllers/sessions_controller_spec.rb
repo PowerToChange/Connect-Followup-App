@@ -14,6 +14,16 @@ describe SessionsController do
         response.should redirect_to(connections_path)
       end
     end
+    context 'when logged into CAS but not in local Connect app' do
+      before do
+        ApplicationController.any_instance.stub(:cas_logged_in?) { 'adrian@ballistiq.com' }
+        ApplicationController.any_instance.stub(:current_user) { nil }
+      end
+      it 'shows flash alert message of user not found' do
+        subject
+        flash[:alert].should_not be_empty
+      end
+    end
   end
 
   describe 'GET /sessions/destroy' do
@@ -34,9 +44,20 @@ describe SessionsController do
   describe 'GET /sessions' do
     login_user
     subject { get :index }
-    it 'redirects to my connections page' do
-      subject
-      response.should redirect_to(connections_path)
+    context 'when return from success CAS authentication' do
+      it 'redirects to my connections page' do
+        subject
+        response.should redirect_to(connections_path)
+      end
+      context 'but without an existing user account in Connect' do
+        before do
+          ApplicationController.any_instance.stub(:current_user) { nil }
+        end
+        it 'redirects back to login page' do
+          subject
+          response.should redirect_to(log_in_path)
+        end
+      end
     end
   end
 end
