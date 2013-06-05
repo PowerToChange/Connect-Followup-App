@@ -20,7 +20,7 @@ class Response
   end
 
   def contact
-    @contact ||= CiviCrm::Contact.find(response.target_contact_id.first)
+    @contact ||= CiviCrm::Contact.find(response.target_contact_id.try(:first))
   end
 
   def self.find(args)
