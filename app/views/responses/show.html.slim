@@ -8,31 +8,31 @@ ul.contacts
         = @response.contact.display_name
       = @response.contact.email
       .more
-        dl
-          dt Organization
-          dd= @response.contact.organization_name
-        dl
-          dt Gender
-          dd= @response.contact.gender
-        dl
-          dt Phone
-          dd= @response.contact.phone
-        dl
-          dt IM
-          dd= @response.contact.im
-
-    .actions
-      .btn-group
-        = link_to_icon "user", "#", class: "btn"
-        = link_to_icon "comment", "#", class: "btn"
+        .btn-group
+          = link_to_phone "phone", "tel", @response.contact.phone
+          = link_to_phone "comment", "sms", @response.contact.phone
 
 div class=['well','square']
-  h4 #{@response.survey.title} Survey
+  h4
+    i.icon-user
+    'Contact Info
+  table class=['table','table-bordered','table-striped']
+    tr
+      td Organization
+      td width="140" = @response.contact.organization_name
+    tr
+      td Phone
+      td= link_to @response.contact.phone, "tel:#{@response.contact.phone}" if @response.contact.phone.present?
+
+div class=['well','square']
+  h4
+    i.icon-file-alt
+    '#{@response.survey.title}
   table class=['table','table-bordered','table-striped']
     thead
       tr
         th Question
-        th width="150" Answer
+        th width="140" Answer
     - @response.answers.each do |a|
       tr
         td= a.label

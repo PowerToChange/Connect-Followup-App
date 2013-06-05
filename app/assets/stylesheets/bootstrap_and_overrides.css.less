@@ -49,7 +49,10 @@
 }
 
 // Remove default border radius on nav bar
+.navbar .btn-navbar { display: none; }
 .navbar-inner {
+  padding-left: 0px;
+  padding-right: 0px;
   .border-radius(0);
   background: #6a7176;
   background: -webkit-gradient(linear, left top, left bottom, from(#6a7176), to(#4d5256));
@@ -65,6 +68,10 @@
 .navbar .brand {
   color: #cdcdcd;
   text-shadow: black 0 1px 0;
+  padding-left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase
 }
 .navbar .nav { float: none; }
 body { padding-right: 0; padding-left: 0; }

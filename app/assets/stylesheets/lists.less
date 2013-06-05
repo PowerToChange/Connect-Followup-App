@@ -5,7 +5,7 @@ body.list_view {
       margin-right: 0;
     }
     .brand {
-      padding-left: 5px;
+      padding-left: 15px;
     }
   }
   footer {
@@ -48,9 +48,9 @@ ul.contacts {
   margin: 0;
   li {
     position: relative;
-    padding: 20px;
+    padding: 15px 10px;
     overflow: hidden;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #ccc;
     cursor: pointer;
     &.inactive {
       cursor: auto;
@@ -74,7 +74,7 @@ ul.contacts {
 
 div.contacts {
   .item {
-    padding: 20px;
+    padding: 15px;
     border-bottom: 1px solid #ddd;
     overflow: hidden;
     .actions {
@@ -125,20 +125,24 @@ div.contacts {
   h5 { line-height: 0; font-size: 16px;}
 }
 .well.square {
+  padding: 10px;
   .border-radius(0);
   margin-bottom: 0;
+  border-bottom: 1px solid #ccc;
 }
 .more {
   padding-top: 10px;
-  margin-top: 10px;
-  border-top: 1px solid #f1f1f1;
+  margin-top: 5px;
   dl { margin-bottom: 3px; margin-top: 0; overflow: hidden;}
   dt {float: left;}
   dd { margin-left: 100px; }
 }
 
-h4 { margin-top: 0;}
-
+h4 { margin-top: 0; font-size: 16px;}
+h4 {
+  i { margin-right: 10px;}
+}
+.table { margin-bottom: 0; }
 .table thead { background: white; }
 .table-striped tbody > tr:nth-child(even) > td, .table-striped tbody > tr:nth-child(even) > th {
   background: white;
