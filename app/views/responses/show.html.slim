@@ -6,11 +6,15 @@ ul.contacts
     .info
       h5
         = @response.contact.display_name
-      = @response.contact.email
       .more
         .btn-group
           = link_to_phone "phone", "tel", @response.contact.phone
           = link_to_phone "comment", "sms", @response.contact.phone
+
+- if @lead.present?
+  div class=['well','square','report-progress']
+    = simple_form_for [@lead.survey,@lead], :html => { :class => 'form-inline' } do |f|
+      = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
 
 div class=['well','square']
   h4
@@ -19,10 +23,13 @@ div class=['well','square']
   table class=['table','table-bordered','table-striped']
     tr
       td Organization
-      td width="140" = @response.contact.organization_name
+      td= @response.contact.organization_name
     tr
       td Phone
       td= link_to @response.contact.phone, "tel:#{@response.contact.phone}" if @response.contact.phone.present?
+    tr
+      td Email
+      td= link_to @response.contact.email, "mailto:#{@response.contact.email}"
 
 div class=['well','square']
   h4

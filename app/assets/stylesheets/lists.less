@@ -1,4 +1,5 @@
 body.list_view {
+  background: url(/assets/cross_scratches.png);
   .navbar {
     margin-bottom: 0;
     .btn-navbar {
@@ -9,7 +10,8 @@ body.list_view {
     }
   }
   footer {
-    padding: 20px;
+    padding: 10px 10px;
+    text-align: center;
   }
 }
 
@@ -47,6 +49,7 @@ ul.contacts {
   padding: 0;
   margin: 0;
   li {
+    background: white;
     position: relative;
     padding: 15px 10px;
     overflow: hidden;
@@ -129,6 +132,26 @@ div.contacts {
   .border-radius(0);
   margin-bottom: 0;
   border-bottom: 1px solid #ccc;
+  .progress {
+    .box-shadow(inset 0 1px 2px 1px rgba(0, 0, 0, 0.2));
+    background: #e0e0e0;
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    .bar {
+      display: table;
+      .desc {
+        display: table-cell;
+        vertical-align: middle;
+        line-height: 1;
+      }
+    }
+  }
+  h1 { text-align: center; }
+  h4 { margin: 0; margin-bottom: 10px; }
+  &.item {
+    h4 { text-align: center; margin-bottom: 5px; }
+  }
 }
 .more {
   padding-top: 10px;
@@ -146,5 +169,15 @@ h4 {
 .table thead { background: white; }
 .table-striped tbody > tr:nth-child(even) > td, .table-striped tbody > tr:nth-child(even) > th {
   background: white;
+}
+
+.report-progress {
+  background: #e6e6e6;
+  .box-shadow(inset 0px 1px 0px 0px #fff);
+  border-top: 0;
+  .form-inline { margin: 0 auto; text-align: center; }
+  .form-inline label { margin: 0; margin-left: 8px; line-height: 0.7; }
+  .form-inline input { vertical-align: top; }
+  .form-inline > span { margin-right: 10px }
 }
 

@@ -1,0 +1,42 @@
+- content_for(:body_class) { 'list_view' }
+
+div class=['well','square']
+  div class=['progress']
+    .bar style="width:25%; font-weight: bold;"
+      .desc Onwards Ho!
+
+#responses class=['carousel','slide']
+  div class=['carousel-inner']
+    div class=['well','square','item','active']
+      h4 How did it go?
+      .panel
+        = link_to "Didn't Work Out", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_6a'
+        = link_to "Worked Out Digitally", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_6b'
+        = link_to "Worked Out Face-to-Face", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_6c'
+
+    div class=['well','square','item']
+      h4 It didn't work out. What happened?
+      .panel
+        = link_to "Bad Information", connections_path, :class => 'btn btn-large btn-block'
+        = link_to "No Response", connections_path, :class => 'btn btn-large btn-block'
+        = link_to "No Longer Interested", connections_path, :class => 'btn btn-large btn-block'
+
+    div class=['well','square','item']
+      h4 Your connection worked out!
+      'Tell me, is P2C's contact with them:
+      .panel
+        = link_to "Ending", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_8a'
+        = link_to "Continuing", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_8b'
+
+    div class=['well','square','item']
+      h1 Great!
+      h4 Way to trust God in following up
+      h4 = @response.contact.display_name
+      .panel
+        = link_to "Take Me Home To<br/>My Connection".html_safe, connections_path, :class => 'btn btn-large btn-block btn-success screen'
+
+    div class=['well','square','item']
+      h4 Would you suggest they be added to:
+      .panel
+        = link_to "The Life App", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_10a'
+        = link_to "Invite to P2C", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_10b'
