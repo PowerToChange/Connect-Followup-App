@@ -27,5 +27,17 @@
       = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
 
 div class=['well','square']
-  h4 Filter Options
-  ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue lectus. Mauris quis tristique nunc. Integer ut ipsum sit amet ligula euismod facilisis.
+  = link_to 'Filter Options', '#filterModal', :class => 'btn btn-inverse', 'data-toggle' => 'modal', :role => 'button'
+
+#filterModal.modal.hide.fade style="display: none;" role="dialog"
+  .modal-header
+    h4 Filter options
+
+  .modal-body
+    = simple_form_for :response, :url => '', :html => { :class => 'form-horizontal filters' } do |f|
+      = f.input :gender, :collection => ['Male','Female'], :include_blank => 'All'
+      = f.input :year, :collection => ['1990','1991'], :include_blank => 'All'
+      = f.input :interest, :collection => ['Low','Medium','High'], :include_blank => 'All'
+  .modal-footer
+    button.btn.btn-primary data-dismiss="modal" Close
+    button.btn.btn-primary data-dismiss="modal" Submit
