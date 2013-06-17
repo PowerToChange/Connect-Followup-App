@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     surveys.map do |s|
       OpenStruct.new(
         survey: s,
-        leads: self.leads.for_survey(s).map {|l| Response.find(survey: s, id: l.response_id) }
+        leads: self.leads.for_survey(s)
       )
     end
   end

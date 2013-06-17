@@ -5,6 +5,10 @@ class Response
     response.id
   end
 
+  def response_id
+    response.id
+  end
+
   def initialize(survey, response)
     @survey = survey
     @response = response

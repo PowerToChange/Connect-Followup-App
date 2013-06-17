@@ -72,7 +72,7 @@ describe LeadsController do
     end
   end
 
-  describe 'GET /leads/:id/report' do
+  describe 'GET /leads/:id/report', :vcr do
     let(:survey) { create(:survey_without_callbacks) }
     let!(:lead) { create(:lead, :survey => survey, :response_id => '123') }
     subject { get :report, :survey_id => survey.id, :id => lead.id }

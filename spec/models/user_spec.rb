@@ -21,7 +21,7 @@ describe User do
       subject.first.leads.size.should == 2
     end
     it 'returns correct leads' do
-      subject.first.leads.collect{|l| l.response.id }.should =~ ['102052','102053']
+      subject.first.leads.collect{|l| l.response.response_id }.should =~ ['102052','102053']
     end
   end
 end
