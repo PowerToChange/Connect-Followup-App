@@ -33,12 +33,21 @@
       $(this).closest("form").submit();
     });
 
+    $('a.reverse-progress').click(function(){
+      $('.carousel').carousel('prev');
+    });
+
     $('a.screen').click(function(){
       progress = $('.progress > .bar');
       progress_text = $('.progress > .bar > .desc');
-      id = $(this).attr('id');
+      id = $(this).data('screen-id');
+      console.log(id);
       switch(id)
       {
+        case 'home':
+          $('.carousel').carousel(0);
+          set_progress('25%','Onwards Ho!');
+          break;
         case 'scr_6a':
           $('.carousel').carousel(1);
           set_progress('50%','Giddy Up!');

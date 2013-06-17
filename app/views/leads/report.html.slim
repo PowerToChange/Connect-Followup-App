@@ -10,9 +10,9 @@ div class=['well','square']
     div class=['well','square','item','active']
       h4 How did it go?
       .panel
-        = link_to "Didn't Work Out", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_6a'
-        = link_to "Worked Out Digitally", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_6b'
-        = link_to "Worked Out Face-to-Face", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_6c'
+        = link_to "Didn't Work Out", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', 'data-screen-id' => 'scr_6a'
+        = link_to "Worked Out Digitally", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', 'data-screen-id' => 'scr_6b'
+        = link_to "Worked Out Face-to-Face", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', 'data-screen-id' => 'scr_6c'
 
     div class=['well','square','item']
       h4 It didn't work out. What happened?
@@ -20,13 +20,15 @@ div class=['well','square']
         = link_to "Bad Information", connections_path, :class => 'btn btn-large btn-block'
         = link_to "No Response", connections_path, :class => 'btn btn-large btn-block'
         = link_to "No Longer Interested", connections_path, :class => 'btn btn-large btn-block'
+        = link_to 'Back', 'javascript:void(0)', :class => 'btn btn btn-large btn-block screen', 'data-screen-id' => 'home'
 
     div class=['well','square','item']
       h4 Your connection worked out!
       'Tell me, is P2C's contact with them:
       .panel
-        = link_to "Ending", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_8a'
-        = link_to "Continuing", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_8b'
+        = link_to "Ending", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', 'data-screen-id' => 'scr_8a'
+        = link_to "Continuing", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', 'data-screen-id' => 'scr_8b'
+        = link_to 'Back', 'javascript:void(0)', :class => 'btn btn btn-large btn-block screen', 'data-screen-id' => 'home'
 
     div class=['well','square','item']
       h1 Great!
@@ -38,5 +40,6 @@ div class=['well','square']
     div class=['well','square','item']
       h4 Would you suggest they be added to:
       .panel
-        = link_to "The Life App", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_10a'
-        = link_to "Invite to P2C", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', :id => 'scr_10b'
+        = link_to "The Life App", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', 'data-screen-id' => 'scr_10a'
+        = link_to "Invite to P2C", 'javascript:void(0)', :class => 'btn btn-large btn-block screen', 'data-screen-id' => 'scr_10b'
+        = link_to 'Back', 'javascript:void(0)', :class => 'btn btn btn-large btn-block screen', 'data-screen-id' => 'scr_6b'
