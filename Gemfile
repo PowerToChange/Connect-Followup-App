@@ -21,7 +21,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -43,7 +43,7 @@ gem 'configatron'
 
 gem 'rubycas-client'
 gem 'civicrm', :git => 'git@github.com:PowerToChange/civicrm_gem.git'
-gem 'activeadmin'
+gem 'activeadmin', '0.5.1'
 gem 'gravatar_image_tag'
 
 group :development do
