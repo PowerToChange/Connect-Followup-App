@@ -11,6 +11,12 @@ set :repository,  "git@github.com:PowerToChange/Connect-Followup-App.git"
 
 after "deploy:restart", "deploy:cleanup"
 
+# Rollbar
+set :revision, `git log -n 1 --pretty=format:"%H"`
+set :local_user, `whoami`
+set :rollbar_token, 'a19f6779cf20490ca0339f5d7025b161'
+after :deploy, 'notify_rollbar'
+
 # Passenger
 namespace :deploy do
   task :start do ; end
