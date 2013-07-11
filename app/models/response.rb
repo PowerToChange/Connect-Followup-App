@@ -29,11 +29,11 @@ class Response
   end
 
   def contact
-    @contact ||= CiviCrm::Contact.find(response.target_contact_id.try(:first))
+    @contact ||= Contact.find(response.target_contact_id.try(:first))
   end
 
   def source_contact
-    @source_contact ||= CiviCrm::Contact.find(response.source_contact_id.try(:first))
+    @source_contact ||= Contact.find(response.source_contact_id.try(:first))
   end
 
   def self.find(args)
@@ -41,7 +41,7 @@ class Response
     id = args[:id]
 
     params = {
-      'return.target_contact_id' => 1,
+      'return' => 'target_contact_id',
       id: id
     }
     Response.new(survey, CiviCrm::Activity.where(params).first)

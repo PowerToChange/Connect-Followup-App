@@ -34,7 +34,7 @@ describe Response do
       CiviCrm::Activity.stub_chain(:where, :first).and_return(double())
     end
     it 'calls civicrm api' do
-      CiviCrm::Activity.should_receive(:where).with(hash_including("return.target_contact_id"=>1, :id=>12345))
+      CiviCrm::Activity.should_receive(:where).with(hash_including("return" => "target_contact_id", :id=>12345))
       subject
     end
     it 'returns a response' do
