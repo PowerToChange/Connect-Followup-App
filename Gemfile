@@ -16,10 +16,11 @@ group :assets do
 
   gem 'therubyracer'
   gem 'less-rails'
-  gem 'twitter-bootstrap-rails', '2.2.6'
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'twitter-bootstrap-rails', '2.2.6'
 
 gem 'jquery-rails', '2.3.0'
 
