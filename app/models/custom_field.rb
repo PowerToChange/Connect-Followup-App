@@ -3,16 +3,28 @@ class CustomField < ActiveRecord::Base
   attr_accessible :custom_field_id, :label
 
   class << self
+    attr_accessor :survey
     def sync(survey)
-      fields = CiviCrm::CustomField.where(:custom_group_id => survey.custom_group_id, :rowCount => 1000)
-      fields.each do |f|
-        field = survey.custom_fields.where(custom_field_id: f.id).first_or_initialize(label: f.label)
+      @survey = survey
+      field_ids.each do |f|
+        custom_field = CiviCrm::CustomField.find(f)
+        field = survey.custom_fields.where(custom_field_id: custom_field.id).first_or_initialize(label: custom_field.label)
         if field.new_record?
           field.save
         else
-          field.update_attribute(:label,f.label)
+          field.update_attribute(:label,custom_field.label)
         end
       end
+    end
+
+    private
+
+    def field_ids
+      survey_fields.first.values.collect{|a| a['custom_field_id']}.reject(&:blank?)
+    end
+
+    def survey_fields
+      CiviCrm::CustomSurveyFields.where(:survey_id => survey.survey_id, :rowCount => 1000)
     end
   end
 end

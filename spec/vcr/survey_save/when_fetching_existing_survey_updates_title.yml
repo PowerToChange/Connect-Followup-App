@@ -2,7 +2,54 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://stagingconnect.powertochange.org/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=1&entity=CustomGroup&extends=Activity&extends_entity_column_value=32&json=1&key=382adce875611f9b75d294b83a77a5f2
+    uri: http://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 302
+      message: Found
+    headers: 
+      Date: 
+      - Tue, 02 Jul 2013 18:28:05 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      Location: 
+      - https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?id=2&entity=Survey&action=get&json=1&api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+      Vary: 
+      - Accept-Encoding
+      Content-Encoding: 
+      - gzip
+      Content-Length: 
+      - "363"
+      Content-Type: 
+      - text/html; charset=iso-8859-1
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA3VRyU7DMBC99ytMDwgOZBp3SQtOELRFIBWo1PTACU3saR3I
+        YjlORf8edzkhIUvWvMXj0RtxMXufph/LOXtOXxdsuX5cvExZ9wbgZZ4+AczS
+        2UnhQQ9g/tZNOkK7skiEJlQeuNwVlPR7nD3VbaUEnIiOgKNBZLXaH96EyVn3
+        VUeYJNXEVC3bkirHNDasrHekmECmLW3irnbONLcAjcMt6TYLDJeBrEtockcN
+        YFFAWau28LXMd7m0JdCPI1uBpcYFRpv/+PtcxfwSS3Pnv87dPl61dkf7I4PS
+        5XUVb8kd4VfjQXhSTP75Tft4FI1kfyORJgPZw5EcDPkgjDAMM55FMjyZD8b+
+        mKOSNI6GozDcTLJoqPhkkI37GEU43PBuosmSAEwCAeYQkfUXKuXnbJIHg1IT
+        8MAfzq7WWVu59pqtyI9qGTr2Nxe2rK1j455veG7hV3AM30d+WFjnFxJkyrzr
+        AQAA
+
+    http_version: 
+  recorded_at: Tue, 02 Jul 2013 18:26:53 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2
     body: 
       encoding: US-ASCII
       string: ""
@@ -19,18 +66,28 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Fri, 24 May 2013 00:27:42 GMT
+      - Tue, 02 Jul 2013 18:28:06 GMT
       Server: 
-      - Apache/2.2.20 (Ubuntu)
+      - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
-      - PHP/5.3.6-13ubuntu3.9
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 02 Jul 2013 18:28:06 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1372789686\""
       Content-Length: 
-      - "413"
+      - "297"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":9,\"values\":{\"9\":{\"id\":\"9\",\"name\":\"Sept_Launch_2012\",\"title\":\"September Launch 2012\",\"extends\":\"Activity\",\"extends_entity_column_value\":[\"32\"],\"style\":\"Inline\",\"collapse_display\":\"0\",\"help_pre\":\"\",\"help_post\":\"\",\"weight\":\"1\",\"is_active\":\"1\",\"table_name\":\"civicrm_value_sept_launch_2012_9\",\"is_multiple\":\"0\",\"collapse_adv_display\":\"1\",\"created_date\":\"2012-05-29 09:24:53\"}}}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":2,\"values\":{\"2\":{\"id\":\"2\",\"title\":\"Sept 2012 petition\",\"campaign_id\":\"2\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_date\":\"2012-05-29 11:05:52\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2012-09-04 21:20:13\",\"bypass_confirm\":\"1\"}}}"
     http_version: 
-  recorded_at: Fri, 24 May 2013 00:27:42 GMT
-recorded_with: VCR 2.4.0
+  recorded_at: Tue, 02 Jul 2013 18:26:54 GMT
+recorded_with: VCR 2.5.0

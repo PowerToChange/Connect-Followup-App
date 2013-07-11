@@ -1,6 +1,11 @@
 class Response
   attr_accessor :survey, :response
 
+  def initialize(survey, response)
+    @survey = survey
+    @response = response
+  end
+
   def to_param
     response.id
   end
@@ -9,17 +14,17 @@ class Response
     response.id
   end
 
-  def initialize(survey, response)
-    @survey = survey
-    @response = response
-  end
-
   def answers
-    @answers ||= begin
-      survey.custom_fields.map do |field|
-        OpenStruct.new(:label => field.label,
-                       :answer => response.send("custom_#{ field.custom_field_id }"))
-      end
+    params = {
+      entity_id: response_id,
+      rowCount: 1000
+    }
+    survey.custom_fields.each do |f|
+      params["return.custom_#{f.custom_field_id}"] = 1
+    end
+    CiviCrm::CustomValue.where(params).collect do |value|
+      OpenStruct.new(:label => survey.custom_fields.find_by_custom_field_id(value.id).try(:label),
+                     :answer => value.try(:latest))
     end
   end
 
@@ -27,17 +32,18 @@ class Response
     @contact ||= CiviCrm::Contact.find(response.target_contact_id.try(:first))
   end
 
+  def source_contact
+    @source_contact ||= CiviCrm::Contact.find(response.source_contact_id.try(:first))
+  end
+
   def self.find(args)
     survey = args[:survey]
     id = args[:id]
+
     params = {
-      activity_type_id: survey.activity_type_id,
       'return.target_contact_id' => 1,
       id: id
     }
-    survey.custom_fields.each do |f|
-      params["return.custom_#{f.custom_field_id}"] = 1
-    end
     Response.new(survey, CiviCrm::Activity.where(params).first)
   end
 

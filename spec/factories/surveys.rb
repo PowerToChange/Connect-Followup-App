@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :survey do
+    survey_id 2
     activity_type_id 32
-    custom_group_id 9
-    title "September Launch 2012"
+    campaign_id 2
+    title "Sept 2012 petition"
 
     factory :survey_without_callbacks do
       after(:build) { |survey| survey.stub(:sync) }

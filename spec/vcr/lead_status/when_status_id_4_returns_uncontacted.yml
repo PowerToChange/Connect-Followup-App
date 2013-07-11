@@ -2,7 +2,7 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://stagingconnect.powertochange.org/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=1&entity=CustomGroup&extends=Activity&extends_entity_column_value=32&json=1&key=382adce875611f9b75d294b83a77a5f2
+    uri: http://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2
     body: 
       encoding: US-ASCII
       string: ""
@@ -15,27 +15,41 @@ http_interactions:
       - CiviCrm RubyClient/1.0.1
   response: 
     status: 
-      code: 200
-      message: OK
+      code: 302
+      message: Found
     headers: 
       Date: 
-      - Mon, 17 Jun 2013 18:34:04 GMT
+      - Thu, 11 Jul 2013 18:02:16 GMT
       Server: 
-      - Apache/2.2.20 (Ubuntu)
-      X-Powered-By: 
-      - PHP/5.3.6-13ubuntu3.9
+      - Apache/2.2.22 (Ubuntu)
+      Location: 
+      - https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?id=2&entity=Survey&action=get&json=1&api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+      Vary: 
+      - Accept-Encoding
+      Content-Encoding: 
+      - gzip
       Content-Length: 
-      - "413"
+      - "363"
       Content-Type: 
-      - text/javascript
+      - text/html; charset=iso-8859-1
     body: 
-      encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":9,\"values\":{\"9\":{\"id\":\"9\",\"name\":\"Sept_Launch_2012\",\"title\":\"September Launch 2012\",\"extends\":\"Activity\",\"extends_entity_column_value\":[\"32\"],\"style\":\"Inline\",\"collapse_display\":\"0\",\"help_pre\":\"\",\"help_post\":\"\",\"weight\":\"1\",\"is_active\":\"1\",\"table_name\":\"civicrm_value_sept_launch_2012_9\",\"is_multiple\":\"0\",\"collapse_adv_display\":\"1\",\"created_date\":\"2012-05-29 09:24:53\"}}}"
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA3VRyU7DMBC99ytMDwgOZBp3SQtOELRFIBWo1PTACU3saR3I
+        YjlORf8edzkhIUvWvMXj0RtxMXufph/LOXtOXxdsuX5cvExZ9wbgZZ4+AczS
+        2UnhQQ9g/tZNOkK7skiEJlQeuNwVlPR7nD3VbaUEnIiOgKNBZLXaH96EyVn3
+        VUeYJNXEVC3bkirHNDasrHekmECmLW3irnbONLcAjcMt6TYLDJeBrEtockcN
+        YFFAWau28LXMd7m0JdCPI1uBpcYFRpv/+PtcxfwSS3Pnv87dPl61dkf7I4PS
+        5XUVb8kd4VfjQXhSTP75Tft4FI1kfyORJgPZw5EcDPkgjDAMM55FMjyZD8b+
+        mKOSNI6GozDcTLJoqPhkkI37GEU43PBuosmSAEwCAeYQkfUXKuXnbJIHg1IT
+        8MAfzq7WWVu59pqtyI9qGTr2Nxe2rK1j455veG7hV3AM30d+WFjnFxJkyrzr
+        AQAA
+
     http_version: 
-  recorded_at: Mon, 17 Jun 2013 18:34:04 GMT
+  recorded_at: Thu, 11 Jul 2013 18:00:56 GMT
 - request: 
     method: get
-    uri: http://stagingconnect.powertochange.org/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=1&custom_group_id=9&entity=CustomField&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2
     body: 
       encoding: US-ASCII
       string: ""
@@ -52,18 +66,118 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Mon, 17 Jun 2013 18:34:05 GMT
+      - Thu, 11 Jul 2013 18:02:17 GMT
       Server: 
-      - Apache/2.2.20 (Ubuntu)
+      - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
-      - PHP/5.3.6-13ubuntu3.9
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Thu, 11 Jul 2013 18:02:17 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1373565737\""
       Content-Length: 
-      - "6043"
+      - "297"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":16,\"values\":{\"64\":{\"id\":\"64\",\"custom_group_id\":\"9\",\"name\":\"The_one_thing_I_crave_most_is\",\"label\":\"The one thing I crave most is\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"19\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"4\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"the_one_thing_i_crave_most_is_64\",\"option_group_id\":\"106\"},\"65\":{\"id\":\"65\",\"custom_group_id\":\"9\",\"name\":\"I_d_like_a_FREE_MAGAZINE_BY_PERSONAL_DELIVERY_to_help_me_explor_\",\"label\":\"I'd like a FREE MAGAZINE BY PERSONAL DELIVERY to help me explor my craving for\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"7\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"6\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_d_like_a_free_magazine_by_pers_65\",\"option_group_id\":\"107\"},\"66\":{\"id\":\"66\",\"custom_group_id\":\"9\",\"name\":\"Power_to_Change_loves_to_help_students_discover_Jesus_How_intere\",\"label\":\"Power to Change loves to help students discover Jesus. How interested are you in having a chat about how to begin a journey with Jesus Christ?\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"23\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"5\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"power_to_change_loves_to_help_st_66\",\"option_group_id\":\"108\"},\"67\":{\"id\":\"67\",\"custom_group_id\":\"9\",\"name\":\"On_my_spiritual_journey_I_d_like_to\",\"label\":\"On my spiritual journey I'd like to\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"25\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"5\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"on_my_spiritual_journey_i_d_like_67\",\"option_group_id\":\"109\"},\"75\":{\"id\":\"75\",\"custom_group_id\":\"9\",\"name\":\"Followup_piority\",\"label\":\"Followup priority\",\"data_type\":\"String\",\"html_type\":\"Select\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"27\",\"is_active\":\"1\",\"is_view\":\"1\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"followup_piority_75\",\"option_group_id\":\"117\"},\"76\":{\"id\":\"76\",\"custom_group_id\":\"9\",\"name\":\"Segment\",\"label\":\"Segment\",\"data_type\":\"String\",\"html_type\":\"Select\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"31\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"segment_76\",\"option_group_id\":\"118\"},\"77\":{\"id\":\"77\",\"custom_group_id\":\"9\",\"name\":\"Action\",\"label\":\"Action\",\"data_type\":\"String\",\"html_type\":\"Select\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"34\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"action_77\",\"option_group_id\":\"119\"},\"78\":{\"id\":\"78\",\"custom_group_id\":\"9\",\"name\":\"Action_Status\",\"label\":\"Action Status\",\"data_type\":\"String\",\"html_type\":\"Select\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"36\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"action_status_78\",\"option_group_id\":\"120\"},\"83\":{\"id\":\"83\",\"custom_group_id\":\"9\",\"name\":\"Data_Input_Notes\",\"label\":\"Data Input Notes\",\"data_type\":\"Memo\",\"html_type\":\"TextArea\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"40\",\"attributes\":\"rows=4, cols=60\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"data_input_notes_83\"},\"115\":{\"id\":\"115\",\"custom_group_id\":\"9\",\"name\":\"I_would_rather\",\"label\":\"I would rather\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"43\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_would_rather_115\",\"option_group_id\":\"127\"},\"116\":{\"id\":\"116\",\"custom_group_id\":\"9\",\"name\":\"In_my_everyday_experience_love_is\",\"label\":\"In my everyday experience, love is\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"46\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"in_my_everyday_experience_love_i_116\",\"option_group_id\":\"128\"},\"117\":{\"id\":\"117\",\"custom_group_id\":\"9\",\"name\":\"I_want_love_to_be\",\"label\":\"I want love to be\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"49\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_want_love_to_be_117\",\"option_group_id\":\"129\"},\"118\":{\"id\":\"118\",\"custom_group_id\":\"9\",\"name\":\"Love_Other\",\"label\":\"Love-Other\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"52\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"love_other_118\"},\"119\":{\"id\":\"119\",\"custom_group_id\":\"9\",\"name\":\"Want_Other\",\"label\":\"Want-Other\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"56\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"want_other_119\"},\"120\":{\"id\":\"120\",\"custom_group_id\":\"9\",\"name\":\"Submitter\",\"label\":\"Submitter\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"59\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"submitter_120\"},\"126\":{\"id\":\"126\",\"custom_group_id\":\"9\",\"name\":\"Warmup_Other\",\"label\":\"Warmup-Other\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"61\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"warmup_other_126\"}}}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":2,\"values\":{\"2\":{\"id\":\"2\",\"title\":\"Sept 2012 petition\",\"campaign_id\":\"2\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_date\":\"2012-05-29 11:05:52\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2012-09-04 21:20:13\",\"bypass_confirm\":\"1\"}}}"
     http_version: 
-  recorded_at: Mon, 17 Jun 2013 18:34:05 GMT
-recorded_with: VCR 2.4.0
+  recorded_at: Thu, 11 Jul 2013 18:00:57 GMT
+- request: 
+    method: get
+    uri: http://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000&survey_id=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 302
+      message: Found
+    headers: 
+      Date: 
+      - Thu, 11 Jul 2013 18:02:17 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      Location: 
+      - https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?survey_id=2&rowCount=1000&entity=CustomSurveyFields&action=get&json=1&api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+      Vary: 
+      - Accept-Encoding
+      Content-Encoding: 
+      - gzip
+      Content-Length: 
+      - "390"
+      Content-Type: 
+      - text/html; charset=iso-8859-1
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA3VRTW/bMAy951doORTdYaalfDhZZQ9rPrAA3Rag7mGnQpaY
+        SpsdCZKcNv9+itPTgEGAwMf3SJB8/MP656r+td+Qb/X3B7J/un/Yrcj4E8Bu
+        U28B1vX6yrAsB9j8GFcjrmPXVlyjUAlEE1usJjkjW9sfFYdrYsRhEPDGqvOl
+        hlbvfIpG3FW1RqKs7Ds8RqJFIJ09oSJcEO3xUI51jC58BghRvKDum8wxmUnb
+        QTARA4i2hc6qvk2xNCcjfQf4FtEfwWOImdPuf/kvofcnPD8bVbIb0bk7b19X
+        abZY0jzPh0yaycRzuepDtN3jIN8abFUYWCGjscfyBeMAf4cE6JVx5vkPnst5
+        MZeTgxS4nMpczOV0xqa0EJQ2rCkkvYovwsmCCSVxUczmlB6WTTFTbDltFhNR
+        FGJ2YONKo0cOoso4uMsdffqEUmmZUH11QmoElqXHyO1Tk5boP5JHTAN7IiL5
+        93hkb30kizw1fG+RfBocSr5cXB39BRHFnN8QAgAA
+
+    http_version: 
+  recorded_at: Thu, 11 Jul 2013 18:00:57 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000&survey_id=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Thu, 11 Jul 2013 18:02:17 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Thu, 11 Jul 2013 18:02:17 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1373565737\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Thu, 11 Jul 2013 18:00:58 GMT
+recorded_with: VCR 2.5.0

@@ -5,16 +5,18 @@ ActiveAdmin.register Survey do
   end
 
   index do
-    column :activity_type_id
-    column :custom_group_id
     column :title
+    column :survey_id
+    column :campaign_id
+    column :activity_type_id
     default_actions
   end
 
   form do |f|
     f.inputs "Survey Details" do
+      f.input :survey_id
+      f.input :campaign_id
       f.input :activity_type_id
-      f.input :custom_group_id
       f.input :title
     end
     f.actions
