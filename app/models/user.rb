@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :survey_users, :dependent => :destroy
   has_many :surveys, :through => :survey_users
-  has_many :leads
+  has_many :leads, :dependent => :destroy
 
   attr_accessible :email
   validates :email, :presence => true, :format => { :with => /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }

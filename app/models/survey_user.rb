@@ -4,4 +4,8 @@ class SurveyUser < ActiveRecord::Base
   attr_accessible :user_id, :survey_id
 
   validates_uniqueness_of :survey_id, :scope => :user_id
+
+  def to_s
+    "#{survey} - #{user}"
+  end
 end

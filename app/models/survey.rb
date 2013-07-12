@@ -1,8 +1,8 @@
 class Survey < ActiveRecord::Base
-  has_many :custom_fields
-  has_many :survey_users
+  has_many :custom_fields, :dependent => :destroy
+  has_many :survey_users, :dependent => :destroy
   has_many :users, :through => :survey_users
-  has_many :leads
+  has_many :leads, :dependent => :destroy
 
   attr_accessible :survey_id, :campaign_id, :activity_type_id, :title
 
@@ -10,6 +10,10 @@ class Survey < ActiveRecord::Base
 
   before_validation :sync
   after_create :fetch_custom_fields
+
+  def to_s
+    self.title
+  end
 
   def responses
     @responses ||= begin

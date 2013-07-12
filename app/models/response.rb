@@ -1,35 +1,3 @@
-# class Responses
-#   {
-#     response: {
-#       activity_id: 104037,
-#       custom_values: {
-#         custom_57: {
-#           id: 57,
-#           value: 1997
-#         }
-#       },
-#       contact: {
-#         gender_id: 2
-#         campus_id: 39
-#       }
-#     },
-#     response: {
-#       activity_id: 104036,
-#       custom_values: {
-#         custom_57: {
-#           id: 57,
-#           value: 1997
-#         }
-#       },
-#       contact: {
-#         gender_id: 2
-#         campus_id: 39
-#       }
-#     }
-#   }
-# end
-
-
 class Response
   attr_accessor :survey, :response
 
