@@ -15,7 +15,7 @@
             = r.contact.email
           .actions
             div class=['btn-group','btn-group-vertical']
-              - if !current_user.leads.map(&:response_id).include?(r.response.id)
+              - if !Lead.all.map(&:response_id).include?(r.response.id)
                 = link_to_icon 'plus-sign', survey_leads_path(@survey, :lead => { :response_id => r.response.id }), :method => :post, :class => 'btn btn-small'
               - else
                 = link_to_icon 'ok-sign', 'javascript:void(0)', :class => 'btn disabled'
