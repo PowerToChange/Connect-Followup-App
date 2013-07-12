@@ -2,7 +2,17 @@
 
 More to come!
 
-## How to setup local development environment
+## Environments
+
+### Staging
+
+[connectstaging.ballistiq.com](http://connectstaging.ballistiq.com)
+
+The deploy source is the staging branch. To deploy run `cap staging deploy`
+
+### Development
+
+#### How to setup local development environment:
 
 ```
 $ git clone git@github.com:PowerToChange/Connect-Followup-App.git
@@ -14,7 +24,7 @@ $ rails server
 
 ## Admin Access
 
-1. Go to `http://localhost:3000/admin`
+1. Go to `/admin`
 2. Email: *admin@example.com*
 3. Password: *password*
 
