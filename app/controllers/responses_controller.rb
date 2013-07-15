@@ -4,6 +4,8 @@ class ResponsesController < ApplicationController
     survey = Survey.find(params[:survey_id])
     @response = Response.find(:survey => survey, :id => params[:id])
     @lead = current_user.leads.find_by_response_id(params[:id])
-    @activities = @response.contact.activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.reverse
+
+    @activities = @response.contact.activities || []
+    @activities = @activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.reverse if @activities.present?
   end
 end
