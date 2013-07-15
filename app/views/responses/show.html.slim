@@ -44,3 +44,17 @@ div class=['well','square']
       tr
         td= a.label
         td= a.answer
+
+div class=['well','square']
+  h4
+    i.icon-th-list
+    'Notes &nbsp;|&nbsp; History
+  table class=['table','table-bordered','table-striped','history']
+    - @activities.each do |a|
+      tr
+        td.icon= activity_icon(a)
+        td
+          strong #{ a.activity_name }
+          '&nbsp;at #{ a.activity_date_time } #{ activity_with(a) }
+          br
+          '#{ activity_details(a) }
