@@ -43,7 +43,7 @@ gem 'simple_form'
 gem 'configatron'
 
 gem 'rubycas-client'
-gem 'civicrm', path: "/Users/sheldon/Dev/civicrm_gem" #:git => 'git@github.com:PowerToChange/civicrm_gem.git'
+gem 'civicrm', :git => 'git@github.com:PowerToChange/civicrm_gem.git'
 gem 'activeadmin', '0.5.1'
 gem 'gravatar_image_tag'
 gem 'rollbar', '~> 0.10.3'
