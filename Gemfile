@@ -48,6 +48,9 @@ gem 'activeadmin', '0.5.1'
 gem 'gravatar_image_tag'
 gem 'rollbar', '~> 0.10.3'
 
+gem 'pry'
+gem 'pry-rails'
+
 group :development do
   gem 'capistrano'
   gem 'letter_opener'
@@ -55,9 +58,7 @@ group :development do
   gem 'thin'
   gem 'debugger'
 
-  gem 'pry'
-  gem 'pry-debugger'
-  gem 'pry-rails'
+  gem 'pry-plus'
   gem 'sextant'
   gem 'better_errors'
 end
@@ -72,6 +73,4 @@ group :test do
   gem 'database_cleaner'
   gem 'vcr'
   gem 'webmock', '~> 1.9.3'
-  gem 'pry'
-  gem 'pry-debugger'
 end
