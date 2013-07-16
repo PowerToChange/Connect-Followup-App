@@ -1,4 +1,10 @@
 - content_for(:body_class) { 'list_view' }
+
+.list-actions-bar
+  = label_tag :show_completed, class: 'checkbox inline'
+    = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
+    'Show completed
+
 - @connections.each do |conn|
   .survey
     .title
@@ -6,7 +12,7 @@
       = link_to_icon "plus-sign", survey_path(conn.survey), class: "btn pull-right add-lead"
     ul.contacts
       - conn.leads.each do |r|
-        li data-url=survey_response_path(r.survey,r.response)
+        li data-status-id=r.status_id data-url=survey_response_path(r.survey,r.response) style=lead_li_style(r)
           .avatar
             = gravatar_image_tag(r.contact.email)
           .info
