@@ -41,6 +41,7 @@ gem 'slim-rails'
 gem 'mysql2'
 gem 'simple_form'
 gem 'configatron'
+gem 'angularjs-rails'
 
 gem 'rubycas-client'
 gem 'civicrm', :git => 'git@github.com:PowerToChange/civicrm_gem.git'

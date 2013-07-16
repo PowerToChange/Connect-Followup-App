@@ -14,8 +14,8 @@ class LeadsController < ApplicationController
 
   def update
     @lead = Lead.find(params[:id])
-    @lead.update_attributes(params[:lead])
     if [4,3].include? params[:lead][:status_id].to_i
+      @lead.update_attributes(params[:lead])
       redirect_to survey_response_path(@lead.survey,@lead.response_id), :notice => 'Successfully updated progress status.'
     else
       redirect_to report_survey_lead_path(@lead.survey,@lead)
