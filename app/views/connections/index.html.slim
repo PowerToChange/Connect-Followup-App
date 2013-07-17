@@ -18,13 +18,11 @@
           .info
             h5
               = r.contact.display_name
-            = r.contact.email
-            br
-            span class=['label', r.status] = r.status
-          .actions
-            div class='btn-group'
-              = link_to_phone "phone", "tel", r.contact.phone
-              = link_to_phone "comment", "sms", r.contact.phone
+            div class=['label', r.status] = r.status
+            .more
+              div class='btn-group'
+                = link_to_phone "phone", "tel", r.contact.phone
+                = link_to_phone "comment", "sms", r.contact.phone
           .arrow
             i class="icon-chevron-right icon-large"
       - if conn.leads.size.zero?
