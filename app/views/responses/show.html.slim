@@ -49,6 +49,10 @@ div class=['well','square']
   h4
     i.icon-th-list
     'Notes &nbsp;|&nbsp; History
+    .actions.pull-right
+      div class='btn-group'
+        = link_to 'Rejoiceable!', '#newRejoiceableModal', 'data-toggle' => 'modal', :class => 'btn btn-primary btn-small'
+
   table class=['table','table-bordered','table-striped','history']
     - @activities.each do |a|
       tr
@@ -58,3 +62,5 @@ div class=['well','square']
           '&nbsp;at #{ a.activity_date_time } #{ activity_with(a) }
           br
           '#{ activity_details(a) }
+
+= render 'new_rejoiceable_modal', rejoiceables_collection: @rejoiceables_collection

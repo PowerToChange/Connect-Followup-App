@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
       )
     end
   end
+
+  def civicrm_contact_id
+    ''
+  end
 end

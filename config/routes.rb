@@ -6,7 +6,10 @@ ConnectFollowup::Application.routes.draw do
 
   resources :connections
   resources :surveys do
-    resources :responses
+    resources :responses do
+      post 'create_rejoiceable', on: :member
+    end
+
     resources :leads do
       member do
         get 'report'

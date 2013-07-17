@@ -29,7 +29,11 @@ class Response
   end
 
   def contact
-    @contact ||= Contact.find(response.target_contact_id.try(:first))
+    @contact ||= Contact.find(contact_id)
+  end
+
+  def contact_id
+    response.target_contact_id.try(:first)
   end
 
   def source_contact

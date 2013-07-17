@@ -1,0 +1,8 @@
+#newRejoiceableModal.modal.hide.fade role="dialog"
+  .modal-header
+    button.close type="button" data-dismiss="modal" ×
+    h3 Woo hoo! <br> Add a Rejoiceable
+  .modal-body
+    .row-fluid
+      - rejoiceables_collection.each do |rejoiceable_id, label|
+        = button_to label, create_rejoiceable_survey_response_path(rejoiceable_id: rejoiceable_id), class: 'btn btn-primary'
