@@ -37,10 +37,7 @@ div class=['well','square']
 
   .modal-body
     = simple_form_for :response, :url => '', :html => { :class => 'form-horizontal filters' } do |f|
-      = f.input :gender, :collection => ['Male','Female','Unknown'], :include_blank => 'All'
-      = f.input :year, :collection => ['1st Year','Everything Else'], :include_blank => 'All'
-      = f.input :interest, :collection => ['Mild','Medium','Hot'], :include_blank => 'All'
-      = f.input :campus, :collection => ['McGill University','Concordia University'], :include_blank => 'All'
+      = f.input :priority, :label => 'Follow-up Priority', :collection => ['Mild','Medium','Hot'], :include_blank => 'All', :required => false
 
   .modal-footer
     button.btn.btn-primary data-dismiss="modal" Close
