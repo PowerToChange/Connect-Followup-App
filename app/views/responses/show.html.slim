@@ -1,4 +1,5 @@
 - content_for(:body_class) { 'list_view' }
+
 ul.contacts
   li.inactive
     .avatar
@@ -13,8 +14,9 @@ ul.contacts
 
 - if @lead.present?
   div class=['well','square','report-progress']
-    = simple_form_for [@lead.survey,@lead], :html => { :class => 'form-inline' } do |f|
+    = simple_form_for [@lead.survey,@lead], html: { class: 'form-inline' } do |f|
       = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
+
 
 div class=['well','square']
   h4
@@ -31,6 +33,7 @@ div class=['well','square']
       td Email
       td= link_to @response.contact.email, "mailto:#{@response.contact.email}"
 
+
 div class=['well','square']
   h4
     i.icon-file-alt
@@ -45,22 +48,52 @@ div class=['well','square']
         td= a.label
         td= a.answer
 
+
 div class=['well','square']
-  h4
-    i.icon-th-list
-    'Notes &nbsp;|&nbsp; History
-    .actions.pull-right
-      div class='btn-group'
-        = link_to 'Rejoiceable!', '#newRejoiceableModal', 'data-toggle' => 'modal', :class => 'btn btn-primary btn-small'
+  .actions.pull-right
+    div class='btn-group'
+      = link_to_icon 'pencil', '#newNoteModal', label_hidden_phone: "Add Note", data: { toggle: 'modal' }, class: 'btn'
+      = link_to_icon 'certificate', '#newRejoiceableModal', label_hidden_phone: "Rejoiceable!", data: { toggle: 'modal' }, class: 'btn btn-primary'
 
-  table class=['table','table-bordered','table-striped','history']
-    - @activities.each do |a|
-      tr
-        td.icon= activity_icon(a)
-        td
-          strong #{ a.activity_name }
-          '&nbsp;at #{ a.activity_date_time } #{ activity_with(a) }
-          br
-          '#{ activity_details(a) }
+  ul.nav.nav-tabs
+    li.active
+      a href="#activities" data-toggle="tab"
+        i.icon-th-list
+        strong &nbsp;History
+    li
+      a href="#notes" data-toggle="tab"
+        i.icon-pencil
+        strong &nbsp;Notes
 
+  .tab-content
+    .tab-pane#activities.active
+      table class=['table','table-bordered','table-striped']
+        - @activities.each do |a|
+          tr
+            td.icon #{ activity_icon(a) }
+            td
+              strong #{ a.activity_name }
+              '&nbsp;at #{ a.activity_date_time }
+              br
+              '#{ activity_details(a) }
+      - if @activities.blank?
+        .well No history.
+
+    .tab-pane#notes
+      table class=['table','table-bordered','table-striped']
+        - @notes.each do |n|
+          tr
+            td.icon
+              i.icon-pencil
+            td
+              strong Noted
+              '&nbsp;at #{ n.modified_date }
+              br
+              #{ n.note }
+              #{ n.subject }
+      - if @notes.blank?
+        .well No notes.
+
+
+= render 'new_note_modal'
 = render 'new_rejoiceable_modal', rejoiceables_collection: @rejoiceables_collection

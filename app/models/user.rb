@@ -20,6 +20,6 @@ class User < ActiveRecord::Base
   end
 
   def civicrm_contact_id
-    ''
+    '1' # Just use the CiviCrm admin's ID until this is properly supported
   end
 end

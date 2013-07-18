@@ -17,15 +17,6 @@ module ResponsesHelper
     %(<i class="#{icon_class} icon-large" />).html_safe
   end
 
-  def activity_with(activity)
-    with = ""
-    if activity.targets.present?
-      target_contacts = activity.targets.collect { |cid, _| cid != activity.source_contact_id ? CiviCrm::Contact.find(cid) : nil }.compact
-      with = "with #{ target_contacts.collect(&:display_name).join(', ') }" if target_contacts.present?
-    end
-    with
-  end
-
   def activity_details(activity)
     details = []
     if activity.activity_type_id == ActivityType::REJOICEABLE_TYPE_ID
@@ -33,6 +24,6 @@ module ResponsesHelper
     end
     details << activity.subject if activity.subject.present?
     details << activity.details if activity.details.present?
-    simple_format details.join(", ")
+    simple_format details.join("<br>")
   end
 end

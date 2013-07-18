@@ -8,6 +8,7 @@ ConnectFollowup::Application.routes.draw do
   resources :surveys do
     resources :responses do
       post 'create_rejoiceable', on: :member
+      post 'create_note', on: :member
     end
 
     resources :leads do

@@ -6,3 +6,5 @@
     .row-fluid
       - rejoiceables_collection.each do |rejoiceable_id, label|
         = button_to label, create_rejoiceable_survey_response_path(rejoiceable_id: rejoiceable_id), class: 'btn btn-primary'
+  .modal-footer
+    = link_to 'Close', '#', data: { dismiss: 'modal' }, class: 'btn'
