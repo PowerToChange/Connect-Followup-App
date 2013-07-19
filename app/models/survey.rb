@@ -16,13 +16,13 @@ class Survey < ActiveRecord::Base
     self.title
   end
 
-  def responses
+  def responses(options = {})
     @responses ||= begin
       params = {
         campaign_id: self.campaign_id,
         source_record_id: self.survey_id,
         'return' => 'target_contact_id'
-      }
+      }.merge!(options)
 
       page = 0
       per_page = 100

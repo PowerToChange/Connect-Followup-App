@@ -6,6 +6,12 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
-    @responses = @survey.responses
+    @responses = @survey.responses(filters)
+  end
+
+  private
+
+  def filters
+    params[:filters].present? ? params[:filters] : {}
   end
 end

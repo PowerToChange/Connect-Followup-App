@@ -1,6 +1,8 @@
 class Response
   attr_accessor :survey, :response
 
+  PRIORITIES = [['Hot',1],['Medium',2],['Mild',3]]
+
   def initialize(survey, response)
     @survey = survey
     @response = response
