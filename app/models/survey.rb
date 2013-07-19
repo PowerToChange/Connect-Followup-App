@@ -5,7 +5,7 @@ class Survey < ActiveRecord::Base
   has_many :leads, :dependent => :destroy
   has_and_belongs_to_many :schools
 
-  attr_accessible :survey_id, :campaign_id, :activity_type_id, :title
+  attr_accessible :survey_id, :campaign_id, :activity_type_id, :title, :school_ids
 
   validates_presence_of :survey_id
 
