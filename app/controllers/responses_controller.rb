@@ -14,14 +14,7 @@ class ResponsesController < ApplicationController
   def create_rejoiceable
     raise 'Invalid params' unless @response.contact_id && params[:rejoiceable_id].present? && current_user.civicrm_contact_id
 
-    response = CiviCrm::Activity.create(
-      source_contact_id: @response.contact_id,
-      activity_type_id: ActivityType::REJOICEABLE_TYPE_ID,
-      activity_status_id: Lead::COMPLETED_STATUS_ID,
-      custom_143: params[:rejoiceable_id],
-      details: current_user_stamp,
-      target_contact_id: current_user.civicrm_contact_id
-    )
+
   rescue => e
     Rails.logger.error "Failed to create rejoiceable: #{ e }"
     flash[:error] = 'Oops, could not add the rejoiceable!'
