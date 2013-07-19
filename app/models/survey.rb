@@ -3,6 +3,7 @@ class Survey < ActiveRecord::Base
   has_many :survey_users, :dependent => :destroy
   has_many :users, :through => :survey_users
   has_many :leads, :dependent => :destroy
+  has_and_belongs_to_many :schools
 
   attr_accessible :survey_id, :campaign_id, :activity_type_id, :title
 
