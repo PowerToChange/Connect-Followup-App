@@ -36,8 +36,8 @@ ActiveAdmin.register Survey do
     end
 
     panel "Associated Schools" do
-      table_for survey.schools do
-        column "name" do |school|
+      table_for survey.schools.sort_by(&:display_name) do
+        column "School Name" do |school|
           school.display_name
         end
       end
@@ -52,7 +52,7 @@ ActiveAdmin.register Survey do
     f.inputs "Associated Schools" do
       hint = "Select the schools that should be associated to this survey."
       hint = f.object.new_record? ? hint : "#{ hint } To associate/remove all schools at once use the buttons found at top-right of this screen."
-      f.input :schools, as: :check_boxes, collection: School.all, hint: hint
+      f.input :schools, as: :check_boxes, collection: School.all.sort_by(&:display_name), hint: hint
     end
 
     f.actions

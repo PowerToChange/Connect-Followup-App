@@ -18,4 +18,27 @@ describe School do
     school.to_s.should be_a(String)
   end
 
+  context 'when syncing civicrm schools' do
+    let!(:schools_response) do
+      (1..5).collect { |i| OpenStruct.new(id: i, external_identifier: i, display_name: "School #{i}") }
+    end
+
+    before do
+      CiviCrm::Contact.stub_chain(:where).and_return(schools_response)
+    end
+
+    it 'should fetch all schools from civicrm' do
+      CiviCrm::Contact.should_receive(:where)
+      School.all_civicrm_schools
+    end
+
+    it 'should sync all schools from civicrm' do
+      school.save
+      CiviCrm::Contact.should_receive(:where)
+      School.sync_all_from_civicrm
+      School.count.should eq(5)
+      School.where(id: school.id).count.should eq(0)
+    end
+  end
+
 end
