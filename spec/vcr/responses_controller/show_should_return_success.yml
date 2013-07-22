@@ -1,0 +1,304 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Mon, 22 Jul 2013 20:13:14 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Mon, 22 Jul 2013 20:13:14 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374523994\""
+      Content-Length: 
+      - "297"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":2,\"values\":{\"2\":{\"id\":\"2\",\"title\":\"Sept 2012 petition\",\"campaign_id\":\"2\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_date\":\"2012-05-29 11:05:52\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2012-09-04 21:20:13\",\"bypass_confirm\":\"1\"}}}"
+    http_version: 
+  recorded_at: Mon, 22 Jul 2013 20:11:45 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000&survey_id=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Mon, 22 Jul 2013 20:13:14 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Mon, 22 Jul 2013 20:13:14 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374523994\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Mon, 22 Jul 2013 20:11:45 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Activity&id=55412&json=1&key=382adce875611f9b75d294b83a77a5f2&return=target_contact_id
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Mon, 22 Jul 2013 20:13:15 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Mon, 22 Jul 2013 20:13:15 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374523995\""
+      Content-Length: 
+      - "379"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"1\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"activity_date_time\":\"2012-09-09 21:28:36\",\"status_id\":\"2\",\"priority_id\":\"1\",\"is_test\":\"0\",\"is_auto\":\"0\",\"is_current_revision\":\"1\",\"is_deleted\":\"0\",\"target_contact_id\":[\"48085\"]}}}"
+    http_version: 
+  recorded_at: Mon, 22 Jul 2013 20:11:46 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Contact&id=48085&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Mon, 22 Jul 2013 20:13:15 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Mon, 22 Jul 2013 20:13:15 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374523995\""
+      Content-Length: 
+      - "1173"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"contact_id\":\"48085\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"sort_name\":\"Mallory, Keira\",\"display_name\":\"Keira Mallory\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"do_not_trade\":\"0\",\"is_opt_out\":\"0\",\"legal_identifier\":\"\",\"external_identifier\":\"2560727\",\"nick_name\":\"\",\"legal_name\":\"\",\"image_URL\":\"\",\"preferred_mail_format\":\"Both\",\"first_name\":\"Keira\",\"middle_name\":\"\",\"last_name\":\"Mallory\",\"job_title\":\"\",\"birth_date\":\"\",\"is_deceased\":\"0\",\"deceased_date\":\"\",\"household_name\":\"\",\"organization_name\":\"\",\"sic_code\":\"\",\"contact_is_deleted\":\"0\",\"gender_id\":\"1\",\"gender\":\"Female\",\"prefix_id\":\"\",\"prefix\":\"\",\"suffix_id\":\"\",\"suffix\":\"\",\"current_employer\":\"\",\"address_id\":\"\",\"street_address\":\"\",\"supplemental_address_1\":\"\",\"supplemental_address_2\":\"\",\"city\":\"\",\"postal_code_suffix\":\"\",\"postal_code\":\"\",\"geo_code_1\":\"\",\"geo_code_2\":\"\",\"state_province_id\":\"\",\"state_province_name\":\"\",\"state_province\":\"\",\"country_id\":\"\",\"country\":\"\",\"phone_id\":\"\",\"phone_type_id\":\"\",\"phone\":\"\",\"email_id\":\"47946\",\"email\":\"kmmallor@lakeheadu.ca\",\"on_hold\":\"0\",\"im_id\":\"\",\"provider_id\":\"\",\"im\":\"\",\"worldregion_id\":\"\",\"world_region\":\"\",\"id\":\"48085\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Mon, 22 Jul 2013 20:11:46 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&contact_id=48085&entity=Activity&json=1&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Mon, 22 Jul 2013 20:13:16 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Mon, 22 Jul 2013 20:13:16 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374523996\""
+      Transfer-Encoding: 
+      - chunked
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":3,\"values\":{\"55374\":{\"targets\":{\"48085\":\"48085\"},\"source_contact_id\":\"1\",\"id\":\"55374\",\"activity_type_id\":\"32\",\"subject\":\"Mission Hub Survey 2012\",\"location\":\"\",\"activity_date_time\":\"2012-08-31 00:00:00\",\"details\":\"\",\"status_id\":\"2\",\"activity_name\":\"Petition\",\"status\":\"Completed\",\"custom_65\":\"\",\"custom_65_33508\":\"\",\"custom_64\":\"warmup-fun\",\"custom_64_33508\":\"warmup-fun\",\"custom_66\":\"gauge-3\",\"custom_66_33508\":\"gauge-3\",\"custom_67\":\"journey-p2c\",\"custom_67_33508\":\"journey-p2c\",\"custom_75\":\"Medium\",\"custom_75_33508\":\"Medium\",\"custom_76\":\"15\",\"custom_76_33508\":\"15\",\"custom_77\":\"10\",\"custom_77_33508\":\"10\",\"custom_78\":\"1\",\"custom_78_33508\":\"1\"},\"55404\":{\"targets\":{\"48085\":\"48085\",\"48019\":\"48019\",\"48021\":\"48021\",\"48026\":\"48026\",\"48033\":\"48033\",\"48052\":\"48052\",\"48053\":\"48053\",\"48083\":\"48083\",\"48100\":\"48100\",\"48103\":\"48103\",\"48105\":\"48105\",\"48110\":\"48110\"},\"source_contact_id\":\"1\",\"id\":\"55404\",\"activity_type_id\":\"3\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"location\":\"\",\"activity_date_time\":\"2012-09-09 21:28:33\",\"details\":\"-ALTERNATIVE ITEM 0-\\n<table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" height=\\\"100%\\\" id=\\\"backgroundTable\\\" style=\\\"margin: 0px; padding: 0px; height: 100% !important; width: 100% !important; \\\" width=\\\"100%\\\">\\r\\n\\t<tbody>\\r\\n\\t\\t<tr>\\r\\n\\t\\t\\t<td align=\\\"center\\\" style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"10\\\" cellspacing=\\\"0\\\" id=\\\"templatePreheader\\\" width=\\\"320\\\">\\r\\n\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t<td class=\\\"preheaderContent\\\" style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"10\\\" cellspacing=\\\"0\\\" width=\\\"100%\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<td style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"color: rgb(80, 80, 80); font-family: Arial; font-size: 10px; line-height: 100%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"line-height: 100%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<span style=\\\"line-height: 100%; \\\">You filled out our survey! Here&#39;s a chocolate bar in return...well, sort of.&nbsp;<\\/span><\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" id=\\\"templateContainer\\\" style=\\\"border-style: none; border-color: rgb(221, 221, 221); \\\" width=\\\"320\\\">\\r\\n\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t<td align=\\\"center\\\" style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" id=\\\"templateHeader\\\" style=\\\"border-bottom-width: 0px; \\\" width=\\\"320\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<td class=\\\"headerContent\\\" style=\\\"border-collapse: collapse;color: #ffffff;font-family: Arial;font-size: 34px;font-weight: bold;line-height: 100%;padding: 0;text-align: center;vertical-align: middle;\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<a href=\\\"http:\\/\\/powertochange.com\\/mycravingsca\\/item-i-2\\/\\\" style=\\\"color: rgb(51, 102, 153); font-weight: normal; \\\"><img alt=\\\"Why\\\" border=\\\"0\\\" height=\\\"83\\\" id=\\\"headerImage campaign-icon\\\" src=\\\"http:\\/\\/powertochange.com\\/wp-content\\/uploads\\/2012\\/08\\/mycravings_banner.jpg\\\" style=\\\"border: px none;border-color: ;border-style: none;border-width: px;height: 83px;width: 300px;margin: 0;padding: 0;max-width: 320px;line-height: 100%;outline: none;text-decoration: none;\\\" width=\\\"300\\\" \\/><\\/a><\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t<td align=\\\"center\\\" style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" id=\\\"templateBody\\\" width=\\\"320\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<td class=\\\"bodyContent\\\" style=\\\"border-collapse: collapse; \\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"20\\\" cellspacing=\\\"0\\\" width=\\\"100%\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tr mc:hideable=\\\"hideable_repeat_1_1\\\" mc:repeatable=\\\"repeat_1\\\" mc:repeatindex=\\\"0\\\" mchideable=\\\"hideable_repeat_1_1\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<td style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"color: rgb(0, 0, 0); font-family: Arial; font-size: 9px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t&nbsp;<\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"text-align: center;color: #000000;font-family: Arial;font-size: 9px;line-height: 150%;\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<a href=\\\"http:\\/\\/powertochange.com\\/mycravingsca\\/item-i-2\\/\\\" style=\\\"color: rgb(255, 255, 255); \\\"><img alt=\\\"Video\\\" border=\\\"0\\\" height=\\\"161\\\" src=\\\"http:\\/\\/powertochange.com\\/wp-content\\/uploads\\/2012\\/08\\/item-I-vending-machine.png\\\" style=\\\"border: px none;border-color: ;border-style: none;border-width: px;height: 161px;width: 300px;margin: 0;padding: 0;max-width: 560px;line-height: 100%;outline: none;text-decoration: none;display: inline;margin-bottom: 10px;\\\" width=\\\"300\\\" \\/><\\/a><\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"color: rgb(0, 0, 0); font-family: Arial; font-size: 9px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"font-size: 18px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tHi {contact.first_name},&nbsp;<br \\/>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tmyCravings team here...we got your<span style=\\\"color:#add8e6;\\\"> <\\/span>&quot;Why Do I Crave?&quot;<span style=\\\"color:#add8e6;\\\"> <\\/span>survey and wanted to say we&nbsp;appreciate you filling it out and sharing your cravings with us.&nbsp;We look forward to continuing the conversation.<br \\/>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t&nbsp;<\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"font-size: 18px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<a href=\\\"http:\\/\\/powertochange.com\\/mycravingsca\\/item-i-2\\/\\\" style=\\\"color: rgb(255, 255, 255); \\\"><img alt=\\\"Poster\\\" src=\\\"http:\\/\\/powertochange.com\\/wp-content\\/uploads\\/2012\\/08\\/mycravings_happyposter.jpg\\\" style=\\\"width: 125px; height: 155px; display: inline; max-width: 280px; line-height: 100%; outline: none; text-decoration: none; margin: 5px 5px 10px 0px; border: 0px; float: left; \\\" \\/><\\/a>As a <span style=\\\"color:#ff3300;\\\">thanks<\\/span>, her<span style=\\\"line-height: 150%; \\\">e&rsquo;s a short film that pits man versus <\\/span><a href=\\\"http:\\/\\/powertochange.com\\/mycravingsca\\/item-i-2\\/\\\" style=\\\"line-height: 150%; color: rgb(255, 255, 255); \\\" target=\\\"_blank\\\" title=\\\"Watch Video\\\"><span style=\\\"color:#0000ff;\\\">vending machine<\\/span><\\/a><span style=\\\"line-height: 150%; \\\">. Consider it our gift of a tasty and humorous treat.<br \\/>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tBesides, these first few weeks of school are a beast and you deserve a break.<\\/span><\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"font-size: 18px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t&nbsp;<\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"font-size: 18px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\tScratch those cravings,<br \\/>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<span style=\\\"text-decoration: underline; \\\"><em><a href=\\\"mailto:team@mycravings.ca?subject=RE%3A%20Got%20your%20cravings%20survey!%20Happiness%20is%20only%20a%20chocolate%20bar%20away!\\\" style=\\\"color: rgb(255, 255, 255); \\\" target=\\\"_blank\\\"><span style=\\\"color:#0000ff;\\\">myCravings Team<\\/span><\\/a><\\/em><\\/span><\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t<td align=\\\"center\\\" style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"10\\\" cellspacing=\\\"0\\\" id=\\\"templateFooter\\\" style=\\\"border-top-width: 0px; \\\" width=\\\"320\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<td class=\\\"footerContent\\\" style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<table border=\\\"0\\\" cellpadding=\\\"10\\\" cellspacing=\\\"0\\\" width=\\\"100%\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<td colspan=\\\"2\\\" id=\\\"social\\\" style=\\\"border-collapse: collapse; border: 0px; \\\" valign=\\\"middle\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"color: rgb(112, 112, 112); font-family: Arial; font-size: 11px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t&nbsp;<a href=\\\"https:\\/\\/www.facebook.com\\/myCravings\\\" style=\\\"line-height: 27px; color: rgb(255, 255, 255); \\\"><img align=\\\"left\\\" alt=\\\"facebook.com\\/myCravings\\\" height=\\\"30\\\" src=\\\"http:\\/\\/powertochange.com\\/wp-content\\/uploads\\/2012\\/08\\/mycravings_fb_logo.jpg\\\" style=\\\"height: 30px;line-height: 11px;width: 30px;display: inline;max-width: 280px;margin-right: 10px;border: 0;outline: none;text-decoration: none;margin-bottom: 10px;\\\" width=\\\"30\\\" \\/><\\/a><span style=\\\"line-height: 27px; color: rgb(0, 0, 255); \\\"><a href=\\\"https:\\/\\/twitter.com\\/my_cravings\\\" style=\\\"color: rgb(255, 255, 255); \\\"><img align=\\\"left\\\" alt=\\\"@my_cravings\\\" height=\\\"31\\\" src=\\\"http:\\/\\/powertochange.com\\/wp-content\\/uploads\\/2012\\/08\\/mycravings_twitter.jpg\\\" style=\\\"height: 31px;line-height: 11px;width: 40px;display: inline;max-width: 280px;border: 0;outline: none;text-decoration: none;margin-bottom: 10px;\\\" width=\\\"40\\\" \\/><\\/a><\\/span><\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<td style=\\\"border-collapse: collapse;\\\" valign=\\\"top\\\" width=\\\"100%\\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<div style=\\\"color: rgb(112, 112, 112); font-family: Arial; font-size: 11px; line-height: 150%; \\\">\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<em>You are receiving this email because you completed a Power to Change survey. You are not subscribed to any email lists.<\\/em><em>Our&nbsp;<a href=\\\"http:\\/\\/powertochange.com\\/organization\\/privacy-policy\\/\\\">privacy policy<\\/a>.<\\/em><\\/div>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t\\t\\t\\t\\t<\\/td>\\r\\n\\t\\t\\t\\t\\t\\t<\\/tr>\\r\\n\\t\\t\\t\\t\\t<\\/tbody>\\r\\n\\t\\t\\t\\t<\\/table>\\r\\n\\t\\t\\t<\\/td>\\r\\n\\t\\t<\\/tr>\\r\\n\\t<\\/tbody>\\r\\n<\\/table>\\r\\n<div style=\\\"color: #000000;font-family: Arial;font-size: 18px;line-height: 150%;text-align: left;\\\">\\r\\n\\t&nbsp;<\\/div>\\r\\n\\n-ALTERNATIVE ITEM 1-\\nYou filled out our survey! Here's a chocolate bar in return...well, sort of.\\r\\n\\r\\nHi {contact.first_name},\\r\\n\\r\\nmyCravings team here...we got your \\\"Why Do I Crave?\\\" survey and wanted to say we appreciate you filling it out and sharing your cravings with us. We look forward to continuing the conversation.\\r\\n \\r\\nAs a thanks, here\\u2019s a short film <http:\\/\\/powertochange.com\\/mycravingsca\\/item-i-2\\/> that pits man versus vending machine. Consider it our gift of a tasty and humorous treat. Besides, these first few weeks of school are a beast and you deserve a break. \\r\\n\\r\\nWatch \\u201citem i\\u201d <http:\\/\\/powertochange.com\\/mycravingsca\\/item-i-2\\/>\\r\\n\\r\\nScratch those cravings,\\r\\nmyCravings Team - team@mycravings.ca\\r\\n\\r\\nFollow myCravings on Facebook <https:\\/\\/www.facebook.com\\/myCravings>\\r\\nFollow myCravings on Twitter <https:\\/\\/twitter.com\\/my_cravings>\\r\\n\\r\\nYou are receiving this email because you completed a Power to Change survey. You are not subscribed to any email lists. Our privacy policy: <http:\\/\\/powertochange.com\\/organization\\/privacy-policy\\/>.\\n-ALTERNATIVE END-\\n\",\"status_id\":\"2\",\"activity_name\":\"Email\",\"status\":\"Completed\"},\"55412\":{\"targets\":{\"48085\":\"48085\"},\"source_contact_id\":\"1\",\"id\":\"55412\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"location\":\"\",\"activity_date_time\":\"2012-09-09 21:28:36\",\"details\":\"\",\"status_id\":\"2\",\"activity_name\":\"Mandrill Email Sent\",\"status\":\"Completed\"}}}"
+    http_version: 
+  recorded_at: Mon, 22 Jul 2013 20:11:47 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Note&entity_id=48085&entity_table=civicrm_contact&json=1&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Mon, 22 Jul 2013 20:13:17 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Mon, 22 Jul 2013 20:13:17 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374523997\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Mon, 22 Jul 2013 20:11:47 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=OptionValue&is_active=1&json=1&key=382adce875611f9b75d294b83a77a5f2&option_group_id=134
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Mon, 22 Jul 2013 20:13:17 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Mon, 22 Jul 2013 20:13:17 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374523997\""
+      Content-Length: 
+      - "1035"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":5,\"values\":{\"1001\":{\"id\":\"1001\",\"option_group_id\":\"134\",\"label\":\"Gospel Presentation\",\"value\":\"3\",\"name\":\"Gospel_Presentation\",\"is_default\":\"0\",\"weight\":\"3\",\"is_optgroup\":\"0\",\"is_reserved\":\"0\",\"is_active\":\"1\"},\"1002\":{\"id\":\"1002\",\"option_group_id\":\"134\",\"label\":\"Indicated Decision\",\"value\":\"4\",\"name\":\"Indicated_Decision\",\"is_default\":\"0\",\"weight\":\"4\",\"is_optgroup\":\"0\",\"is_reserved\":\"0\",\"is_active\":\"1\"},\"999\":{\"id\":\"999\",\"option_group_id\":\"134\",\"label\":\"Interaction\",\"value\":\"1\",\"name\":\"Interaction\",\"is_default\":\"0\",\"weight\":\"1\",\"is_optgroup\":\"0\",\"is_reserved\":\"0\",\"is_active\":\"1\"},\"1003\":{\"id\":\"1003\",\"option_group_id\":\"134\",\"label\":\"Shared Spirit-Filled Life\",\"value\":\"5\",\"name\":\"Shared_Spirit_Filled_Life\",\"is_default\":\"0\",\"weight\":\"5\",\"is_optgroup\":\"0\",\"is_reserved\":\"0\",\"is_active\":\"1\"},\"1000\":{\"id\":\"1000\",\"option_group_id\":\"134\",\"label\":\"Spiritual Conversation\",\"value\":\"2\",\"name\":\"Spiritual_Conversation\",\"is_default\":\"0\",\"weight\":\"2\",\"is_optgroup\":\"0\",\"is_reserved\":\"0\",\"is_active\":\"1\"}}}"
+    http_version: 
+  recorded_at: Mon, 22 Jul 2013 20:11:48 GMT
+recorded_with: VCR 2.5.0

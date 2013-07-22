@@ -86,11 +86,10 @@ div class=['well','square']
             td.icon
               i.icon-pencil
             td
-              strong Noted
+              strong #{ n.subject }
               '&nbsp;at #{ n.modified_date }
               br
               #{ n.note }
-              #{ n.subject }
       - if @notes.blank?
         .well No notes.
 

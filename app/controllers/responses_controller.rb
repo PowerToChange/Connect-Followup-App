@@ -12,33 +12,38 @@ class ResponsesController < ApplicationController
   end
 
   def create_rejoiceable
-    raise 'Invalid params' unless @response.contact_id && params[:rejoiceable_id].present? && current_user.civicrm_contact_id
+    new_rejoiceable = Rejoiceable.new(
+      source_contact_id: @response.contact_id,
+      activity_type_id: ActivityType::REJOICEABLE_TYPE_ID,
+      activity_status_id: Lead::COMPLETED_STATUS_ID,
+      custom_143: params[:rejoiceable_id],
+      details: current_user_stamp,
+      target_contact_id: current_user.civicrm_contact_id
+    )
 
+    if new_rejoiceable.save
+      flash[:success] = 'Added rejoiceable!'
+    else
+      flash[:error] = 'Oops, could not add the rejoiceable!'
+    end
 
-  rescue => e
-    Rails.logger.error "Failed to create rejoiceable: #{ e }"
-    flash[:error] = 'Oops, could not add the rejoiceable!'
-  else
-    flash[:success] = 'Added rejoiceable!'
-  ensure
     redirect_to action: :show
   end
 
   def create_note
-    raise 'Invalid params' unless @response.contact_id && params[:note].present? && current_user.civicrm_contact_id
-
-    response = CiviCrm::Note.create(
+    new_note = Note.create(
       subject: current_user_stamp,
       note: params[:note],
       entity_id: @response.contact_id,
       contact_id: current_user.civicrm_contact_id
     )
-  rescue => e
-    Rails.logger.error "Failed to create note: #{ e }"
-    flash[:error] = 'Oops, could not add the note!'
-  else
-    flash[:success] = 'Added note!'
-  ensure
+
+    if new_note.save
+      flash[:success] = 'Added note!'
+    else
+      flash[:error] = 'Oops, could not add the note!'
+    end
+
     redirect_to action: :show
   end
 
