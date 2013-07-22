@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702175910) do
+ActiveRecord::Schema.define(:version => 20130719141108) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -68,6 +68,24 @@ ActiveRecord::Schema.define(:version => 20130702175910) do
   add_index "leads", ["survey_id"], :name => "index_leads_on_survey_id"
   add_index "leads", ["user_id"], :name => "index_leads_on_user_id"
 
+  create_table "schools", :force => true do |t|
+    t.integer  "civicrm_id"
+    t.integer  "pulse_id"
+    t.string   "display_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "schools_surveys", :force => true do |t|
+    t.integer "school_id"
+    t.integer "survey_id"
+  end
+
+  create_table "schools_users", :force => true do |t|
+    t.integer "school_id"
+    t.integer "user_id"
+  end
+
   create_table "survey_users", :force => true do |t|
     t.integer  "user_id"
     t.integer  "survey_id"
@@ -79,15 +97,13 @@ ActiveRecord::Schema.define(:version => 20130702175910) do
   add_index "survey_users", ["user_id"], :name => "index_survey_users_on_user_id"
 
   create_table "surveys", :force => true do |t|
-    t.integer  "activity_type_id"
     t.string   "title"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "activity_type_id"
     t.integer  "survey_id"
     t.integer  "campaign_id"
   end
-
-  add_index "surveys", ["activity_type_id"], :name => "index_surveys_on_activity_type_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

@@ -24,9 +24,14 @@
                 = link_to_phone "phone", "tel", r.contact.phone
                 = link_to_phone "comment", "sms", r.contact.phone
 
-    .carousel-nav
-      = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
-      = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
+      - if @responses.empty?
+        div class=['item','active']
+          'No responses found.
+
+    - if !@responses.empty?
+      .carousel-nav
+        = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
+        = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
 
 div class=['well','square']
   = link_to 'Filter Options', '#filterModal', :class => 'btn btn-inverse', 'data-toggle' => 'modal', :role => 'button'
@@ -35,13 +40,9 @@ div class=['well','square']
   .modal-header
     h4 Filter options
 
-  .modal-body
-    = simple_form_for :response, :url => '', :html => { :class => 'form-horizontal filters' } do |f|
-      = f.input :gender, :collection => ['Male','Female','Unknown'], :include_blank => 'All'
-      = f.input :year, :collection => ['1st Year','Everything Else'], :include_blank => 'All'
-      = f.input :interest, :collection => ['Mild','Medium','Hot'], :include_blank => 'All'
-      = f.input :campus, :collection => ['McGill University','Concordia University'], :include_blank => 'All'
-
-  .modal-footer
-    button.btn.btn-primary data-dismiss="modal" Close
-    button.btn.btn-primary data-dismiss="modal" Submit
+  = simple_form_for :filters, :url => survey_path(@survey), :html => { :class => 'form-horizontal filters', :method => :get } do |f|
+    .modal-body
+      = f.input :priority, :label => 'Follow-up Priority', :collection => Response::PRIORITIES, :include_blank => 'All', :required => false
+    .modal-footer
+      button.btn data-dismiss="modal" Close
+      = f.submit "Submit", :class => 'btn btn-primary'

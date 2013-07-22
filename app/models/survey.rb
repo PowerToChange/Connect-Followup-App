@@ -3,8 +3,9 @@ class Survey < ActiveRecord::Base
   has_many :survey_users, :dependent => :destroy
   has_many :users, :through => :survey_users
   has_many :leads, :dependent => :destroy
+  has_and_belongs_to_many :schools
 
-  attr_accessible :survey_id, :campaign_id, :activity_type_id, :title
+  attr_accessible :survey_id, :campaign_id, :activity_type_id, :title, :school_ids
 
   validates_presence_of :survey_id
 
@@ -15,13 +16,13 @@ class Survey < ActiveRecord::Base
     self.title
   end
 
-  def responses
+  def responses(options = {})
     @responses ||= begin
       params = {
         campaign_id: self.campaign_id,
         source_record_id: self.survey_id,
         'return' => 'target_contact_id'
-      }
+      }.merge!(options)
 
       page = 0
       per_page = 100
