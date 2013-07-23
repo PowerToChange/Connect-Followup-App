@@ -57,14 +57,14 @@ group :development do
   gem 'letter_opener'
   gem 'quiet_assets'
   gem 'thin'
-  gem 'debugger'
 
-  gem 'pry-plus'
   gem 'sextant'
   gem 'better_errors'
 end
 
 group :development, :test do
+  gem 'debugger'
+  gem 'pry-plus'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end

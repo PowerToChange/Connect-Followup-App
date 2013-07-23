@@ -33,4 +33,5 @@ class School < ActiveRecord::Base
   def civicrm_school
     @civicrm_school ||= CiviCrm::Contact.find(self.civicrm_id)
   end
+
 end

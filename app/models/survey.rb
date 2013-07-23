@@ -5,12 +5,13 @@ class Survey < ActiveRecord::Base
   has_many :leads, :dependent => :destroy
   has_and_belongs_to_many :schools
 
-  attr_accessible :survey_id, :campaign_id, :activity_type_id, :title, :school_ids
+  attr_accessible :survey_id, :campaign_id, :activity_type_id, :title, :school_ids, :has_all_schools
 
   validates_presence_of :survey_id
 
   before_validation :sync
   after_create :fetch_custom_fields
+  after_save :associate_all_schools
 
   def to_s
     self.title
@@ -57,4 +58,20 @@ class Survey < ActiveRecord::Base
   def fetch_custom_fields
     CustomField.sync(self)
   end
+
+  def associate_all_schools
+    if self.has_all_schools_changed? || self.id_changed?
+      self.schools = self.has_all_schools? ? School.all : []
+    end
+  end
+
+  # When a school is created associate it to surveys that have all schools
+  School.class_eval do
+    after_create do |school|
+      Survey.where(has_all_schools: true).each do |survey|
+        survey.schools << school
+      end
+    end
+  end
+
 end
