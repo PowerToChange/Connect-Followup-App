@@ -1,0 +1,10 @@
+<progressbar percentage="50" message="Giddy Up!"></progressbar>
+<div class="well square item active">
+  <h4>It didn't work out. What happened?</h4>
+  <div class="panel">
+    <a ng-click="submit(<%= Lead::REPORT_CODES.bad_info %>)" class="btn btn-large btn-block">Bad Information</a>
+    <a ng-click="submit(<%= Lead::REPORT_CODES.no_response %>)" class="btn btn-large btn-block">No Response</a>
+    <a ng-click="submit(<%= Lead::REPORT_CODES.not_interested %>)" class="btn btn-large btn-block">No Longer Interested</a>
+    <a ng-click="goBack()" class="btn btn-large btn-block">Back</a>
+  </div>
+</div>
