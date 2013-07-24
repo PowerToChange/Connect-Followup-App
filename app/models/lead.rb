@@ -21,7 +21,7 @@ class Lead < ActiveRecord::Base
                                 digital_cont: 8,
                                 face_cont: 10)
 
-  before_save :update_status_engagement_level_to_civicrm
+  before_save :update_status_engagement_level_to_civicrm, :if => :persisted?
 
   def status
     PROGRESS_STATUSES.select { |num|  num[0] == self.status_id  }.flatten[1]
@@ -36,14 +36,12 @@ class Lead < ActiveRecord::Base
   private
 
   def update_status_engagement_level_to_civicrm
-    if self.persisted?
-      a = CiviCrm::Activity.find(self.response_id)
-      a.status_id = self.status_id
-      if self.engagement_level
-        a.refresh_from({'engagement_level' => self.engagement_level})
-      end
-      a.save
+    a = CiviCrm::Activity.find(self.response_id)
+    a.status_id = self.status_id
+    if self.engagement_level
+      a.refresh_from({'engagement_level' => self.engagement_level})
     end
+    a.save
   end
 
 end
