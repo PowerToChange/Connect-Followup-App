@@ -25,8 +25,11 @@ class Response
       params["return.custom_#{f.custom_field_id}"] = 1
     end
     CiviCrm::CustomValue.where(params).collect do |value|
+      option_group_id = CiviCrm::CustomField.find(value.id).option_group_id
+      value_label = CiviCrm::OptionValue.where(option_group_id: option_group_id, value: value.try(:latest)).first.label
+
       OpenStruct.new(:label => survey.custom_fields.find_by_custom_field_id(value.id).try(:label),
-                     :answer => value.try(:latest))
+                     :answer => value_label)
     end
   end
 
