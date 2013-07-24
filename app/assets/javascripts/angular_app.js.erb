@@ -1,0 +1,121 @@
+window.App = angular.module('connectapp', []);
+
+App.config(["$routeProvider",function($routeProvider) {
+  $routeProvider
+    .when('/',{
+      templateUrl: "/assets/index.html.erb",
+      controller: "ReportCtrl"
+    })
+    .when('/not_work',{
+      templateUrl: "/assets/not_work.html.erb",
+      controller: "ReportCtrl"
+    })
+    .when('/worked_out',{
+      templateUrl: "/assets/worked_out.html",
+      controller: "ReportCtrl"
+    })
+    .when('/ending',{
+      templateUrl: "/assets/ending.html",
+      controller: "ReportCtrl"
+    })
+    .when('/continuing',{
+      templateUrl: "/assets/continuing.html",
+      controller: "ReportCtrl"
+    })
+    .otherwise({ redirectTo: '/' })
+}]);
+
+App.run(["$rootScope","$location", function($rootScope,$location){
+  $rootScope.engagement_level = null;
+  $rootScope.levels = {
+    digital: <%= Lead::REPORT_CODES.digital %>,
+    face: <%= Lead::REPORT_CODES.face %>,
+    digital_cont: <%= Lead::REPORT_CODES.digital_cont %>,
+    face_cont: <%= Lead::REPORT_CODES.face_cont %>
+  };
+}]);
+
+App.directive("progressbar", ["$rootScope", function($rootScope) {
+  return {
+    scope: {
+      percentage: "@",
+      message: "@"
+    },
+    restrict: "E",
+    templateUrl: "/assets/progress.html",
+    link: function() {
+      var opts = {
+        lines: 10, // The number of lines to draw
+        length: 10, // The length of each line
+        width: 5, // The line thickness
+        radius: 16, // The radius of the inner circle
+        corners: 1, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#fff', // #rgb or #rrggbb
+        speed: 1.6, // Rounds per second
+        trail: 50, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'spinner', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: '19%', // Top position relative to parent in px
+        left: '19%' // Left position relative to parent in px
+      };
+      var target = document.getElementById('spinner_dialog');
+      new Spinner(opts).spin(target);
+      $rootScope.spinner = $('#spinner_dialog');
+    }
+  }
+}]);
+
+App.controller("ReportCtrl", ["$scope","$routeParams","$rootScope","$http","$location",function($scope,$routeParams,$rootScope,$http,$location) {
+  $scope.goBack = function() {
+    window.history.back();
+  };
+  $scope.setEngagementLevel = function(selection) {
+    if (selection == 'ending') {
+      return;
+    }
+    else if($rootScope.engagement_level == $rootScope.levels.digital && selection == 'continuing') {
+      $rootScope.engagement_level = $rootScope.levels.digital_cont;
+    }
+    else if($rootScope.engagement_level == $rootScope.levels.face && selection == 'continuing') {
+      $rootScope.engagement_level = $rootScope.levels.face_cont;
+    }
+    else {
+      $rootScope.engagement_level = selection;
+    }
+  };
+  $scope.submit = function(selection) {
+    $scope.setEngagementLevel(selection);
+    if($rootScope.engagement_level === null || $rootScope.engagement_level == 'continuing') {
+      alert("Please make sure to follow the steps provided. Try again please.");
+      $location.path("/");
+    } else {
+      var data = {
+        'authenticity_token': $('ng-view').data('authenticity-token'),
+        'lead': {
+          'status_id':'<%= Lead::COMPLETED_STATUS_ID %>',
+          'engagement_level': $rootScope.engagement_level
+        }
+      }
+      var xsrf = $.param(data);
+      var url = $('ng-view').data('url');
+
+      $rootScope.spinner.show();
+
+      $http.put(url, xsrf, {
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      }).success(function (data, status, headers, config){
+        if(data.engagement_level == 8) {
+          $location.path('/continuing');
+        } else {
+          $location.path('/ending');
+        }
+      }).error(function(data, status, headers, config){
+        alert(data);
+      });
+    }
+  }
+}]);

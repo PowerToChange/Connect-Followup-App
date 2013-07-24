@@ -1,3 +1,3 @@
 - content_for(:body_class) { 'list_view' }
 
-ng-view
+ng-view data-url= survey_lead_path(@lead.survey,@lead) data-authenticity-token= form_authenticity_token

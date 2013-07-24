@@ -13,10 +13,12 @@
 #= require jquery
 #= require jquery_ujs
 #= require twitter/bootstrap
+#= require spin.min
 #= require angular
 #= require angular_app
 #= require_tree ./angular
-#= require_tree .
+#= require bootstrap
+#= require connections
 
 $ ->
   $('.survey ul.contacts > li').click ->
