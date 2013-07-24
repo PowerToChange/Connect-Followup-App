@@ -2,53 +2,6 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomValue&entity_id=1&json=1&key=382adce875611f9b75d294b83a77a5f2&return.custom_64=1&rowCount=1000
-    body: 
-      encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding: 
-      - gzip, deflate
-      User-Agent: 
-      - CiviCrm RubyClient/1.0.1
-  response: 
-    status: 
-      code: 302
-      message: Found
-    headers: 
-      Date: 
-      - Thu, 11 Jul 2013 18:27:07 GMT
-      Server: 
-      - Apache/2.2.22 (Ubuntu)
-      Location: 
-      - https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?entity_id=1&rowCount=1000&return.custom_64=1&entity=CustomValue&action=get&json=1&api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
-      Vary: 
-      - Accept-Encoding
-      Content-Encoding: 
-      - gzip
-      Content-Length: 
-      - "395"
-      Content-Type: 
-      - text/html; charset=iso-8859-1
-    body: 
-      encoding: ASCII-8BIT
-      string: !binary |
-        H4sIAAAAAAAAA3VRwW7bMAy95yu0HIbtUMtWHDvZZA9bkmIF2jVA3QI7BbTE
-        VN5sS5DkbPn7KXZOAwoBAvn4HiXy8Xfbx031c78j36uHe7J//nZ/tyHzG0rv
-        dtUtpdtqO1VYFFO6+zEvZ1z5ri25QpAh8Y1vsVzEjNzqoZecTsCM05HAay3P
-        F01SXushmnFTVgqJ1GLosPdEgSOdPqEkHIiyeCzmynvjPlHqPLyiGurIMBEJ
-        3VHXeHQU2pZ2Wg5tiEVzaoTtKP71aHtq0fnIKPMW/iW82PjzoZFF8h4689nq
-        P5vwN18kcRxPCPrB9pEYnNfdIUuvxElYbEb4BdoBRxiEb3RfvKIf018uJJMA
-        THP4jeciyzOxOArAdSpiyES6ZGmSQ5LUrM5FMpEvxMWKgRS4ypdZkhzXdb6U
-        bJ3WqwXkOSyPbF4qtMgplBGn5rJXGy6QMgznyq8GhELKonAY+fBch6GGj+QJ
-        7QktAU/+XybZa+vJKg4Nry2Cb6NjwaeLy7N/KMPKZCACAAA=
-
-    http_version: 
-  recorded_at: Thu, 11 Jul 2013 18:25:47 GMT
-- request: 
-    method: get
     uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomValue&entity_id=1&json=1&key=382adce875611f9b75d294b83a77a5f2&return.custom_64=1&rowCount=1000
     body: 
       encoding: US-ASCII
@@ -66,7 +19,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Thu, 11 Jul 2013 18:27:07 GMT
+      - Wed, 24 Jul 2013 15:34:52 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -76,11 +29,11 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Thu, 11 Jul 2013 18:27:07 +0000
+      - Wed, 24 Jul 2013 15:34:52 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1373567227\""
+      - "\"1374680092\""
       Content-Length: 
       - "48"
       Content-Type: 
@@ -89,5 +42,91 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
     http_version: 
-  recorded_at: Thu, 11 Jul 2013 18:25:47 GMT
+  recorded_at: Wed, 24 Jul 2013 15:33:21 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 24 Jul 2013 15:34:52 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 24 Jul 2013 15:34:52 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374680092\""
+      Content-Length: 
+      - "79"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"count\":0,\"is_error\":1,\"error_message\":\"Expected one CustomField but found 0\"}"
+    http_version: 
+  recorded_at: Wed, 24 Jul 2013 15:33:22 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=OptionValue&json=1&key=382adce875611f9b75d294b83a77a5f2&option_group_id=&value=
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 24 Jul 2013 15:34:53 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 24 Jul 2013 15:34:53 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374680093\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Wed, 24 Jul 2013 15:33:22 GMT
 recorded_with: VCR 2.5.0

@@ -73,7 +73,7 @@ div class=['well','square']
             td.icon #{ activity_icon(a) }
             td
               strong #{ a.activity_name }
-              '&nbsp;at #{ a.activity_date_time }
+              .timeago #{ time_ago_in_words(a.activity_date_time) } ago
               br
               '#{ activity_details(a) }
       - if @activities.blank?
@@ -87,7 +87,7 @@ div class=['well','square']
               i.icon-pencil
             td
               strong #{ n.subject }
-              '&nbsp;at #{ n.modified_date }
+              .timeago #{ time_ago_in_words(n.modified_date) } ago
               br
               #{ n.note }
       - if @notes.blank?

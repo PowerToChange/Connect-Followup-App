@@ -15,12 +15,11 @@ class ResponsesController < ApplicationController
     new_rejoiceable = Rejoiceable.new(
       source_contact_id: @response.contact_id,
       activity_type_id: ActivityType::REJOICEABLE_TYPE_ID,
-      activity_status_id: Lead::COMPLETED_STATUS_ID,
+      status_id: Lead::COMPLETED_STATUS_ID,
       custom_143: params[:rejoiceable_id],
       details: current_user_stamp,
       target_contact_id: current_user.civicrm_contact_id
     )
-
     if new_rejoiceable.save
       flash[:success] = 'Added rejoiceable!'
     else

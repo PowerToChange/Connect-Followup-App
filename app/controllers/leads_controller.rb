@@ -41,6 +41,6 @@ class LeadsController < ApplicationController
   private
 
   def updateable?
-    [4,3].include?(params[:lead][:status_id].to_i) || (params[:lead][:status_id].to_i == 2 && params[:lead][:activity_engagement_level].present?)
+    [4,3].include?(params[:lead][:status_id].to_i)
   end
 end

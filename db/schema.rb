@@ -98,16 +98,14 @@ ActiveRecord::Schema.define(:version => 20130723211245) do
   add_index "survey_users", ["user_id"], :name => "index_survey_users_on_user_id"
 
   create_table "surveys", :force => true do |t|
-    t.integer  "activity_type_id"
     t.string   "title"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.integer  "activity_type_id"
     t.integer  "survey_id"
     t.integer  "campaign_id"
     t.boolean  "has_all_schools",  :default => false
   end
-
-  add_index "surveys", ["activity_type_id"], :name => "index_surveys_on_activity_type_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

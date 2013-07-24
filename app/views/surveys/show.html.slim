@@ -32,7 +32,8 @@
       .carousel-nav
         = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
         = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
-
+div class=['well','square']
+  = "#{pluralize(@responses.size,'result')} found."
 div class=['well','square']
   = link_to 'Filter Options', '#filterModal', :class => 'btn btn-inverse', 'data-toggle' => 'modal', :role => 'button'
 

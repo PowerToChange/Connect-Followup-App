@@ -6,6 +6,7 @@ FactoryGirl.define do
     activity_type_id 32
     campaign_id 2
     title "Sept 2012 petition"
+    has_all_schools false
 
     factory :survey_without_callbacks do
       after(:build) { |survey| survey.stub(:sync) }
