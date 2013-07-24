@@ -87,7 +87,7 @@ div class=['well','square']
               i.icon-pencil
             td
               strong #{ n.subject }
-              '&nbsp;at #{ n.modified_date }
+              .timeago #{ time_ago_in_words(n.modified_date) } ago
               br
               #{ n.note }
       - if @notes.blank?
