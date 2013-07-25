@@ -34,8 +34,13 @@ class User < ActiveRecord::Base
       pulse_campus_ids += ministry_involvement.ministry[:campus].collect { |c| c[:campus_id] }
     end
     pulse_campus_ids.uniq!
-  rescue => e
+
+  rescue Pulse::Errors::BadRequest # User does not exist in Pulse
+    self.schools = []
     return false
+  rescue # Unknown failure
+    return false
+
   else
     self.schools = School.where(pulse_id: pulse_campus_ids)
   end

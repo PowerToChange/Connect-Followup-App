@@ -35,10 +35,23 @@ describe User do
 
     subject { user.sync_schools_from_pulse }
 
-    it 'queries the Pulse API' do
+    it 'associates schools to the user' do
       user.schools.should eq []
       subject
       user.schools.should eq [school]
+    end
+
+    it 'removes all schools if user not found in Pulse' do
+      Pulse::MinistryInvolvement.stub(:where).and_raise(Pulse::Errors::BadRequest)
+      user.schools << school
+      user.schools.should be_present
+      subject
+      user.schools.should be_blank
+    end
+
+    it 'should still return if Pulse fails' do
+      Pulse::MinistryInvolvement.stub(:where).and_raise(Pulse::Errors::InternalError)
+      subject
     end
   end
 
