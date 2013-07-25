@@ -1,0 +1,165 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://pulse.powertochange.com/api/ministry_involvements?api_key=087b1cd5-1629-4a1f-9693-be403067dbef&guid=imgloballyunique
+    body:
+      encoding: US-ASCII
+      string: ""
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Pulse RubyClient/0.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 24 Jul 2013 21:17:17 GMT
+      Server:
+      - Apache/2.2.22 (Debian)
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      X-Runtime:
+      - "209"
+      Etag:
+      - "\"9dc2f7ae3882d29fa1a24a165c82477a\""
+      X-Powered-By:
+      - Phusion Passenger 4.0.5
+      Set-Cookie:
+      - _ministry_tracker_production_session=87116ac5004109b44893c9230c543f9e; path=/; HttpOnly
+      - auth_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - "1423"
+      Content-Type:
+      - application/xml; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA7VY227jNhD9FcIFtk/aRPEdyQZ1nCbtIt5LkibtUzCWaImw
+        TLq82Mjfdyg5C4urUbVAi10gNs0zGs6cOTPixUZIYax+fRFyp4od33BpDVsJ
+        beyLhA3/0HvIeZEq2WMFfFu7djxZ9xjfgCg+9Ey1433qV3/J/OL7RG16LHMi
+        /dCbXg1mo3g6ia6vbk6j63g0ieaD0TiaTWfzm9l0MOuPhr3LiyZPWNPiizd6
+        hgitCs7s69Y7aWG1usfvPeZXyy39HtsqI6xQsvxyOI7fyWaF20iBNk789ssL
+        Y0HblxQsvzw7jU+j0ziKBxcnR8sX5fFz9EahO27rFw+/nNA/vfl/dJDS+YMz
+        X9Sea2YVm+cgM84i9mBd6lOAriWw2Tpz2DlLIBXA/pBixzUe6hX3PqtitROF
+        P3S1tzQej0b+XNVKaKXIlPzbCcnmCnFZiByTyCutkvXR42vA8RmJm4MuuFWS
+        gg76NPTdT2f9/nnGtz48m20B6DdGCP9YdgebJde27v807mIs5exebJQza1GH
+        T+jA1eEPlkc3qn6QeDDogr7RIP23+FwJE/0JO8F1dAtacnCBvU7ePNj3GIu9
+        5jIJkjkY0nhkGJdSQNHMgyHNg8N+plbM5hhIZIXgps6GFseVTJSuE7mObaGD
+        khwrLINmn8enJPIaihzTLTj11D593mvYG0WUy5im2w1Ik8OeNwLHNFNuudIY
+        Xay2PfHQIR2hW+SWZQtIft0DWXDxkA7Ub84XFfFc2umPKpdstlwqa9+wb3XK
+        o5mUPEp5dMXxh50LrE6mpNU7WPOcQ0odZEI71ABFhz5r1EoBQQ5p6bpDSQZN
+        0G04IXELfLrGf2QGJi3Y5BadpJAjmnCLZIFNCJNH6SxdlAuFTF0THYEmy0I5
+        ZNsMQ2poeR/TIlTh79UrkOeNRzTZK3jVDJ4Eqh/+JQNOe/FJwHGSfVdFooJM
+        2bzcFrCFNvRZ4qwgFDsSyJm27B3uOWfX3IhMBgxqsYXSqutkpxXqq+Nc/mzI
+        xNNku3/F/S2tma7NKuwL0K8tD6ap88AlT6jCoomKk6gWKTQL45iOUIjDJF9p
+        3GBVkJI2GzgxSN+9DV1jMa1IBNzLpNOah3bonNGGngB7q9sFxIlbZNLPDn4e
+        SYRh1SSCZmbSChwShcmD2LT4hHYec7UBkgvxlCbDo24p3Ul3nFd433NDgadZ
+        /KhxKEfgM/fKSdZBi1x/Q1QDmZ8NF0paXX2Foq7edKtpsONJu9RKres0H9Hp
+        /M6IY19d9XnJE4afzgbnLf7FP+Jgo+2jpbrTtIx3M9w8r7e0w9DsHezCbNDy
+        e8Qpr+KFf9Gos4rWiUasLyuXOXyblAE7WzSWsnQDiStwsdTg6COHQMRa3qjq
+        Jq80vhub3Ksizn3hYNTVsdCKL8M1njML/Rp2tTiHAltyUIMdsbeOF9u6cg07
+        sKTELgDVQC3rcTjrUG8l+hPfYyycNHuBL8qYJs1TbDtJ2GQmXdMTGqx6rp+1
+        g3x3JePbhPK7NFZYZ8sZ5ZEnuVSFysIW1DVqn60NNbflFaWOveeZCCqi5Qqi
+        jn0Aswab5HwfEG3UlSv+/fXQSJ8AB4NwaOyghqWdR6VRU1U9BF1pcwBjfhfC
+        GPwPLgsqcfiDjniuJKCXymnlsqCND7oae/LU1YEqtAzSdfQzYEctVD0oXSn1
+        BsZj5EoVfulLDnoDSfh60NkdIVOj6pNRy/z9HViKLc8CetAk/5d5gs7AsyhW
+        OKlit3Ja0HNmy4hMW6iGXmlXSqdBFGmu/qU0eenXckkUwPDRtwWXaThu15X5
+        5O2K9Ojj8bXvj94Qx/1JeaFXuyUuL1eDe+IJcU9c7m28Iv7/LoYHvW+JrEiH
+        Ag2b8DL4v+xbXdj976lpXDaX/wAWY90gXxgAAA==
+
+    http_version:
+  recorded_at: Wed, 24 Jul 2013 21:17:37 GMT
+- request:
+    method: get
+    uri: https://pulse.powertochange.com/api/ministry_involvements?api_key=087b1cd5-1629-4a1f-9693-be403067dbef&guid=imgloballyunique
+    body:
+      encoding: US-ASCII
+      string: ""
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Pulse RubyClient/0.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 24 Jul 2013 21:17:18 GMT
+      Server:
+      - Apache/2.2.22 (Debian)
+      Cache-Control:
+      - private, max-age=0, must-revalidate
+      X-Runtime:
+      - "194"
+      Etag:
+      - "\"9dc2f7ae3882d29fa1a24a165c82477a\""
+      X-Powered-By:
+      - Phusion Passenger 4.0.5
+      Set-Cookie:
+      - _ministry_tracker_production_session=afff8a1ae23da341b148a7c8c7670e40; path=/; HttpOnly
+      - auth_token=; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      Status:
+      - 200 OK
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - "1423"
+      Content-Type:
+      - application/xml; charset=utf-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAA7VY227jNhD9FcIFtk/aRPEdyQZ1nCbtIt5LkibtUzCWaImw
+        TLq82Mjfdyg5C4urUbVAi10gNs0zGs6cOTPixUZIYax+fRFyp4od33BpDVsJ
+        beyLhA3/0HvIeZEq2WMFfFu7djxZ9xjfgCg+9Ey1433qV3/J/OL7RG16LHMi
+        /dCbXg1mo3g6ia6vbk6j63g0ieaD0TiaTWfzm9l0MOuPhr3LiyZPWNPiizd6
+        hgitCs7s69Y7aWG1usfvPeZXyy39HtsqI6xQsvxyOI7fyWaF20iBNk789ssL
+        Y0HblxQsvzw7jU+j0ziKBxcnR8sX5fFz9EahO27rFw+/nNA/vfl/dJDS+YMz
+        X9Sea2YVm+cgM84i9mBd6lOAriWw2Tpz2DlLIBXA/pBixzUe6hX3PqtitROF
+        P3S1tzQej0b+XNVKaKXIlPzbCcnmCnFZiByTyCutkvXR42vA8RmJm4MuuFWS
+        gg76NPTdT2f9/nnGtz48m20B6DdGCP9YdgebJde27v807mIs5exebJQza1GH
+        T+jA1eEPlkc3qn6QeDDogr7RIP23+FwJE/0JO8F1dAtacnCBvU7ePNj3GIu9
+        5jIJkjkY0nhkGJdSQNHMgyHNg8N+plbM5hhIZIXgps6GFseVTJSuE7mObaGD
+        khwrLINmn8enJPIaihzTLTj11D593mvYG0WUy5im2w1Ik8OeNwLHNFNuudIY
+        Xay2PfHQIR2hW+SWZQtIft0DWXDxkA7Ub84XFfFc2umPKpdstlwqa9+wb3XK
+        o5mUPEp5dMXxh50LrE6mpNU7WPOcQ0odZEI71ABFhz5r1EoBQQ5p6bpDSQZN
+        0G04IXELfLrGf2QGJi3Y5BadpJAjmnCLZIFNCJNH6SxdlAuFTF0THYEmy0I5
+        ZNsMQ2poeR/TIlTh79UrkOeNRzTZK3jVDJ4Eqh/+JQNOe/FJwHGSfVdFooJM
+        2bzcFrCFNvRZ4qwgFDsSyJm27B3uOWfX3IhMBgxqsYXSqutkpxXqq+Nc/mzI
+        xNNku3/F/S2tma7NKuwL0K8tD6ap88AlT6jCoomKk6gWKTQL45iOUIjDJF9p
+        3GBVkJI2GzgxSN+9DV1jMa1IBNzLpNOah3bonNGGngB7q9sFxIlbZNLPDn4e
+        SYRh1SSCZmbSChwShcmD2LT4hHYec7UBkgvxlCbDo24p3Ul3nFd433NDgadZ
+        /KhxKEfgM/fKSdZBi1x/Q1QDmZ8NF0paXX2Foq7edKtpsONJu9RKres0H9Hp
+        /M6IY19d9XnJE4afzgbnLf7FP+Jgo+2jpbrTtIx3M9w8r7e0w9DsHezCbNDy
+        e8Qpr+KFf9Gos4rWiUasLyuXOXyblAE7WzSWsnQDiStwsdTg6COHQMRa3qjq
+        Jq80vhub3Ksizn3hYNTVsdCKL8M1njML/Rp2tTiHAltyUIMdsbeOF9u6cg07
+        sKTELgDVQC3rcTjrUG8l+hPfYyycNHuBL8qYJs1TbDtJ2GQmXdMTGqx6rp+1
+        g3x3JePbhPK7NFZYZ8sZ5ZEnuVSFysIW1DVqn60NNbflFaWOveeZCCqi5Qqi
+        jn0Aswab5HwfEG3UlSv+/fXQSJ8AB4NwaOyghqWdR6VRU1U9BF1pcwBjfhfC
+        GPwPLgsqcfiDjniuJKCXymnlsqCND7oae/LU1YEqtAzSdfQzYEctVD0oXSn1
+        BsZj5EoVfulLDnoDSfh60NkdIVOj6pNRy/z9HViKLc8CetAk/5d5gs7AsyhW
+        OKlit3Ja0HNmy4hMW6iGXmlXSqdBFGmu/qU0eenXckkUwPDRtwWXaThu15X5
+        5O2K9Ojj8bXvj94Qx/1JeaFXuyUuL1eDe+IJcU9c7m28Iv7/LoYHvW+JrEiH
+        Ag2b8DL4v+xbXdj976lpXDaX/wAWY90gXxgAAA==
+
+    http_version:
+  recorded_at: Wed, 24 Jul 2013 21:17:37 GMT
+recorded_with: VCR 2.5.0

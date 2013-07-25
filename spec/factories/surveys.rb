@@ -11,6 +11,10 @@ FactoryGirl.define do
     factory :survey_without_callbacks do
       after(:build) { |survey| survey.stub(:sync) }
       after(:build) { |survey| survey.stub(:fetch_custom_fields) }
+
+      factory :survey_without_callbacks_with_schools do
+        after(:build) { |survey| build(:school, surveys: [survey]) }
+      end
     end
   end
 end

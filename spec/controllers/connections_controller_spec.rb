@@ -6,7 +6,7 @@ describe ConnectionsController do
   describe "GET /connections" do
     let!(:survey) { create(:survey_without_callbacks) }
     let!(:survey_others) { create(:survey_without_callbacks) }
-    let!(:survey_user) { create(:survey_user, :survey_id => survey.id, :user_id => user.id) }
+
     subject { get :index }
     it 'should return success', :vcr do
       subject

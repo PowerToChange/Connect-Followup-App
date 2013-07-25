@@ -44,11 +44,27 @@ describe SessionsController do
   describe 'GET /sessions' do
     login_user
     subject { get :index }
+
     context 'when return from success CAS authentication' do
+      before do
+        User.any_instance.stub(:sync_schools_from_pulse).and_return(true)
+      end
+
       it 'redirects to my connections page' do
         subject
         response.should redirect_to(connections_path)
       end
+
+      it 'updates current_user attributes from cas session' do
+        User.any_instance.should_receive(:update_attributes)
+        subject
+      end
+
+      it 'syncs current_user schools from the Pulse' do
+        User.any_instance.should_receive(:sync_schools_from_pulse)
+        subject
+      end
+
       context 'but without an existing user account in Connect' do
         before do
           ApplicationController.any_instance.stub(:current_user) { nil }

@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :user do
     email "adrian@ballistiq.com"
+    guid "imgloballyunique"
   end
 end

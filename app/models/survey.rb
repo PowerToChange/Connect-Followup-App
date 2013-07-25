@@ -1,9 +1,8 @@
 class Survey < ActiveRecord::Base
   has_many :custom_fields, :dependent => :destroy
-  has_many :survey_users, :dependent => :destroy
-  has_many :users, :through => :survey_users
   has_many :leads, :dependent => :destroy
   has_and_belongs_to_many :schools
+  has_many :users, :through => :schools, uniq: true
 
   attr_accessible :survey_id, :campaign_id, :activity_type_id, :title, :school_ids, :has_all_schools
 

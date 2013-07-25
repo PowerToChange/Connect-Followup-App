@@ -13,11 +13,15 @@ class ApplicationController < ActionController::Base
   end
 
   def cas_logged_in?
-    session[:cas_user].present?
+    session[:cas_user]
   end
 
   def current_user
-    @current_user ||= User.find_by_email(session[:cas_user]) if session[:cas_user]
+    if cas_logged_in? && session[:cas_extra_attributes] && session[:cas_extra_attributes][:ssoGuid].present?
+      @current_user ||= User.where(guid: session[:cas_extra_attributes][:ssoGuid]).first_or_create
+    else
+      nil
+    end
   end
 
   private
