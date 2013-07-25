@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
 
   rescue Pulse::Errors::BadRequest # User does not exist in Pulse
     self.schools = []
-    return false
   rescue # Unknown failure
     return false
 
