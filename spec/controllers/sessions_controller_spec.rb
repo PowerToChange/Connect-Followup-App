@@ -4,9 +4,11 @@ describe SessionsController do
 
   describe 'GET /sessions/new' do
     subject { get :new }
+
     context 'when not logged in' do
       it { should be_success }
     end
+
     context 'when logged in' do
       login_user
       it 'redirects to my connections page' do
@@ -14,14 +16,17 @@ describe SessionsController do
         response.should redirect_to(connections_path)
       end
     end
-    context 'when logged into CAS but not in local Connect app' do
+
+    context 'when logging into app for the first time' do
       before do
         ApplicationController.any_instance.stub(:cas_logged_in?) { 'adrian@ballistiq.com' }
-        ApplicationController.any_instance.stub(:current_user) { nil }
+        session[:cas_extra_attributes] = { ssoGuid: 'myfancyguid' }
       end
-      it 'shows flash alert message of user not found' do
+
+      it 'creates new user if not found' do
+        User.where(guid: 'myfancyguid').first.should_not be_present
         subject
-        flash[:alert].should_not be_empty
+        User.where(guid: 'myfancyguid').first.should be_present
       end
     end
   end
@@ -45,23 +50,19 @@ describe SessionsController do
     login_user
     subject { get :index }
 
+    before do
+      User.any_instance.stub(:sync_schools_from_pulse).and_return(true)
+    end
+
     context 'when return from success CAS authentication' do
-      before do
-        User.any_instance.stub(:sync_schools_from_pulse).and_return(true)
-      end
 
       it 'redirects to my connections page' do
         subject
         response.should redirect_to(connections_path)
       end
 
-      it 'updates current_user attributes from cas session' do
-        User.any_instance.should_receive(:update_attributes)
-        subject
-      end
-
-      it 'syncs current_user schools from the Pulse' do
-        User.any_instance.should_receive(:sync_schools_from_pulse)
+      it 'calls after_login' do
+        SessionsController.any_instance.should_receive(:after_login)
         subject
       end
 
@@ -69,10 +70,23 @@ describe SessionsController do
         before do
           ApplicationController.any_instance.stub(:current_user) { nil }
         end
+
         it 'redirects back to login page' do
           subject
           response.should redirect_to(log_in_path)
         end
+      end
+    end
+
+    context 'after login' do
+      it 'updates current user attributes' do
+        User.any_instance.should_receive(:update_attributes)
+        subject
+      end
+
+      it 'syncs current user schools from Pulse' do
+        User.any_instance.should_receive(:sync_schools_from_pulse)
+        subject
       end
     end
   end

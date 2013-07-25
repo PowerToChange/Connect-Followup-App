@@ -29,7 +29,7 @@ class ResponsesController < ApplicationController
   end
 
   def create_note
-    new_note = Note.create(
+    new_note = Note.new(
       subject: current_user_stamp,
       note: params[:note],
       entity_id: @response.contact_id,

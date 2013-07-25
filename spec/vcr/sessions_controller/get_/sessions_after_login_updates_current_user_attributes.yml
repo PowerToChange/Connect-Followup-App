@@ -1,0 +1,54 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: https://pulse.powertochange.com/api/ministry_involvements?api_key=087b1cd5-1629-4a1f-9693-be403067dbef&guid=imgloballyunique
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - Pulse RubyClient/0.0.1
+  response: 
+    status: 
+      code: 400
+      message: Bad Request
+    headers: 
+      Date: 
+      - Thu, 25 Jul 2013 16:34:56 GMT
+      Server: 
+      - Apache/2.2.22 (Debian)
+      X-Runtime: 
+      - "73"
+      Cache-Control: 
+      - no-cache
+      X-Powered-By: 
+      - Phusion Passenger 4.0.5
+      Set-Cookie: 
+      - _ministry_tracker_production_session=be214a43754255b7479d79109d34db1b; path=/; HttpOnly
+      Status: 
+      - 400 Bad Request
+      Vary: 
+      - Accept-Encoding
+      Content-Encoding: 
+      - gzip
+      Content-Length: 
+      - "99"
+      Connection: 
+      - close
+      Content-Type: 
+      - application/xml; charset=utf-8
+    body: 
+      encoding: ASCII-8BIT
+      string: !binary |
+        H4sIAAAAAAAAAzWMsQ2AMAwEV/EGWcBKxwJsEIknpIgT2Q4S2xNANFfc6Z+h
+        2jSyXx1xHeKlYnkUh1dxhVnKiNJoGNRob0O2SSU/QLmcEOpJU4XPzOEfcPiu
+        b5SiDGNiAAAA
+
+    http_version: 
+  recorded_at: Thu, 25 Jul 2013 16:35:16 GMT
+recorded_with: VCR 2.5.0

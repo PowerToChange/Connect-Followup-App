@@ -3,12 +3,16 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :schools
   has_many :surveys, through: :schools, uniq: true
 
-  attr_accessible :email, :guid
-  validates :email, presence: true, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }
+  attr_accessible :email, :guid, :first_name, :last_name
+  validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }, allow_blank: true
   validates :guid, presence: true
 
   def to_s
-    self.email
+    self.name || self.email || self.guid
+  end
+
+  def name
+    [self.first_name, self.last_name].select(&:present?).join(' ')
   end
 
   def connections
@@ -29,7 +33,11 @@ class User < ActiveRecord::Base
     Pulse::MinistryInvolvement.where(guid: self.guid).each do |ministry_involvement|
       pulse_campus_ids += ministry_involvement.ministry[:campus].collect { |c| c[:campus_id] }
     end
-    self.schools = School.where(pulse_id: pulse_campus_ids.uniq)
+    pulse_campus_ids.uniq!
+  rescue => e
+    return false
+  else
+    self.schools = School.where(pulse_id: pulse_campus_ids)
   end
 
 end

@@ -6,17 +6,13 @@ class SessionsController < ApplicationController
   # Upon logout, the the CASClient filter will reset the session[:cas_user] to nil via the destroy action
 
   before_filter CASClient::Frameworks::Rails::Filter, except: [:new, :destroy, :create]
-  before_filter :authenticate_user!, only: :index
+  before_filter :authenticate_user!, :after_login, only: :index
 
   def index
-    after_login
     redirect_to connections_path
   end
 
   def new
-    if cas_logged_in?
-      flash.now[:alert] = "Login failed! No associating user account found for your CAS account. Please contact your administrator for assistance."
-    end
     redirect_to connections_path if logged_in?
   end
 
@@ -31,13 +27,15 @@ class SessionsController < ApplicationController
   private
 
   def after_login
-    return false unless current_user
-    update_current_user_from_session
+    update_current_user_from_cas_session
     sync_current_user_schools_from_pulse
   end
 
-  def update_current_user_from_session
-    current_user.update_attributes(email: session[:cas_user])
+  def update_current_user_from_cas_session
+    return false unless session[:cas_user].present? && session[:cas_extra_attributes]
+    current_user.update_attributes(email: session[:cas_user],
+                                   first_name: session[:cas_extra_attributes][:firstName],
+                                   last_name: session[:cas_extra_attributes][:lastName])
   end
 
   def sync_current_user_schools_from_pulse

@@ -17,11 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    if cas_logged_in? && session[:cas_extra_attributes] && session[:cas_extra_attributes][:ssoGuid].present?
-      @current_user ||= User.where(guid: session[:cas_extra_attributes][:ssoGuid]).first_or_create
-    else
-      nil
-    end
+    @current_user ||= User.where(guid: session[:cas_extra_attributes][:ssoGuid]).first_or_create if cas_logged_in? && session[:cas_extra_attributes]
   end
 
   private
