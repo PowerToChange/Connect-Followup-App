@@ -12,6 +12,6 @@ class SurveysController < ApplicationController
   private
 
   def filters
-    params[:filters].present? ? params[:filters] : {}
+    (params[:filters] || {}).select { |key, value| value.present? }
   end
 end
