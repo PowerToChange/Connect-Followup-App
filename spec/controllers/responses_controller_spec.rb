@@ -6,10 +6,6 @@ describe ResponsesController do
   let(:lead) { create(:lead, user: user) }
   let(:survey) { lead.survey }
 
-  after do
-    flash[:error].should be_nil
-  end
-
   describe 'show' do
     subject { get :show, survey_id: survey.id, id: lead.response_id }
 
@@ -39,21 +35,38 @@ describe ResponsesController do
     end
   end
 
-  describe 'create_rejoiceable' do
-    subject { post :create_rejoiceable, survey_id: survey.id, id: lead.response_id, rejoiceable_id: 1 }
-
+  describe 'POST /survey/:id/responses', :vcr do
+    let(:params) { { source_contact_id: 1, status_id: Lead::COMPLETED_STATUS_ID, activity_type_id: 2, details: 'adrian@ballistiq.com', target_contact_id: 2 }  }
+    subject { post :create, survey_id: survey.id, id: lead.response_id, activity: params }
     before do
-      Rejoiceable.any_instance.stub(:save).and_return(true)
+      Response.any_instance.stub(:id) { lead.response_id }
     end
-
-    it 'should return redirect', :vcr do
-      subject
-      response.should be_redirect
+    context 'when success' do
+      before do
+        Activity.any_instance.stub(:save).and_return(true)
+      end
+      it 'redirects' do
+        subject
+        response.should be_redirect
+      end
+      it 'sets flash success' do
+        subject
+        flash[:success].should_not be_empty
+      end
     end
-
-    it 'should create new rejoiceable', :vcr do
-      Rejoiceable.any_instance.should_receive(:save)
-      subject
+    context 'when fail' do
+      let(:params) { { source_contact_id: 1, status_id: Lead::COMPLETED_STATUS_ID, details: 'adrian@ballistiq.com', target_contact_id: 2 }  }
+      before do
+        Activity.any_instance.stub(:save).and_return(false)
+      end
+      it 'redirects' do
+        subject
+        response.should be_redirect
+      end
+      it 'sets flash error' do
+        subject
+        flash[:error].should_not be_empty
+      end
     end
   end
 

@@ -1,0 +1,132 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Thu, 25 Jul 2013 17:45:55 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Thu, 25 Jul 2013 17:45:55 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374774355\""
+      Content-Length: 
+      - "297"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":2,\"values\":{\"2\":{\"id\":\"2\",\"title\":\"Sept 2012 petition\",\"campaign_id\":\"2\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_date\":\"2012-05-29 11:05:52\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2012-09-04 21:20:13\",\"bypass_confirm\":\"1\"}}}"
+    http_version: 
+  recorded_at: Thu, 25 Jul 2013 17:44:23 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000&survey_id=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Thu, 25 Jul 2013 17:45:56 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Thu, 25 Jul 2013 17:45:56 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374774356\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Thu, 25 Jul 2013 17:44:24 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Activity&id=55412&json=1&key=382adce875611f9b75d294b83a77a5f2&return=target_contact_id
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Thu, 25 Jul 2013 17:45:56 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Thu, 25 Jul 2013 17:45:56 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1374774356\""
+      Content-Length: 
+      - "403"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"1\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"activity_date_time\":\"2012-09-09 21:28:36\",\"status_id\":\"2\",\"priority_id\":\"1\",\"is_test\":\"0\",\"is_auto\":\"0\",\"is_current_revision\":\"1\",\"is_deleted\":\"0\",\"engagement_level\":\"10\",\"target_contact_id\":[\"48085\"]}}}"
+    http_version: 
+  recorded_at: Thu, 25 Jul 2013 17:44:25 GMT
+recorded_with: VCR 2.5.0

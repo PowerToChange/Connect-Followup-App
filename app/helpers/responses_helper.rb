@@ -3,6 +3,10 @@ module ResponsesHelper
     icon_class = case activity.activity_type_id
     when ActivityType::PHONE_CALL_TYPE_ID
       "icon-phone"
+    when ActivityType::SMS_TYPE_ID
+      "icon-comment"
+    when ActivityType::EMAIL_TYPE_ID
+      "icon-envelope"
     when ActivityType::REJOICEABLE_TYPE_ID
       "icon-certificate"
     else

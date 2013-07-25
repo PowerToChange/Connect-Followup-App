@@ -1,35 +1,39 @@
 class ResponsesController < ApplicationController
+  respond_to :html, :json
   before_filter :authenticate_user!, :get_survey_and_response
 
   def show
     @lead = current_user.leads.find_by_response_id(params[:id])
-
     @activities = @response.contact.activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.reverse
-
     @notes = @response.contact.notes.select { |n| n.note.present? }.reverse
-
     @rejoiceables_collection = OptionValue.where(option_group_id: OptionGroup::REJOICEABLES_ID, is_active: 1).sort_by(&:value).collect { |ov| [ov.value, ov.label] }
   end
 
-  def create_rejoiceable
-    new_rejoiceable = Rejoiceable.new(
+  def create
+    params[:activity].merge!({
       source_contact_id: @response.contact_id,
-      custom_143: params[:rejoiceable_id],
+      status_id: Lead::COMPLETED_STATUS_ID,
       details: current_user_stamp,
       target_contact_id: current_user.civicrm_contact_id
-    )
+    })
+    @activity = Activity.new(params[:activity])
 
-    if new_rejoiceable.save
-      flash[:success] = 'Added rejoiceable!'
-    else
-      flash[:error] = 'Oops, could not add the rejoiceable!'
+    path = survey_response_path(@survey.id, @response.response_id)
+    respond_with(@activity, location: survey_response_path(@survey,@response)) do |format|
+      if @activity.save
+        flash[:success] = 'Activity successfully created.'
+        format.json do
+          render :json => "ok"
+        end
+      else
+        flash[:error] =  'Oops, could not add activity!'
+        format.html { redirect_to path }
+      end
     end
-
-    redirect_to action: :show
   end
 
   def create_note
-    new_note = Note.new(
+    new_note = Note.create(
       subject: current_user_stamp,
       note: params[:note],
       entity_id: @response.contact_id,
@@ -48,7 +52,7 @@ class ResponsesController < ApplicationController
   private
 
   def current_user_stamp
-    current_user.to_s
+    current_user.email
   end
 
   def get_survey_and_response

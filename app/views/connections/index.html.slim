@@ -21,8 +21,7 @@
             div class=['label', r.status] = r.status
             .more
               div class='btn-group'
-                = link_to_phone "phone", "tel", r.contact.phone
-                = link_to_phone "comment", "sms", r.contact.phone
+                = render :partial => 'layouts/phone_sms', :locals => { :tel => r.contact.phone, :survey_id => r.survey_id, :response_id => r.response_id }
           .arrow
             i class="icon-chevron-right icon-large"
       - if conn.leads.size.zero?

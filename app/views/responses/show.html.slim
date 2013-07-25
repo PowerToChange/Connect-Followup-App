@@ -9,8 +9,7 @@ ul.contacts
         = @response.contact.display_name
       .more
         .btn-group
-          = link_to_phone "phone", "tel", @response.contact.phone
-          = link_to_phone "comment", "sms", @response.contact.phone
+          = render :partial => 'layouts/phone_sms', :locals => { :tel => @response.contact.phone, :survey_id => @survey.id, :response_id => @response }
 
 - if @lead.present?
   div class=['well','square','report-progress']
@@ -31,7 +30,8 @@ div class=['well','square']
       td= link_to @response.contact.phone, "tel:#{@response.contact.phone}" if @response.contact.phone.present?
     tr
       td Email
-      td= link_to @response.contact.email, "mailto:#{@response.contact.email}"
+      td
+        = render :partial => 'layouts/email', :locals => { :address => @response.contact.email, :survey_id => @survey.id, :response_id => @response }
 
 
 div class=['well','square']
