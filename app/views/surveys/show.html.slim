@@ -12,7 +12,7 @@
           .info
             h5
               = r.contact.display_name
-            = r.contact.email
+            = render :partial => 'layouts/email', :locals => { :address => r.contact.email, :survey_id => r.survey_id, :response_id => r.response_id }
             .more
               div class='btn-group'
                 - if !Lead.all.map(&:response_id).include?(r.response.id)
