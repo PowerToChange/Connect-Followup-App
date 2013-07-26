@@ -73,7 +73,8 @@ div class=['well','square']
             td.icon #{ activity_icon(a) }
             td
               strong #{ a.activity_name }
-              small.pull-right #{ time_ago_in_words(a.activity_date_time) } ago
+              small.pull-right data-timestamp= a.activity_date_time
+                #{ custom_time_ago_in_words(a.activity_date_time) }
               br
               '#{ activity_details(a) }
       - if @activities.blank?
@@ -87,7 +88,8 @@ div class=['well','square']
               i.icon-pencil
             td
               strong #{ n.subject }
-              small.pull-right #{ time_ago_in_words(n.modified_date) } ago
+              small.pull-right data-timestamp= n.modified_date
+                #{ days_ago(n.modified_date) }
               br
               #{ n.note }
       - if @notes.blank?
