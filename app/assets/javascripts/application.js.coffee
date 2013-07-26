@@ -38,10 +38,6 @@ $ ->
   $('a.reverse-progress').click ->
     $('.carousel').carousel('prev')
 
-  # Submit a bootstrap modal form via a submit input element in the modal footer (instead of in the form)
-  $('.modal-footer input[type="submit"]').on 'click', ->
-    $('form#' + $(this).attr('form')).submit()
-
   # Activate Bootstrap tabs
   $('ul.nav-tabs a').click (e) ->
     e.preventDefault()

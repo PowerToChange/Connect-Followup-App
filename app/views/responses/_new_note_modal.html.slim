@@ -8,4 +8,4 @@
         = text_area_tag :note, nil, rows: 5, placeholder: 'Type your note'
   .modal-footer
     = link_to 'Close', '#', data: { dismiss: 'modal' }, class: 'btn'
-    = submit_tag 'Add Note', data: { disable_with: '...' }, form: 'new-note', class: 'btn btn-primary'
+    = submit_tag 'Add Note', form: 'new-note', class: 'btn btn-primary'

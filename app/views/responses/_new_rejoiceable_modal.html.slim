@@ -8,6 +8,6 @@
         = simple_form_for :activity, url: survey_responses_path(:id => @response) do |f|
           = f.input :custom_143, as: :hidden, input_html: { value: rejoiceable_id }
           = f.input :activity_type_id, as: :hidden, input_html: { value: ActivityType::REJOICEABLE_TYPE_ID }
-          = f.submit label, class: 'btn btn-primary'
+          = f.submit label, class: 'btn btn-primary', data: { disable_with: "..." }
   .modal-footer
     = link_to 'Close', '#', data: { dismiss: 'modal' }, class: 'btn'
