@@ -12,6 +12,10 @@ class Response
     response.id
   end
 
+  def survey_id
+    survey.id
+  end
+
   def response_id
     response.id
   end

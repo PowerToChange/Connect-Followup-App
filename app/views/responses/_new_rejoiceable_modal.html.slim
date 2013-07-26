@@ -5,6 +5,9 @@
   .modal-body
     .row-fluid
       - rejoiceables_collection.each do |rejoiceable_id, label|
-        = button_to label, create_rejoiceable_survey_response_path(rejoiceable_id: rejoiceable_id), class: 'btn btn-primary'
+        = simple_form_for :activity, url: survey_responses_path(:id => @response) do |f|
+          = f.input :custom_143, as: :hidden, input_html: { value: rejoiceable_id }
+          = f.input :activity_type_id, as: :hidden, input_html: { value: ActivityType::REJOICEABLE_TYPE_ID }
+          = f.submit label, class: 'btn btn-primary'
   .modal-footer
     = link_to 'Close', '#', data: { dismiss: 'modal' }, class: 'btn'

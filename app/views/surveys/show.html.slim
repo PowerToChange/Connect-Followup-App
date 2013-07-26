@@ -21,8 +21,7 @@
                   = link_to_icon 'ok-sign', 'javascript:void(0)', :class => 'btn disabled'
 
                 = link_to_icon 'info-sign', survey_response_path(@survey,r), :label_hidden_phone => 'Info', :class => 'btn'
-                = link_to_phone "phone", "tel", r.contact.phone
-                = link_to_phone "comment", "sms", r.contact.phone
+                = render :partial => 'layouts/phone_sms', :locals => { :tel => r.contact.phone, :survey_id => r.survey_id, :response_id => r.response_id }
 
       - if @responses.empty?
         div class=['item','active']
