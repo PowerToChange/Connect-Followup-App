@@ -13,20 +13,20 @@
     - if conn.leads.size.zero?
       .well No contacts assigned for this survey
     - else
-    ul.contacts
-      - conn.leads.each do |r|
-        li data-status-id=r.status_id data-url=survey_response_path(r.survey,r.response) style=lead_li_style(r)
-          .avatar
-            = gravatar_image_tag(r.contact.email)
-          .info
-            h5
-              = r.contact.display_name
-            div class=['label', r.status] = r.status
-            .more
-              div class='btn-group'
-                = render :partial => 'layouts/phone_sms', :locals => { :tel => r.contact.phone, :survey_id => r.survey_id, :response_id => r.response_id }
-          .arrow
-            i class="icon-chevron-right icon-large"
+      ul.contacts
+        - conn.leads.each do |r|
+          li data-status-id=r.status_id data-url=survey_response_path(r.survey,r.response) style=lead_li_style(r)
+            .avatar
+              = gravatar_image_tag(r.contact.email)
+            .info
+              h5
+                = r.contact.display_name
+              div class=['label', r.status] = r.status
+              .more
+                div class='btn-group'
+                  = render :partial => 'layouts/phone_sms', :locals => { :tel => r.contact.phone, :survey_id => r.survey_id, :response_id => r.response_id }
+            .arrow
+              i class="icon-chevron-right icon-large"
 - if @connections.empty?
   .well
     ' There are no assigned surveys for your user account. Please contact your administrator to find out more.
