@@ -19,15 +19,21 @@ class ResponsesController < ApplicationController
     @activity = Activity.new(params[:activity])
 
     path = survey_response_path(@survey.id, @response.response_id)
+
     respond_with(@activity, location: survey_response_path(@survey,@response)) do |format|
       if @activity.save
-        flash[:success] = 'Activity successfully created.'
+        format.html do
+          flash[:success] = 'Activity successfully created.'
+          redirect_to path
+        end
         format.json do
-          render :json => "ok"
+          head :ok
         end
       else
-        flash[:error] =  'Oops, could not add activity!'
-        format.html { redirect_to path }
+        format.html do
+          flash[:error] =  'Oops, could not add activity!'
+          redirect_to path
+        end
       end
     end
   end
