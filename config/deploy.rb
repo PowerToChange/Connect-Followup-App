@@ -15,9 +15,10 @@ after "deploy:restart", "deploy:cleanup"
 
 # Symlinking
 namespace :config do
-  desc 'Symlink the database.yml into latest release'
+  desc 'Symlink config files into latest release'
   task :symlink, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
   end
   after 'deploy:finalize_update', 'config:symlink'
 end
