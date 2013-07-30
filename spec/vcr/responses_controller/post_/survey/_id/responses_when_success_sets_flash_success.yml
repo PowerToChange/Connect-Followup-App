@@ -2,7 +2,7 @@
 http_interactions: 
 - request: 
     method: get
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=11&json=1&key=382adce875611f9b75d294b83a77a5f2
     body: 
       encoding: US-ASCII
       string: ""
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Thu, 25 Jul 2013 17:45:57 GMT
+      - Tue, 30 Jul 2013 18:38:42 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -29,23 +29,23 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Thu, 25 Jul 2013 17:45:57 +0000
+      - Tue, 30 Jul 2013 18:38:42 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1374774357\""
+      - "\"1375209522\""
       Content-Length: 
-      - "297"
+      - "322"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":2,\"values\":{\"2\":{\"id\":\"2\",\"title\":\"Sept 2012 petition\",\"campaign_id\":\"2\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_date\":\"2012-05-29 11:05:52\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2012-09-04 21:20:13\",\"bypass_confirm\":\"1\"}}}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":11,\"values\":{\"11\":{\"id\":\"11\",\"title\":\"Power survey - July21-1\",\"campaign_id\":\"8\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_id\":\"1\",\"created_date\":\"2013-07-20 23:53:31\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2013-07-20 23:53:31\",\"bypass_confirm\":\"0\"}}}"
     http_version: 
-  recorded_at: Thu, 25 Jul 2013 17:44:25 GMT
+  recorded_at: Tue, 30 Jul 2013 18:37:06 GMT
 - request: 
     method: get
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000&survey_id=2
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000&survey_id=11
     body: 
       encoding: US-ASCII
       string: ""
@@ -62,7 +62,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Thu, 25 Jul 2013 17:45:58 GMT
+      - Tue, 30 Jul 2013 18:38:42 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -72,20 +72,407 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Thu, 25 Jul 2013 17:45:58 +0000
+      - Tue, 30 Jul 2013 18:38:42 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1374774358\""
+      - "\"1375209522\""
       Content-Length: 
-      - "48"
+      - "2240"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":14,\"values\":[{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"18\",\"custom_field_id\":\"149\",\"field_name\":\"custom_149\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"22\",\"custom_field_id\":\"155\",\"field_name\":\"custom_155\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"22\",\"custom_field_id\":\"156\",\"field_name\":\"custom_156\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"22\",\"custom_field_id\":\"157\",\"field_name\":\"custom_157\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"contact\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"first_name\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"contact\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"last_name\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"contact\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"gender_id\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"57\",\"field_name\":\"custom_57\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"58\",\"field_name\":\"custom_58\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"59\",\"field_name\":\"custom_59\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"60\",\"field_name\":\"custom_60\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"61\",\"field_name\":\"custom_61\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"phone\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"phone\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"email\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"email\"}]}"
     http_version: 
-  recorded_at: Thu, 25 Jul 2013 17:44:26 GMT
+  recorded_at: Tue, 30 Jul 2013 18:37:06 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=149&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:43 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:43 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209523\""
+      Content-Length: 
+      - "356"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"149\",\"custom_group_id\":\"18\",\"name\":\"I_would_rather\",\"label\":\"I would rather\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"6\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_would_rather_149\",\"option_group_id\":\"127\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:07 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=155&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:43 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:43 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209523\""
+      Content-Length: 
+      - "373"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"155\",\"custom_group_id\":\"22\",\"name\":\"MyCravings_Magazine\",\"label\":\"MyCravings - Magazine\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"2\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"mycravings_magazine_155\",\"option_group_id\":\"107\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:07 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=156&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:44 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:44 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209524\""
+      Content-Length: 
+      - "370"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"156\",\"custom_group_id\":\"22\",\"name\":\"MyCravings_Journey\",\"label\":\"MyCravings - Journey\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"3\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"mycravings_journey_156\",\"option_group_id\":\"109\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:08 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=157&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:44 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:44 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209524\""
+      Content-Length: 
+      - "364"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"157\",\"custom_group_id\":\"22\",\"name\":\"MyCravings_Gauge\",\"label\":\"MyCravings - Gauge\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"4\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"mycravings_gauge_157\",\"option_group_id\":\"108\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:08 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=57&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:45 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:45 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209525\""
+      Content-Length: 
+      - "377"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"57\",\"custom_group_id\":\"7\",\"name\":\"Year_in_School\",\"label\":\"Year in School\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"33\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"6\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"year_in_school_57\",\"option_group_id\":\"102\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:09 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=58&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:45 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:45 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209525\""
+      Content-Length: 
+      - "321"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"58\",\"custom_group_id\":\"7\",\"name\":\"Year__Other\",\"label\":\"Year - Other\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"43\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"year__other_58\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:09 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=59&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:46 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:46 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209526\""
+      Content-Length: 
+      - "346"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"59\",\"custom_group_id\":\"7\",\"name\":\"Faculty_or_Degree\",\"label\":\"Faculty or Degree (Major)\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"51\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"faculty_or_degree_59\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:10 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=60&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:46 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:46 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209526\""
+      Content-Length: 
+      - "344"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"60\",\"custom_group_id\":\"7\",\"name\":\"On_Campus_Residence\",\"label\":\"On Campus Residence\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"60\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"on_campus_residence_60\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:10 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=61&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 30 Jul 2013 18:38:47 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Tue, 30 Jul 2013 18:38:47 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375209527\""
+      Content-Length: 
+      - "422"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":\"61\",\"custom_group_id\":\"7\",\"name\":\"I_am_an_international_student\",\"label\":\"I am an international student\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"66\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"2\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_am_an_international_student_61\",\"option_group_id\":\"103\",\"is_error\":0}"
+    http_version: 
+  recorded_at: Tue, 30 Jul 2013 18:37:11 GMT
 - request: 
     method: get
     uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Activity&id=55412&json=1&key=382adce875611f9b75d294b83a77a5f2&return=target_contact_id
@@ -105,7 +492,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Thu, 25 Jul 2013 17:45:58 GMT
+      - Tue, 30 Jul 2013 18:38:47 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -115,11 +502,11 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Thu, 25 Jul 2013 17:45:58 +0000
+      - Tue, 30 Jul 2013 18:38:47 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1374774358\""
+      - "\"1375209527\""
       Content-Length: 
       - "403"
       Content-Type: 
@@ -128,5 +515,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"1\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"activity_date_time\":\"2012-09-09 21:28:36\",\"status_id\":\"2\",\"priority_id\":\"1\",\"is_test\":\"0\",\"is_auto\":\"0\",\"is_current_revision\":\"1\",\"is_deleted\":\"0\",\"engagement_level\":\"10\",\"target_contact_id\":[\"48085\"]}}}"
     http_version: 
-  recorded_at: Thu, 25 Jul 2013 17:44:26 GMT
+  recorded_at: Tue, 30 Jul 2013 18:37:11 GMT
 recorded_with: VCR 2.5.0

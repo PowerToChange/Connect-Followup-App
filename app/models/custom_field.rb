@@ -20,7 +20,7 @@ class CustomField < ActiveRecord::Base
     private
 
     def field_ids
-      survey_fields.first.values.collect{|a| a['custom_field_id']}.reject(&:blank?)
+      survey_fields.collect(&:custom_field_id).reject(&:blank?)
     end
 
     def survey_fields

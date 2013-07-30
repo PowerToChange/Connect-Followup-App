@@ -1,7 +1,9 @@
 class Response
   attr_accessor :survey, :response
 
-  PRIORITIES = [['Hot',1],['Medium',2],['Mild',3]]
+  PRIORITIES = [['Hot',1], ['Medium',2], ['Mild',3]]
+  GENDERS = [['Female',1], ['Male',2]]
+  YEARS = [['First Year', 1]]
 
   def initialize(survey, response)
     @survey = survey
@@ -42,7 +44,7 @@ class Response
   end
 
   def contact_id
-    response.target_contact_id.try(:first)
+    response.target_contact_id.is_a?(Array) ? response.target_contact_id.try(:first) : response.target_contact_id
   end
 
   def source_contact

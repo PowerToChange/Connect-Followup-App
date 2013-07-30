@@ -12,6 +12,8 @@ class Survey < ActiveRecord::Base
   after_create :fetch_custom_fields
   after_save :associate_all_schools
 
+  PETITION_ACTIVITY_TYPE_ID = 32
+
   def to_s
     self.title
   end
@@ -20,24 +22,16 @@ class Survey < ActiveRecord::Base
     @responses ||= begin
       params = {
         campaign_id: self.campaign_id,
+        activity_type_id: PETITION_ACTIVITY_TYPE_ID,
         source_record_id: self.survey_id,
         'return' => 'target_contact_id'
       }.merge!(options)
 
-      page = 0
-      per_page = 100
-      resp = []
-      catch (:completed) do
-        while 0 < 1 do
-          CiviCrm::Activity.where(params.merge!({:rowCount => per_page, :offset => page})).each do |response|
-            throw :completed if response.count.present?
-            resp << Response.new(self, response) if response.target_contact_id.try(:any?)
-          end
-          page += per_page
-          puts ">>> Fetching records... #{page}"
-        end
+      responses = []
+      PtcActivityQuery.where(params).each do |response|
+        responses << Response.new(self, response) if response.target_contact_id.present?
       end
-      resp
+      responses
     end
   end
 

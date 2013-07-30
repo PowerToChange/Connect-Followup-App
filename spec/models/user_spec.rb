@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 
   describe '#connections', :vcr do
-    let!(:survey) { create(:survey_without_callbacks, :activity_type_id => 32) }
+    let!(:survey) { create(:survey_without_callbacks, :activity_type_id => Survey::PETITION_ACTIVITY_TYPE_ID) }
     let(:user) { create(:user, :surveys => [survey]) }
     let!(:lead_1) { create(:lead, :survey_id => survey.id, :user_id => user.id, :response_id => '102052') }
     let!(:lead_2) { create(:lead, :survey_id => survey.id, :user_id => user.id, :response_id => '102053') }

@@ -2,17 +2,17 @@ require 'spec_helper'
 
 describe Survey do
 
-  describe '#save' do
-    let(:survey_response) { OpenStruct.new(:title => title, :campaign_id => 9, :activity_type_id => 32) }
+  describe '#save', :vcr do
+    let(:survey_response) { OpenStruct.new(:title => title, :campaign_id => 9, :activity_type_id => Survey::PETITION_ACTIVITY_TYPE_ID) }
 
     before do
       CustomField.stub(:sync)
     end
 
-    context 'when creating new survey' do
+    context 'when creating new survey', :vcr do
       let(:survey) { build(:survey, :survey_id => 2) }
       subject { survey.save }
-      let(:title) { 'Sept 2012 petition' }
+      let(:title) { 'Power survey - July21-1' }
       before do
         CiviCrm::Survey.stub_chain(:where,:first).and_return(survey_response)
       end
@@ -50,14 +50,14 @@ describe Survey do
     end
 
     context 'when fetching existing survey', :vcr do
-      let!(:survey) { create(:survey, :title => 'Sept 2012 petition') }
+      let!(:survey) { create(:survey, :title => 'Power survey - July21-1') }
       let(:title) { 'Nov 2012 petition' }
       subject { survey.save }
       before do
         CiviCrm::Survey.stub_chain(:where,:first).and_return(survey_response)
       end
       it 'updates title' do
-        expect { subject }.to change { survey.title }.from('Sept 2012 petition').to('Nov 2012 petition')
+        expect { subject }.to change { survey.title }.from('Power survey - July21-1').to('Nov 2012 petition')
       end
     end
   end
@@ -94,7 +94,7 @@ describe Survey do
   end
 
   # describe '#responses' do
-  #   let(:survey) { create(:survey_without_callbacks, :activity_type_id => 32) }
+  #   let(:survey) { create(:survey_without_callbacks, :activity_type_id => Survey::PETITION_ACTIVITY_TYPE_ID) }
   #   let!(:custom_field) { create(:custom_field, :custom_field_id => 64, :survey_id => survey.id) }
   #   let(:act_1) { double(:count => nil, :target_contact_id => [1234], :custom_64 => 'Answer') }
   #   let(:act_2) { double(:count => nil, :target_contact_id => [1235], :custom_64 => 'Answer') }
@@ -104,7 +104,7 @@ describe Survey do
   #     CiviCrm::Activity.stub(:where).and_return([act_1,act_2,act_3])
   #   end
   #   it 'fetches activities from civicrm' do
-  #     CiviCrm::Activity.should_receive(:where).with(hash_including(:activity_type_id => 32, 'return.custom_64' => 1))
+  #     CiviCrm::Activity.should_receive(:where).with(hash_including(:activity_type_id => Survey::PETITION_ACTIVITY_TYPE_ID, 'return.custom_64' => 1))
   #     subject
   #   end
   #   it 'returns an array' do

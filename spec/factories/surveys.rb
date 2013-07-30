@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :survey do
-    survey_id 2
-    activity_type_id 32
-    campaign_id 2
-    title "Sept 2012 petition"
+    survey_id 11
+    activity_type_id Survey::PETITION_ACTIVITY_TYPE_ID
+    campaign_id 8
+    title "Power survey - July21-1"
     has_all_schools false
 
     factory :survey_without_callbacks do

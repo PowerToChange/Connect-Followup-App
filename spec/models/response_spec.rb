@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Response do
   let!(:survey) { create(:survey_without_callbacks) }
-  let!(:custom_field) { create(:custom_field, :custom_field_id => 64, :survey_id => survey.id, :label => "Where are you?") }
+  let!(:custom_field) { create(:custom_field, :custom_field_id => 61, :survey_id => survey.id, :label => "I am an international student") }
   let(:answer) { double(:id => 1, :custom_64 => "Montreal", :target_contact_id => [11]) }
   let(:response) { Response.new(survey,answer) }
 
@@ -13,7 +13,7 @@ describe Response do
       subject.first.should respond_to(:answer)
     end
     it 'calls CiviCrm::CustomValue with correct params' do
-      CiviCrm::CustomValue.should_receive(:where).with(hash_including(entity_id: answer.id, rowCount: 1000, 'return.custom_64' => 1)) { [] }
+      CiviCrm::CustomValue.should_receive(:where).with(hash_including(entity_id: answer.id, rowCount: 1000, 'return.custom_61' => 1)) { [] }
       subject
     end
   end
@@ -29,7 +29,7 @@ describe Response do
 
   describe '.find' do
     subject { Response.find(:survey => survey, :id => 12345) }
-    let!(:custom_field) { create(:custom_field, :custom_field_id => 64, :survey_id => survey.id, :label => "Where are you?") }
+    let!(:custom_field) { create(:custom_field, :custom_field_id => 61, :survey_id => survey.id, :label => "I am an international student") }
     before do
       CiviCrm::Activity.stub_chain(:where, :first).and_return(double())
     end

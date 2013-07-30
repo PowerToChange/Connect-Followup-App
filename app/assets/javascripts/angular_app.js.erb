@@ -79,7 +79,7 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
     },
     replace: true,
     restrict: "E",
-    template: "<a href='tel:{{tel}}' class='btn'><i class='icon-phone icon-large'></i></a>",
+    template: "<a href='tel:{{tel}}' class='btn'><i class='icon-phone icon-large'></i><span class='hidden-phone'>&nbsp;{{tel}}</span></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
         var data = {

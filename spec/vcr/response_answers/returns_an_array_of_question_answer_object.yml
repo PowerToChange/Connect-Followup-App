@@ -2,7 +2,7 @@
 http_interactions: 
 - request: 
     method: get
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomValue&entity_id=1&json=1&key=382adce875611f9b75d294b83a77a5f2&return.custom_64=1&rowCount=1000
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomValue&entity_id=1&json=1&key=382adce875611f9b75d294b83a77a5f2&return.custom_61=1&rowCount=1000
     body: 
       encoding: US-ASCII
       string: ""
@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Wed, 24 Jul 2013 15:34:52 GMT
+      - Tue, 30 Jul 2013 19:24:45 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -29,23 +29,23 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Wed, 24 Jul 2013 15:34:52 +0000
+      - Tue, 30 Jul 2013 19:24:45 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1374680092\""
+      - "\"1375212285\""
       Content-Length: 
-      - "48"
+      - "111"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":61,\"values\":{\"61\":{\"entity_id\":\"1\",\"latest\":\"no\",\"id\":\"61\",\"0\":\"no\"}}}"
     http_version: 
-  recorded_at: Wed, 24 Jul 2013 15:33:21 GMT
+  recorded_at: Tue, 30 Jul 2013 19:23:09 GMT
 - request: 
     method: get
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=getsingle&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=61&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
     body: 
       encoding: US-ASCII
       string: ""
@@ -62,7 +62,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Wed, 24 Jul 2013 15:34:52 GMT
+      - Tue, 30 Jul 2013 19:24:46 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -72,23 +72,23 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Wed, 24 Jul 2013 15:34:52 +0000
+      - Tue, 30 Jul 2013 19:24:46 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1374680092\""
+      - "\"1375212286\""
       Content-Length: 
-      - "79"
+      - "422"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"count\":0,\"is_error\":1,\"error_message\":\"Expected one CustomField but found 0\"}"
+      string: "{\"id\":\"61\",\"custom_group_id\":\"7\",\"name\":\"I_am_an_international_student\",\"label\":\"I am an international student\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"66\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"2\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_am_an_international_student_61\",\"option_group_id\":\"103\",\"is_error\":0}"
     http_version: 
-  recorded_at: Wed, 24 Jul 2013 15:33:22 GMT
+  recorded_at: Tue, 30 Jul 2013 19:23:10 GMT
 - request: 
     method: get
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=OptionValue&json=1&key=382adce875611f9b75d294b83a77a5f2&option_group_id=&value=
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=OptionValue&json=1&key=382adce875611f9b75d294b83a77a5f2&option_group_id=103&value=no
     body: 
       encoding: US-ASCII
       string: ""
@@ -105,7 +105,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Wed, 24 Jul 2013 15:34:53 GMT
+      - Tue, 30 Jul 2013 19:24:47 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -115,18 +115,18 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Wed, 24 Jul 2013 15:34:53 +0000
+      - Tue, 30 Jul 2013 19:24:47 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1374680093\""
+      - "\"1375212287\""
       Content-Length: 
-      - "48"
+      - "219"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":831,\"values\":{\"831\":{\"id\":\"831\",\"option_group_id\":\"103\",\"label\":\"No\",\"value\":\"no\",\"name\":\"No\",\"is_default\":\"0\",\"weight\":\"2\",\"is_optgroup\":\"0\",\"is_reserved\":\"0\",\"is_active\":\"1\"}}}"
     http_version: 
-  recorded_at: Wed, 24 Jul 2013 15:33:22 GMT
+  recorded_at: Tue, 30 Jul 2013 19:23:10 GMT
 recorded_with: VCR 2.5.0

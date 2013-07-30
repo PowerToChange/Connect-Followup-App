@@ -2,55 +2,7 @@
 http_interactions: 
 - request: 
     method: get
-    uri: http://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entity=Activity&json=1&key=382adce875611f9b75d294b83a77a5f2&offset=0&return=target_contact_id&rowCount=100&source_record_id=2
-    body: 
-      encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding: 
-      - gzip, deflate
-      User-Agent: 
-      - CiviCrm RubyClient/1.0.1
-  response: 
-    status: 
-      code: 302
-      message: Found
-    headers: 
-      Date: 
-      - Thu, 11 Jul 2013 18:02:55 GMT
-      Server: 
-      - Apache/2.2.22 (Ubuntu)
-      Location: 
-      - https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?campaign_id=2&source_record_id=2&return=target_contact_id&rowCount=100&offset=0&entity=Activity&action=get&json=1&api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
-      Vary: 
-      - Accept-Encoding
-      Content-Encoding: 
-      - gzip
-      Content-Length: 
-      - "417"
-      Content-Type: 
-      - text/html; charset=iso-8859-1
-    body: 
-      encoding: ASCII-8BIT
-      string: !binary |
-        H4sIAAAAAAAAA3VSTY/TMBC991eYHhAciBP3Iy04QUvbFSstUInsgVM1sSd1
-        IIkje9Kl/x43WQkJCVmy5r038+SZsXy1/7YrfhwP7HPx5ZEdnz49PuzY/B3n
-        D4finvN9sZ8UEcWcH77O85k01Da5NAg6AKqpwXwRC3Zvh05LPhEzyccEWVp9
-        vdUk+Yseopns88Ig01YNLXbEDHjW2gtqJoEZh1U2N0S9f8+5JzijGcqoFypS
-        tuW+JvQcmoa3Vg9NiFV9qZVrOf4mdB136CnqTf8//qOCtof63J1qnYnXAXzw
-        dnAKTw6Vdfov7ZAG12UE7ox0UrYjUBTkSbTPu9ARZUkcj4StKo+UTSB0VdM1
-        u1MUHkHXkQvFte2y4DXCnz6AZFL6+vQLr9k6XatFpQC3SxXDWi1XYpmkkCSl
-        KFOVTMm3xMVGgFa4SVfrJKm2ZbrSYrssNwtIU1hVYp4bdCg55JHk/W3+Llyg
-        dRiCz+96UAa5iMIR7M1TGdoY3rLv6C7oGBD7d+jsaB2xTRwMXyzCfsfNhn3e
-        fsPsD2MBjVRIAgAA
-
-    http_version: 
-  recorded_at: Thu, 11 Jul 2013 18:01:35 GMT
-- request: 
-    method: get
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entity=Activity&json=1&key=382adce875611f9b75d294b83a77a5f2&offset=0&return=target_contact_id&rowCount=100&source_record_id=2
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=8&entity=PtcActivityQuery&json=1&key=382adce875611f9b75d294b83a77a5f2&return=target_contact_id&source_record_id=11
     body: 
       encoding: US-ASCII
       string: ""
@@ -67,7 +19,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Thu, 11 Jul 2013 18:02:55 GMT
+      - Tue, 30 Jul 2013 18:31:56 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -77,18 +29,18 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Thu, 11 Jul 2013 18:02:55 +0000
+      - Tue, 30 Jul 2013 18:31:56 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1373565775\""
+      - "\"1375209116\""
       Content-Length: 
-      - "48"
+      - "4197"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":11,\"values\":[{\"id\":\"104118\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"4\",\"engagement_level\":\"0\",\"activity_date_time\":\"2013-07-20 21:57:51\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/41\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60047\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60047\"},{\"id\":\"104119\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"10\",\"activity_date_time\":\"2013-07-20 22:09:12\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/42\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60048\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60048\"},{\"id\":\"104120\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"8\",\"activity_date_time\":\"2013-07-20 22:33:32\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/43\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60049\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60049\"},{\"id\":\"104121\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"4\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-20 22:34:50\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/44\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60050\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60050\"},{\"id\":\"104122\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"4\",\"engagement_level\":\"8\",\"activity_date_time\":\"2013-07-20 22:36:54\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/45\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60051\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60051\"},{\"id\":\"104123\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"1\",\"engagement_level\":\"10\",\"activity_date_time\":\"2013-07-20 22:42:42\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/46\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60052\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60052\"},{\"id\":\"104124\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"1\",\"engagement_level\":\"8\",\"activity_date_time\":\"2013-07-20 22:44:54\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/47\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60053\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60053\"},{\"id\":\"104126\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"1\",\"engagement_level\":\"10\",\"activity_date_time\":\"2013-07-20 23:34:25\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/49\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60054\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60054\"},{\"id\":\"104127\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"7\",\"activity_date_time\":\"2013-07-20 23:36:00\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/50\\\">View Webform Submission<\\/a><\\/p>\\r\\n\",\"source_contact_id\":\"60055\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60055\"},{\"id\":\"104134\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"4\",\"engagement_level\":\"2\",\"activity_date_time\":\"2013-07-22 18:15:20\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/51\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"25\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60056\"},{\"id\":\"104136\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"3\",\"priority_id\":\"4\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-23 14:22:09\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/52\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60029\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60029\"}]}"
     http_version: 
-  recorded_at: Thu, 11 Jul 2013 18:01:36 GMT
+  recorded_at: Tue, 30 Jul 2013 18:30:20 GMT
 recorded_with: VCR 2.5.0

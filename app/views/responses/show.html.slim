@@ -27,7 +27,7 @@ div class=['well','square']
       td= @response.contact.organization_name
     tr
       td Phone
-      td= link_to @response.contact.phone, "tel:#{@response.contact.phone}" if @response.contact.phone.present?
+      td= number_to_phone(@response.contact.phone) if @response.contact.phone.present?
     tr
       td Email
       td

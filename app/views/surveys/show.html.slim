@@ -39,9 +39,12 @@ div class=['well','square']
 #filterModal.modal.hide.fade style="display: none;" role="dialog"
   .modal-header
     h3 Filter Options
-  = simple_form_for :filters, :url => survey_path(@survey), :html => { :id => 'filters', :class => 'form-horizontal filters', :method => :get } do |f|
+  = simple_form_for :filters, url: survey_path(@survey), html: { id: 'filters', class: 'form-horizontal filters', method: :get } do |f|
     .modal-body
-      = f.input :priority, :label => 'Follow-up Priority', :collection => Response::PRIORITIES, :include_blank => 'All', :required => false
+      = f.input :target_contact_relationship_contact_id_b, label: 'Campus', collection: school_options_for_filter_select, selected: params[:filters].try(:[], :target_contact_relationship_contact_id_b), include_blank: 'All', required: false
+      = f.input :priority_id, label: 'Follow-up Priority', collection: Response::PRIORITIES, selected: params[:filters].try(:[], :priority_id), include_blank: 'All', required: false
+      = f.input :target_contact_gender_id, label: 'Gender', collection: Response::GENDERS, selected: params[:filters].try(:[], :target_contact_gender_id), include_blank: 'All', required: false
+      = f.input :custom_57, label: 'Year', collection: Response::YEARS, selected: params[:filters].try(:[], :custom_57), include_blank: 'All', required: false
   .modal-footer
     button.btn data-dismiss="modal" Close
-    = submit_tag 'Filter', :class => 'btn btn-primary', form: 'filters'
+    = submit_tag 'Filter', class: 'btn btn-primary', form: 'filters'

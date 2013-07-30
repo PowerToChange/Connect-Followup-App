@@ -1,2 +1,2 @@
-phone tel= tel tourl= survey_responses_path(:survey_id => survey_id, :id => response_id) authtoken= form_authenticity_token
-sms tel= tel tourl= survey_responses_path(:survey_id => survey_id, :id => response_id) authtoken= form_authenticity_token
+phone tel= number_to_phone(tel) tourl= survey_responses_path(:survey_id => survey_id, :id => response_id) authtoken= form_authenticity_token
+sms tel= number_to_phone(tel) tourl= survey_responses_path(:survey_id => survey_id, :id => response_id) authtoken= form_authenticity_token
