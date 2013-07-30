@@ -11,7 +11,7 @@
       = conn.survey.title
       = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: "Add Contact", class: "btn pull-right add-lead"
     - if conn.leads.size.zero?
-      .well No contacts assigned for this survey
+      .well Click the <i class="icon icon-plus-sign"></i> button to start follow-up
     - else
       ul.contacts
         - conn.leads.each do |r|

@@ -133,7 +133,7 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
     },
     replace: true,
     restrict: "E",
-    template: "<a href='mailto:{{address}}'>{{address}}</a>",
+    template: "<a href='mailto:{{address}}' target='_blank'>{{address}}</a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
         var data = {
