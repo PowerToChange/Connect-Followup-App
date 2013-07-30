@@ -53,6 +53,8 @@ gem 'rollbar', '~> 0.10.3'
 gem 'pry'
 gem 'pry-rails'
 
+gem 'figaro'
+
 group :development do
   gem 'capistrano'
   gem 'letter_opener'
