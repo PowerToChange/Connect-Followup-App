@@ -28,7 +28,7 @@ class Lead < ActiveRecord::Base
   end
 
   def response
-    Response.find(survey: survey, id: response_id)
+    @response ||= Response.find(survey: survey, id: response_id)
   end
 
   delegate :contact, :to => :response
