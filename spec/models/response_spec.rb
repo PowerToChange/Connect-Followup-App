@@ -41,4 +41,22 @@ describe Response do
       subject.should be_a_kind_of(Response)
     end
   end
+
+  describe '.school' do
+    subject { response.school }
+    let!(:school) { create(:school) }
+
+    before do
+      Relationship.should_receive(:where).with(hash_including(relationship_type_id: Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID)).and_return([double(contact_id_b: school.civicrm_id)])
+      5.times { create(:school) }
+    end
+
+    it 'fetches relationship from Civi' do
+      subject
+    end
+
+    it 'returns the school' do
+      subject.id.should eq school.id
+    end
+  end
 end

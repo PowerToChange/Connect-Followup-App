@@ -51,7 +51,7 @@ class Response
 
   def school
     @school ||= begin
-      school_id = CiviCrm::Relationship.where(contact_id_a: contact_id, relationship_type_id: Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID).first.try(:contact_id_b)
+      school_id = Relationship.where(contact_id_a: contact_id, relationship_type_id: Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID).first.try(:contact_id_b)
       School.where(civicrm_id: school_id).first
     end
   end
