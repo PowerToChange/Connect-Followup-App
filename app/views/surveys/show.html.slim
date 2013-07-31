@@ -25,14 +25,14 @@
 
       - if @responses.empty?
         div class=['item','active']
-          'No responses found.
+          'No contacts found.
 
     - if !@responses.empty?
       .carousel-nav
         = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
         = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
 div class=['well','square']
-  = "#{ pluralize(@responses.size, 'contact needs', 'contacts need') } follow-up."
+  = "#{ pluralize(@responses.size, 'contact needs', 'contacts need') } follow-up. #{ current_filters_description }"
 div class=['well','square']
   = link_to 'Filter Options', '#filterModal', :class => 'btn btn-inverse', 'data-toggle' => 'modal', :role => 'button'
 
@@ -41,10 +41,10 @@ div class=['well','square']
     h3 Filter Options
   = simple_form_for :filters, url: survey_path(@survey), html: { id: 'filters', class: 'form-horizontal filters', method: :get } do |f|
     .modal-body
-      = f.input :target_contact_relationship_contact_id_b, label: 'Campus', collection: school_options_for_filter_select, selected: params[:filters].try(:[], :target_contact_relationship_contact_id_b), include_blank: 'All', required: false
-      = f.input :priority_id, label: 'Follow-up Priority', collection: Response::PRIORITIES, selected: params[:filters].try(:[], :priority_id), include_blank: 'All', required: false
-      = f.input :target_contact_gender_id, label: 'Gender', collection: Response::GENDERS, selected: params[:filters].try(:[], :target_contact_gender_id), include_blank: 'All', required: false
-      = f.input :custom_57, label: 'Year', collection: Response::YEARS, selected: params[:filters].try(:[], :custom_57), include_blank: 'All', required: false
+      = filter_input_for_attribute(f, :target_contact_relationship_contact_id_b, label: 'Campus')
+      = filter_input_for_attribute(f, :priority_id, label: 'Follow-up Priority')
+      = filter_input_for_attribute(f, :target_contact_gender_id, label: 'Gender')
+      = filter_input_for_attribute(f, :custom_57, label: 'Year')
   .modal-footer
     button.btn data-dismiss="modal" Close
     = submit_tag 'Filter', class: 'btn btn-primary', form: 'filters'

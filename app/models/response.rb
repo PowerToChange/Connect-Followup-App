@@ -27,15 +27,13 @@ class Response
       entity_id: response_id,
       rowCount: 1000
     }
-    survey.custom_fields.each do |f|
-      params["return.custom_#{f.custom_field_id}"] = 1
-    end
-    CiviCrm::CustomValue.where(params).collect do |value|
-      option_group_id = CiviCrm::CustomField.find(value.id).option_group_id
-      value_label = CiviCrm::OptionValue.where(option_group_id: option_group_id, value: value.try(:latest)).first.label
+    survey.custom_fields.each { |f| params["return.custom_#{ f.custom_field_id }"] = 1 }
 
-      OpenStruct.new(:label => survey.custom_fields.find_by_custom_field_id(value.id).try(:label),
-                     :answer => value_label)
+    CiviCrm::CustomValue.where(params).collect do |custom_value|
+      custom_field = survey.custom_fields.find_by_custom_field_id(custom_value.id)
+      value_label = custom_field.label_for_option_value(custom_value.try(:latest))
+
+      OpenStruct.new(label: custom_field.try(:label), answer: value_label)
     end
   end
 

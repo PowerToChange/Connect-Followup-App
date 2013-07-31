@@ -9,8 +9,7 @@ class Survey < ActiveRecord::Base
   validates_presence_of :survey_id
 
   before_validation :sync
-  after_create :fetch_custom_fields
-  after_save :associate_all_schools
+  after_save :fetch_custom_fields, :associate_all_schools
 
   PETITION_ACTIVITY_TYPE_ID = 32
 
@@ -39,6 +38,7 @@ class Survey < ActiveRecord::Base
 
   def sync
     survey = CiviCrm::Survey.where(:id => self.survey_id).first
+
     if survey.count.present?
       errors.add(:base, "Unable to find corresponding survey with id #{self.survey_id} in Civicrm")
     else
