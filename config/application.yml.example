@@ -1,3 +1,7 @@
 # Add application configuration variables here, as shown below.
 
 SECRET_TOKEN: "run `rake secret` and put the output here"
+
+CIVICRM_SITE_KEY: ""
+CIVICRM_API_BASE: ""
+CIVICRM_API_KEY:  ""
