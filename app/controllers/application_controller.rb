@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :logged_in?, :cas_logged_in?
 
+  after_filter :flash_to_headers
+
   def screen
     @page_title = "Screen #{params[:screen]}"
     render "screen#{params[:screen]}"
@@ -24,5 +26,30 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     redirect_to log_in_path unless logged_in?
+  end
+
+  # This is used to display flash messages on ajax requests
+  def flash_to_headers
+    return unless request.xhr?
+    response.headers['X-Message'] = flash_message
+    response.headers["X-Message-Type"] = flash_type.to_s
+
+    # Prevents flash from appearing after page reload.
+    # Side-effect: flash won't appear after a redirect.
+    # Comment-out if you use redirects.
+    flash.discard
+  end
+
+  def flash_message
+    [:error, :warning, :notice].each do |type|
+      return flash[type] unless flash[type].blank?
+    end
+    return ''
+  end
+
+  def flash_type
+    [:error, :warning, :notice].each do |type|
+      return type unless flash[type].blank?
+    end
   end
 end

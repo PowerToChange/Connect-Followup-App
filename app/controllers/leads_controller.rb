@@ -5,15 +5,17 @@ class LeadsController < ApplicationController
     @survey = Survey.find(params[:survey_id])
     @lead = @survey.leads.new(params[:lead])
     @lead.user_id = current_user.id
+
     if @lead.save
-      redirect_to @survey, :notice => "Successfully added lead to your connections list."
+      flash[:notice] = "Successfully added contact to your connections list."
     else
-      redirect_to @survey, :alert => "Problem adding lead to your connections. Please try again."
+      flash[:error] = "Problem adding contact to your connections. Please try again."
     end
   end
 
   def update
     @lead = Lead.find(params[:id])
+
     respond_to do |format|
       format.html do
         if updateable?

@@ -56,4 +56,8 @@ module SurveysHelper
   def label_from_options_for_value(options, value)
     options.select { |o| o[1].to_s == value.to_s }.try(:first).try(:[], 0)
   end
+
+  def create_lead_button_id(id)
+    "create-response-#{ id }"
+  end
 end

@@ -40,11 +40,12 @@ html lang="en" ng-app="connectapp"
     .container-fluid
       .row-fluid
         .span12
-          = bootstrap_flash
+          #flash
+            = bootstrap_flash
           = yield
 
       footer
-        p &copy; Power to Change 2013
+        p &copy; Power to Change #{ Time.now.year }
     /!
       Javascripts
       \==================================================

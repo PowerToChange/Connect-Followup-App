@@ -19,6 +19,7 @@
 #= require_tree ./angular
 #= require bootstrap
 #= require connections
+#= require flash
 
 $ ->
   $('.survey ul.contacts > li').click ->

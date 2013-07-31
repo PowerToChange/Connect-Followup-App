@@ -1,0 +1,3 @@
+<% if @lead.id? %>
+  $('#<%= create_lead_button_id(@lead.response_id) %>').remove();
+<% end %>

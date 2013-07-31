@@ -12,16 +12,16 @@
           .info
             h5
               = r.contact.display_name
-            = render :partial => 'layouts/email', :locals => { :address => r.contact.email, :survey_id => r.survey_id, :response_id => r.response_id }
+            = render partial: 'layouts/email', locals: { address: r.contact.email, survey_id: r.survey_id, response_id: r.response_id }
             .more
               div class='btn-group'
                 - if !Lead.all.map(&:response_id).include?(r.response.id)
-                  = link_to_icon 'plus-sign', survey_leads_path(@survey, :lead => { :response_id => r.response.id }), :method => :post, :label_hidden_phone => 'Add', :class => 'btn'
+                  = link_to_icon 'plus-sign', survey_leads_path(@survey, :lead => { :response_id => r.response.id }), method: :post, label_hidden_phone: 'Add', class: 'btn', id: create_lead_button_id(r.response.id), data: { remote: true }
                 - else
-                  = link_to_icon 'ok-sign', 'javascript:void(0)', :class => 'btn disabled'
+                  = link_to_icon 'ok-sign', 'javascript:void(0)', class: 'btn disabled'
 
-                = link_to_icon 'info-sign', survey_response_path(@survey,r), :label_hidden_phone => 'Info', :class => 'btn'
-                = render :partial => 'layouts/phone_sms', :locals => { :tel => r.contact.phone, :survey_id => r.survey_id, :response_id => r.response_id }
+                = link_to_icon 'info-sign', survey_response_path(@survey,r), label_hidden_phone: 'Info', class: 'btn'
+                = render partial: 'layouts/phone_sms', locals: { tel: r.contact.phone, survey_id: r.survey_id, response_id: r.response_id }
 
       - if @responses.empty?
         div class=['item','active']
@@ -34,7 +34,7 @@
 div class=['well','square']
   = "#{ pluralize(@responses.size, 'contact needs', 'contacts need') } follow-up. #{ current_filters_description }"
 div class=['well','square']
-  = link_to 'Filter Options', '#filterModal', :class => 'btn btn-inverse', 'data-toggle' => 'modal', :role => 'button'
+  = link_to 'Filter Options', '#filterModal', class: 'btn btn-inverse', 'data-toggle' => 'modal', role: 'button'
 
 #filterModal.modal.hide.fade style="display: none;" role="dialog"
   .modal-header
