@@ -11,7 +11,7 @@ class Lead < ActiveRecord::Base
   COMPLETED_STATUS_ID = 2
   WIP_STATUS_ID = 3
   UNCONTACTED_STATUS_ID = 4
-  PROGRESS_STATUSES = [[UNCONTACTED_STATUS_ID, 'Uncontacted'], [WIP_STATUS_ID, 'WIP'], [COMPLETED_STATUS_ID, 'Completed']]
+  PROGRESS_STATUSES = [[UNCONTACTED_STATUS_ID, 'Uncontacted'], [WIP_STATUS_ID, 'In Progress'], [COMPLETED_STATUS_ID, 'Completed']]
 
   REPORT_CODES = OpenStruct.new(bad_info: 0,
                                 no_response: 1,

@@ -12,9 +12,10 @@ ul.contacts
           = render :partial => 'layouts/phone_sms', :locals => { :tel => @response.contact.phone, :survey_id => @survey.id, :response_id => @response }
 
 - if @lead.present?
-  div class=['well','square','report-progress']
+  div class=['well', 'square', 'report-progress']
     = simple_form_for [@lead.survey,@lead], html: { class: 'form-inline' } do |f|
-      = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
+      .row
+        = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last, item_wrapper_class: 'span4'
 
 
 div class=['well','square']

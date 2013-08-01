@@ -14,7 +14,7 @@ describe Lead do
     context 'when status id 3' do
       let(:status) { 3 }
       it 'returns Uncontacted' do
-        subject.should == 'WIP'
+        subject.should == 'In Progress'
       end
     end
     context 'when status id 2' do
