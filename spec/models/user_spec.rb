@@ -27,13 +27,19 @@ describe User do
     end
   end
 
-  describe '.sync_schools_from_pulse', :vcr do
-    let(:user) { create(:user) }
+  describe '.sync_from_pulse', :vcr do
+    let(:user) { create(:user, civicrm_id: nil, schools: []) }
     let(:school) { create(:school, pulse_id: 1) }
 
-    before { school }
+    before do
+      school
+      Pulse::MinistryInvolvement.stub(:where).and_return([
+          double(user: { civicrm_id: 34904383 },
+                 ministry: { campus: [{ campus_id: 1 }, { campus_id: 2 }] })
+        ])
+    end
 
-    subject { user.sync_schools_from_pulse }
+    subject { user.sync_from_pulse }
 
     it 'associates schools to the user' do
       user.schools.should eq []
@@ -52,6 +58,12 @@ describe User do
     it 'should still return if Pulse fails' do
       Pulse::MinistryInvolvement.stub(:where).and_raise(Pulse::Errors::InternalError)
       subject
+    end
+
+    it 'should set the civicrm_id from the Pulse' do
+      user.civicrm_id.should be_blank
+      subject
+      user.civicrm_id.should be_present
     end
   end
 

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :schools
   has_many :surveys, through: :schools, uniq: true
 
-  attr_accessible :email, :guid, :first_name, :last_name
+  attr_accessible :email, :guid, :first_name, :last_name, :civicrm_id
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }, allow_blank: true
   validates :guid, presence: true
 
@@ -28,9 +28,11 @@ class User < ActiveRecord::Base
     '1' # Just use the CiviCrm admin's ID until this is properly supported
   end
 
-  def sync_schools_from_pulse
+  def sync_from_pulse
     pulse_campus_ids = []
+    civicrm_id_from_pulse = nil
     Pulse::MinistryInvolvement.where(guid: self.guid).each do |ministry_involvement|
+      civicrm_id_from_pulse ||= ministry_involvement.try(:user).try(:[], :civicrm_id)
       pulse_campus_ids += ministry_involvement.ministry[:campus].collect { |c| c[:campus_id] }
     end
     pulse_campus_ids.uniq!
@@ -42,6 +44,7 @@ class User < ActiveRecord::Base
 
   else
     self.schools = School.where(pulse_id: pulse_campus_ids)
+    self.update_attribute(:civicrm_id, civicrm_id_from_pulse)
   end
 
 end

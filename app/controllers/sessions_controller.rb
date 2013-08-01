@@ -28,18 +28,16 @@ class SessionsController < ApplicationController
 
   def after_login
     update_current_user_from_cas_session
-    sync_current_user_schools_from_pulse
+    sync_current_user_from_pulse
   end
 
   def update_current_user_from_cas_session
-    return false unless session[:cas_user].present? && session[:cas_extra_attributes]
-    current_user.update_attributes(email: session[:cas_user],
-                                   first_name: session[:cas_extra_attributes][:firstName],
-                                   last_name: session[:cas_extra_attributes][:lastName])
+    return false unless session[:cas_user].present?
+    current_user.update_attributes(email: session[:cas_user])
   end
 
-  def sync_current_user_schools_from_pulse
-    current_user.sync_schools_from_pulse
+  def sync_current_user_from_pulse
+    current_user.sync_from_pulse
   end
 
 end

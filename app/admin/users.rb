@@ -16,4 +16,11 @@ ActiveAdmin.register User do
     end
   end
 
+  form do |f|
+    f.inputs do
+      f.input :guid
+    end
+    f.actions
+  end
+
 end

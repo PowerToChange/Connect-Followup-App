@@ -51,7 +51,7 @@ describe SessionsController do
     subject { get :index }
 
     before do
-      User.any_instance.stub(:sync_schools_from_pulse).and_return(true)
+      User.any_instance.stub(:sync_from_pulse).and_return(true)
     end
 
     context 'when return from success CAS authentication' do
@@ -85,7 +85,7 @@ describe SessionsController do
       end
 
       it 'syncs current user schools from Pulse' do
-        User.any_instance.should_receive(:sync_schools_from_pulse)
+        User.any_instance.should_receive(:sync_from_pulse)
         subject
       end
     end
