@@ -1,10 +1,5 @@
 - content_for(:body_class) { 'list_view' }
 
-.list-actions-bar
-  = label_tag :show_completed, class: 'checkbox inline'
-    = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
-    'Show completed
-
 - @connections.each do |conn|
   .survey
     .title
@@ -30,3 +25,8 @@
 - if @connections.empty?
   .well
     ' There are no assigned surveys for your user account. Please contact your administrator to find out more.
+
+.list-actions-bar
+  = label_tag :show_completed, class: 'checkbox inline'
+    = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
+    'Show completed
