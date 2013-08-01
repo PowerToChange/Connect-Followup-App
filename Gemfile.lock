@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/sheldon/Dev/civicrm_gem
+GIT
+  remote: git@github.com:PowerToChange/civicrm_gem.git
+  revision: 86015ed601581199bda4ccb3317c1e425e6b83d9
   specs:
     civicrm (1.0.1)
       activemodel
@@ -7,8 +8,9 @@ PATH
       nokogiri
       rest-client (~> 1.4)
 
-PATH
-  remote: /Users/sheldon/Dev/pulse_gem
+GIT
+  remote: git@github.com:PowerToChange/pulse_gem.git
+  revision: facd61b65c73e17bdfe61643375f88ff7917ef4f
   specs:
     pulse (0.0.1)
       activemodel
