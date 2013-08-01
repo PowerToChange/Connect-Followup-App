@@ -8,7 +8,13 @@ class User < ActiveRecord::Base
   validates :guid, presence: true
 
   def to_s
-    self.name || self.email || self.guid
+    if self.name.present?
+      self.name
+    elsif self.email.present?
+      self.email
+    else
+      self.guid
+    end
   end
 
   def name
