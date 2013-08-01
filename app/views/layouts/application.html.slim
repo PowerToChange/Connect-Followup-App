@@ -45,7 +45,9 @@ html lang="en" ng-app="connectapp"
           = yield
 
       footer
-        p &copy; Power to Change #{ Time.now.year }
+        p Logged in as <i>#{ current_user.to_s }</i>
+        br
+        p.muted &copy; Power to Change #{ Time.now.year }
     /!
       Javascripts
       \==================================================
