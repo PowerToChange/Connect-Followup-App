@@ -17,7 +17,7 @@
         - conn.leads.each do |r|
           li data-status-id=r.status_id data-url=survey_response_path(r.survey,r.response) style=lead_li_style(r)
             .avatar
-              = gravatar_image_tag(r.contact.email)
+              = contact_image_tag(r.contact)
             .info
               h5
                 = r.contact.display_name

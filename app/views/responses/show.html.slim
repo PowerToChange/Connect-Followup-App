@@ -3,7 +3,7 @@
 ul.contacts
   li.inactive
     .avatar
-      = gravatar_image_tag(@response.contact.email)
+      = contact_image_tag(@response.contact)
     .info
       h5
         = @response.contact.display_name

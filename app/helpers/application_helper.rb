@@ -19,4 +19,8 @@ module ApplicationHelper
     days = Time.now.to_date - d
     days.zero? ? 'Today' : "#{days} days ago"
   end
+
+  def contact_image_tag(contact)
+    gravatar_image_tag(contact.email, gravatar: { default: "#{ request.protocol }#{ request.host_with_port }#{ asset_path('no_photo.png') }" })
+  end
 end

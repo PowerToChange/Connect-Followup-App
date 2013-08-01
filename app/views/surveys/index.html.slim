@@ -7,7 +7,7 @@
       - survey.responses.each do |r|
         li data-url=survey_response_path(survey,r)
           .avatar
-            = gravatar_image_tag(r.contact.email)
+            = contact_image_tag(r.contact)
           .info
             h5
               = r.contact.display_name

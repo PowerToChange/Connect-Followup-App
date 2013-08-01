@@ -8,7 +8,7 @@
       - @responses.each do |r|
         div class=['item', r == @responses.first ? 'active' : '' ]
           .avatar
-            = gravatar_image_tag(r.contact.email)
+            = contact_image_tag(r.contact)
           .info
             h5
               = r.contact.display_name
