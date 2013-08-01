@@ -6,7 +6,9 @@ ActiveAdmin.register Lead, :as => "Connection" do
     end
     column :survey
     column :user
-    column :status
+    column 'Status' do |l|
+      l.status
+    end
     default_actions
   end
 
@@ -18,7 +20,9 @@ ActiveAdmin.register Lead, :as => "Connection" do
       row 'Activity ID' do |l|
         l.response_id
       end
-      row :status
+      row 'Status' do |l|
+        l.status
+      end
       row :created_at
       row :updated_at
     end
