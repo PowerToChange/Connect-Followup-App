@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   else
     self.schools = School.where(pulse_id: pulse_campus_ids)
-    self.update_attribute(:civicrm_id, civicrm_id_from_pulse)
+    self.update_attribute(:civicrm_id, civicrm_id_from_pulse) if civicrm_id_from_pulse.present?
   end
 
 end
