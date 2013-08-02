@@ -4,8 +4,11 @@ class ResponsesController < ApplicationController
 
   def show
     @lead = current_user.leads.find_by_response_id(params[:id])
-    @activities = @response.contact.activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.reverse
-    @notes = @response.contact.notes.select { |n| n.note.present? }.reverse
+
+    contact = Contact.where(id: @response.contact_id).includes(:notes, :activities).first
+    @activities = contact.activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.reverse
+    @notes = contact.notes.select { |n| n.note.present? }.reverse
+
     @rejoiceables_collection = OptionValue.where(option_group_id: OptionGroup::REJOICEABLES_ID, is_active: 1).sort_by(&:value).collect { |ov| [ov.value, ov.label] }
   end
 
@@ -13,7 +16,7 @@ class ResponsesController < ApplicationController
     params[:activity].merge!({
       source_contact_id: @response.contact_id,
       status_id: Lead::COMPLETED_STATUS_ID,
-      details: current_user_stamp,
+      details: current_user.to_s,
       target_contact_id: current_user.civicrm_id
     })
     @activity = Activity.new(params[:activity])
@@ -40,10 +43,11 @@ class ResponsesController < ApplicationController
 
   def create_note
     new_note = Note.new(
-      subject: current_user_stamp,
+      subject: current_user.to_s,
       note: params[:note],
+      # We need to set both entity_id and contact_id in order for API chaining to work properly, this appears to be a bug in CiviCrm?
       entity_id: @response.contact_id,
-      contact_id: current_user.civicrm_id
+      contact_id: @response.contact_id
     )
 
     if new_note.save
@@ -56,10 +60,6 @@ class ResponsesController < ApplicationController
   end
 
   private
-
-  def current_user_stamp
-    current_user.email
-  end
 
   def get_survey_and_response
     @survey = Survey.find(params[:survey_id])
