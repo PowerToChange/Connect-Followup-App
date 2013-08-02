@@ -37,7 +37,7 @@ describe Survey do
         subject
       end
       context 'when survey does not exist' do
-        let(:survey_response) { double(:count => 0) }
+        let(:survey_response) { nil }
         it 'returns error' do
           CiviCrm::Survey.stub_chain(:where,:first).and_return(survey_response)
           subject
