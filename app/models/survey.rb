@@ -39,12 +39,12 @@ class Survey < ActiveRecord::Base
   def sync
     survey = CiviCrm::Survey.where(:id => self.survey_id).first
 
-    if survey.count.present?
-      errors.add(:base, "Unable to find corresponding survey with id #{self.survey_id} in Civicrm")
-    else
+    if survey.present?
       self.campaign_id = survey.campaign_id
       self.activity_type_id = survey.activity_type_id
       self.title = survey.title
+    else
+      errors.add(:base, "Unable to find corresponding survey with id #{self.survey_id} in Civicrm")
     end
   end
 

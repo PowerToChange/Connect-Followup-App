@@ -82,15 +82,20 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
     template: "<a href='tel:{{tel}}' class='btn'><i class='icon-phone icon-large'></i><span class='hidden-phone'>&nbsp;{{tel}}</span></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
+        e.stopPropagation();
+        e.preventDefault();
         var data = {
           'authenticity_token': $(iElement).attr('authtoken'),
           'activity': {
             'activity_type_id':'<%= ActivityType::PHONE_CALL_TYPE_ID %>'
           }
         }
-
         $http.post($(iElement).attr('tourl'), $.param(data), {
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).
+        success(function(data, status) {
+          target_url = $(e.currentTarget).attr('href')
+          window.location = target_url;
         });
       });
     }
@@ -109,6 +114,8 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
     template: "<a href='sms:{{tel}}' class='btn'><i class='icon-comment icon-large'></i></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
+        e.stopPropagation();
+        e.preventDefault();
         var data = {
           'authenticity_token': $(iElement).attr('authtoken'),
           'activity': {
@@ -118,6 +125,10 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
 
         $http.post($(iElement).attr('tourl'), $.param(data), {
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).
+        success(function(data, status) {
+          target_url = $(e.currentTarget).attr('href')
+          window.location = target_url;
         });
       });
     }
@@ -136,6 +147,7 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
     template: "<a href='mailto:{{address}}' target='_blank'>{{address}}</a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
+        e.stopPropagation();
         var data = {
           'authenticity_token': $(iElement).attr('authtoken'),
           'activity': {
