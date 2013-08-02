@@ -14,7 +14,7 @@ class ResponsesController < ApplicationController
       source_contact_id: @response.contact_id,
       status_id: Lead::COMPLETED_STATUS_ID,
       details: current_user_stamp,
-      target_contact_id: current_user.civicrm_contact_id
+      target_contact_id: current_user.civicrm_id
     })
     @activity = Activity.new(params[:activity])
 
@@ -43,7 +43,7 @@ class ResponsesController < ApplicationController
       subject: current_user_stamp,
       note: params[:note],
       entity_id: @response.contact_id,
-      contact_id: current_user.civicrm_contact_id
+      contact_id: current_user.civicrm_id
     )
 
     if new_note.save

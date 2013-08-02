@@ -30,10 +30,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def civicrm_contact_id
-    '1' # Just use the CiviCrm admin's ID until this is properly supported
-  end
-
   def sync_from_pulse
     pulse_campus_ids = []
     civicrm_id_from_pulse = nil
