@@ -1,3 +1,57 @@
 - content_for(:body_class) { 'list_view' }
 
-ng-view data-url= survey_lead_path(@lead.survey,@lead) data-authenticity-token= form_authenticity_token
+ng-view data-url= survey_lead_path(@lead.survey,@lead)
+
+script type="text/ng-template" id="progress.html"
+  div class="well square"
+    .progress
+      .bar style="width:{{percentage}}%; font-weight: bold;"
+        .desc() {{message}}
+  #spinner_dialog
+
+script type="text/ng-template" id="index.html"
+  progressbar percentage="25" message="Onwards Ho!"
+  div class="well square item"
+    h4 How did it go?
+    .panel
+      = link_to "Didn't work out", "#/not_work", class: 'btn btn-large btn-block'
+      = link_to "We connected digitally", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_CODES.digital })"
+      = link_to "We connected face-to-face", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_CODES.face })"
+
+script type="text/ng-template" id="not_work.html"
+  progressbar percentage="50" message="Giddy Up!"
+  div class="well square item active"
+    h4 It didn't work out. What happened?
+    .panel
+      = link_to 'Bad Information', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_CODES.bad_info })"
+      = link_to 'No Response', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_CODES.no_response })"
+      = link_to 'No Longer Interested', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_CODES.not_interested })"
+      = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
+
+script type="text/ng-template" id="worked_out.html"
+  progressbar percentage="75" message="The Final Stretch"
+  div class="well square item active"
+    h4 Your connection worked out!
+    h4 Are they open to further engagement?
+    .panel
+      = link_to 'Yes, I will continue this relationship', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit('continuing')"
+      = link_to 'No, not at this time', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit('ending')"
+      = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
+
+script type="text/ng-template" id="continuing.html"
+  progressbar percentage="90" message="A Tad More"
+  div class="well square item active"
+    h4 Would you suggest they be added to:
+    .panel
+      = link_to 'The Life App', '#/ending', class: 'btn btn-large btn-block'
+      = link_to 'Invite to P2C', '#/ending', class: 'btn btn-large btn-block'
+      = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
+
+script type="text/ng-template" id="ending.html"
+  progressbar percentage="100" message="Completed"
+  div class="well square item active"
+    h1 Great!
+    h4 Way to trust God in following up
+    h4= @lead.contact.display_name
+    .panel
+      = link_to "Take Me Home To<br/>My Connection".html_safe, connections_path, class: 'btn btn-large btn-block btn-success'

@@ -4,23 +4,23 @@ App.config(["$routeProvider","$compileProvider",function($routeProvider,$compile
   $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel|sms):/);
   $routeProvider
     .when('/',{
-      templateUrl: "/templates/index.html.erb",
+      templateUrl: "index.html",
       controller: "ReportCtrl"
     })
     .when('/not_work',{
-      templateUrl: "/templates/not_work.html.erb",
+      templateUrl: "not_work.html",
       controller: "ReportCtrl"
     })
     .when('/worked_out',{
-      templateUrl: "/templates/worked_out.html",
+      templateUrl: "worked_out.html",
       controller: "ReportCtrl"
     })
     .when('/ending',{
-      templateUrl: "/templates/ending.html",
+      templateUrl: "ending.html",
       controller: "ReportCtrl"
     })
     .when('/continuing',{
-      templateUrl: "/templates/continuing.html",
+      templateUrl: "continuing.html",
       controller: "ReportCtrl"
     })
     .otherwise({ redirectTo: '/' })
@@ -34,6 +34,7 @@ App.run(["$rootScope","$location", function($rootScope,$location){
     digital_cont: <%= Lead::REPORT_CODES.digital_cont %>,
     face_cont: <%= Lead::REPORT_CODES.face_cont %>
   };
+  $rootScope.authtoken = $('meta[name="csrf-token"]').attr('content');
 }]);
 
 App.directive("progressbar", ["$rootScope", function($rootScope) {
@@ -43,7 +44,7 @@ App.directive("progressbar", ["$rootScope", function($rootScope) {
       message: "@"
     },
     restrict: "E",
-    templateUrl: "/templates/progress.html",
+    templateUrl: "progress.html",
     link: function() {
       var opts = {
         lines: 10, // The number of lines to draw
@@ -74,8 +75,7 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
   return {
     scope: {
       tel: "@",
-      tourl: "@",
-      authtoken: "@"
+      tourl: "@"
     },
     replace: true,
     restrict: "E",
@@ -85,7 +85,7 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
         e.stopPropagation();
         e.preventDefault();
         var data = {
-          'authenticity_token': $(iElement).attr('authtoken'),
+          'authenticity_token': $rootScope.authtoken,
           'activity': {
             'activity_type_id':'<%= ActivityType::PHONE_CALL_TYPE_ID %>'
           }
@@ -106,8 +106,7 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
   return {
     scope: {
       tel: "@",
-      tourl: "@",
-      authtoken: "@"
+      tourl: "@"
     },
     replace: true,
     restrict: "E",
@@ -117,7 +116,7 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
         e.stopPropagation();
         e.preventDefault();
         var data = {
-          'authenticity_token': $(iElement).attr('authtoken'),
+          'authenticity_token': $rootScope.authtoken,
           'activity': {
             'activity_type_id':'<%= ActivityType::SMS_TYPE_ID %>'
           }
@@ -139,8 +138,7 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
   return {
     scope: {
       address: "@",
-      tourl: "@",
-      authtoken: "@"
+      tourl: "@"
     },
     replace: true,
     restrict: "E",
@@ -149,7 +147,7 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
       $(iElement).on('click',function(e){
         e.stopPropagation();
         var data = {
-          'authenticity_token': $(iElement).attr('authtoken'),
+          'authenticity_token': $rootScope.authtoken,
           'activity': {
             'activity_type_id':'<%= ActivityType::EMAIL_TYPE_ID %>'
           }
@@ -188,7 +186,7 @@ App.controller("ReportCtrl", ["$scope","$routeParams","$rootScope","$http","$loc
       $location.path("/");
     } else {
       var data = {
-        'authenticity_token': $('ng-view').data('authenticity-token'),
+        'authenticity_token': $rootScope.authtoken,
         'lead': {
           'status_id':'<%= Lead::COMPLETED_STATUS_ID %>',
           'engagement_level': $rootScope.engagement_level
