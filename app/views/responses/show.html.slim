@@ -15,7 +15,7 @@ ul.contacts
   div class=['well', 'square', 'report-progress']
     = simple_form_for [@lead.survey,@lead], html: { class: 'form-inline' } do |f|
       .row
-        = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last, item_wrapper_class: 'span4'
+        = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
 
 
 div class=['well','square']

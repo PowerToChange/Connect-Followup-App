@@ -4,23 +4,23 @@ App.config(["$routeProvider","$compileProvider",function($routeProvider,$compile
   $compileProvider.urlSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel|sms):/);
   $routeProvider
     .when('/',{
-      templateUrl: "/assets/index.html.erb",
+      templateUrl: "/templates/index.html.erb",
       controller: "ReportCtrl"
     })
     .when('/not_work',{
-      templateUrl: "/assets/not_work.html.erb",
+      templateUrl: "/templates/not_work.html.erb",
       controller: "ReportCtrl"
     })
     .when('/worked_out',{
-      templateUrl: "/assets/worked_out.html",
+      templateUrl: "/templates/worked_out.html",
       controller: "ReportCtrl"
     })
     .when('/ending',{
-      templateUrl: "/assets/ending.html",
+      templateUrl: "/templates/ending.html",
       controller: "ReportCtrl"
     })
     .when('/continuing',{
-      templateUrl: "/assets/continuing.html",
+      templateUrl: "/templates/continuing.html",
       controller: "ReportCtrl"
     })
     .otherwise({ redirectTo: '/' })
@@ -43,7 +43,7 @@ App.directive("progressbar", ["$rootScope", function($rootScope) {
       message: "@"
     },
     restrict: "E",
-    templateUrl: "/assets/progress.html",
+    templateUrl: "/templates/progress.html",
     link: function() {
       var opts = {
         lines: 10, // The number of lines to draw
