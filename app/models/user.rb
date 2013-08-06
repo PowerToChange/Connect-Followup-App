@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :guid, :first_name, :last_name, :civicrm_id
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }, allow_blank: true
   validates :guid, presence: true
+  validates :civicrm_id, presence: true
+
+  DEFAULT_CIVICRM_ID = 1
 
   def to_s
     if self.name.present?

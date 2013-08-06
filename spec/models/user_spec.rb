@@ -28,7 +28,7 @@ describe User do
   end
 
   describe '.sync_from_pulse', :vcr do
-    let(:user) { create(:user, civicrm_id: nil, schools: []) }
+    let(:user) { create(:user, civicrm_id: 1, schools: []) }
     let(:school) { create(:school, pulse_id: 1) }
 
     before do
@@ -61,9 +61,10 @@ describe User do
     end
 
     it 'should set the civicrm_id from the Pulse' do
-      user.civicrm_id.should be_blank
+      user.civicrm_id.should eq 1
       subject
       user.civicrm_id.should be_present
+      user.civicrm_id.should_not eq 1
     end
   end
 

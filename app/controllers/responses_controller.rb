@@ -6,18 +6,18 @@ class ResponsesController < ApplicationController
     @lead = current_user.leads.find_by_response_id(params[:id])
 
     contact = Contact.where(id: @response.contact_id).includes(:notes, :activities).first
-    @activities = contact.activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.reverse
-    @notes = contact.notes.select { |n| n.note.present? }.reverse
+    @activities = contact.activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.sort_by(&:activity_date_time).reverse
+    @notes = contact.notes.select { |n| n.note.present? }.sort_by(&:modified_date).reverse
 
     @rejoiceables_collection = OptionValue.where(option_group_id: OptionGroup::REJOICEABLES_ID, is_active: 1).sort_by(&:value).collect { |ov| [ov.value, ov.label] }
   end
 
   def create
     params[:activity].merge!({
-      source_contact_id: @response.contact_id,
+      source_contact_id: current_user.civicrm_id || Contact::DEFAULT_CIVICRM_ID,
       status_id: Lead::COMPLETED_STATUS_ID,
       details: current_user.to_s,
-      target_contact_id: current_user.civicrm_id
+      target_contact_id: @response.contact_id
     })
     @activity = Activity.new(params[:activity])
 
