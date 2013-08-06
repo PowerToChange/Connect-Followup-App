@@ -19,10 +19,6 @@ App.config(["$routeProvider","$compileProvider",function($routeProvider,$compile
       templateUrl: "ending.html",
       controller: "ReportCtrl"
     })
-    .when('/continuing',{
-      templateUrl: "continuing.html",
-      controller: "ReportCtrl"
-    })
     .otherwise({ redirectTo: '/' })
 }]);
 
@@ -200,11 +196,7 @@ App.controller("ReportCtrl", ["$scope","$routeParams","$rootScope","$http","$loc
       $http.put(url, xsrf, {
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       }).success(function (data, status, headers, config){
-        if(data.engagement_level == 8) {
-          $location.path('/continuing');
-        } else {
-          $location.path('/ending');
-        }
+        $location.path('/ending');
       }).error(function(data, status, headers, config){
         alert(data);
       });

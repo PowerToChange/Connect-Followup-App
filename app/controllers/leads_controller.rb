@@ -27,7 +27,7 @@ class LeadsController < ApplicationController
       end
       format.json do
         if @lead.update_attributes(params[:lead])
-          render :json => { engagement_level: @lead.engagement_level }
+          head :ok
         else
           render :json => @lead.errors.full_messages.join(','), :status => 400
         end

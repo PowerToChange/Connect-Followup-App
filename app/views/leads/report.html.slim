@@ -38,15 +38,6 @@ script type="text/ng-template" id="worked_out.html"
       = link_to 'No, not at this time', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit('ending')"
       = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
 
-script type="text/ng-template" id="continuing.html"
-  progressbar percentage="90" message="A Tad More"
-  div class="well square item active"
-    h4 Would you suggest they be added to:
-    .panel
-      = link_to 'The Life App', '#/ending', class: 'btn btn-large btn-block'
-      = link_to 'Invite to P2C', '#/ending', class: 'btn btn-large btn-block'
-      = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
-
 script type="text/ng-template" id="ending.html"
   progressbar percentage="100" message="Completed"
   div class="well square item active"
