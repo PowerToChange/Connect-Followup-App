@@ -2,7 +2,7 @@
 http_interactions: 
 - request: 
     method: get
-    uri: https://pulse.powertochange.com/api/ministry_involvements?api_key=087b1cd5-1629-4a1f-9693-be403067dbef&guid=imgloballyunique
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Contact&json=%7B%22api.activity.get%22:%7B%7D,%22id%22:%7B%22in%22:%2260083,60082%22%7D%7D&key=382adce875611f9b75d294b83a77a5f2
     body: 
       encoding: US-ASCII
       string: ""
@@ -12,43 +12,35 @@ http_interactions:
       Accept-Encoding: 
       - gzip, deflate
       User-Agent: 
-      - Pulse RubyClient/0.0.1
+      - CiviCrm RubyClient/1.0.1
   response: 
     status: 
-      code: 400
-      message: Bad Request
+      code: 200
+      message: OK
     headers: 
       Date: 
-      - Thu, 25 Jul 2013 13:59:35 GMT
+      - Wed, 07 Aug 2013 14:40:00 GMT
       Server: 
-      - Apache/2.2.22 (Debian)
-      Cache-Control: 
-      - no-cache
-      X-Runtime: 
-      - "59"
+      - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
-      - Phusion Passenger 4.0.5
-      Set-Cookie: 
-      - _ministry_tracker_production_session=2e1e945af4c10d712a5068f99cce72b5; path=/; HttpOnly
-      Status: 
-      - 400 Bad Request
-      Vary: 
-      - Accept-Encoding
-      Content-Encoding: 
-      - gzip
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 07 Aug 2013 14:40:00 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1375886400\""
       Content-Length: 
-      - "99"
-      Connection: 
-      - close
+      - "4451"
       Content-Type: 
-      - application/xml; charset=utf-8
+      - text/javascript
     body: 
-      encoding: ASCII-8BIT
-      string: !binary |
-        H4sIAAAAAAAAAzWMsQ2AMAwEV/EGWcBKxwJsEIknpIgT2Q4S2xNANFfc6Z+h
-        2jSyXx1xHeKlYnkUh1dxhVnKiNJoGNRob0O2SSU/QLmcEOpJU4XPzOEfcPiu
-        b5SiDGNiAAAA
-
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":2,\"values\":{\"60082\":{\"contact_id\":\"60082\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"sort_name\":\"july30, testuser23\",\"display_name\":\"testuser23 july30\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"do_not_trade\":\"0\",\"is_opt_out\":\"0\",\"legal_identifier\":\"\",\"external_identifier\":\"\",\"nick_name\":\"\",\"legal_name\":\"\",\"image_URL\":\"\",\"preferred_mail_format\":\"Both\",\"first_name\":\"testuser23\",\"middle_name\":\"\",\"last_name\":\"july30\",\"job_title\":\"\",\"birth_date\":\"\",\"is_deceased\":\"0\",\"deceased_date\":\"\",\"household_name\":\"\",\"organization_name\":\"\",\"sic_code\":\"\",\"contact_is_deleted\":\"0\",\"gender_id\":\"1\",\"gender\":\"Female\",\"prefix_id\":\"\",\"prefix\":\"\",\"suffix_id\":\"\",\"suffix\":\"\",\"current_employer\":\"\",\"address_id\":\"\",\"street_address\":\"\",\"supplemental_address_1\":\"\",\"supplemental_address_2\":\"\",\"city\":\"\",\"postal_code_suffix\":\"\",\"postal_code\":\"\",\"geo_code_1\":\"\",\"geo_code_2\":\"\",\"state_province_id\":\"\",\"state_province_name\":\"\",\"state_province\":\"\",\"country_id\":\"\",\"country\":\"\",\"phone_id\":\"\",\"phone_type_id\":\"\",\"phone\":\"\",\"email_id\":\"58378\",\"email\":\"testuser23@july30.com\",\"on_hold\":\"0\",\"im_id\":\"\",\"provider_id\":\"\",\"im\":\"\",\"worldregion_id\":\"\",\"world_region\":\"\",\"id\":\"60082\",\"api.activity.get\":{\"is_error\":0,\"undefined_fields\":[\"entity_id\",\"entity_table\",\"contact_id\",\"api.has_parent\"],\"version\":3,\"count\":2,\"values\":[{\"targets\":{\"60082\":\"60082\"},\"source_contact_id\":\"1\",\"id\":\"104252\",\"activity_type_id\":\"32\",\"subject\":\"Power survey - July21-2\",\"location\":\"\",\"activity_date_time\":\"2013-07-30 22:47:52\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/79\\\">View Webform Submission<\\/a><\\/p>\",\"status_id\":\"2\",\"activity_name\":\"Petition\",\"status\":\"Completed\",\"custom_154\":\"4\",\"custom_154_181\":\"4\",\"custom_155\":\"magazine-spiritual\",\"custom_155_181\":\"magazine-spiritual\",\"custom_156\":\"journey-p2c\",\"custom_156_181\":\"journey-p2c\",\"custom_157\":\"gauge-2\",\"custom_157_181\":\"gauge-2\",\"custom_149\":\"power-backpack\",\"custom_149_65\":\"power-backpack\"},{\"targets\":{\"60082\":\"60082\"},\"source_contact_id\":\"1\",\"id\":\"104253\",\"activity_type_id\":\"43\",\"subject\":\"MyCravings - Email\",\"location\":\"\",\"activity_date_time\":\"2013-07-30 22:47:52\",\"details\":\"\",\"status_id\":\"2\",\"activity_name\":\"Mandrill Email Sent\",\"status\":\"Completed\"}]}},\"60083\":{\"contact_id\":\"60083\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"sort_name\":\"july30, testuser24\",\"display_name\":\"testuser24 july30\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"do_not_trade\":\"0\",\"is_opt_out\":\"0\",\"legal_identifier\":\"\",\"external_identifier\":\"\",\"nick_name\":\"\",\"legal_name\":\"\",\"image_URL\":\"\",\"preferred_mail_format\":\"Both\",\"first_name\":\"testuser24\",\"middle_name\":\"\",\"last_name\":\"july30\",\"job_title\":\"\",\"birth_date\":\"\",\"is_deceased\":\"0\",\"deceased_date\":\"\",\"household_name\":\"\",\"organization_name\":\"\",\"sic_code\":\"\",\"contact_is_deleted\":\"0\",\"gender_id\":\"1\",\"gender\":\"Female\",\"prefix_id\":\"\",\"prefix\":\"\",\"suffix_id\":\"\",\"suffix\":\"\",\"current_employer\":\"\",\"address_id\":\"\",\"street_address\":\"\",\"supplemental_address_1\":\"\",\"supplemental_address_2\":\"\",\"city\":\"\",\"postal_code_suffix\":\"\",\"postal_code\":\"\",\"geo_code_1\":\"\",\"geo_code_2\":\"\",\"state_province_id\":\"\",\"state_province_name\":\"\",\"state_province\":\"\",\"country_id\":\"\",\"country\":\"\",\"phone_id\":\"\",\"phone_type_id\":\"\",\"phone\":\"\",\"email_id\":\"58379\",\"email\":\"testuser24@july30.com\",\"on_hold\":\"0\",\"im_id\":\"\",\"provider_id\":\"\",\"im\":\"\",\"worldregion_id\":\"\",\"world_region\":\"\",\"id\":\"60083\",\"api.activity.get\":{\"is_error\":0,\"undefined_fields\":[\"entity_id\",\"entity_table\",\"contact_id\",\"api.has_parent\"],\"version\":3,\"count\":2,\"values\":[{\"targets\":{\"60083\":\"60083\"},\"source_contact_id\":\"1\",\"id\":\"104254\",\"activity_type_id\":\"32\",\"subject\":\"Power survey - July21-2\",\"location\":\"\",\"activity_date_time\":\"2013-07-30 22:53:12\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/80\\\">View Webform Submission<\\/a><\\/p>\",\"status_id\":\"2\",\"activity_name\":\"Petition\",\"status\":\"Completed\",\"custom_154\":\"4\",\"custom_154_185\":\"4\",\"custom_155\":\"magazine-spiritual\",\"custom_155_185\":\"magazine-spiritual\",\"custom_157\":\"gauge-2\",\"custom_157_185\":\"gauge-2\",\"custom_149\":\"power-backpack\",\"custom_149_66\":\"power-backpack\"},{\"targets\":{\"60083\":\"60083\"},\"source_contact_id\":\"1\",\"id\":\"104255\",\"activity_type_id\":\"43\",\"subject\":\"MyCravings - Email\",\"location\":\"\",\"activity_date_time\":\"2013-07-30 22:53:12\",\"details\":\"\",\"status_id\":\"2\",\"activity_name\":\"Mandrill Email Sent\",\"status\":\"Completed\"}]}}}}"
     http_version: 
-  recorded_at: Thu, 25 Jul 2013 13:59:55 GMT
+  recorded_at: Wed, 07 Aug 2013 14:38:18 GMT
 recorded_with: VCR 2.5.0
