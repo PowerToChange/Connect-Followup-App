@@ -7,9 +7,9 @@ class LeadsController < ApplicationController
     @lead.user_id = current_user.id
 
     if @lead.save
-      flash[:notice] = "Successfully added contact to your connections list."
+      flash[:notice] = "Added contact to your connections list."
     else
-      flash[:error] = "Problem adding contact to your connections. Please try again."
+      flash[:error] = "Oops, could not add this contact to your connections!"
     end
   end
 
@@ -20,7 +20,7 @@ class LeadsController < ApplicationController
       format.html do
         if updateable?
           @lead.update_attributes(params[:lead])
-          redirect_to survey_response_path(@lead.survey,@lead.response_id), :notice => 'Successfully updated progress status.'
+          redirect_to survey_response_path(@lead.survey,@lead.response_id), notice: 'Updated progress status.'
         else
           redirect_to report_survey_lead_path(@lead.survey,@lead)
         end
@@ -29,7 +29,7 @@ class LeadsController < ApplicationController
         if @lead.update_attributes(params[:lead])
           head :ok
         else
-          render :json => @lead.errors.full_messages.join(','), :status => 400
+          render json: @lead.errors.full_messages.join(','), status: 400
         end
       end
     end
@@ -37,7 +37,7 @@ class LeadsController < ApplicationController
 
   def report
     @lead = Lead.find(params[:id])
-    @response = Response.find(:survey => @lead.survey, :id => @lead.response_id)
+    @response = Response.find(survey: @lead.survey, id: @lead.response_id)
   end
 
   private

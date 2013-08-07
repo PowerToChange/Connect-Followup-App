@@ -25,11 +25,25 @@ class User < ActiveRecord::Base
   end
 
   def connections
-    surveys.map do |s|
+    leads_grouped_by_survey_id = self.leads_prefetched.group_by(&:survey_id)
+
+    surveys.map do |survey|
       OpenStruct.new(
-        survey: s,
-        leads: self.leads.for_survey(s)
+        survey: survey,
+        leads: leads_grouped_by_survey_id[survey.id]
       )
+    end
+  end
+
+  def leads_prefetched
+    # We want to fetch and build the leads with their associated CiviCrm data by only making one call total to CiviCrm
+
+    # Based on the user's leads, get all contacts from CiviCrm with their activities
+    contacts = Contact.includes(:activities).where(id: self.leads.collect(&:contact_id)).all
+
+    # Find and build each lead from the contacts we just fetched
+    contacts.collect do |contact|
+      Lead.find_by_contact_with_activities(contact)
     end
   end
 

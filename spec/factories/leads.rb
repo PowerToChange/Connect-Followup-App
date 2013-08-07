@@ -6,5 +6,6 @@ FactoryGirl.define do
     survey
     response_id "55412"
     status_id 4
+    contact_id 32340
   end
 end

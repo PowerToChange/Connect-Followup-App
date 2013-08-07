@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:PowerToChange/civicrm_gem.git
-  revision: e28337532572588766b86e3d1862bf8dbf873084
+  revision: 4fda5e15226b8baa45b8768ebcc370c3ead2f175
   specs:
     civicrm (1.0.1)
       activemodel

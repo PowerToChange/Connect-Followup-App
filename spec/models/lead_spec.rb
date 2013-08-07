@@ -26,7 +26,6 @@ describe Lead do
   end
 
   describe '#save' do
-
     let(:survey) { create(:survey_without_callbacks) }
 
     context 'when creating new lead' do
@@ -58,6 +57,29 @@ describe Lead do
         subject
       end
     end
+  end
 
+  describe '#find_by_contact_with_activities', :vcr do
+    let(:activities) do
+      (1..5).collect { |i| double(id: i, activity_type_id: Survey::PETITION_ACTIVITY_TYPE_ID) }
+    end
+    let(:contact) { double(id: 324897, activities: activities) }
+    let!(:lead) { create(:lead, contact_id: contact.id, response_id: contact.activities.last.id) }
+
+    subject { Lead.find_by_contact_with_activities(contact) }
+
+    it 'should return a lead' do
+      subject.should be_a(Lead)
+    end
+
+    it "should set the lead's contact" do
+      subject.contact.should be_present
+      subject.contact.id.should eq contact.id
+    end
+
+    it "should set the lead's response" do
+      subject.response.should be_present
+      subject.response.response.id.should eq contact.activities.last.id
+    end
   end
 end
