@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     surveys.map do |survey|
       OpenStruct.new(
         survey: survey,
-        leads: leads_grouped_by_survey_id[survey.id]
+        leads: leads_grouped_by_survey_id[survey.id] || []
       )
     end
   end
