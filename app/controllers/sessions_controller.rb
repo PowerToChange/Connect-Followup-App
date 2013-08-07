@@ -33,7 +33,9 @@ class SessionsController < ApplicationController
 
   def update_current_user_from_cas_session
     return false unless session[:cas_user].present?
-    current_user.update_attributes(email: session[:cas_user])
+    current_user.update_attributes(email: session[:cas_user],
+                                   first_name: session[:cas_extra_attributes].try(:[], :firstName),
+                                   last_name: session[:cas_extra_attributes].try(:[], :lastName))
   end
 
   def sync_current_user_from_pulse
