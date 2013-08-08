@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Thu, 08 Aug 2013 15:46:02 GMT
+      - Thu, 08 Aug 2013 18:32:20 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -29,26 +29,26 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Thu, 08 Aug 2013 15:46:02 +0000
+      - Thu, 08 Aug 2013 18:32:20 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1375976762\""
+      - "\"1375986740\""
       Content-Length: 
-      - "372"
+      - "373"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"1\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"activity_date_time\":\"2012-09-09 21:28:36\",\"status_id\":\"2\",\"priority_id\":\"1\",\"is_test\":\"0\",\"is_auto\":\"0\",\"is_current_revision\":\"1\",\"is_deleted\":\"0\",\"engagement_level\":\"8\"}}}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"1\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"activity_date_time\":\"2012-09-09 21:28:36\",\"status_id\":\"2\",\"priority_id\":\"1\",\"is_test\":\"0\",\"is_auto\":\"0\",\"is_current_revision\":\"1\",\"is_deleted\":\"0\",\"engagement_level\":\"10\"}}}"
     http_version: 
-  recorded_at: Thu, 08 Aug 2013 15:44:19 GMT
+  recorded_at: Thu, 08 Aug 2013 18:30:37 GMT
 - request: 
     method: post
     uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
     body: 
       encoding: US-ASCII
-      string: entity=Activity&action=create&id=55412&source_contact_id=1&activity_type_id=43&subject=Happiness%20is%20only%20a%20chocolate%20bar%20away...%20(Thanks%20from%20P2C)&activity_date_time=2012-09-09%2021%3A28%3A36&status_id=3&priority_id=1&is_test=0&is_auto=0&is_current_revision=1&is_deleted=0&engagement_level=8&json=1
+      string: entity=Activity&action=create&id=55412&source_contact_id=1&activity_type_id=43&subject=Happiness%20is%20only%20a%20chocolate%20bar%20away...%20(Thanks%20from%20P2C)&activity_date_time=2012-09-09%2021%3A28%3A36&status_id=3&priority_id=1&is_test=0&is_auto=0&is_current_revision=1&is_deleted=0&engagement_level=10&json=1
     headers: 
       Accept: 
       - "*/*; q=0.5, application/xml"
@@ -57,14 +57,14 @@ http_interactions:
       User-Agent: 
       - CiviCrm RubyClient/1.0.1
       Content-Length: 
-      - "316"
+      - "317"
   response: 
     status: 
       code: 200
       message: OK
     headers: 
       Date: 
-      - Thu, 08 Aug 2013 15:46:02 GMT
+      - Thu, 08 Aug 2013 18:32:20 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -74,18 +74,18 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Thu, 08 Aug 2013 15:46:02 +0000
+      - Thu, 08 Aug 2013 18:32:20 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1375976762\""
+      - "\"1375986740\""
       Content-Length: 
-      - "571"
+      - "572"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"1\",\"source_record_id\":\"\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"activity_date_time\":\"20120909212836\",\"duration\":\"\",\"location\":\"\",\"phone_id\":\"\",\"phone_number\":\"\",\"details\":\"\",\"status_id\":\"3\",\"priority_id\":\"1\",\"parent_id\":\"\",\"is_test\":\"0\",\"medium_id\":\"\",\"is_auto\":\"0\",\"relationship_id\":\"\",\"is_current_revision\":\"1\",\"original_id\":\"\",\"result\":\"\",\"is_deleted\":\"0\",\"campaign_id\":\"\",\"engagement_level\":\"8\",\"weight\":\"\"}}}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"1\",\"source_record_id\":\"\",\"activity_type_id\":\"43\",\"subject\":\"Happiness is only a chocolate bar away... (Thanks from P2C)\",\"activity_date_time\":\"20120909212836\",\"duration\":\"\",\"location\":\"\",\"phone_id\":\"\",\"phone_number\":\"\",\"details\":\"\",\"status_id\":\"3\",\"priority_id\":\"1\",\"parent_id\":\"\",\"is_test\":\"0\",\"medium_id\":\"\",\"is_auto\":\"0\",\"relationship_id\":\"\",\"is_current_revision\":\"1\",\"original_id\":\"\",\"result\":\"\",\"is_deleted\":\"0\",\"campaign_id\":\"\",\"engagement_level\":\"10\",\"weight\":\"\"}}}"
     http_version: 
-  recorded_at: Thu, 08 Aug 2013 15:44:20 GMT
+  recorded_at: Thu, 08 Aug 2013 18:30:38 GMT
 recorded_with: VCR 2.5.0

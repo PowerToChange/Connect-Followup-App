@@ -40,7 +40,7 @@ class Lead < ActiveRecord::Base
     # We want to fetch and build the leads with their associated CiviCrm data by only making one call total to CiviCrm
 
     # Make the call to CiviCrm
-    contacts = Contact.includes(:activities).where(id: leads.collect(&:contact_id)).all
+    contacts = Contact.includes(:activities, relationships: { relationship_type_id: Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID }).where(id: leads.collect(&:contact_id)).all
 
     # Setup each lead's data from the CiviCrm response
     leads.collect do |lead|

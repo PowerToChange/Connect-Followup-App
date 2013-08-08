@@ -11,8 +11,6 @@ class Survey < ActiveRecord::Base
   before_validation :sync
   after_save :fetch_custom_fields, :associate_all_schools
 
-  PETITION_ACTIVITY_TYPE_ID = 32
-
   def to_s
     self.title
   end
@@ -21,16 +19,17 @@ class Survey < ActiveRecord::Base
     @responses ||= begin
       params = {
         campaign_id: self.campaign_id,
-        activity_type_id: PETITION_ACTIVITY_TYPE_ID,
+        activity_type_id: ActivityType::PETITION_TYPE_ID,
         source_record_id: self.survey_id,
         'return' => 'target_contact_id'
       }.merge!(options)
 
-      responses = []
-      PtcActivityQuery.where(params).each do |response|
-        responses << Response.new(self, response) if response.target_contact_id.present?
+      # Get all activities that match the params, and include their contacts, but only the contact with the matching target_contact_id
+      PtcActivityQuery.where(params).includes(contacts: { contact_id: "$value.target_contact_id" }).collect do |response|
+        contact = response.contacts.first
+        next unless contact.present?
+        Response.new(self, response, contact)
       end
-      responses
     end
   end
 

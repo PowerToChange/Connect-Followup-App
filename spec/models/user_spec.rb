@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
-  let!(:survey) { create(:survey_without_callbacks, activity_type_id: Survey::PETITION_ACTIVITY_TYPE_ID) }
+  let!(:survey) { create(:survey_without_callbacks, activity_type_id: ActivityType::PETITION_TYPE_ID) }
   let(:user) { create(:user, surveys: [survey]) }
   let!(:lead_1) { create(:lead, survey_id: survey.id, user_id: user.id, response_id: '104254', contact_id: 60083) }
   let!(:lead_2) { create(:lead, survey_id: survey.id, user_id: user.id, response_id: '104252', contact_id: 60082) }

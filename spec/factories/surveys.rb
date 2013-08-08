@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :survey do
     survey_id 11
-    activity_type_id Survey::PETITION_ACTIVITY_TYPE_ID
+    activity_type_id ActivityType::PETITION_TYPE_ID
     campaign_id 8
     title "Power survey - July21-1"
     has_all_schools false
