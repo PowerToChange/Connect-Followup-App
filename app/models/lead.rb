@@ -36,23 +36,26 @@ class Lead < ActiveRecord::Base
     @contact ||= self.response.contact
   end
 
-  def self.find_by_contact_with_activities(contact)
-    # The contact has many activities, we don't know which one exactly is the one we want yet
-    activity_ids = contact.activities.select { |a| a.activity_type_id.to_i == Survey::PETITION_ACTIVITY_TYPE_ID.to_i }.collect(&:id)
+  def self.find_and_preset_all_by_leads(leads)
+    # We want to fetch and build the leads with their associated CiviCrm data by only making one call total to CiviCrm
 
-    # Find the lead related to this contact
-    lead = Lead.where(contact_id: contact.id, response_id: activity_ids).first
+    # Make the call to CiviCrm
+    contacts = Contact.includes(:activities).where(id: leads.collect(&:contact_id)).all
 
-    # Pre-set the lead's contact
-    lead.contact = contact
+    # Setup each lead's data from the CiviCrm response
+    leads.collect do |lead|
+      # Find and set the lead's contact
+      contact = contacts.detect { |c| c.id.to_i == lead.contact_id.to_i }
+      lead.contact = contact
 
-    # Use the activity from the lead that we found earlier
-    activity = contact.activities.detect { |a| a.id.to_i == lead.response_id.to_i }
+      # The contact has many activities, use the lead we received to find the exact activity we want
+      activity = contact.activities.select { |a| a.id.to_i == lead.response_id.to_i }
 
-    # Initialize the response and pre-set it on the lead
-    lead.response = Response.new(lead.survey, activity)
+      # Initialize and set the response
+      lead.response = Response.initialize_and_preset_by_survey_and_contact_and_activity(lead.survey, contact, activity)
 
-    lead
+      lead
+    end
   end
 
   private

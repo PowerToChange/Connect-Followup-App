@@ -5,16 +5,18 @@ ConnectFollowup::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :connections
-  resources :surveys do
-    resources :responses do
-      post 'create_rejoiceable', on: :member
-      post 'create_note', on: :member
-    end
 
+  resources :surveys do
     resources :leads do
       member do
         get 'report'
       end
+    end
+
+    resources :contacts do
+      resources :activities
+      resources :notes
+      resources :responses
     end
   end
 

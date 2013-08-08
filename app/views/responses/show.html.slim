@@ -3,17 +3,17 @@
 ul.contacts
   li.inactive
     .avatar
-      = contact_image_tag(@response.contact)
+      = contact_image_tag(@contact)
     .info
       h5
-        = @response.contact.display_name
+        = @contact.display_name
       .more
         .btn-group
-          = render :partial => 'layouts/phone_sms', :locals => { :tel => @response.contact.phone, :survey_id => @survey.id, :response_id => @response }
+          = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id
 
 - if @lead.present?
   div class=['well', 'square', 'report-progress']
-    = simple_form_for [@lead.survey,@lead], html: { class: 'form-inline' } do |f|
+    = simple_form_for [@survey, @lead], html: { class: 'form-inline' } do |f|
       .row
         = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
 
@@ -28,17 +28,17 @@ div class=['well','square']
       td= @response.school.try(:display_name)
     tr
       td Phone
-      td= number_to_phone(@response.contact.phone) if @response.contact.phone.present?
+      td= number_to_phone(@contact.phone) if @contact.phone.present?
     tr
       td Email
       td
-        = render :partial => 'layouts/email', :locals => { :address => @response.contact.email, :survey_id => @survey.id, :response_id => @response }
+        = render 'layouts/email', address: @contact.email, survey_id: @survey.id, contact_id: @contact.id
 
 
 div class=['well','square']
   h4
     i.icon-file-alt
-    '#{@response.survey.title}
+    '#{@survey.title}
   table class=['table','table-bordered','table-striped']
     thead
       tr
@@ -97,5 +97,5 @@ div class=['well','square']
         .well No notes.
 
 
-= render 'new_note_modal'
-= render 'new_rejoiceable_modal', rejoiceables_collection: @rejoiceables_collection
+= render '/notes/new_note_modal', survey_id: @survey.id, contact_id: @contact.id
+= render '/activities/new_rejoiceable_modal', rejoiceables_collection: @rejoiceables_collection, survey_id: @survey.id, contact_id: @contact.id

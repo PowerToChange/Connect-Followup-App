@@ -41,14 +41,14 @@ class ApplicationController < ActionController::Base
   end
 
   def flash_message
-    [:error, :warning, :notice].each do |type|
+    [:error, :warning, :notice, :success].each do |type|
       return flash[type] unless flash[type].blank?
     end
     return ''
   end
 
   def flash_type
-    [:error, :warning, :notice].each do |type|
+    [:error, :warning, :notice, :success].each do |type|
       return type unless flash[type].blank?
     end
   end

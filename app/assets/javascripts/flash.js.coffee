@@ -1,6 +1,7 @@
 bootstrap_flash_class = (type) ->
   switch type
     when 'notice' then 'alert-success'
+    when 'success' then 'alert-success'
     when 'error' then 'alert-error'
     when 'warning' then 'alert-warning'
     else 'alert-success'

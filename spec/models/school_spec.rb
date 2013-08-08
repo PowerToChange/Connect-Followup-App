@@ -41,4 +41,19 @@ describe School do
     end
   end
 
+  context '#find_by_relationship' do
+    let(:relationship) { double(contact_id_b: school.civicrm_id) }
+    subject { School.find_by_relationship(relationship) }
+
+    before { school.save }
+
+    it 'returns a school' do
+      subject.should be_a(School)
+    end
+
+    it 'returns the correct school' do
+      subject.civicrm_id.should eq relationship.contact_id_b
+    end
+  end
+
 end

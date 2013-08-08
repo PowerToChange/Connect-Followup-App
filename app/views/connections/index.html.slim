@@ -12,7 +12,7 @@ div.list-title My Connections
     - else
       ul.contacts
         - conn.leads.each do |lead|
-          li data-status-id=lead.status_id data-url=survey_response_path(lead.survey,lead.response) style=lead_li_style(lead)
+          li data-status-id=lead.status_id data-url=survey_contact_response_path(survey_id: conn.survey.id, contact_id: lead.contact_id, id: lead.response_id) style=lead_li_style(lead)
             .avatar
               = contact_image_tag(lead.contact)
             .info
@@ -21,7 +21,7 @@ div.list-title My Connections
               div class=['label', lead.status.gsub(" ", "")] = lead.status
               .more
                 div class='btn-group'
-                  = render :partial => 'layouts/phone_sms', :locals => { :tel => lead.contact.phone, :survey_id => lead.survey_id, :response_id => lead.response_id }
+                  = render 'layouts/phone_sms', tel: lead.contact.phone, lead: lead
             .arrow
               i class="icon-chevron-right icon-large"
 - if @connections.empty?

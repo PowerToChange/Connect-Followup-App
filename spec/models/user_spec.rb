@@ -23,21 +23,7 @@ describe User do
       subject.first.leads.size.should == 2
     end
     it 'returns correct leads' do
-      subject.first.leads.collect{|l| l.response.response_id }.should =~ ['104254','104252']
-    end
-  end
-
-  describe '#leads_prefetched', :vcr do
-    subject { user.leads_prefetched }
-
-    it 'should return an array' do
-      subject.should be_a(Array)
-    end
-
-    it 'should return leads' do
-      subject.each do |i|
-        i.should be_a(Lead)
-      end
+      subject.first.leads.collect(&:response_id).should =~ ['104254','104252']
     end
   end
 

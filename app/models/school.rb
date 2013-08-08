@@ -26,6 +26,10 @@ class School < ActiveRecord::Base
     end
   end
 
+  def self.find_by_relationship(relationship)
+    self.where(civicrm_id: relationship.try(:contact_id_b)).first
+  end
+
   def to_s
     self.display_name
   end

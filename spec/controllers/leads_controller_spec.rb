@@ -16,7 +16,7 @@ describe LeadsController do
       context 'when update status to 3 (WIP)' do
         it 'redirects back to lead page' do
           subject
-          response.should redirect_to(survey_response_path(survey,lead.response_id))
+          response.should redirect_to(survey_lead_path(survey, lead))
         end
         it 'sets flash notice message' do
           subject
@@ -27,7 +27,7 @@ describe LeadsController do
         let(:status) { 4 }
         it 'redirects back to lead page' do
           subject
-          response.should redirect_to(survey_response_path(survey,lead.response_id))
+          response.should redirect_to(survey_lead_path(survey, lead))
         end
         it 'sets flash notice message' do
           subject
@@ -49,9 +49,10 @@ describe LeadsController do
 
     context 'when updating engagement level via JSON' do
       subject { put :update, :survey_id => survey.id, :id => lead.id, :lead => { status_id: 2, engagement_level: 10 }, :format => :json }
-      it 'responds with engagement level' do
+      it 'responds with head ok' do
         subject
-        response.body.should == { engagement_level: 10 }.to_json
+        response.should be_success
+        response.body.should be_blank
       end
       context 'when error updating lead' do
         before do

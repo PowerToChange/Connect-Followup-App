@@ -1,3 +1,5 @@
+- contact_id = local_assigns[:lead].present? ? lead.contact_id : local_assigns[:contact_id]
+- survey_id = local_assigns[:lead].present? ? lead.survey_id : local_assigns[:survey_id]
 - if tel.present?
-  phone tel= number_to_phone(tel) tourl= survey_responses_path(survey_id: survey_id, id: response_id)
-  sms tel= number_to_phone(tel) tourl= survey_responses_path(survey_id: survey_id, id: response_id)
+  phone tel= number_to_phone(tel) tourl= survey_contact_activities_path(survey_id: survey_id, contact_id: contact_id)
+  sms tel= number_to_phone(tel) tourl= survey_contact_activities_path(survey_id: survey_id, contact_id: contact_id)

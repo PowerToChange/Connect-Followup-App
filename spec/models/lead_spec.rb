@@ -5,18 +5,21 @@ describe Lead do
     let(:survey) { create(:survey_without_callbacks) }
     let!(:lead) { create(:lead, :survey => survey, :status_id => status) }
     subject { lead.status }
+
     context 'when status id 4' do
       let(:status) { 4 }
       it 'returns Uncontacted' do
         subject.should == 'Uncontacted'
       end
     end
+
     context 'when status id 3' do
       let(:status) { 3 }
       it 'returns Uncontacted' do
         subject.should == 'In Progress'
       end
     end
+
     context 'when status id 2' do
       let(:status) { 2 }
       it 'returns Completed' do
@@ -59,27 +62,22 @@ describe Lead do
     end
   end
 
-  describe '#find_by_contact_with_activities', :vcr do
-    let(:activities) do
-      (1..5).collect { |i| double(id: i, activity_type_id: Survey::PETITION_ACTIVITY_TYPE_ID) }
-    end
-    let(:contact) { double(id: 324897, activities: activities) }
-    let!(:lead) { create(:lead, contact_id: contact.id, response_id: contact.activities.last.id) }
+  describe '#find_and_preset_all_by_leads', :vcr do
+    let(:lead) { create(:lead, contact_id: 60058, response_id: 104210, user: create(:user)) }
 
-    subject { Lead.find_by_contact_with_activities(contact) }
+    subject { Lead.find_and_preset_all_by_leads([lead]) }
 
-    it 'should return a lead' do
-      subject.should be_a(Lead)
+    it 'should return an array of leads' do
+      subject.should be_a(Array)
+      subject.each { |l| l.should be_a(Lead) }
     end
 
     it "should set the lead's contact" do
-      subject.contact.should be_present
-      subject.contact.id.should eq contact.id
+      subject.each { |l| l.contact.should be_present }
     end
 
     it "should set the lead's response" do
-      subject.response.should be_present
-      subject.response.response.id.should eq contact.activities.last.id
+      subject.each { |l| l.response.should be_present }
     end
   end
 end
