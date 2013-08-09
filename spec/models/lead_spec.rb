@@ -56,7 +56,7 @@ describe Lead do
         lead.status_id.should == 2
       end
       it 'updates CiviCrm Activity' do
-        CiviCrm::Activity.any_instance.should_receive(:save)
+        CiviCrm::Activity.should_receive(:update).with(hash_including(id: lead.response_id))
         subject
       end
     end

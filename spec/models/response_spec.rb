@@ -5,6 +5,7 @@ describe Response do
   let!(:custom_field) { create(:custom_field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
   let(:answer) { double(id: 1, custom_64: "Montreal", target_contact_id: [11]) }
   let(:response) { Response.new(survey, answer) }
+  let(:lead) { create(:lead, survey: survey, response_id: response.id) }
   let(:contact) { CiviCrm::Contact.new(id: 11, display_name: 'Adrian Teh', email: 'adrian@ballistiq.com') }
 
   describe '#answers', :vcr do
@@ -20,12 +21,12 @@ describe Response do
     end
   end
 
-  describe '.find' do
+  describe '#find' do
     subject { Response.find(survey: survey, id: 12345) }
     let!(:custom_field) { create(:custom_field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
 
     before do
-      CiviCrm::Activity.stub_chain(:where, :first).and_return(double())
+      CiviCrm::Activity.stub_chain(:where, :includes, :first).and_return(double(contacts: [Contact.new]))
     end
 
     it 'calls civicrm api' do
@@ -34,6 +35,19 @@ describe Response do
     end
     it 'returns a response' do
       subject.should be_a_kind_of(Response)
+    end
+    it 'initializes the contact' do
+      subject.contact.should be_a(Contact)
+    end
+  end
+
+  describe '#lead' do
+    subject { response.lead }
+    before { lead }
+
+    it 'should return the associated lead' do
+      subject.should be_a(Lead)
+      subject.id.should eq(lead.id)
     end
   end
 

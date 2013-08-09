@@ -36,6 +36,10 @@ class Lead < ActiveRecord::Base
     @contact ||= self.response.contact
   end
 
+  def completed?
+    status_id == COMPLETED_STATUS_ID
+  end
+
   def self.find_and_preset_all_by_leads(leads)
     # We want to fetch and build the leads with their associated CiviCrm data by only making one call total to CiviCrm
 
@@ -61,12 +65,9 @@ class Lead < ActiveRecord::Base
   private
 
   def update_status_engagement_level_to_civicrm
-    a = CiviCrm::Activity.find(self.response_id)
-    a.status_id = self.status_id
-    if self.engagement_level
-      a.refresh_from({'engagement_level' => self.engagement_level})
-    end
-    a.save
+    update_params = { id: self.response_id, status_id: self.status_id }
+    update_params[:engagement_level] = self.engagement_level if self.engagement_level.present?
+    CiviCrm::Activity.update(update_params)
   end
 
 end

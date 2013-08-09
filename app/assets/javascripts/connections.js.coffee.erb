@@ -11,6 +11,6 @@ $ ->
 toggle_completed_leads = (target) ->
   leads = $('ul.contacts li[data-status-id="<%= Lead::COMPLETED_STATUS_ID %>"]')
   if $(target).is(':checked')
-    leads.show()
+    leads.slideDown()
   else
-    leads.hide()
+    leads.slideUp()

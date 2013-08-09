@@ -19,7 +19,7 @@ class LeadsController < ApplicationController
       format.html do
         if updateable?
           @lead.update_attributes(params[:lead])
-          redirect_to survey_lead_path(@lead), notice: 'Updated progress status.'
+          redirect_to survey_lead_path(@lead), notice: 'Updated status.'
         else
           redirect_to report_survey_lead_path(@lead.survey,@lead)
         end
@@ -31,11 +31,19 @@ class LeadsController < ApplicationController
           render json: @lead.errors.full_messages.join(','), status: 400
         end
       end
+      format.js do
+        if @lead.update_attributes(params[:lead])
+          flash[:success] = 'Updated status.' unless @lead.completed?
+        else
+          flash[:error] = 'Oops, could not update status!'
+        end
+      end
     end
   end
 
   def report
     @response = Response.find(survey: @lead.survey, id: @lead.response_id)
+    @lead.response = @response
   end
 
   private

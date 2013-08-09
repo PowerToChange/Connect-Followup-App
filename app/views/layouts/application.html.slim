@@ -45,9 +45,9 @@ html lang="en" ng-app="connectapp"
           = yield
 
       footer
-        - if logged_in?
-          p Logged in as <i>#{ current_user.to_s }</i>
         br
+        - if logged_in?
+          p.muted Logged in as <i>#{ current_user.to_s }</i>
         p.muted &copy; Power to Change #{ Time.now.year }
     /!
       Javascripts

@@ -11,9 +11,9 @@ ul.contacts
         .btn-group
           = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id
 
-- if @lead.present?
+- if @response.lead.present?
   div class=['well', 'square', 'report-progress']
-    = simple_form_for [@survey, @lead], html: { class: 'form-inline' } do |f|
+    = simple_form_for [@survey, @response.lead], remote: true, html: { class: 'form-inline' } do |f|
       .row
         = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
 

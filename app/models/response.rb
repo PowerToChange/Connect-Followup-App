@@ -50,6 +50,10 @@ class Response
     end
   end
 
+  def lead
+    @lead ||= Lead.where(response_id: response_id).first
+  end
+
   def self.find(args)
     survey = args[:survey]
     id = args[:id]
@@ -58,7 +62,9 @@ class Response
       'return' => 'target_contact_id',
       id: id
     }
-    Response.new(survey, CiviCrm::Activity.where(params).first)
+    activity = CiviCrm::Activity.where(params).includes(contacts: { contact_id: "$value.target_contact_id" }).first
+    contact = activity.contacts.first
+    Response.new(survey, activity, contact)
   end
 
   def self.initialize_and_preset_by_survey_and_contact_and_activity(survey, contact, activity)
