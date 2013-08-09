@@ -9,7 +9,8 @@ ul.contacts
         = @contact.display_name
       .more
         .btn-group
-          = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id
+          = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id, hidden_phone: true
+          = render 'layouts/email', address: @contact.email, survey_id: @survey.id, contact_id: @contact.id, hidden_phone: true
 
 - if @response.lead.present?
   div class=['well', 'square', 'report-progress']
@@ -28,7 +29,8 @@ div class=['well','square']
       td= @response.school.try(:display_name)
     tr
       td Phone
-      td= number_to_phone(@contact.phone) if @contact.phone.present?
+      td
+        .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id
     tr
       td Email
       td
@@ -71,9 +73,8 @@ div class=['well','square']
       table class=['table','table-bordered','table-striped']
         - @activities.each do |a|
           tr
-            td.icon #{ activity_icon(a) }
             td
-              strong #{ a.activity_name }
+              strong #{ activity_icon(a) } #{ a.activity_name }
               small.pull-right data-timestamp= a.activity_date_time
                 #{ custom_time_ago_in_words(a.activity_date_time) }
               br
@@ -85,10 +86,8 @@ div class=['well','square']
       table class=['table','table-bordered','table-striped']
         - @notes.each do |n|
           tr
-            td.icon
-              i.icon-pencil
             td
-              strong #{ n.subject }
+              strong <i class="icon-pencil icon-large"></i> #{ n.subject }
               small.pull-right data-timestamp= n.modified_date
                 #{ days_ago(n.modified_date) }
               br

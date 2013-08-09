@@ -12,7 +12,6 @@
           .info
             h5
               = r.contact.display_name
-            = render 'layouts/email', address: r.contact.email, survey_id: r.survey_id, contact_id: r.contact_id
             .more
               div class='btn-group'
                 - if !Lead.all.map(&:response_id).include?(r.response.id)
@@ -21,7 +20,8 @@
                   = link_to_icon 'ok-sign', 'javascript:void(0)', class: 'btn disabled'
 
                 = link_to_icon 'info-sign', survey_contact_response_path(survey_id: @survey.id, contact_id: r.contact_id, id: r.id), label_hidden_phone: 'Info', class: 'btn'
-                = render 'layouts/phone_sms', tel: r.contact.phone, survey_id: r.survey_id, contact_id: r.contact_id
+                = render 'layouts/phone_sms', tel: r.contact.phone, survey_id: r.survey_id, contact_id: r.contact_id, hidden_phone: true
+                = render 'layouts/email', address: r.contact.email, survey_id: r.survey_id, contact_id: r.contact_id, hidden_phone: true
 
       - if @responses.empty?
         div class=['item','active']

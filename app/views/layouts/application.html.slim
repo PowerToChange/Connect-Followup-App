@@ -33,7 +33,7 @@ html lang="en" ng-app="connectapp"
               .nav
                 div class=['btn-group','pull-left']
                   = link_to_icon "arrow-left", "javascript:void(0)", class: "btn prev-page"
-                  = link_to_icon "home", root_path, class: "btn"
+                  = link_to_icon "home", root_path, label_hidden_phone: "My Connections", class: "btn"
                 div class=['btn-group','pull-right']
                   = link_to_icon "off", log_out_path, label_hidden_phone: "Log Off", class: "btn"
 

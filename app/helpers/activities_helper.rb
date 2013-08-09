@@ -18,13 +18,13 @@ module ActivitiesHelper
     # Email
     icon_class = (activity.activity_name.downcase.include?('email') ? "icon-envelope" : nil) unless icon_class
 
-    %(<i class="#{icon_class} icon-large" />).html_safe
+    %(<i class="#{icon_class} icon-large"></i>).html_safe
   end
 
   def activity_details(activity)
     details = []
     if activity.activity_type_id == ActivityType::REJOICEABLE_TYPE_ID
-      details << OptionValue.label_for(option_group_id: OptionGroup::REJOICEABLES_ID, value: activity.custom_143)
+      details << "<strong>#{ OptionValue.label_for(option_group_id: OptionGroup::REJOICEABLES_ID, value: activity.custom_143) }</strong>"
     end
     details << activity.subject if activity.subject.present?
     details << activity.details if activity.details.present?

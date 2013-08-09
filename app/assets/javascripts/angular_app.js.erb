@@ -71,11 +71,12 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
   return {
     scope: {
       tel: "@",
-      tourl: "@"
+      tourl: "@",
+      hiddenphoneclass: "@"
     },
     replace: true,
     restrict: "E",
-    template: "<a href='tel:{{tel}}' class='btn'><i class='icon-phone icon-large'></i><span class='hidden-phone'>&nbsp;{{tel}}</span></a>",
+    template: "<a href='tel:{{tel}}' class='btn'><i class='icon-phone icon-large'></i><span class='{{hiddenphoneclass}}'>&nbsp;{{tel}}</span></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
         e.stopPropagation();
@@ -102,7 +103,8 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
   return {
     scope: {
       tel: "@",
-      tourl: "@"
+      tourl: "@",
+      hiddenphoneclass: "@"
     },
     replace: true,
     restrict: "E",
@@ -134,11 +136,12 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
   return {
     scope: {
       address: "@",
-      tourl: "@"
+      tourl: "@",
+      hiddenphoneclass: "@"
     },
     replace: true,
     restrict: "E",
-    template: "<a href='mailto:{{address}}' target='_blank'>{{address}}</a>",
+    template: "<a href='mailto:{{address}}' class='btn' target='_blank'><i class='icon-envelope icon-large'></i><span class='{{hiddenphoneclass}}'>&nbsp;{{address}}</span></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
         e.stopPropagation();

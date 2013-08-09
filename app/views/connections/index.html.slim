@@ -21,7 +21,8 @@ div.list-title My Connections
               div class=['label', lead.status.gsub(" ", "")] = lead.status
               .more
                 div class='btn-group'
-                  = render 'layouts/phone_sms', tel: lead.contact.phone, lead: lead
+                  = render 'layouts/phone_sms', tel: lead.contact.phone, lead: lead, hidden_phone: true
+                  = render 'layouts/email', address: lead.contact.email, lead: lead, hidden_phone: true
             .arrow
               i class="icon-chevron-right icon-large"
 - if @connections.empty?
