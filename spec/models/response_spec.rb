@@ -20,15 +20,6 @@ describe Response do
     end
   end
 
-  describe '#contact' do
-    subject { response.contact }
-
-    it 'fetches contact from civicrm' do
-      CiviCrm::Contact.should_receive(:find).with(11).and_return(contact)
-      subject
-    end
-  end
-
   describe '.find' do
     subject { Response.find(survey: survey, id: 12345) }
     let!(:custom_field) { create(:custom_field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
@@ -43,23 +34,6 @@ describe Response do
     end
     it 'returns a response' do
       subject.should be_a_kind_of(Response)
-    end
-  end
-
-  describe '.school' do
-    subject { response.school }
-    let!(:school) { create(:school) }
-
-    before do
-      Relationship.should_receive(:where).with(hash_including(relationship_type_id: Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID)).and_return([double(contact_id_b: school.civicrm_id)])
-      5.times { create(:school) }
-    end
-
-    it 'fetches relationship from Civi' do
-      subject
-    end
-    it 'returns the school' do
-      subject.id.should eq school.id
     end
   end
 

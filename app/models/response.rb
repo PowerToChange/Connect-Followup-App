@@ -40,10 +40,6 @@ class Response
     end
   end
 
-  def contact
-    @contact ||= Contact.find(contact_id)
-  end
-
   def contact_id
     @contact_id ||= begin
       if @contact.present?
@@ -51,18 +47,6 @@ class Response
       else
         response.target_contact_id.is_a?(Array) ? response.target_contact_id.try(:first) : response.target_contact_id
       end
-    end
-  end
-
-  def source_contact
-    @source_contact ||= Contact.find(response.source_contact_id.try(:first))
-  end
-
-  def school
-    @school ||= begin
-      return nil unless self.contact_id.present?
-      school_relationship = Relationship.where(contact_id_a: self.contact_id, relationship_type_id: Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID).first
-      School.find_by_relationship(school_relationship)
     end
   end
 
