@@ -7,7 +7,8 @@ bootstrap_flash_class = (type) ->
     else 'alert-success'
 
 show_ajax_message = (msg, type) ->
-  $("#flash").slideUp('fast').html "<div class='alert fade in #{ bootstrap_flash_class(type) }'><button class='close' data-dismiss='alert'>×</button>#{ msg }</div>"
+  $("#flash").slideUp 'fast', ->
+    $(this).html "<div class='alert fade in #{ bootstrap_flash_class(type) }'><button class='close' data-dismiss='alert'>×</button>#{ msg }</div>"
   $("#flash").slideDown('slow')
 
 $(document).ajaxComplete (event, request) ->
