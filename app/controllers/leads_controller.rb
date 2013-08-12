@@ -21,9 +21,11 @@ class LeadsController < ApplicationController
           @lead.update_attributes(params[:lead])
           redirect_to survey_lead_path(@lead), notice: 'Updated status.'
         else
+          # Redirect to the contact completed report without updating the contact to completed
           redirect_to report_survey_lead_path(@lead.survey,@lead)
         end
       end
+
       format.json do
         if @lead.update_attributes(params[:lead])
           head :ok
@@ -31,9 +33,13 @@ class LeadsController < ApplicationController
           render json: @lead.errors.full_messages.join(','), status: 400
         end
       end
+
       format.js do
-        if @lead.update_attributes(params[:lead])
-          flash[:success] = 'Updated status.' unless @lead.completed?
+        if updateable? && @lead.update_attributes(params[:lead])
+          flash[:notice] = 'Updated status.' unless @lead.completed?
+        elsif !updateable?
+          # Redirect to the contact completed report without updating the contact to completed
+          render inline: "window.location = '#{ report_survey_lead_path(@lead.survey, @lead) }';"
         else
           flash[:error] = 'Oops, could not update status!'
         end
