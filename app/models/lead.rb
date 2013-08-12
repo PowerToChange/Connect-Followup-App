@@ -41,6 +41,8 @@ class Lead < ActiveRecord::Base
   end
 
   def self.find_and_preset_all_by_leads(leads)
+    return [] if leads.blank?
+
     # We want to fetch and build the leads with their associated CiviCrm data by only making one call total to CiviCrm
 
     # Make the call to CiviCrm

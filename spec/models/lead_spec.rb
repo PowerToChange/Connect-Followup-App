@@ -79,5 +79,11 @@ describe Lead do
     it "should set the lead's response" do
       subject.each { |l| l.response.should be_present }
     end
+
+    it "should return an empty array if no lead ids given" do
+      Lead.find_and_preset_all_by_leads([]).should eq []
+      Lead.find_and_preset_all_by_leads(nil).should eq []
+      Lead.find_and_preset_all_by_leads('').should eq []
+    end
   end
 end
