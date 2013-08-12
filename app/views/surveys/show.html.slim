@@ -1,7 +1,8 @@
 - content_for(:body_class) { 'list_view' }
 .survey
   .title
-    = @survey.title
+    = "#{ @survey.title } "
+    = number_of_survey_responses_not_yet_being_followed_up(@survey)
 
   #responses class=['carousel','slide']
     div class=['carousel-inner','contacts']

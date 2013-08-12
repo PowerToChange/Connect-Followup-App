@@ -9,7 +9,7 @@ class Survey < ActiveRecord::Base
   validates_presence_of :survey_id
 
   before_validation :sync
-  after_save :fetch_custom_fields, :associate_all_schools
+  after_save :fetch_custom_fields, :associate_all_schools, :update_responses_count_cache
 
   def to_s
     self.title
@@ -17,15 +17,12 @@ class Survey < ActiveRecord::Base
 
   def responses(options = {})
     @responses ||= begin
-      params = {
-        campaign_id: self.campaign_id,
-        activity_type_id: ActivityType::PETITION_TYPE_ID,
-        source_record_id: self.survey_id,
-        'return' => 'target_contact_id'
-      }.merge!(options)
+      params = responses_query_params.merge!(options)
 
       # Get all activities that match the params, and include their contacts, but only the contact with the matching target_contact_id
-      PtcActivityQuery.where(params).includes(contacts: { contact_id: "$value.target_contact_id" }).collect do |response|
+      responses = PtcActivityQuery.where(params).includes(contacts: { contact_id: "$value.target_contact_id" }).all
+      update_responses_count_cache(responses.size) if options.blank? # Update the survey responses count cache only if there are no filters in place
+      responses.collect do |response|
         contact = response.contacts.first
         next unless contact.present?
         Response.new(self, response, contact)
@@ -34,6 +31,15 @@ class Survey < ActiveRecord::Base
   end
 
   private
+
+  def responses_query_params
+    {
+      campaign_id: self.campaign_id,
+      activity_type_id: ActivityType::PETITION_TYPE_ID,
+      source_record_id: self.survey_id,
+      'return' => 'target_contact_id'
+    }
+  end
 
   def sync
     survey = CiviCrm::Survey.where(:id => self.survey_id).first
@@ -49,6 +55,11 @@ class Survey < ActiveRecord::Base
 
   def fetch_custom_fields
     CustomField.sync(self)
+  end
+
+  def update_responses_count_cache(count = nil)
+    count = PtcActivityQuery.where(responses_query_params).count if count.blank?
+    self.update_column(:responses_count_cache, count) # update without invoking callbacks
   end
 
   def associate_all_schools

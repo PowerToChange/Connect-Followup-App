@@ -13,9 +13,11 @@ describe Survey do
       let(:survey) { build(:survey, survey_id: 2) }
       subject { survey.save }
       let(:title) { 'Power survey - July21-1' }
+
       before do
-        CiviCrm::Survey.stub_chain(:where,:first).and_return(survey_response)
+        CiviCrm::Survey.stub_chain(:where, :first).and_return(survey_response)
       end
+
       it 'fetches survey record from Civicrm' do
         CiviCrm::Survey.should_receive(:where).with(hash_including(id: 2))
         subject
@@ -36,8 +38,15 @@ describe Survey do
         CustomField.should_receive(:sync).with(an_instance_of(Survey))
         subject
       end
+      it 'updates responses count cache' do
+        PtcActivityQuery.stub_chain(:where, :count).and_return(324823)
+        subject
+        Survey.last.responses_count_cache.should eq 324823
+      end
+
       context 'when survey does not exist' do
         let(:survey_response) { nil }
+
         it 'returns error' do
           CiviCrm::Survey.stub_chain(:where,:first).and_return(survey_response)
           subject
