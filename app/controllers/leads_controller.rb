@@ -47,6 +47,14 @@ class LeadsController < ApplicationController
     end
   end
 
+  def destroy
+    if @lead.destroy
+      flash[:notice] = 'Released contact from your connections list.'
+    else
+      flash[:error] = 'Oops, could not release contact from your connections!'
+    end
+  end
+
   def report
     @response = Response.find(survey: @lead.survey, id: @lead.response_id)
     @lead.response = @response

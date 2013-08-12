@@ -104,4 +104,21 @@ describe LeadsController do
     end
 
   end
+
+  describe "DELETE /surveys/:id/leads/:id", :vcr do
+    let(:survey) { create(:survey_without_callbacks) }
+    let!(:lead) { create(:lead, survey: survey, status_id: 4) }
+
+    subject { delete :destroy, survey_id: survey.id, id: lead.id, format: :js }
+
+    it 'should destroy the lead' do
+      Lead.where(id: lead.id).should be_present
+      expect { subject }.to change { survey.leads.count }.from(1).to(0)
+      Lead.where(id: lead.id).should be_blank
+    end
+    it 'should set the flash if successful' do
+      subject.should be_success
+      flash[:notice].should_not be_empty
+    end
+  end
 end

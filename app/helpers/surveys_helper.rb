@@ -57,7 +57,7 @@ module SurveysHelper
     options.select { |o| o[1].to_s == value.to_s }.try(:first).try(:[], 0)
   end
 
-  def create_lead_button_id(id)
-    "create-response-#{ id }"
+  def add_delete_lead_button_id(id)
+    "add-release-response-#{ id }"
   end
 end
