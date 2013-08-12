@@ -9,6 +9,7 @@ ul.contacts
         = @contact.display_name
       .more
         .btn-group
+          = render 'layouts/add_lead', response: @response, survey: @survey
           = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id, hidden_phone: true
           = render 'layouts/email', address: @contact.email, survey_id: @survey.id, contact_id: @contact.id, hidden_phone: true
 
