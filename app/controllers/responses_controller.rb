@@ -7,7 +7,7 @@ class ResponsesController < ApplicationController
 
     @response = Response.initialize_and_preset_by_survey_and_contact_and_activity(@survey, @contact, params[:id])
 
-    @activities = @contact.activities.select { |a| a.status_id == Activity::STATUS_COMPLETED_ID }.sort_by(&:activity_date_time).reverse
+    @activities = @contact.activities.sort_by(&:activity_date_time).reverse
     @notes = @contact.notes.select { |n| n.note.present? }.sort_by(&:modified_date).reverse
 
     @rejoiceables_collection = OptionValue.where(option_group_id: OptionGroup::REJOICEABLES_ID, is_active: 1).sort_by(&:value).collect { |ov| [ov.value, ov.label] }
