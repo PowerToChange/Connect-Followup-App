@@ -72,6 +72,7 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
     scope: {
       tel: "@",
       tourl: "@",
+      campaignid: "@",
       hiddenphoneclass: "@"
     },
     replace: true,
@@ -84,7 +85,8 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
         var data = {
           'authenticity_token': $rootScope.authtoken,
           'activity': {
-            'activity_type_id':'<%= ActivityType::PHONE_CALL_TYPE_ID %>'
+            'activity_type_id':'<%= ActivityType::PHONE_CALL_TYPE_ID %>',
+            'campaign_id': $(iElement).attr('campaignid')
           }
         }
         $http.post($(iElement).attr('tourl'), $.param(data), {
@@ -104,6 +106,7 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
     scope: {
       tel: "@",
       tourl: "@",
+      campaignid: "@",
       hiddenphoneclass: "@"
     },
     replace: true,
@@ -116,7 +119,8 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
         var data = {
           'authenticity_token': $rootScope.authtoken,
           'activity': {
-            'activity_type_id':'<%= ActivityType::SMS_TYPE_ID %>'
+            'activity_type_id':'<%= ActivityType::SMS_TYPE_ID %>',
+            'campaign_id': $(iElement).attr('campaignid')
           }
         }
 
@@ -137,6 +141,7 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
     scope: {
       address: "@",
       tourl: "@",
+      campaignid: "@",
       hiddenphoneclass: "@"
     },
     replace: true,
@@ -148,7 +153,8 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
         var data = {
           'authenticity_token': $rootScope.authtoken,
           'activity': {
-            'activity_type_id':'<%= ActivityType::EMAIL_TYPE_ID %>'
+            'activity_type_id':'<%= ActivityType::EMAIL_TYPE_ID %>',
+            'campaign_id': $(iElement).attr('campaignid')
           }
         }
 

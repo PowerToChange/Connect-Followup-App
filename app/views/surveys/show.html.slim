@@ -16,8 +16,8 @@
               div class='btn-group'
                 = render 'layouts/add_lead', response: r, survey: @survey
                 = link_to_icon 'info-sign', survey_contact_response_path(survey_id: @survey.id, contact_id: r.contact_id, id: r.id), label_hidden_phone: 'Info', class: 'btn'
-                = render 'layouts/phone_sms', tel: r.contact.phone, survey_id: r.survey_id, contact_id: r.contact_id, hidden_phone: true
-                = render 'layouts/email', address: r.contact.email, survey_id: r.survey_id, contact_id: r.contact_id, hidden_phone: true
+                = render 'layouts/phone_sms', tel: r.contact.phone, survey: r.survey, contact_id: r.contact_id, hidden_phone: true
+                = render 'layouts/email', address: r.contact.email, survey: r.survey, contact_id: r.contact_id, hidden_phone: true
 
       - if @responses.empty?
         div class=['item','active']

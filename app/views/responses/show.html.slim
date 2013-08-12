@@ -10,8 +10,8 @@ ul.contacts
       .more
         .btn-group
           = render 'layouts/add_lead', response: @response, survey: @survey
-          = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id, hidden_phone: true
-          = render 'layouts/email', address: @contact.email, survey_id: @survey.id, contact_id: @contact.id, hidden_phone: true
+          = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, hidden_phone: true
+          = render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id, hidden_phone: true
 
 - if @response.lead.present?
   div class=['well', 'square', 'report-progress']
@@ -31,11 +31,11 @@ div class=['well','square']
     tr
       td Phone
       td
-        .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey_id: @survey.id, contact_id: @contact.id
+        .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id
     tr
       td Email
       td
-        = render 'layouts/email', address: @contact.email, survey_id: @survey.id, contact_id: @contact.id
+        = render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id
 
 
 div class=['well','square']
@@ -98,4 +98,4 @@ div class=['well','square']
 
 
 = render '/notes/new_note_modal', survey_id: @survey.id, contact_id: @contact.id
-= render '/activities/new_rejoiceable_modal', rejoiceables_collection: @rejoiceables_collection, survey_id: @survey.id, contact_id: @contact.id
+= render '/activities/new_rejoiceable_modal', rejoiceables_collection: @rejoiceables_collection, survey: @survey, contact_id: @contact.id
