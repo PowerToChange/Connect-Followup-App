@@ -12,6 +12,13 @@ class LeadsController < ApplicationController
     else
       flash[:error] = "Oops, could not add this contact to your connections!"
     end
+
+    respond_to do |format|
+      format.html do
+        redirect_to survey_contact_response_path(survey_id: @lead.survey_id, contact_id: @lead.contact_id, id: @lead.response_id)
+      end
+      format.js {}
+    end
   end
 
   def update
@@ -52,6 +59,13 @@ class LeadsController < ApplicationController
       flash[:notice] = 'Released contact from your connections list.'
     else
       flash[:error] = 'Oops, could not release contact from your connections!'
+    end
+
+    respond_to do |format|
+      format.html do
+        redirect_to survey_contact_response_path(survey_id: @lead.survey_id, contact_id: @lead.contact_id, id: @lead.response_id)
+      end
+      format.js {}
     end
   end
 

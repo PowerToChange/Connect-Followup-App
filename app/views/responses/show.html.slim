@@ -8,7 +8,7 @@ ul.contacts
       h5
         = @contact.display_name
       .more
-        = render 'layouts/add_delete_lead', response: @response, survey: @survey
+        = render 'layouts/add_delete_lead', response: @response, survey: @survey, remote: false
         .btn-group
           = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, hidden_phone: true
           = render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id, hidden_phone: true

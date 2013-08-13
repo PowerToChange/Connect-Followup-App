@@ -120,5 +120,48 @@ describe LeadsController do
       subject.should be_success
       flash[:notice].should_not be_empty
     end
+    it 'should set the flash if failure' do
+      Lead.any_instance.stub(:destroy).and_return(false)
+      subject.should be_success
+      flash[:notice].should be_blank
+      flash[:error].should be_present
+    end
+
+    context 'html' do
+      subject { delete :destroy, survey_id: survey.id, id: lead.id, format: :html }
+      it 'should redirect to the response' do
+        subject.should redirect_to(survey_contact_response_path(survey_id: lead.survey_id, contact_id: lead.contact_id, id: lead.response_id))
+      end
+    end
+  end
+
+  describe "POST /surveys/:id/leads", :vcr do
+    let(:survey) { create(:survey_without_callbacks) }
+    let(:contact_id) { 1234 }
+    let(:response_id) { 567890 }
+    subject { post :create, survey_id: survey.id, lead: { response_id: response_id, contact_id: contact_id }, format: :js }
+
+    it 'should create the lead' do
+      subject
+      Lead.where(survey_id: survey.id, response_id: 567890, contact_id: 1234).first.should be_present
+    end
+    it 'should set the flash if successful' do
+      subject.should be_success
+      flash[:notice].should be_present
+      flash[:error].should be_blank
+    end
+    it 'should set the flash if failure' do
+      Lead.any_instance.stub(:save).and_return(false)
+      subject.should be_success
+      flash[:notice].should be_blank
+      flash[:error].should be_present
+    end
+
+    context 'html' do
+      subject { post :create, survey_id: survey.id, lead: { response_id: 567890, contact_id: 1234 }, format: :html }
+      it 'should redirect to the response' do
+        subject.should redirect_to(survey_contact_response_path(survey_id: survey.id, contact_id: contact_id, id: response_id))
+      end
+    end
   end
 end
