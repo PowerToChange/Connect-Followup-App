@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:PowerToChange/civicrm_gem.git
-  revision: d2115b2c93d5f9cbe4858b18dc738ad1fc4054dd
+  revision: c7885edd49d50870adbf08fc00c874f48d3ed1c8
   specs:
     civicrm (1.0.1)
       activemodel
@@ -140,7 +140,7 @@ GEM
     highline (1.6.19)
     hike (1.2.3)
     http_logger (0.4.1)
-    i18n (0.6.4)
+    i18n (0.6.5)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)

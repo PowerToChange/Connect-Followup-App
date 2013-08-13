@@ -9,15 +9,18 @@ module ApplicationHelper
     link_to_icon icon, tel.present? ? "#{option}:#{tel}" : "javascript:void(0)", class: "btn #{'disabled' if tel.blank?}"
   end
 
-  def custom_time_ago_in_words(time_str)
-    time = time_str.to_time + (-Time.zone_offset(Time.now.zone))
-    "#{time_ago_in_words(time)} ago"
-  end
+  def days_ago_in_words(date)
+    return '' unless date.present?
+    date = date.is_a?(String) ? date : date.to_s
+    days = (Time.now.to_date - Date.parse(date)).to_i
 
-  def days_ago(date_str)
-    d = Date.parse(date_str)
-    days = Time.now.to_date - d
-    days.zero? ? 'Today' : "#{days} days ago"
+    if days <= 0
+      'Today'
+    elsif days == 1
+      'Yesterday'
+    else
+      "#{days} days ago"
+    end
   end
 
   def contact_image_tag(contact)

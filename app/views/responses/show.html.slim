@@ -42,6 +42,8 @@ div class=['well','square']
   h4
     i.icon-file-alt
     '#{@survey.title}
+    small.muted title= @response.response.activity_date_time
+      '(submitted #{ time_ago_in_words(@response.response.activity_date_time) } ago)
   table class=['table','table-bordered','table-striped']
     thead
       tr
@@ -76,8 +78,8 @@ div class=['well','square']
           tr
             td
               strong #{ activity_icon(a) } #{ a.activity_name }
-              small.pull-right data-timestamp= a.activity_date_time
-                #{ custom_time_ago_in_words(a.activity_date_time) }
+              small.pull-right title= a.activity_date_time
+                #{ time_ago_in_words(a.activity_date_time) } ago
               br
               '#{ activity_details(a) }
       - if @activities.blank?
@@ -89,8 +91,8 @@ div class=['well','square']
           tr
             td
               strong <i class="icon-pencil icon-large"></i> #{ n.subject }
-              small.pull-right data-timestamp= n.modified_date
-                #{ days_ago(n.modified_date) }
+              small.pull-right title= n.modified_date
+                #{ days_ago_in_words(n.modified_date) }
               br
               #{ n.note }
       - if @notes.blank?
