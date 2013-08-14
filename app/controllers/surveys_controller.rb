@@ -6,7 +6,8 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
-    @responses = @survey.responses(filters)
+    response_ids_with_leads = Lead.all.collect(&:response_id)
+    @responses = @survey.responses(filters).select { |response| !response_ids_with_leads.include?(response.id) }.shuffle
   end
 
   private

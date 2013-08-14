@@ -6,7 +6,7 @@ class Lead < ActiveRecord::Base
   attr_accessor :response, :contact
 
   validates :response_id, :contact_id, :user_id, presence: true
-  validates_uniqueness_of :response_id, scope: :user_id
+  validates_uniqueness_of :response_id
 
   scope :for_survey, ->(s) { where(survey_id: s.id) }
 

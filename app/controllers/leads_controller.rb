@@ -8,9 +8,11 @@ class LeadsController < ApplicationController
     @lead.user_id = current_user.id
 
     if @lead.save
-      flash[:notice] = "Added contact to your connections list."
+      flash[:notice] = 'Added contact to your connections list.'
+    elsif @lead.errors.full_messages.include?('Response has already been taken')
+      flash[:error] = 'This contact has already been added by another person.'
     else
-      flash[:error] = "Oops, could not add this contact to your connections!"
+      flash[:error] = 'Oops, could not add this contact to your connections!'
     end
 
     respond_to do |format|

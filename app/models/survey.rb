@@ -23,9 +23,8 @@ class Survey < ActiveRecord::Base
       responses = PtcActivityQuery.where(params).includes(contacts: { contact_id: "$value.target_contact_id" }).all
       update_responses_count_cache(responses.size) if options.blank? # Update the survey responses count cache only if there are no filters in place
       responses.collect do |response|
-        contact = response.contacts.first
-        next unless contact.present?
-        Response.new(self, response, contact)
+        next if response.contacts.blank?
+        Response.new(self, response, response.contacts.first)
       end
     end
   end

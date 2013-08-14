@@ -42,6 +42,13 @@ describe Lead, :vcr do
         CiviCrm::Activity.should_receive(:update).with(hash_including(id: lead.response_id, assignee_contact_id: lead.user.civicrm_id))
         subject
       end
+      it 'should not create two leads with the same response_id' do
+        subject
+        lead2 = build(:lead, response_id: lead.response_id, user_id: lead.user_id + 1)
+        lead2.valid?.should be_false
+        lead2.response_id = lead2.response_id.to_i + 1
+        lead2.valid?.should be_true
+      end
     end
 
     context 'when updating status & engagement level', :vcr do

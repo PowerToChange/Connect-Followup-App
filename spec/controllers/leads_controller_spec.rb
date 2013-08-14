@@ -156,6 +156,12 @@ describe LeadsController do
       flash[:notice].should be_blank
       flash[:error].should be_present
     end
+    it 'should tell user if contact already added by a different user' do
+      create(:lead, response_id: response_id)
+      subject.should be_success
+      flash[:notice].should be_blank
+      flash[:error].should be_present
+    end
 
     context 'html' do
       subject { post :create, survey_id: survey.id, lead: { response_id: 567890, contact_id: 1234 }, format: :html }

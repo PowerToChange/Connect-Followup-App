@@ -1,3 +1,1 @@
-<% if @lead.id.present? %>
-  $('#<%= add_delete_lead_button_id(@lead.response_id) %>').fadeOut(function() { $(this).remove(); });
-<% end %>
+$('#<%= add_delete_lead_button_id(@lead.response_id) %>').fadeOut(function() { $(this).remove(); });
