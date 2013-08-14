@@ -14,15 +14,18 @@ class Lead < ActiveRecord::Base
   UNCONTACTED_STATUS_ID = 4
   PROGRESS_STATUSES = [[UNCONTACTED_STATUS_ID, 'Uncontacted'], [WIP_STATUS_ID, 'In Progress'], [COMPLETED_STATUS_ID, 'Completed']]
 
-  REPORT_CODES = OpenStruct.new(bad_info: 0,
-                                no_response: 1,
-                                not_interested: 2,
-                                digital: 5,
-                                face: 7,
-                                digital_cont: 8,
-                                face_cont: 10)
+  REPORT_OUTCOMES = {
+    bad_info: { id: 0, description: 'bad information' },
+    no_response: { id: 1, description: 'no response' },
+    not_interested: { id: 2, description: 'not interested' },
+    digitally: { id: 5, description: 'connected digitally' },
+    face_to_face: { id: 7, description: 'connected face-to-face' },
+    digitally_continuing: { id: 8, description: 'connected digitally and will continue the conversation' },
+    face_to_face_continuing: { id: 10, description: 'connected face-to-face and will continue the conversation' }
+  }
+  REPORT_OUTCOMES_GROUPED_BY_ID = Hash[ REPORT_OUTCOMES.collect { |k,v| [REPORT_OUTCOMES[k][:id], v] } ]
 
-  before_save :update_status_engagement_level_to_civicrm, if: :persisted?
+  before_save :update_status_engagement_level_to_civicrm, :create_contact_completed_note_history, if: :persisted?
 
   def status
     PROGRESS_STATUSES.select { |num|  num[0] == self.status_id  }.flatten[1]
@@ -70,6 +73,18 @@ class Lead < ActiveRecord::Base
     update_params = { id: self.response_id, status_id: self.status_id }
     update_params[:engagement_level] = self.engagement_level if self.engagement_level.present?
     CiviCrm::Activity.update(update_params)
+  end
+
+  def create_contact_completed_note_history
+    if self.engagement_level.present? && self.engagement_level_changed? && self.completed?
+      Note.new(subject: 'Completed Initial Follow-up',
+               note: generate_contact_completed_note_body(self.user, self.survey, self.engagement_level),
+               contact_id: self.contact_id).save
+    end
+  end
+
+  def generate_contact_completed_note_body(user, survey, engagement_level)
+    "#{ user.to_s } completed initial follow-up of the #{ survey.to_s } survey and recorded a result of #{ REPORT_OUTCOMES_GROUPED_BY_ID[engagement_level.to_i][:description] }."
   end
 
 end

@@ -15,17 +15,17 @@ script type="text/ng-template" id="index.html"
     h4 How did it go?
     .panel
       = link_to "Didn't work out", "#/not_work", class: 'btn btn-large btn-block'
-      = link_to "We connected digitally", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_CODES.digital })"
-      = link_to "We connected face-to-face", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_CODES.face })"
+      = link_to "We connected digitally", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_OUTCOMES[:digitally][:id] })"
+      = link_to "We connected face-to-face", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_OUTCOMES[:face_to_face][:id] })"
 
 script type="text/ng-template" id="not_work.html"
   progressbar percentage="50" message="Giddy Up!"
   div class="well square item active"
     h4 It didn't work out. What happened?
     .panel
-      = link_to 'Bad Information', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_CODES.bad_info })"
-      = link_to 'No Response', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_CODES.no_response })"
-      = link_to 'No Longer Interested', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_CODES.not_interested })"
+      = link_to 'Bad Information', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_OUTCOMES[:bad_info][:id] })"
+      = link_to 'No Response', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_OUTCOMES[:no_response][:id] })"
+      = link_to 'No Longer Interested', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_OUTCOMES[:not_interested][:id] })"
       = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
 
 script type="text/ng-template" id="worked_out.html"

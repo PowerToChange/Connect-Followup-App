@@ -59,6 +59,11 @@ describe Lead do
         CiviCrm::Activity.should_receive(:update).with(hash_including(id: lead.response_id))
         subject
       end
+      it 'create note history' do
+        Note.should_receive(:new).at_least(:once).with(hash_including(contact_id: lead.contact_id)).and_call_original
+        Note.any_instance.should_receive(:save).at_least(:once).and_call_original
+        subject
+      end
     end
   end
 
