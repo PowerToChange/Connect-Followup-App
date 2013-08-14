@@ -18,6 +18,11 @@ describe School do
     school.to_s.should be_a(String)
   end
 
+  it 'supports to_s_shorter' do
+    school.to_s_shorter.should be_a(String)
+    school.to_s_shorter.should include school.nick_name
+  end
+
   context 'when syncing civicrm schools' do
     let!(:schools_response) do
       (1..5).collect { |i| OpenStruct.new(id: i, external_identifier: i, display_name: "School #{i}") }

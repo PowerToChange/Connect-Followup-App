@@ -7,6 +7,7 @@ ActiveAdmin.register School do
 
   index do
     column :display_name
+    column :nick_name
     column 'CiviCrm ID' do |s|
       s.civicrm_id
     end

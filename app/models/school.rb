@@ -1,5 +1,5 @@
 class School < ActiveRecord::Base
-  attr_accessible :civicrm_id, :display_name, :pulse_id
+  attr_accessible :civicrm_id, :display_name, :pulse_id, :nick_name
 
   has_and_belongs_to_many :surveys
   has_and_belongs_to_many :users
@@ -16,7 +16,7 @@ class School < ActiveRecord::Base
     # Create/update schools
     civicrm_schools.each do |ccs|
       school = School.where(civicrm_id: ccs.id).first_or_initialize
-      school.update_attributes(display_name: ccs.display_name, pulse_id: ccs.external_identifier)
+      school.update_attributes(display_name: ccs.display_name, pulse_id: ccs.external_identifier, nick_name: ccs.nick_name)
       school.save
     end
 
@@ -32,6 +32,10 @@ class School < ActiveRecord::Base
 
   def to_s
     self.display_name
+  end
+
+  def to_s_shorter
+    self.nick_name.presence || self.display_name
   end
 
   def civicrm_school

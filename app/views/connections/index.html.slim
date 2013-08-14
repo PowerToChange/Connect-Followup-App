@@ -13,12 +13,14 @@ div.list-title My Connections
     - else
       ul.contacts
         - conn.leads.each do |lead|
-          li data-status-id=lead.status_id data-url=survey_contact_response_path(survey_id: conn.survey.id, contact_id: lead.contact_id, id: lead.response_id) style=lead_li_style(lead)
+          li data-status-id=lead.status_id data-school-id=lead.school_id data-url=survey_contact_response_path(survey_id: conn.survey.id, contact_id: lead.contact_id, id: lead.response_id) style=lead_li_style(lead)
             .avatar
               = contact_image_tag(lead.contact)
             .info
               h5
                 = lead.contact.display_name
+              - if lead.school.present?
+                .label.label-inverse = lead.school.to_s_shorter
               div class=['label', lead.status.gsub(" ", "")] = lead.status
               .more
                 div class='btn-group'
@@ -30,7 +32,12 @@ div.list-title My Connections
   .well
     ' There are no assigned surveys for your user account. Please contact your administrator to find out more.
 
-.list-actions-bar
-  = label_tag :show_completed, class: 'checkbox inline'
-    = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
-    'Show completed
+.list-actions-bar.form-inline
+  div
+    = label_tag :show_school, class: 'select'
+      'Show campus
+      = select_tag :show_school, options_from_collection_for_select(current_user.schools.sort_by(&:display_name), 'id', 'to_s'), prompt: 'All', class: 'select input-medium toggle-campus-leads'
+  div
+    = label_tag :show_completed, class: 'checkbox'
+      = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
+      'Show completed

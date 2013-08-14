@@ -5,5 +5,6 @@ FactoryGirl.define do
     civicrm_id 100
     pulse_id 200
     display_name "Xavier's School for Gifted Youngsters"
+    nick_name "X-MEN"
   end
 end

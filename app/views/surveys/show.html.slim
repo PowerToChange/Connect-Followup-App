@@ -13,6 +13,8 @@
           .info
             h5
               = r.contact.display_name
+            - if r.school.present?
+              .label.label-inverse = r.school.to_s_shorter
             .more
               .btn-group
                 = render 'layouts/add_delete_lead', response: r, survey: @survey

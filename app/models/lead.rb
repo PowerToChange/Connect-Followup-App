@@ -1,7 +1,8 @@
 class Lead < ActiveRecord::Base
   belongs_to :user
   belongs_to :survey
-  attr_accessible :response_id, :survey_id, :status_id, :engagement_level, :contact_id
+  belongs_to :school
+  attr_accessible :response_id, :survey_id, :status_id, :engagement_level, :contact_id, :school_id
   attr_accessor :response, :contact
 
   validates :response_id, :contact_id, :user_id, presence: true
