@@ -24,7 +24,7 @@ module SurveysHelper
   end
 
   def school_options_for_filter_select
-    School.all.sort_by(&:display_name).collect do |s|
+    current_user.schools.sort_by(&:display_name).collect do |s|
       [s.display_name, s.civicrm_id]
     end
   end
