@@ -6,7 +6,8 @@
     .row-fluid
       - rejoiceables_collection.each do |rejoiceable_id, label|
         = simple_form_for :activity, url: survey_contact_activities_path(survey_id: survey.id, contact_id: contact_id), remote: true do |f|
-          = f.input :custom_143, as: :hidden, input_html: { value: rejoiceable_id }
+          = f.input CiviCrm.custom_fields.activity.rejoiceable.rejoiceable_id, as: :hidden, input_html: { value: rejoiceable_id }
+          = f.input CiviCrm.custom_fields.activity.rejoiceable.survey_id, as: :hidden, input_html: { value: survey.survey_id }
           = f.input :activity_type_id, as: :hidden, input_html: { value: ActivityType::REJOICEABLE_TYPE_ID }
           = f.input :campaign_id, as: :hidden, input_html: { value: survey.campaign_id }
           = f.submit label, class: 'btn btn-primary'

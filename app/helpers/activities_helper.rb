@@ -23,8 +23,8 @@ module ActivitiesHelper
 
   def activity_details(activity)
     details = []
-    if activity.activity_type_id == ActivityType::REJOICEABLE_TYPE_ID
-      details << "<strong>#{ OptionValue.label_for(option_group_id: OptionGroup::REJOICEABLES_ID, value: activity.custom_143) }</strong>"
+    if activity.is_rejoiceable?
+      details << "<strong>#{ OptionValue.label_for(option_group_id: OptionGroup::REJOICEABLES_ID, value: activity.send(CiviCrm.custom_fields.activity.rejoiceable.rejoiceable_id)) }</strong>"
     end
     details << activity.subject if activity.subject.present?
     details << activity.details if activity.details.present?
