@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
 
   def create
     params[:activity].merge!({
-      source_contact_id: current_user.civicrm_id || User::DEFAULT_CIVICRM_ID,
+      source_contact_id: current_user.civicrm_id,
       status_id: Lead::COMPLETED_STATUS_ID,
       details: current_user.to_s,
       target_contact_id: params[:contact_id]

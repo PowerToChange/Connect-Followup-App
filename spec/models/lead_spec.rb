@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Lead do
-  describe '#status', :vcr do
+describe Lead, :vcr do
+  describe '#status' do
     let(:survey) { create(:survey_without_callbacks) }
     let!(:lead) { create(:lead, :survey => survey, :status_id => status) }
     subject { lead.status }
@@ -38,10 +38,14 @@ describe Lead do
         lead.should_not_receive(:update_status_engagement_level_to_civicrm)
         subject
       end
+      it 'should assign activity in CiviCrm' do
+        CiviCrm::Activity.should_receive(:update).with(hash_including(id: lead.response_id, assignee_contact_id: lead.user.civicrm_id))
+        subject
+      end
     end
 
     context 'when updating status & engagement level', :vcr do
-      let!(:lead) { create(:lead, :survey => survey) }
+      let!(:lead) { create(:lead, survey: survey) }
       subject { lead.save }
       before do
         lead.status_id = 2
@@ -60,14 +64,23 @@ describe Lead do
         subject
       end
       it 'create note history' do
-        Note.should_receive(:new).at_least(:once).with(hash_including(contact_id: lead.contact_id)).and_call_original
-        Note.any_instance.should_receive(:save).at_least(:once).and_call_original
+        Note.should_receive(:create).at_least(:once).with(hash_including(contact_id: lead.contact_id)).and_call_original
         subject
       end
     end
   end
 
-  describe '#find_and_preset_all_by_leads', :vcr do
+  describe 'destroy' do
+    let(:lead) { create(:lead, contact_id: 60058, response_id: 104210, user: create(:user)) }
+    subject { lead.destroy }
+
+    it 'should unassign activity in CiviCrm' do
+      CiviCrm::Activity.should_receive(:update).at_least(:once).with(hash_including(id: lead.response_id, assignee_contact_id: User::DEFAULT_CIVICRM_ID))
+      subject
+    end
+  end
+
+  describe '#find_and_preset_all_by_leads' do
     let(:lead) { create(:lead, contact_id: 60058, response_id: 104210, user: create(:user)) }
 
     subject { Lead.find_and_preset_all_by_leads([lead]) }

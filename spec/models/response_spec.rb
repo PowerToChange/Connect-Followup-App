@@ -41,7 +41,7 @@ describe Response do
     end
   end
 
-  describe '#lead' do
+  describe '#lead', :vcr do
     subject { response.lead }
     before { lead }
 

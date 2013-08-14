@@ -4,7 +4,7 @@ class Lead < ActiveRecord::Base
   attr_accessible :response_id, :survey_id, :status_id, :engagement_level, :contact_id
   attr_accessor :response, :contact
 
-  validates :response_id, :contact_id, presence: true
+  validates :response_id, :contact_id, :user_id, presence: true
   validates_uniqueness_of :response_id, scope: :user_id
 
   scope :for_survey, ->(s) { where(survey_id: s.id) }
@@ -26,6 +26,8 @@ class Lead < ActiveRecord::Base
   REPORT_OUTCOMES_GROUPED_BY_ID = Hash[ REPORT_OUTCOMES.collect { |k,v| [REPORT_OUTCOMES[k][:id], v] } ]
 
   before_save :update_status_engagement_level_to_civicrm, :create_contact_completed_note_history, if: :persisted?
+  before_create :update_activity_assigned_user_on_civicrm
+  after_destroy :update_activity_assigned_user_on_civicrm
 
   def status
     PROGRESS_STATUSES.select { |num|  num[0] == self.status_id  }.flatten[1]
@@ -75,16 +77,21 @@ class Lead < ActiveRecord::Base
     CiviCrm::Activity.update(update_params)
   end
 
+  def update_activity_assigned_user_on_civicrm
+    # Assign/Unassign the user to the lead in CiviCrm
+    contact_id = self.destroyed? ? User::DEFAULT_CIVICRM_ID : self.user.civicrm_id
+    CiviCrm::Activity.update({ id: self.response_id, assignee_contact_id: contact_id })
+  end
+
   def create_contact_completed_note_history
     if self.engagement_level.present? && self.engagement_level_changed? && self.completed?
-      Note.new(subject: 'Completed Initial Follow-up',
-               note: generate_contact_completed_note_body(self.user, self.survey, self.engagement_level),
-               contact_id: self.contact_id).save
+      Note.create(subject: 'Completed Initial Follow-up',
+                  note: generate_contact_completed_note_body(self.user, self.survey, self.engagement_level),
+                  contact_id: self.contact_id)
     end
   end
 
   def generate_contact_completed_note_body(user, survey, engagement_level)
     "#{ user.to_s } completed initial follow-up of the #{ survey.to_s } survey and recorded a result of #{ REPORT_OUTCOMES_GROUPED_BY_ID[engagement_level.to_i][:description] }."
   end
-
 end
