@@ -5,7 +5,7 @@ class Response
   GENDERS = [['Female',1], ['Male',2]]
   YEARS = [['First Year', 1]]
 
-  def initialize(survey, response, contact = nil, school = nil)
+  def initialize(survey, response, contact, school = nil)
     @survey = survey
     @response = response
     @contact = contact
@@ -26,17 +26,10 @@ class Response
   alias_method :id, :response_id
 
   def answers
-    params = {
-      entity_id: response_id,
-      rowCount: 1000
-    }
-    survey.custom_fields.each { |f| params["return.custom_#{ f.custom_field_id }"] = 1 }
-
-    CiviCrm::CustomValue.where(params).collect do |custom_value|
-      custom_field = survey.custom_fields.find_by_custom_field_id(custom_value.id)
-      value_label = custom_field.label_for_option_value(custom_value.try(:latest))
-
-      OpenStruct.new(label: custom_field.try(:label), answer: value_label)
+    survey.custom_fields.collect do |custom_field|
+      custom_value = self.contact.attributes["custom_#{ custom_field.custom_field_id }"]
+      value_label = custom_field.label_for_option_value(custom_value)
+      OpenStruct.new(label: custom_field.label, answer: value_label)
     end
   end
 

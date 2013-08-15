@@ -31,6 +31,9 @@ div class=['well','square']
       td Campus
       td= @response.school.try(:display_name)
     tr
+      td Sex
+      td= @response.contact.gender_id
+    tr
       td Phone
       td
         .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, response_id: @response.id

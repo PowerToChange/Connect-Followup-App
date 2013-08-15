@@ -4,9 +4,9 @@ describe Response do
   let!(:survey) { create(:survey_without_callbacks) }
   let!(:custom_field) { create(:custom_field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
   let(:answer) { double(id: 1, custom_64: "Montreal", target_contact_id: [11]) }
-  let(:response) { Response.new(survey, answer) }
-  let(:lead) { create(:lead, survey: survey, response_id: response.id) }
   let(:contact) { CiviCrm::Contact.new(id: 11, display_name: 'Adrian Teh', email: 'adrian@ballistiq.com') }
+  let(:response) { Response.new(survey, answer, contact) }
+  let(:lead) { create(:lead, survey: survey, response_id: response.id) }
 
   describe '#answers', :vcr do
     subject { response.answers }

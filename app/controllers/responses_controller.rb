@@ -3,7 +3,7 @@ class ResponsesController < ApplicationController
   before_filter :get_survey
 
   def show
-    @contact = Contact.includes(:notes, :activities, :relationships).find(params[:contact_id])
+    @contact = Contact.includes(:notes, :activities, :relationships).where(id: params[:contact_id], return: contact_return_fields).first
 
     @response = Response.initialize_and_preset_by_survey_and_contact_and_activity(@survey, @contact, params[:id])
 
@@ -17,5 +17,18 @@ class ResponsesController < ApplicationController
 
   def get_survey
     @survey = Survey.find(params[:survey_id])
+  end
+
+  def contact_return_fields
+    return_fields = []
+    @survey.custom_fields.each { |f| return_fields << "custom_#{ f.custom_field_id }" }
+    return_fields << 'email'
+    return_fields << 'display_name'
+    return_fields << 'gender_id'
+    return_fields << 'phone_number'
+    return_fields << 'phone'
+    return_fields << 'phone_id'
+    return_fields << 'phone_type'
+    return_fields.join(',')
   end
 end

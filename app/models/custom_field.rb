@@ -30,7 +30,7 @@ class CustomField < ActiveRecord::Base
     end
 
     def survey_fields
-      CiviCrm::CustomSurveyFields.where(:survey_id => survey.survey_id, :rowCount => 1000)
+      CiviCrm::CustomSurveyFields.where(survey_id: survey.survey_id, campaign_id: survey.campaign_id, activity_type_id: ActivityType::PETITION_TYPE_ID).all
     end
   end
 end
