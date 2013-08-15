@@ -11,8 +11,8 @@
           .avatar
             = contact_image_tag(r.contact)
           .info
-            h5
-              = r.contact.display_name
+            strong
+              big = r.contact.display_name
             - if r.school.present?
               .label.label-inverse = r.school.to_s_shorter
             .more
