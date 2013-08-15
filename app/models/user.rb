@@ -38,15 +38,23 @@ class User < ActiveRecord::Base
   def sync_from_pulse
     pulse_campus_ids = []
     civicrm_id_from_pulse = nil
+
     Pulse::MinistryInvolvement.where(guid: self.guid).each do |ministry_involvement|
+      # Get the CiviCrm id of the user from the Pulse
       civicrm_id_from_pulse ||= ministry_involvement.try(:user).try(:[], :civicrm_id)
-      pulse_campus_ids += ministry_involvement.ministry[:campus].collect { |c| c[:campus_id] }
+
+      # Collect the school ids that this user is associated to
+      #   ministry_involvement.ministry[:campus] will be an array only if there are multiple campuses
+      pulse_campus_ids += [ministry_involvement.ministry[:campus]].flatten.collect { |c| c[:campus_id] }
     end
     pulse_campus_ids.uniq!
 
-  rescue Pulse::Errors::BadRequest # User does not exist in Pulse
-    self.schools = []
-  rescue # Unknown failure
+  rescue Pulse::Errors::BadRequest
+    Rails.logger.error "Pulse::Errors::BadRequest: User does not exist in the Pulse! #{self.inspect}"
+    self.schools = [] # Unassign all of the user's schools, they may have been intentionally removed from the Pulse
+
+  rescue => e # Unknown failure
+    Rails.logger.error "Failed to sync user from Pulse: #{e} #{self.inspect}"
     return false
 
   else
