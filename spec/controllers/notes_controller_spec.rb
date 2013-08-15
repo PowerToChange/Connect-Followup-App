@@ -7,7 +7,7 @@ describe NotesController do
   let(:survey) { lead.survey }
 
   describe 'create', :vcr do
-    subject { post :create, survey_id: survey.id, contact_id: lead.contact_id, note: 'Pls pick up some milk on your way home', format: :js }
+    subject { post :create, survey_id: survey.id, contact_id: lead.contact_id, response_id: lead.response_id, note: 'Pls pick up some milk on your way home', format: :js }
 
     before do
       Note.any_instance.stub(:save).and_return(true)

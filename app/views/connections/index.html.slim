@@ -13,19 +13,19 @@ div.list-title My Connections
     - else
       ul.contacts
         - conn.leads.each do |lead|
-          li data-status-id=lead.status_id data-school-id=lead.school_id data-url=survey_contact_response_path(survey_id: conn.survey.id, contact_id: lead.contact_id, id: lead.response_id) style=lead_li_style(lead)
+          li data-status-id=lead.status_id data-school-id=lead.response.school.try(:id) data-url=survey_contact_response_path(survey_id: conn.survey.id, contact_id: lead.contact_id, id: lead.response_id) style=lead_li_style(lead)
             .avatar
               = contact_image_tag(lead.contact)
             .info
               h5
                 = lead.contact.display_name
-              - if lead.school.present?
-                .label.label-inverse = lead.school.to_s_shorter
+              - if lead.response.school.present?
+                .label.label-inverse = lead.response.school.to_s_shorter
               div class=['label', lead.status.gsub(" ", "")] = lead.status
               .more
                 div class='btn-group'
-                  = render 'layouts/phone_sms', tel: lead.contact.phone, lead: lead, survey: conn.survey, hidden_phone: true
-                  = render 'layouts/email', address: lead.contact.email, lead: lead, survey: conn.survey, hidden_phone: true
+                  = render 'layouts/phone_sms', tel: lead.contact.phone, lead: lead, survey: conn.survey, response_id: lead.response_id, hidden_phone: true
+                  = render 'layouts/email', address: lead.contact.email, lead: lead, survey: conn.survey, response_id: lead.response_id, hidden_phone: true
             .arrow
               i class="icon-chevron-right icon-large"
 - if @connections.empty?

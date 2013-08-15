@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:PowerToChange/civicrm_gem.git
-  revision: 523e4836608fdde281b64e25c4add851c09ed5f5
+  revision: bdf09f4d665e2bd8e0a15be5f598abcdb5d413aa
   specs:
     civicrm (1.0.1)
       activemodel
@@ -174,7 +174,7 @@ GEM
       activesupport (~> 3.1)
       polyamorous (~> 0.5.0)
     method_source (0.8.2)
-    mime-types (1.23)
+    mime-types (1.24)
     mini_portile (0.5.1)
     multi_json (1.7.9)
     mysql2 (0.3.13)

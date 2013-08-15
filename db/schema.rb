@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814181744) do
+ActiveRecord::Schema.define(:version => 20130815180413) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20130814181744) do
     t.integer  "status_id",        :default => 4
     t.string   "engagement_level"
     t.integer  "contact_id"
-    t.integer  "school_id"
   end
 
   add_index "leads", ["survey_id"], :name => "index_leads_on_survey_id"

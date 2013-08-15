@@ -14,9 +14,10 @@ ConnectFollowup::Application.routes.draw do
     end
 
     resources :contacts do
-      resources :activities
-      resources :notes
-      resources :responses
+      resources :responses do
+        resources :activities
+        resources :notes
+      end
     end
   end
 

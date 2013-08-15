@@ -2,13 +2,17 @@ class Lead < ActiveRecord::Base
   belongs_to :user
   belongs_to :survey
   belongs_to :school
-  attr_accessible :response_id, :survey_id, :status_id, :engagement_level, :contact_id, :school_id
+  attr_accessible :response_id, :survey_id, :status_id, :engagement_level, :contact_id, :user_id
   attr_accessor :response, :contact
 
-  validates :response_id, :contact_id, :user_id, presence: true
+  validates :response_id, :contact_id, :user_id, :survey_id, presence: true
   validates_uniqueness_of :response_id
 
   scope :for_survey, ->(s) { where(survey_id: s.id) }
+
+  before_save :update_status_engagement_level_to_civicrm, :create_contact_completed_note_history, if: :persisted?
+  before_create :update_activity_assigned_user_on_civicrm
+  after_destroy :update_activity_assigned_user_on_civicrm
 
   COMPLETED_STATUS_ID = 2
   WIP_STATUS_ID = 3
@@ -26,9 +30,6 @@ class Lead < ActiveRecord::Base
   }
   REPORT_OUTCOMES_GROUPED_BY_ID = Hash[ REPORT_OUTCOMES.collect { |k,v| [REPORT_OUTCOMES[k][:id], v] } ]
 
-  before_save :update_status_engagement_level_to_civicrm, :create_contact_completed_note_history, if: :persisted?
-  before_create :update_activity_assigned_user_on_civicrm
-  after_destroy :update_activity_assigned_user_on_civicrm
 
   def status
     PROGRESS_STATUSES.select { |num|  num[0] == self.status_id  }.flatten[1]
@@ -42,8 +43,31 @@ class Lead < ActiveRecord::Base
     @contact ||= self.response.contact
   end
 
+  def uncontacted?
+    status_id == UNCONTACTED_STATUS_ID
+  end
+
+  def uncontacted
+    self.status_id = UNCONTACTED_STATUS_ID
+    self
+  end
+
   def completed?
     status_id == COMPLETED_STATUS_ID
+  end
+
+  def completed
+    self.status_id = COMPLETED_STATUS_ID
+    self
+  end
+
+  def in_progress?
+    status_id == WIP_STATUS_ID
+  end
+
+  def in_progress
+    self.status_id = WIP_STATUS_ID
+    self
   end
 
   def self.find_and_preset_all_by_leads(leads)

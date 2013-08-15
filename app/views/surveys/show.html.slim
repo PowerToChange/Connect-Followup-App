@@ -20,8 +20,8 @@
                 = render 'layouts/add_delete_lead', response: r, survey: @survey
                 = link_to_icon 'info-sign', survey_contact_response_path(survey_id: @survey.id, contact_id: r.contact_id, id: r.id), label_hidden_phone: 'Info', class: 'btn btn-info'
               .btn-group
-                = render 'layouts/phone_sms', tel: r.contact.phone, survey: r.survey, contact_id: r.contact_id, hidden_phone: true
-                = render 'layouts/email', address: r.contact.email, survey: r.survey, contact_id: r.contact_id, hidden_phone: true
+                = render 'layouts/phone_sms', tel: r.contact.phone, survey: r.survey, contact_id: r.contact_id, response_id: r.id, hidden_phone: true
+                = render 'layouts/email', address: r.contact.email, survey: r.survey, contact_id: r.contact_id, response_id: r.id, hidden_phone: true
 
       - if @responses.empty?
         div class=['item','active']

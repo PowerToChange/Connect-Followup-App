@@ -4,7 +4,7 @@
     h3 Add a Note
   .modal-body
     .row-fluid
-      = form_tag survey_contact_notes_path(survey_id: survey_id, contact_id: contact_id), id: 'new-note', remote: true, class: 'form-horizontal' do
+      = form_tag survey_contact_response_notes_path(survey_id: survey_id, contact_id: contact_id, response_id: response_id), id: 'new-note', remote: true, class: 'form-horizontal' do
         = text_area_tag :note, nil, rows: 5, placeholder: 'Type your note'
   .modal-footer
     = link_to 'Close', '#', data: { dismiss: 'modal' }, class: 'btn'
