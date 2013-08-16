@@ -19,7 +19,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Fri, 16 Aug 2013 14:54:57 GMT
+      - Fri, 16 Aug 2013 18:33:34 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -29,11 +29,11 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Fri, 16 Aug 2013 14:54:57 +0000
+      - Fri, 16 Aug 2013 18:33:34 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1376664897\""
+      - "\"1376678014\""
       Content-Length: 
       - "48"
       Content-Type: 
@@ -42,5 +42,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
     http_version: 
-  recorded_at: Fri, 16 Aug 2013 14:53:08 GMT
+  recorded_at: Fri, 16 Aug 2013 18:31:46 GMT
 recorded_with: VCR 2.5.0
