@@ -27,20 +27,20 @@ div class=['well','square']
     i.icon-user
     'Contact Info
   table class=['table','table-bordered','table-striped']
-    tr
-      td Campus
-      td= @response.school.try(:display_name)
-    tr
-      td Sex
-      td= @response.contact.gender_id
-    tr
-      td Phone
-      td
-        .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, response_id: @response.id
-    tr
-      td Email
-      td
-        = render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id, response_id: @response.id
+    - @response.contact_infos.each do |info|
+      - next unless info.value.present?
+      tr
+        td= info.label
+        td= info.value
+    - if @contact.phone.present?
+      tr
+        td Phone
+        td
+          .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, response_id: @response.id
+    - if @contact.email.present?
+      tr
+        td Email
+        td= render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id, response_id: @response.id
 
 
 div class=['well','square']

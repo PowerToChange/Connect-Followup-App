@@ -1,5 +1,6 @@
 class Response
   attr_accessor :survey, :response, :school, :contact
+  include ResponsesHelper
 
   PRIORITIES = [['Hot',1], ['Medium',2], ['Mild',3]]
   GENDERS = [['Female',1], ['Male',2]]
@@ -30,6 +31,18 @@ class Response
       custom_value = self.contact.attributes["custom_#{ custom_field.custom_field_id }"]
       value_label = custom_field.label_for_option_value(custom_value)
       OpenStruct.new(label: custom_field.label, answer: value_label)
+    end
+  end
+
+  def contact_infos
+    {
+      campus: school.try(:display_name),
+      sex: gender_label(contact.gender_id),
+      year: year_label(contact.send(CiviCrm.custom_fields.contact.year)),
+      degree: contact.send(CiviCrm.custom_fields.contact.degree),
+      international: contact.send(CiviCrm.custom_fields.contact.international)
+    }.collect do |label, value|
+      OpenStruct.new(label: label.to_s.try(:humanize), value: value.to_s.try(:humanize))
     end
   end
 
