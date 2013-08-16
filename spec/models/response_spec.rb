@@ -15,9 +15,6 @@ describe Response, :vcr do
       subject.each { |a| a.should respond_to(:label) }
       subject.each { |a| a.should respond_to(:answer) }
     end
-    it 'returns answers for the survey fields' do
-      survey.fields.size.should eq subject.size
-    end
   end
 
   describe '#find' do

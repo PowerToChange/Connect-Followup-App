@@ -2,6 +2,8 @@ class Field < ActiveRecord::Base
   belongs_to :survey
   attr_accessible :field, :label, :option_group_id
 
+  validates_presence_of :field_name, :survey_id
+
   def option_values
     @option_values ||= CiviCrm::OptionValue.where(option_group_id: self.option_group_id, rowCount: 1000)
   end
@@ -17,9 +19,14 @@ class Field < ActiveRecord::Base
       @survey = survey
 
       survey_fields.each do |survey_field|
-        custom_field = CiviCrm::CustomField.find(survey_field.custom_field_id)
+        if survey_field.custom_field_id.present?
+          custom_field = CiviCrm::CustomField.find(survey_field.custom_field_id)
+          label = custom_field.label
+        else
+          label = survey_field.field_name.humanize
+        end
         field = survey.fields.where(field_name: survey_field.field_name, custom_field_id: survey_field.custom_field_id).first_or_initialize
-        field.update_attributes(label: custom_field.label, option_group_id: custom_field.option_group_id)
+        field.update_attributes(label: label, option_group_id: custom_field.try(:option_group_id))
       end
     end
 

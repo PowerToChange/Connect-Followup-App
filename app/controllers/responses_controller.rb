@@ -20,6 +20,6 @@ class ResponsesController < ApplicationController
   end
 
   def contact_return_fields
-    @survey.fields.collect(&:field_name).join(',')
+    (@survey.fields.collect(&:field_name) + [:display_name]).join(',')
   end
 end

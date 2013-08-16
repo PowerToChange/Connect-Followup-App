@@ -27,22 +27,27 @@ class Response
   alias_method :id, :response_id
 
   def answers
-    survey.fields.collect do |field|
-      custom_value = self.contact.send(field.field_name)
-      value_label = field.label_for_option_value(custom_value)
-      OpenStruct.new(label: field.label, answer: value_label)
+    @answers ||= begin
+      excluded_fields = [:first_name, :last_name, :gender_id, :email, :phone, CiviCrm.custom_fields.contact.year, CiviCrm.custom_fields.contact.international, CiviCrm.custom_fields.contact.degree]
+
+      survey.fields.sort_by(&:label).collect do |field|
+        next if excluded_fields.include?(field.field_name.to_sym)
+        custom_value = self.contact.send(field.field_name)
+        value_label = field.label_for_option_value(custom_value)
+        OpenStruct.new(label: field.label, answer: value_label)
+      end.compact
     end
   end
 
   def contact_infos
-    {
-      campus: school.try(:display_name),
-      sex: gender_label(contact.gender_id),
-      year: year_label(contact.send(CiviCrm.custom_fields.contact.year)),
-      degree: contact.send(CiviCrm.custom_fields.contact.degree),
-      international: contact.send(CiviCrm.custom_fields.contact.international)
-    }.collect do |label, value|
-      OpenStruct.new(label: label.to_s.try(:humanize), value: value.to_s.try(:humanize))
+    @contact_infos ||= begin
+      [
+        OpenStruct.new(field: nil, label: 'Campus', value: school.try(:display_name)),
+        OpenStruct.new(field: :gender_id, label: 'Sex', value: gender_label(contact.gender_id)),
+        OpenStruct.new(field: CiviCrm.custom_fields.contact.year, label: 'Year', value: year_label(contact.send(CiviCrm.custom_fields.contact.year))),
+        OpenStruct.new(field: CiviCrm.custom_fields.contact.degree, label: 'Degree', value: contact.send(CiviCrm.custom_fields.contact.degree)),
+        OpenStruct.new(field: CiviCrm.custom_fields.contact.international, label: 'International', value: contact.send(CiviCrm.custom_fields.contact.international))
+      ]
     end
   end
 
