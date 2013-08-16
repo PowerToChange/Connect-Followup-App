@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Wed, 14 Aug 2013 17:56:22 GMT
+      - Fri, 16 Aug 2013 14:56:44 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -31,11 +31,11 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Wed, 14 Aug 2013 17:56:22 +0000
+      - Fri, 16 Aug 2013 14:56:44 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1376502982\""
+      - "\"1376665004\""
       Content-Length: 
       - "52"
       Content-Type: 
@@ -44,5 +44,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
     http_version: 
-  recorded_at: Wed, 14 Aug 2013 17:54:35 GMT
+  recorded_at: Fri, 16 Aug 2013 14:54:56 GMT
 recorded_with: VCR 2.5.0
