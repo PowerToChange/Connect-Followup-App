@@ -20,15 +20,6 @@ class ResponsesController < ApplicationController
   end
 
   def contact_return_fields
-    return_fields = []
-    @survey.custom_fields.each { |f| return_fields << "custom_#{ f.custom_field_id }" }
-    return_fields << 'email'
-    return_fields << 'display_name'
-    return_fields << 'gender_id'
-    return_fields << 'phone_number'
-    return_fields << 'phone'
-    return_fields << 'phone_id'
-    return_fields << 'phone_type'
-    return_fields.join(',')
+    @survey.fields.collect(&:field_name).join(',')
   end
 end

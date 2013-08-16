@@ -1,29 +1,28 @@
 require 'spec_helper'
 
-describe Response do
+describe Response, :vcr do
   let!(:survey) { create(:survey_without_callbacks) }
-  let!(:custom_field) { create(:custom_field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
+  let!(:field) { create(:field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
   let(:answer) { double(id: 1, custom_64: "Montreal", target_contact_id: [11]) }
   let(:contact) { CiviCrm::Contact.new(id: 11, display_name: 'Adrian Teh', email: 'adrian@ballistiq.com') }
   let(:response) { Response.new(survey, answer, contact) }
   let(:lead) { create(:lead, survey: survey, response_id: response.id) }
 
-  describe '#answers', :vcr do
+  describe '#answers' do
     subject { response.answers }
 
     it 'returns an array of question-answer object' do
-      subject.first.should respond_to(:label)
-      subject.first.should respond_to(:answer)
+      subject.each { |a| a.should respond_to(:label) }
+      subject.each { |a| a.should respond_to(:answer) }
     end
-    it 'calls CiviCrm::CustomValue with correct params' do
-      CiviCrm::CustomValue.should_receive(:where).with(hash_including(entity_id: answer.id, rowCount: 1000, 'return.custom_61' => 1)) { [] }
-      subject
+    it 'returns answers for the survey fields' do
+      survey.fields.size.should eq subject.size
     end
   end
 
   describe '#find' do
     subject { Response.find(survey: survey, id: 12345) }
-    let!(:custom_field) { create(:custom_field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
+    let!(:field) { create(:field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
 
     before do
       CiviCrm::Activity.stub_chain(:where, :includes, :first).and_return(double(contacts: [Contact.new]))
@@ -41,7 +40,7 @@ describe Response do
     end
   end
 
-  describe '#lead', :vcr do
+  describe '#lead' do
     subject { response.lead }
     before { lead }
 
@@ -51,7 +50,7 @@ describe Response do
     end
   end
 
-  describe '#initialize_and_preset_by_survey_and_contact_and_activity', :vcr do
+  describe '#initialize_and_preset_by_survey_and_contact_and_activity' do
     let(:activity) { double(id: 1, custom_64: "Montreal", target_contact_id: [11]) }
     let(:activity_two) { double(id: 2, custom_64: "Hamilton", target_contact_id: [222]) }
 

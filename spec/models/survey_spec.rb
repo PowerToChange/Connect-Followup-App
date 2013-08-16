@@ -6,7 +6,7 @@ describe Survey do
     let(:survey_response) { OpenStruct.new(title: title, campaign_id: 9, activity_type_id: ActivityType::PETITION_TYPE_ID) }
 
     before do
-      CustomField.stub(:sync)
+      Field.stub(:sync)
     end
 
     context 'when creating new survey', :vcr do
@@ -35,7 +35,7 @@ describe Survey do
         Survey.last.activity_type_id.should_not be_nil
       end
       it 'fetches custom field records from Civicrm' do
-        CustomField.should_receive(:sync).with(an_instance_of(Survey))
+        Field.should_receive(:sync).with(an_instance_of(Survey))
         subject
       end
       it 'updates responses count cache' do

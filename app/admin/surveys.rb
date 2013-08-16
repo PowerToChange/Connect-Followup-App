@@ -2,7 +2,7 @@ ActiveAdmin.register Survey do
   actions :all
 
   action_item only: :show do
-    link_to('Custom Fields', admin_survey_custom_fields_path(resource))
+    link_to('Survey Fields', admin_survey_fields_path(resource))
   end
 
   index do

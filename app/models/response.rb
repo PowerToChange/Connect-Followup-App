@@ -27,10 +27,10 @@ class Response
   alias_method :id, :response_id
 
   def answers
-    survey.custom_fields.collect do |custom_field|
-      custom_value = self.contact.attributes["custom_#{ custom_field.custom_field_id }"]
-      value_label = custom_field.label_for_option_value(custom_value)
-      OpenStruct.new(label: custom_field.label, answer: value_label)
+    survey.fields.collect do |field|
+      custom_value = self.contact.send(field.field_name)
+      value_label = field.label_for_option_value(custom_value)
+      OpenStruct.new(label: field.label, answer: value_label)
     end
   end
 

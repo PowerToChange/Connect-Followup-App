@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130815180413) do
+ActiveRecord::Schema.define(:version => 20130816151918) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,16 +46,17 @@ ActiveRecord::Schema.define(:version => 20130815180413) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "custom_fields", :force => true do |t|
+  create_table "fields", :force => true do |t|
     t.integer  "survey_id"
     t.integer  "custom_field_id"
     t.string   "label"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.integer  "option_group_id"
+    t.string   "field_name"
   end
 
-  add_index "custom_fields", ["survey_id"], :name => "index_custom_fields_on_survey_id"
+  add_index "fields", ["survey_id"], :name => "index_custom_fields_on_survey_id"
 
   create_table "leads", :force => true do |t|
     t.integer  "user_id"

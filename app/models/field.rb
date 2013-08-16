@@ -1,6 +1,6 @@
-class CustomField < ActiveRecord::Base
+class Field < ActiveRecord::Base
   belongs_to :survey
-  attr_accessible :custom_field_id, :label, :option_group_id
+  attr_accessible :field, :label, :option_group_id
 
   def option_values
     @option_values ||= CiviCrm::OptionValue.where(option_group_id: self.option_group_id, rowCount: 1000)
@@ -16,21 +16,17 @@ class CustomField < ActiveRecord::Base
     def sync(survey)
       @survey = survey
 
-      field_ids.each do |f|
-        custom_field = CiviCrm::CustomField.find(f)
-        field = survey.custom_fields.where(custom_field_id: custom_field.id).first_or_initialize
+      survey_fields.each do |survey_field|
+        custom_field = CiviCrm::CustomField.find(survey_field.custom_field_id)
+        field = survey.fields.where(field_name: survey_field.field_name, custom_field_id: survey_field.custom_field_id).first_or_initialize
         field.update_attributes(label: custom_field.label, option_group_id: custom_field.option_group_id)
       end
     end
 
     private
 
-    def field_ids
-      survey_fields.collect(&:custom_field_id).reject(&:blank?)
-    end
-
     def survey_fields
-      CiviCrm::CustomSurveyFields.where(survey_id: survey.survey_id, campaign_id: survey.campaign_id, activity_type_id: ActivityType::PETITION_TYPE_ID).all
+      CiviCrm::CustomSurveyFields.where(survey_id: @survey.survey_id, campaign_id: @survey.campaign_id, activity_type_id: ActivityType::PETITION_TYPE_ID).all
     end
   end
 end

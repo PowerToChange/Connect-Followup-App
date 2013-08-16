@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe SurveysController do
+describe SurveysController, :vcr do
   login_user
   describe "GET /surveys" do
     let!(:survey) { create(:survey_without_callbacks) }
@@ -20,7 +20,7 @@ describe SurveysController do
     end
   end
 
-  describe "GET /surveys/:id", :vcr do
+  describe "GET /surveys/:id" do
     let!(:survey) { create(:survey_without_callbacks) }
     subject { get :show, :id => survey.id }
     it { should be_success }

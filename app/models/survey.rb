@@ -1,5 +1,5 @@
 class Survey < ActiveRecord::Base
-  has_many :custom_fields, :dependent => :destroy
+  has_many :fields, :dependent => :destroy
   has_many :leads, :dependent => :destroy
   has_and_belongs_to_many :schools
   has_many :users, :through => :schools, uniq: true
@@ -9,7 +9,7 @@ class Survey < ActiveRecord::Base
   validates_presence_of :survey_id
 
   before_validation :sync
-  after_save :fetch_custom_fields, :associate_all_schools, :update_responses_count_cache
+  after_save :fetch_fields, :associate_all_schools, :update_responses_count_cache
 
   def to_s
     self.title
@@ -52,8 +52,8 @@ class Survey < ActiveRecord::Base
     end
   end
 
-  def fetch_custom_fields
-    CustomField.sync(self)
+  def fetch_fields
+    Field.sync(self)
   end
 
   def update_responses_count_cache(count = nil)

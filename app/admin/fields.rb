@@ -1,10 +1,10 @@
-ActiveAdmin.register CustomField do
+ActiveAdmin.register Field do
   belongs_to :survey
   actions :all, :except => [:edit,:update,:destroy,:new,:create]
 
   index do
-    column 'Custom Field ID' do |f|
-      f.custom_field_id
+    column 'Field' do |f|
+      f.field
     end
     column :label
     default_actions
