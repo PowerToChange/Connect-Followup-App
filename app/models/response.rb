@@ -4,7 +4,7 @@ class Response
 
   PRIORITIES = [['Hot',1], ['Medium',2], ['Mild',3]]
   GENDERS = [['Female',1], ['Male',2]]
-  YEARS = [['First Year', 1]]
+  FILTER_YEARS = [['First Year', 1]]
 
   def initialize(survey, response, contact, school = nil)
     @survey = survey

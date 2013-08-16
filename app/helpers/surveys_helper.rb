@@ -17,7 +17,7 @@ module SurveysHelper
     when :target_contact_gender_id
       Response::GENDERS
     when :custom_57
-      Response::YEARS
+      Response::FILTER_YEARS
     else
       []
     end

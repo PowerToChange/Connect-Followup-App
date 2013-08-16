@@ -14,6 +14,8 @@ module ResponsesHelper
   end
 
   def year_label(year_id)
-    Response::YEARS.select { |_, value| value.to_i == year_id.to_i }.first.try(:[], 0)
+    a_year_field = Field.where(field_name: CiviCrm.custom_fields.contact.year).first
+    return year_id unless a_year_field.present?
+    a_year_field.label_for_option_value(year_id)
   end
 end
