@@ -338,6 +338,7 @@ DEPENDENCIES
   civicrm!
   coffee-rails (~> 3.2.1)
   configatron
+  dalli
   database_cleaner (< 1.1.0)
   debugger
   factory_girl_rails
