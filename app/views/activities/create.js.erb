@@ -1,3 +1,6 @@
 <% if @lead.new_record? %>
   $('#<%= add_delete_lead_button_id(@lead.response_id) %>').fadeOut(function() { $(this).remove(); });
 <% end %>
+
+// Update the lead status, it may have changed
+$("form.edit-lead input[type='radio'][value='<%= @lead.status_id %>']").prop('checked', true);

@@ -18,7 +18,7 @@ ul.contacts
     - if @response.lead.completed?
       .report-result
         .label.label-success = lead_report_description(@response.lead)
-    = simple_form_for [@survey, @response.lead], remote: true, html: { class: 'form-inline' } do |f|
+    = simple_form_for [@survey, @response.lead], remote: true, html: { class: 'form-inline edit-lead', data: { status_id: @response.lead.status_id } } do |f|
       = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
 
 

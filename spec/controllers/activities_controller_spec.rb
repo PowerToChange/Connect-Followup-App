@@ -39,8 +39,16 @@ describe ActivitiesController do
         subject
         Lead.where(response_id: response_id).first.should be_present
       end
+      it 'should set the lead to wip' do
+        subject
+        Lead.where(response_id: response_id).first.in_progress?.should be_true
+      end
+      it 'should not set the lead to wip if it is completed' do
+        Lead.create(response_id: response_id, contact_id: contact_id, survey_id: survey.id, user_id: user.id, status_id: Lead::COMPLETED_STATUS_ID)
+        Lead.where(response_id: response_id).first.completed?.should be_true
+      end
       it 'should not create a lead if an associated lead already exists' do
-        Lead.create(response_id: response_id, contact_id: contact_id, survey_id: survey.id, user_id: user.id)
+        Lead.create(response_id: response_id, contact_id: contact_id, survey_id: survey.id, user_id: user.id, status_id: Lead::COMPLETED_STATUS_ID)
         expect { subject }.to_not change { Lead.where(response_id: response_id).first.updated_at }
       end
     end
