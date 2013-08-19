@@ -111,6 +111,7 @@ body > .container-fluid { padding-right: 0px; padding-left: 0px;}
 @import "lists";
 
 @import "responses";
+@import "surveys";
 
 table.table td {
   position: relative;
@@ -118,12 +119,6 @@ table.table td {
 
 small {
   font-size: 75%;
-}
-
-.simple_form.filters label, label.select.inline {
-  float: left;
-  text-align: right;
-  padding: 4px 10px;
 }
 
 .report-progress {
@@ -143,4 +138,14 @@ small {
 .report-progress .report-result {
   text-align: center;
   min-height: 30px;
+}
+
+
+// Fix Bootstrap modals on mobile
+.modal-body {
+  height: 60%;
+  max-height: 200px;
+  padding: 15px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }

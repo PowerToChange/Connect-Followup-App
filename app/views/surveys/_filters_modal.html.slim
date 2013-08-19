@@ -1,0 +1,17 @@
+#filterModal.modal.hide.fade style="display: none;" role="dialog"
+  .modal-header
+    h3 Filter Options
+
+  = simple_form_for :filters, url: survey_path(survey), html: { id: 'filters', class: 'form-horizontal filters', method: :get } do |f|
+    .modal-body
+      = filter_input_for_attribute(f, :target_contact_relationship_contact_id_b, label: 'Campus')
+      = filter_input_for_attribute(f, :priority_id, label: 'Follow-up Priority')
+      = filter_input_for_attribute(f, :target_contact_gender_id, label: 'Gender')
+      = filter_input_for_attribute(f, CiviCrm.custom_fields.contact.year, label: 'Year in School')
+      hr
+      - survey.fields.with_option_group.sort_by(&:label).reject { |field| field.field_name.to_sym == CiviCrm.custom_fields.contact.year }.each do |field|
+        = filter_input_for_attribute(f, field.field_name, label: field.label)
+
+  .modal-footer
+    button.btn data-dismiss="modal" Close
+    = submit_tag 'Filter', class: 'btn btn-primary', form: 'filters'

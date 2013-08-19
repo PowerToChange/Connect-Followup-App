@@ -32,19 +32,8 @@
         = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
         = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
 div class=['well','square']
-  = "#{ pluralize(@responses.size, 'contact needs', 'contacts need') } follow-up. #{ current_filters_description }"
+  = "#{ pluralize(@responses.size, 'contact needs', 'contacts need') } follow-up. #{ current_filters_description }".html_safe
 div class=['well','square']
   = link_to 'Filter Options', '#filterModal', class: 'btn btn-inverse', 'data-toggle' => 'modal', role: 'button'
 
-#filterModal.modal.hide.fade style="display: none;" role="dialog"
-  .modal-header
-    h3 Filter Options
-  = simple_form_for :filters, url: survey_path(@survey), html: { id: 'filters', class: 'form-horizontal filters', method: :get } do |f|
-    .modal-body
-      = filter_input_for_attribute(f, :target_contact_relationship_contact_id_b, label: 'Campus')
-      = filter_input_for_attribute(f, :priority_id, label: 'Follow-up Priority')
-      = filter_input_for_attribute(f, :target_contact_gender_id, label: 'Gender')
-      = filter_input_for_attribute(f, :custom_57, label: 'Year')
-  .modal-footer
-    button.btn data-dismiss="modal" Close
-    = submit_tag 'Filter', class: 'btn btn-primary', form: 'filters'
+= render 'filters_modal', survey: @survey

@@ -4,12 +4,18 @@ class Field < ActiveRecord::Base
 
   validates_presence_of :field_name, :survey_id
 
+  scope :with_option_group, -> { where('option_group_id IS NOT NULL') }
+
   def option_values
     @option_values ||= CiviCrm::OptionValue.where(option_group_id: self.option_group_id, rowCount: 1000)
   end
 
   def label_for_option_value(value)
     option_values.select { |ov| ov.value == value }.first.try(:label) || value
+  end
+
+  def option_values_to_select_options
+    option_values.sort_by(&:label).collect { |ov| [ov.label, ov.value] }
   end
 
   class << self

@@ -16,10 +16,9 @@ module SurveysHelper
       Response::PRIORITIES
     when :target_contact_gender_id
       Response::GENDERS
-    when :custom_57
-      Response::FILTER_YEARS
-    else
-      []
+    else # custom fields
+      field = @survey.fields.where(field_name: attribute).first
+      field.present? ? field.option_values_to_select_options : []
     end
   end
 
@@ -34,19 +33,20 @@ module SurveysHelper
 
     current_filter_values = params[:filters].collect do |filter, value|
       label = label_from_options_for_value options_for_filter_select_for_attribute(filter), value
+      next unless label.present?
 
-      case filter.to_sym
+      filter_desc = case filter.to_sym
       when :target_contact_relationship_contact_id_b
-        "campus #{ label }"
+        "campus"
       when :priority_id
-        "priority #{ label }"
+        "priority"
       when :target_contact_gender_id
-        "gender #{ label }"
-      when :custom_57
-        "year #{ label }"
-      else
-        label
-      end if label.present?
+        "gender"
+      else # custom fields
+        @survey.fields.where(field_name: filter.to_sym).first.try(:label)
+      end
+
+      "#{ filter_desc } <i>#{ label }</i>".strip
     end
 
     current_filter_values = current_filter_values.compact.to_sentence
