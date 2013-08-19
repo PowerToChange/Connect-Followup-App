@@ -4,7 +4,7 @@
   = link_to_icon 'plus-sign', survey_leads_path(survey, lead: { response_id: response.response_id, contact_id: response.contact_id }), method: :post, label_hidden_phone: 'Add', class: 'btn btn-success', id: add_delete_lead_button_id(response.id), data: data
 
 - elsif user_lead = current_user.leads.detect { |l| l.response_id == response.id }
-  = link_to_icon 'remove', survey_lead_path(survey, user_lead), method: :delete, label_hidden_phone: 'Release', class: 'btn', id: add_delete_lead_button_id(response.id), data: data
+  = link_to_icon 'remove', survey_lead_path(survey, user_lead), method: :delete, label_hidden_phone: 'Release', class: 'btn btn-danger', id: add_delete_lead_button_id(response.id), data: data
 
 - else
   = link_to_icon 'ok-sign', 'javascript:void(0)', class: 'btn disabled'
