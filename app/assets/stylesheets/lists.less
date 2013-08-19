@@ -29,23 +29,20 @@ body.list_view {
 }
 
 .list-title {
-  padding: 20px;
+  padding: 15px;
   font-size: 20px;
   font-weight: bold;
   color: rgb(90, 90, 90);
+  font-weight: normal;
 }
 
 .survey {
-  .title {
-    padding: 20px;
+  .title-row {
+    padding: 15px 10px;
     font-size: 18px;
     font-weight: bold;
 
-    background: #efefef;
-    background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dfe1e2));
-    background: -moz-linear-gradient(-90deg, #efefef, #dfe1e2);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#dfe1e2');
-    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#dfe1e2');
+    background: #dfe1e2;
     text-shadow: white 0 1px 0;
     border: solid 1px #cdcdcd;
     border-color: #d4d4d4;
@@ -57,9 +54,22 @@ body.list_view {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 1px white inset;
     color: #5e6469;
 
-    .add-lead {
+    .title {
+      display: inline-block;
+      @media (max-width: 480px) {
+        max-width: 220px;
+      }
+    }
+
+    .title-actions {
+      float: left;
       margin-top: -5px;
       margin-right: 15px;
+      font-weight: normal;
+    }
+
+    .muted {
+      font-weight: normal;
     }
   }
 
