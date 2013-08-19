@@ -80,28 +80,18 @@ div class=['well','square']
     .tab-pane#activities.active
       table class=['table','table-bordered','table-striped']
         - @activities.each do |a|
-          tr
-            td
-              strong #{ activity_icon(a) } #{ a.activity_name }
-              small.pull-right title= a.activity_date_time
-                #{ time_ago_in_words(a.activity_date_time) } ago
-              br
-              '#{ activity_details(a) }
-      - if @activities.blank?
-        .well No history.
+          = render '/activities/tr', activity: a
+        tr
+          td
+            i.muted No more history
 
     .tab-pane#notes
       table class=['table','table-bordered','table-striped']
         - @notes.each do |n|
-          tr
-            td
-              strong <i class="icon-pencil icon-large"></i> #{ n.subject }
-              small.pull-right title= n.modified_date
-                #{ days_ago_in_words(n.modified_date) }
-              br
-              #{ n.note }
-      - if @notes.blank?
-        .well No notes.
+          = render '/notes/tr', note: n
+        tr
+          td
+            i.muted No more notes
 
 
 = render '/notes/new_note_modal', survey_id: @survey.id, contact_id: @contact.id, response_id: @response.id

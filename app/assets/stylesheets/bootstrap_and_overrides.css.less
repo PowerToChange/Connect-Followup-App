@@ -142,10 +142,12 @@ small {
 
 
 // Fix Bootstrap modals on mobile
-.modal-body {
-  height: 60%;
-  max-height: 200px;
-  padding: 15px;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+@media (max-width: 480px) {
+  .modal-body {
+    height: 60%;
+    max-height: 200px;
+    padding: 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }

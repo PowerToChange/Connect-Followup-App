@@ -1,0 +1,7 @@
+tr
+  td
+    strong <i class="icon-pencil icon-large"></i> #{ note.subject }
+    small.pull-right title= note.modified_date
+      #{ days_ago_in_words(note.modified_date) }
+    br
+    #{ note.note }

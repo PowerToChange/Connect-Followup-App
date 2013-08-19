@@ -1,1 +1,4 @@
+// Insert new note onto the page
+$("<%= escape_javascript render('tr', note: @note) %>").prependTo("#notes table");
+
 $("form textarea#note").val('');

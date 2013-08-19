@@ -31,15 +31,15 @@ module ActivitiesHelper
   def activity_name(activity_type_id)
     case activity_type_id
     when ActivityType::PHONE_CALL_TYPE_ID
-      'Phone call history'
+      'Phone call'
     when ActivityType::SMS_TYPE_ID
-      'Text/SMS history'
+      'Text/SMS'
     when ActivityType::EMAIL_TYPE_ID
-      'Email history'
+      'Email'
     when ActivityType::REJOICEABLE_TYPE_ID
       'Rejoiceable'
     else
-      'History item'
+      'Item'
     end
   end
 

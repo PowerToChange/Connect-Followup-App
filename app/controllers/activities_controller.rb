@@ -15,9 +15,9 @@ class ActivitiesController < ApplicationController
     activity_name = activity_name(@activity.activity_type_id)
 
     if @activity.save
-      flash[:success] = "#{ activity_name } added!"
+      flash[:success] = "#{ activity_name } history added!"
     else
-      flash[:error] =  "Oops, could not add #{ activity_name.downcase }!"
+      flash[:error] =  "Oops, could not add #{ activity_name.downcase } history!"
     end
   end
 
