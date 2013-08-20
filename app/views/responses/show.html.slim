@@ -37,12 +37,12 @@ div class=['well','square']
     - if @contact.phone.present?
       tr
         td= t('phone')
-        td
+        td.btn-container
           .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, response_id: @response.id
     - if @contact.email.present?
       tr
         td= t('email')
-        td= render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id, response_id: @response.id
+        td.btn-container= render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id, response_id: @response.id
 
 
 div class=['well','square']
@@ -52,10 +52,6 @@ div class=['well','square']
     small.muted title= @response.response.activity_date_time
       = "(#{ t('.submitted_time_ago_in_words_ago', time_ago_in_words: time_ago_in_words(@response.response.activity_date_time)) })"
   table class=['table','table-bordered','table-striped']
-    thead
-      tr
-        th= t('question')
-        th= t('answer')
     - @response.answers.each do |a|
       tr
         td= a.label
@@ -68,7 +64,7 @@ div class=['well','square']
       = link_to_icon 'certificate', '#newRejoiceableModal', label_hidden_phone: t('.add_rejoiceable'), data: { toggle: 'modal' }, class: 'btn btn-primary'
       = link_to_icon 'pencil', '#newNoteModal', label_hidden_phone: t('.add_note'), data: { toggle: 'modal' }, class: 'btn btn-warning'
 
-  ul.nav.nav-tabs
+  ul.nav.nav-tabs.response-history
     li.active
       a href="#activities" data-toggle="tab"
         i.icon-th-list
