@@ -36,8 +36,8 @@ class Response
 
       survey.fields.sort_by(&:label).collect do |field|
         next if excluded_fields.include?(field.field_name.to_sym)
-        custom_value = self.contact.send(field.field_name)
-        value_label = field.label_for_option_value(custom_value)
+        custom_values = [self.contact.send(field.field_name)].flatten # It may be an array or not, we always want an array
+        value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join(', ')
         OpenStruct.new(label: field.label, answer: value_label)
       end.compact
     end
