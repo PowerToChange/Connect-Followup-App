@@ -94,7 +94,7 @@ class Lead < ActiveRecord::Base
       lead.contact = contact
 
       # The contact has many activities, use the lead we received to find the exact activity we want
-      activity = contact.activities.select { |a| a.id.to_i == lead.response_id.to_i }
+      activity = contact.activities.select { |a| a.id.to_i == lead.response_id.to_i }.first
 
       # Initialize and set the response
       lead.response = Response.initialize_and_preset_by_survey_and_contact_and_activity(lead.survey, contact, activity)

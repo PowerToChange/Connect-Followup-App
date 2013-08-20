@@ -1,0 +1,22 @@
+- lead = local_assigns[:lead].presence || response.lead
+
+li data-status-id=lead.try(:status_id) data-school-id=response.school.try(:id) data-url=survey_contact_response_path(survey_id: response.survey.id, contact_id: response.contact.id, id: response.id) style=lead_li_style(lead)
+  .avatar= contact_image_tag(response.contact)
+  .info
+    strong
+      big= response.contact.display_name
+    .more
+      - if lead.present?
+        p
+          - if local_assigns[:assigned_to] == true
+            = t('leads.assigned_to_user_html', user: lead.user.to_s)
+            | &nbsp;
+          = lead_labels(response)
+      - if local_assigns[:add_delete_lead] == true
+        .btn-group
+          = render 'layouts/add_delete_lead', response: response, survey: response.survey
+      .btn-group
+        = render 'layouts/phone_sms', tel: response.contact.phone, survey: response.survey, contact_id: response.contact.id, response_id: response.id, hidden_phone: true
+        = render 'layouts/email', address: response.contact.email, survey: response.survey, contact_id: response.contact.id, response_id: response.id, hidden_phone: true
+  .arrow
+    i class="icon-chevron-right icon-large"

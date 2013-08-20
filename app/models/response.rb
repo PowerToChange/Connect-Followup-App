@@ -84,7 +84,7 @@ class Response
 
   def self.initialize_and_preset_by_survey_and_contact_and_activity(survey, contact, activity)
     if activity.respond_to?(:to_i) && activity.to_i.present?
-      # activity is an ID not an instance of Activity
+      # In this case activity is an ID, not an instance of Activity
       # The contact has many activities, find the relevant activity from the ID
       activity = contact.activities.detect { |a| a.id.to_i == activity.to_i }
     end

@@ -1,6 +1,6 @@
 module ConnectionsHelper
   def lead_li_style(lead)
-    if lead.status_id == Lead::COMPLETED_STATUS_ID
+    if lead.try(:status_id) == Lead::COMPLETED_STATUS_ID
       'display: none;'
     else
       ''
@@ -23,6 +23,7 @@ module ConnectionsHelper
       response = lead_or_response
       lead = response.lead
     end
+    return '' unless lead.present?
     labels = ''
     labels += "<span class='label label-inverse'>#{ response.school.to_s_shorter }</span> " if response.school.present?
     labels += "<span class='label #{ lead.status.gsub(" ", "") }'>#{ lead.status }</span> "
