@@ -20,8 +20,9 @@ div.list-title = t('.title')
           li data-status-id=lead.status_id data-school-id=lead.response.school.try(:id) data-url=survey_contact_response_path(survey_id: conn.survey.id, contact_id: lead.contact_id, id: lead.response_id) style=lead_li_style(lead)
             .avatar= contact_image_tag(lead.contact)
             .info
-              h5= lead.contact.display_name
-              = lead_labels(lead)
+              strong
+                big= lead.contact.display_name
+              div= lead_labels(lead)
               .more
                 div class='btn-group'
                   = render 'layouts/phone_sms', tel: lead.contact.phone, lead: lead, survey: conn.survey, response_id: lead.response_id, hidden_phone: true

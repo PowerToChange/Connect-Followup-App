@@ -14,8 +14,8 @@
           .avatar
             = contact_image_tag(response.contact)
           .info
-            h5= response.contact.display_name
-
+            strong
+              big= response.contact.display_name
             .more
               - if response.lead.present?
                 p
