@@ -4,3 +4,4 @@ en:
   home: "My Connections"
   log_off: "Log Off"
   logged_in_as_html: "Logged in as <i>%{user}</i>"
+  confirm_delete_existing_lead_that_is_not_yours: "HEY! This contact is assigned to someone else, are you sure you want to release it from them?"

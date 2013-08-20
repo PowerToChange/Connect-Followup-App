@@ -1,0 +1,31 @@
+- content_for(:body_class) { 'list_view' }
+
+.survey
+  .title-row
+    .title
+      = "#{ @survey.title } "
+      .muted= t('.showing_all_count_responses', count: @survey.responses_count_cache)
+  - if @responses.blank?
+    .well = t('.no_responses')
+  - else
+    ul.contacts
+      - @responses.each do |response|
+        li data-url=survey_contact_response_path(survey_id: @survey.id, contact_id: response.contact.id, id: response.id)
+          .avatar
+            = contact_image_tag(response.contact)
+          .info
+            h5= response.contact.display_name
+
+            .more
+              - if response.lead.present?
+                p
+                  = t('leads.assigned_to_user_html', user: response.lead.user.to_s)
+                  | &nbsp;
+                  = lead_labels(response)
+              .btn-group
+                = render 'layouts/add_delete_lead', response: response, survey: @survey
+              .btn-group
+                = render 'layouts/phone_sms', tel: response.contact.phone, survey: @survey, contact_id: response.contact.id, response_id: response.id, hidden_phone: true
+                = render 'layouts/email', address: response.contact.email, survey: @survey, contact_id: response.contact.id, response_id: response.id, hidden_phone: true
+          .arrow
+            i class="icon-chevron-right icon-large"

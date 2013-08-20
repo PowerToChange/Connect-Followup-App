@@ -41,6 +41,7 @@ body.list_view {
     padding: 15px 10px;
     font-size: 18px;
     font-weight: bold;
+    position: relative;
 
     background: #dfe1e2;
     text-shadow: white 0 1px 0;
@@ -60,7 +61,7 @@ body.list_view {
 
     .title-actions + .title {
       @media (max-width: 480px) {
-        max-width: 220px;
+        max-width: 210px;
       }
     }
 
@@ -73,6 +74,29 @@ body.list_view {
 
     .muted {
       font-weight: normal;
+    }
+
+    .arrow {
+      position: absolute;
+      right: 21px;
+      top: 16px;
+    }
+  }
+
+  // Clickable title row
+  .title-row[data-url] {
+    background: #efefef;
+    background: -webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dfe1e2));
+    background: -moz-linear-gradient(-90deg, #efefef, #dfe1e2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#dfe1e2');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efefef', endColorstr='#dfe1e2');
+
+    cursor: pointer;
+    &.inactive {
+      cursor: auto;
+    }
+    &:hover:not(.inactive) {
+      background: #dfe1e2;
     }
   }
 
@@ -108,8 +132,9 @@ ul.contacts {
     }
     .arrow {
       position: absolute;
-      right: 20px;
-      top: 40px;
+      right: 15px;
+      top: 40%;
+      font-size: 18px;
     }
   }
 }

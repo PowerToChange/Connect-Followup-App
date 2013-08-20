@@ -1,5 +1,6 @@
 en:
   leads:
+    assigned_to_user_html: "Assigned to <i>%{user}</i>"
     progress_statuses:
       uncontacted: "Uncontacted"
       in_progress: "In Progress"
@@ -48,5 +49,5 @@ en:
       success: "Updated status."
       error: "Oops, could not update status!"
     destroy:
-      success: "Released contact from your connections list."
-      error: "Oops, could not release contact from your connections!"
+      success: "Released contact."
+      error: "Oops, could not release contact!"

@@ -7,6 +7,8 @@ ConnectFollowup::Application.routes.draw do
   resources :connections
 
   resources :surveys do
+    get 'all', on: :member
+
     resources :leads do
       member do
         get 'report'

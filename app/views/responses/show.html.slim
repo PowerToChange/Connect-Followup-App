@@ -8,6 +8,8 @@ ul.contacts
       h5
         = @contact.display_name
       .more
+        - if @response.lead.present? && @response.lead.user_id != current_user.id
+          p= t('leads.assigned_to_user_html', user: @response.lead.user.to_s)
         = render 'layouts/add_delete_lead', response: @response, survey: @survey, remote: false
         .btn-group
           = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, response_id: @response.id, hidden_phone: true

@@ -9,6 +9,9 @@ en:
         one: "1 contact needs follow-up."
         other: "%{count} contacts need follow-up."
       showing_contacts_with_filter: "Showing contacts with %{filter}."
+    all:
+      no_responses: "No responses found for this survey."
+      showing_all_count_responses: "Showing all %{count} responses."
     filters_modal:
       title: "Filter Options"
       filter: "Filter"

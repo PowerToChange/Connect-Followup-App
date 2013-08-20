@@ -1,10 +1,9 @@
 - data = local_assigns[:remote] == false ? {} : { remote: true }
+- existing_lead = Lead.where(response_id: response.id).first
 
-- if !Lead.all.map(&:response_id).include?(response.id)
-  = link_to_icon 'plus-sign', survey_leads_path(survey, lead: { response_id: response.response_id, contact_id: response.contact_id }), method: :post, label_hidden_phone: t('add'), class: 'btn btn-success', id: add_delete_lead_button_id(response.id), data: data
-
-- elsif user_lead = current_user.leads.detect { |l| l.response_id == response.id }
-  = link_to_icon 'remove', survey_lead_path(survey, user_lead), method: :delete, label_hidden_phone: t('release'), class: 'btn btn-danger', id: add_delete_lead_button_id(response.id), data: data
+- if existing_lead.blank?
+  = link_to_icon 'plus', survey_leads_path(survey, lead: { response_id: response.response_id, contact_id: response.contact_id }), method: :post, label_hidden_phone: t('add'), class: 'btn btn-success', id: add_delete_lead_button_id(response.id), data: data
 
 - else
-  = link_to_icon 'ok-sign', 'javascript:void(0)', class: 'btn disabled'
+  - confirm = existing_lead.user_id == current_user.id ? nil : t('confirm_delete_existing_lead_that_is_not_yours')
+  = link_to_icon 'remove', survey_lead_path(survey, existing_lead), method: :delete, label_hidden_phone: t('release'), class: 'btn btn-danger', id: add_delete_lead_button_id(response.id), data: data, confirm: confirm

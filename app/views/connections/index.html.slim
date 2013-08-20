@@ -4,26 +4,24 @@ div.list-title = t('.title')
 
 - @connections.each do |conn|
   .survey
-    .title-row
+    .title-row data-url=all_survey_path(conn.survey)
       .title-actions
         = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: t('.add_contact'), class: "btn add-lead"
       .title
         = "#{ conn.survey.title } "
         = number_of_survey_responses_not_yet_being_followed_up(conn.survey)
+      .arrow
+        i class="icon-chevron-right"
     - if conn.leads.size.zero?
       .well = t('.click_add_contact_to_start_followup_html')
     - else
       ul.contacts
         - conn.leads.each do |lead|
           li data-status-id=lead.status_id data-school-id=lead.response.school.try(:id) data-url=survey_contact_response_path(survey_id: conn.survey.id, contact_id: lead.contact_id, id: lead.response_id) style=lead_li_style(lead)
-            .avatar
-              = contact_image_tag(lead.contact)
+            .avatar= contact_image_tag(lead.contact)
             .info
-              h5
-                = lead.contact.display_name
-              - if lead.response.school.present?
-                .label.label-inverse = lead.response.school.to_s_shorter
-              div class=['label', lead.status.gsub(" ", "")] = lead.status
+              h5= lead.contact.display_name
+              = lead_labels(lead)
               .more
                 div class='btn-group'
                   = render 'layouts/phone_sms', tel: lead.contact.phone, lead: lead, survey: conn.survey, response_id: lead.response_id, hidden_phone: true

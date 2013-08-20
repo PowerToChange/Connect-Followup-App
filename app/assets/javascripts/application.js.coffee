@@ -23,8 +23,9 @@
 #= require flash
 
 $ ->
-  $('.survey ul.contacts > li').click ->
-    window.location = $(this).data('url')
+  $('.survey ul.contacts > li, .survey .title-row').click (e) ->
+    if !( $(e.target).is('a') || $(e.target).parents('a').parents('.survey').length > 0 ) && $(this).data('url')?
+      window.location = $(this).data('url')
 
   $('a.prev-page').click ->
     parent.history.back()
