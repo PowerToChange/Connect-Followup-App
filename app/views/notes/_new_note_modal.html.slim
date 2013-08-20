@@ -1,11 +1,11 @@
 #newNoteModal.modal.hide.fade role="dialog"
   .modal-header
     button.close type="button" data-dismiss="modal" ×
-    h3 Add a Note
+    h3= t('.title')
   .modal-body
     .row-fluid
       = form_tag survey_contact_response_notes_path(survey_id: survey_id, contact_id: contact_id, response_id: response_id), id: 'new-note', remote: true, class: 'form-horizontal' do
-        = text_area_tag :note, nil, rows: 5, placeholder: 'Type your note'
+        = text_area_tag :note, nil, rows: 5, placeholder: t('.type_your_note')
   .modal-footer
-    = link_to 'Close', '#', data: { dismiss: 'modal' }, class: 'btn'
-    = submit_tag 'Add Note', form: 'new-note', class: 'btn btn-primary'
+    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn'
+    = submit_tag t('.add_note'), form: 'new-note', class: 'btn btn-primary'

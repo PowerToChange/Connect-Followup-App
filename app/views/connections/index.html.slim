@@ -1,17 +1,17 @@
 - content_for(:body_class) { 'list_view' }
 
-div.list-title My Connections
+div.list-title = t('.title')
 
 - @connections.each do |conn|
   .survey
     .title-row
       .title-actions
-        = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: "Add Contact", class: "btn add-lead"
+        = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: t('.add_contact'), class: "btn add-lead"
       .title
         = "#{ conn.survey.title } "
         = number_of_survey_responses_not_yet_being_followed_up(conn.survey)
     - if conn.leads.size.zero?
-      .well Click the <i class="icon icon-plus-sign"></i> button to start follow-up
+      .well = t('.click_add_contact_to_start_followup_html')
     - else
       ul.contacts
         - conn.leads.each do |lead|
@@ -32,14 +32,15 @@ div.list-title My Connections
               i class="icon-chevron-right icon-large"
 - if @connections.empty?
   .well
-    ' There are no assigned surveys for your user account. Please contact your administrator to find out more.
+    = t('no_connections')
 
 .list-actions-bar.form-inline
   div
     = label_tag :show_school, class: 'select'
-      'Show campus
-      = select_tag :show_school, options_from_collection_for_select(current_user.schools.sort_by(&:display_name), 'id', 'to_s'), prompt: 'All', class: 'select input-medium toggle-campus-leads'
+      = t('.show_school')
+      '&nbsp;
+      = select_tag :show_school, options_from_collection_for_select(current_user.schools.sort_by(&:display_name), 'id', 'to_s'), prompt: t('all'), class: 'select input-medium toggle-campus-leads'
   div
     = label_tag :show_completed, class: 'checkbox'
       = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
-      'Show completed
+      = t('.show_completed')

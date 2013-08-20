@@ -8,11 +8,11 @@ class LeadsController < ApplicationController
     @lead.user_id = current_user.id
 
     if @lead.save
-      flash[:notice] = 'Added contact to your connections list.'
-    elsif @lead.errors.full_messages.include?('Response has already been taken')
-      flash[:error] = 'This contact has already been added by another person.'
+      flash[:notice] = t('leads.create.success')
+    elsif Lead.where(response_id: @lead.response_id).present?
+      flash[:error] = t('leads.create.error.taken')
     else
-      flash[:error] = 'Oops, could not add this contact to your connections!'
+      flash[:error] = t('leads.create.error.generic')
     end
 
     respond_to do |format|
@@ -28,7 +28,7 @@ class LeadsController < ApplicationController
       format.html do
         if updateable?
           @lead.update_attributes(params[:lead])
-          redirect_to survey_lead_path(@lead), notice: 'Updated status.'
+          redirect_to survey_lead_path(@lead), notice: t('leads.update.success')
         else
           # Redirect to the contact completed report without updating the contact to completed
           redirect_to report_survey_lead_path(@lead.survey,@lead)
@@ -45,12 +45,12 @@ class LeadsController < ApplicationController
 
       format.js do
         if updateable? && @lead.update_attributes(params[:lead])
-          flash[:notice] = 'Updated status.' unless @lead.completed?
+          flash[:notice] = t('leads.update.success') unless @lead.completed?
         elsif !updateable?
           # Redirect to the contact completed report without updating the contact to completed
           render inline: "window.location = '#{ report_survey_lead_path(@lead.survey, @lead) }';"
         else
-          flash[:error] = 'Oops, could not update status!'
+          flash[:error] = t('leads.update.error')
         end
       end
     end
@@ -58,9 +58,9 @@ class LeadsController < ApplicationController
 
   def destroy
     if @lead.destroy
-      flash[:notice] = 'Released contact from your connections list.'
+      flash[:notice] = t('leads.destroy.success')
     else
-      flash[:error] = 'Oops, could not release contact from your connections!'
+      flash[:error] = t('leads.destroy.error')
     end
 
     respond_to do |format|

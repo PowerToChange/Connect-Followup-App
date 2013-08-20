@@ -19,13 +19,13 @@ ul.contacts
       .report-result
         .label.label-success = lead_report_description(@response.lead)
     = simple_form_for [@survey, @response.lead], remote: true, html: { class: 'form-inline edit-lead', data: { status_id: @response.lead.status_id } } do |f|
-      = f.collection_radio_buttons :status_id, Lead::PROGRESS_STATUSES, :first, :last
+      = f.collection_radio_buttons :status_id, Lead.PROGRESS_STATUSES, :first, :last
 
 
 div class=['well','square']
   h4
     i.icon-user
-    'Contact Info
+    = t('.contact_info')
   table class=['table','table-bordered','table-striped']
     - @response.contact_infos.each do |info|
       - next unless info.value.present?
@@ -34,12 +34,12 @@ div class=['well','square']
         td= info.value
     - if @contact.phone.present?
       tr
-        td Phone
+        td= t('phone')
         td
           .btn-group = render 'layouts/phone_sms', tel: @contact.phone, survey: @survey, contact_id: @contact.id, response_id: @response.id
     - if @contact.email.present?
       tr
-        td Email
+        td= t('email')
         td= render 'layouts/email', address: @contact.email, survey: @survey, contact_id: @contact.id, response_id: @response.id
 
 
@@ -48,12 +48,12 @@ div class=['well','square']
     i.icon-file-alt
     '#{@survey.title}
     small.muted title= @response.response.activity_date_time
-      '(submitted #{ time_ago_in_words(@response.response.activity_date_time) } ago)
+      = "(#{ t('.submitted_time_ago_in_words_ago', time_ago_in_words: time_ago_in_words(@response.response.activity_date_time)) })"
   table class=['table','table-bordered','table-striped']
     thead
       tr
-        th Question
-        th Answer
+        th= t('question')
+        th= t('answer')
     - @response.answers.each do |a|
       tr
         td= a.label
@@ -63,18 +63,20 @@ div class=['well','square']
 div class=['well','square']
   .actions.pull-right
     div class='btn-group'
-      = link_to_icon 'pencil', '#newNoteModal', label_hidden_phone: "Add Note", data: { toggle: 'modal' }, class: 'btn'
-      = link_to_icon 'certificate', '#newRejoiceableModal', label_hidden_phone: "Rejoiceable!", data: { toggle: 'modal' }, class: 'btn btn-primary'
+      = link_to_icon 'certificate', '#newRejoiceableModal', label_hidden_phone: t('.add_rejoiceable'), data: { toggle: 'modal' }, class: 'btn btn-primary'
+      = link_to_icon 'pencil', '#newNoteModal', label_hidden_phone: t('.add_note'), data: { toggle: 'modal' }, class: 'btn btn-warning'
 
   ul.nav.nav-tabs
     li.active
       a href="#activities" data-toggle="tab"
         i.icon-th-list
-        strong &nbsp;History
+        strong
+          = t('.history')
     li
       a href="#notes" data-toggle="tab"
         i.icon-pencil
-        strong &nbsp;Notes
+        strong
+          = t('.notes')
 
   .tab-content
     .tab-pane#activities.active
@@ -83,7 +85,7 @@ div class=['well','square']
           = render '/activities/tr', activity: a
         tr
           td
-            i.muted No more history
+            i.muted= t('.no_more_history')
 
     .tab-pane#notes
       table class=['table','table-bordered','table-striped']
@@ -91,7 +93,7 @@ div class=['well','square']
           = render '/notes/tr', note: n
         tr
           td
-            i.muted No more notes
+            i.muted= t('.no_more_notes')
 
 
 = render '/notes/new_note_modal', survey_id: @survey.id, contact_id: @contact.id, response_id: @response.id

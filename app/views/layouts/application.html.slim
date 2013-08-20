@@ -1,10 +1,10 @@
 doctype html
-html lang="en" ng-app="connectapp"
+html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
   head
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    title= content_for?(:title) ? yield(:title) : "ConnectFollowup"
+    title= content_for?(:title) ? yield(:title) : t('title')
     = csrf_meta_tags
 
     /! Le HTML5 shim, for IE6-8 support of HTML elements
@@ -28,14 +28,14 @@ html lang="en" ng-app="connectapp"
               span.icon-bar
             a.brand href="#"
               = image_tag('logo.png')
-              'Connect
+              = t 'brand_title'
             .container-fluid
               .nav
                 div class=['btn-group','pull-left']
                   = link_to_icon "arrow-left", "javascript:void(0)", class: "btn prev-page"
-                  = link_to_icon "home", root_path, label_hidden_phone: "My Connections", class: "btn"
+                  = link_to_icon "home", root_path, label_hidden_phone: t('home'), class: "btn"
                 div class=['btn-group','pull-right']
-                  = link_to_icon "off", log_out_path, label_hidden_phone: "Log Off", class: "btn"
+                  = link_to_icon "off", log_out_path, label_hidden_phone: t('log_off'), class: "btn"
 
     .container-fluid
       .row-fluid
@@ -47,8 +47,8 @@ html lang="en" ng-app="connectapp"
       footer
         br
         - if logged_in?
-          p.muted Logged in as <i>#{ current_user.to_s }</i>
-        p.muted &copy; Power to Change #{ Time.now.year }
+          p.muted = t('logged_in_as_html', user: current_user.to_s)
+        p.muted &copy; #{ t('p2c') } #{ Time.now.year }
     /!
       Javascripts
       \==================================================

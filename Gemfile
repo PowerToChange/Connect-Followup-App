@@ -58,6 +58,7 @@ gem 'pry-rails'
 
 gem 'figaro'
 gem 'dalli'
+gem 'rails-i18n'
 
 group :development do
   gem 'capistrano'

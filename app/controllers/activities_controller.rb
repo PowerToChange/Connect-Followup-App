@@ -15,9 +15,9 @@ class ActivitiesController < ApplicationController
     activity_name = activity_name(@activity.activity_type_id)
 
     if @activity.save
-      flash[:success] = "#{ activity_name } history added!"
+      flash[:success] = t('activities.create.success', activity_name: activity_name)
     else
-      flash[:error] =  "Oops, could not add #{ activity_name.downcase } history!"
+      flash[:error] = t('activities.create.error', activity_name: activity_name.downcase)
     end
   end
 
@@ -37,7 +37,7 @@ class ActivitiesController < ApplicationController
     return unless @activity.persisted? # Abort if the activity wasn't saved
 
     if @lead.uncontacted?
-      flash[:success] += " This contact has now been added to your connections." if @lead.new_record?
+      flash[:success] += " #{ t('activities.contact_added') }" if @lead.new_record?
       @lead.in_progress.save
     end
   end

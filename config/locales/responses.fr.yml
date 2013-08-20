@@ -1,0 +1,26 @@
+fr:
+  responses:
+    priorities:
+      hot: "Hot"
+      medium: "Medium"
+      mild: "Mild"
+    genders:
+      female: "Female"
+      male: "Male"
+    filter_years:
+      first_year: "First Year"
+    contact_info:
+      school: "Campus"
+      gender: "Gender"
+      year: "Year"
+      degree: "Degree"
+      international: "International"
+    show:
+      contact_info: "Contact Info"
+      submitted_time_ago_in_words_ago: "submitted %{time_ago_in_words} ago"
+      add_note: "Add Note"
+      add_rejoiceable: "Rejoiceable!"
+      history: "History"
+      notes: "Notes"
+      no_more_history: "No more history"
+      no_more_notes: "No more notes"

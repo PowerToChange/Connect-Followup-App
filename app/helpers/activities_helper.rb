@@ -16,7 +16,7 @@ module ActivitiesHelper
     # Survey
     icon_class = (Survey.all.collect(&:activity_type_id).include?(activity.activity_type_id.to_i) ? "icon-file-alt" : nil) unless icon_class
     # Email
-    icon_class = (activity.activity_name.downcase.include?('email') ? "icon-envelope" : nil) unless icon_class
+    icon_class = (activity.activity_name.downcase.include?(t('activities.name.email').downcase) ? "icon-envelope" : nil) unless icon_class
 
     %(<i class="#{icon_class} icon-large"></i>).html_safe
   end
@@ -31,15 +31,15 @@ module ActivitiesHelper
   def activity_name(activity_type_id)
     case activity_type_id
     when ActivityType::PHONE_CALL_TYPE_ID
-      'Phone call'
+      t('activities.name.phone')
     when ActivityType::SMS_TYPE_ID
-      'Text/SMS'
+      t('activities.name.sms')
     when ActivityType::EMAIL_TYPE_ID
-      'Email'
+      t('activities.name.email')
     when ActivityType::REJOICEABLE_TYPE_ID
-      'Rejoiceable'
+      t('activities.name.rejoiceable')
     else
-      'Item'
+      t('activities.name.item')
     end
   end
 

@@ -1,0 +1,5 @@
+fr:
+  sessions:
+    new:
+      login: "Login"
+      log_out_of_cas: "Log out of CAS"

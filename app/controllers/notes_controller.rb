@@ -9,9 +9,9 @@ class NotesController < ApplicationController
     )
 
     if @note.save
-      flash[:success] = 'Note added.'
+      flash[:success] = t('notes.create.success')
     else
-      flash[:error] = 'Oops, could not add the note!'
+      flash[:error] = t('notes.create.error')
     end
   end
 

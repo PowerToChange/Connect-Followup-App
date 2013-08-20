@@ -19,22 +19,23 @@
             .more
               .btn-group
                 = render 'layouts/add_delete_lead', response: r, survey: @survey
-                = link_to_icon 'info-sign', survey_contact_response_path(survey_id: @survey.id, contact_id: r.contact_id, id: r.id), label_hidden_phone: 'Info', class: 'btn btn-info'
+                = link_to_icon 'info-sign', survey_contact_response_path(survey_id: @survey.id, contact_id: r.contact_id, id: r.id), label_hidden_phone: t('.info'), class: 'btn btn-info'
               .btn-group
                 = render 'layouts/phone_sms', tel: r.contact.phone, survey: r.survey, contact_id: r.contact_id, response_id: r.id, hidden_phone: true
                 = render 'layouts/email', address: r.contact.email, survey: r.survey, contact_id: r.contact_id, response_id: r.id, hidden_phone: true
 
       - if @responses.empty?
         div class=['item','active']
-          'No contacts found.
+          = t('no_contacts')
 
     - if !@responses.empty?
       .carousel-nav
         = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
         = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
 div class=['well','square']
-  = "#{ pluralize(@responses.size, 'contact needs', 'contacts need') } follow-up. #{ current_filters_description }".html_safe
+  = t('.number_of_contacts_that_need_followup', count: @responses.size)
+  = current_filters_description.html_safe
 div class=['well','square']
-  = link_to 'Filter Options', '#filterModal', class: 'btn btn-inverse', 'data-toggle' => 'modal', role: 'button'
+  = link_to t('.filter_options'), '#filterModal', class: 'btn btn-inverse', 'data-toggle' => 'modal', role: 'button'
 
 = render 'filters_modal', survey: @survey

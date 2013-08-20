@@ -2,9 +2,13 @@ class Response
   attr_accessor :survey, :response, :school, :contact
   include ResponsesHelper
 
-  PRIORITIES = [['Hot',1], ['Medium',2], ['Mild',3]]
-  GENDERS = [['Female',1], ['Male',2]]
-  FILTER_YEARS = [['First Year', 1]]
+  def self.PRIORITIES
+    [[I18n.t('responses.priorities.hot'), 1], [I18n.t('responses.priorities.medium'), 2], [I18n.t('responses.priorities.mild'), 3]]
+  end
+
+  def self.GENDERS
+    [[I18n.t('responses.genders.female'), 1], [I18n.t('responses.genders.male'), 2]]
+  end
 
   def initialize(survey, response, contact, school = nil)
     @survey = survey
@@ -42,11 +46,11 @@ class Response
   def contact_infos
     @contact_infos ||= begin
       [
-        OpenStruct.new(field: nil, label: 'Campus', value: school.try(:display_name)),
-        OpenStruct.new(field: :gender_id, label: 'Sex', value: gender_label(contact.gender_id)),
-        OpenStruct.new(field: CiviCrm.custom_fields.contact.year, label: 'Year', value: year_label(contact.send(CiviCrm.custom_fields.contact.year))),
-        OpenStruct.new(field: CiviCrm.custom_fields.contact.degree, label: 'Degree', value: contact.send(CiviCrm.custom_fields.contact.degree)),
-        OpenStruct.new(field: CiviCrm.custom_fields.contact.international, label: 'International', value: contact.send(CiviCrm.custom_fields.contact.international))
+        OpenStruct.new(field: nil, label: I18n.t('responses.contact_info.school'), value: school.try(:display_name)),
+        OpenStruct.new(field: :gender_id, label: I18n.t('responses.contact_info.gender'), value: gender_label(contact.gender_id)),
+        OpenStruct.new(field: CiviCrm.custom_fields.contact.year, label: I18n.t('responses.contact_info.year'), value: year_label(contact.send(CiviCrm.custom_fields.contact.year))),
+        OpenStruct.new(field: CiviCrm.custom_fields.contact.degree, label: I18n.t('responses.contact_info.degree'), value: contact.send(CiviCrm.custom_fields.contact.degree)),
+        OpenStruct.new(field: CiviCrm.custom_fields.contact.international, label: I18n.t('responses.contact_info.international'), value: contact.send(CiviCrm.custom_fields.contact.international))
       ]
     end
   end

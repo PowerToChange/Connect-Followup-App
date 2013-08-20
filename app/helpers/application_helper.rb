@@ -15,11 +15,11 @@ module ApplicationHelper
     days = (Time.now.to_date - Date.parse(date)).to_i
 
     if days <= 0
-      'Today'
+      t('today')
     elsif days == 1
-      'Yesterday'
+      t('yesterday')
     else
-      "#{days} days ago"
+      t('days_ago_in_words', days: days)
     end
   end
 

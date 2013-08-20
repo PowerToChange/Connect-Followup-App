@@ -1,0 +1,52 @@
+fr:
+  leads:
+    progress_statuses:
+      uncontacted: "Uncontacted"
+      in_progress: "In Progress"
+      completed: "Completed"
+    report_outcomes:
+      bad_info: "bad information"
+      no_response: "no response"
+      not_interested: "not interested"
+      digitally: "connected digitally"
+      face_to_face: "connected face-to-face"
+      digitally_continuing: "connected digitally and will continue the conversation"
+      face_to_face_continuing: "connected face-to-face and will continue the conversation"
+    notes:
+      completed_initial_followup_subject: "Completed Initial Follow-up"
+      completed_initial_followup_body: "%{user} completed initial follow-up of the %{survey} survey and recorded a result of %{result}."
+    report:
+      how_did_it_go:
+        title: "How did it go?"
+        message: "Onward Ho!"
+        did_not_work_out: "Didn't work out"
+        connected_digitally: "We connected digitally"
+        connected_face_to_face: "We connected face-to-face"
+      did_not_work_out:
+        title: "It didn't work out. What happened?"
+        message: "Giddy Up!"
+        bad_info: "Bad Information"
+        no_response: "No Response"
+        no_longer_interested: "No Longer Interested"
+      worked_out:
+        title: "Your connection worked out!"
+        message: "The Final Stretch"
+        are_they_open_to_more_engagement: "Are they open to further engagement?"
+        continue_relationship: "Yes, I will continue this relationship"
+        ending_relationship: "No, not at this time"
+      completed:
+        message: "Completed"
+        great: "Great!"
+        way_to_trust_god_following_up: "Way to trust God in following up"
+        go_home_html: "<i class='icon-home icon-large'></i>&nbsp;Take me home to<br>My Connections"
+    create:
+      success: "Added contact to your connections list."
+      error:
+        taken: "This contact has already been added by another person."
+        generic: "Oops, could not add this contact to your connections!"
+    update:
+      success: "Updated status."
+      error: "Oops, could not update status!"
+    destroy:
+      success: "Released contact from your connections list."
+      error: "Oops, could not release contact from your connections!"

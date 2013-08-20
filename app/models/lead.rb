@@ -17,22 +17,31 @@ class Lead < ActiveRecord::Base
   COMPLETED_STATUS_ID = 2
   WIP_STATUS_ID = 3
   UNCONTACTED_STATUS_ID = 4
-  PROGRESS_STATUSES = [[UNCONTACTED_STATUS_ID, 'Uncontacted'], [WIP_STATUS_ID, 'In Progress'], [COMPLETED_STATUS_ID, 'Completed']]
 
-  REPORT_OUTCOMES = {
-    bad_info: { id: 0, description: 'bad information' },
-    no_response: { id: 1, description: 'no response' },
-    not_interested: { id: 2, description: 'not interested' },
-    digitally: { id: 5, description: 'connected digitally' },
-    face_to_face: { id: 7, description: 'connected face-to-face' },
-    digitally_continuing: { id: 8, description: 'connected digitally and will continue the conversation' },
-    face_to_face_continuing: { id: 10, description: 'connected face-to-face and will continue the conversation' }
-  }
-  REPORT_OUTCOMES_GROUPED_BY_ID = Hash[ REPORT_OUTCOMES.collect { |k,v| [REPORT_OUTCOMES[k][:id], v] } ]
+  def self.PROGRESS_STATUSES
+    [[UNCONTACTED_STATUS_ID, I18n.t('leads.progress_statuses.uncontacted')],
+     [WIP_STATUS_ID, I18n.t('leads.progress_statuses.in_progress')],
+     [COMPLETED_STATUS_ID, I18n.t('leads.progress_statuses.completed')]]
+  end
 
+  def self.REPORT_OUTCOMES
+    {
+      bad_info: { id: 0, description: I18n.t('leads.report_outcomes.bad_info') },
+      no_response: { id: 1, description: I18n.t('leads.report_outcomes.no_response') },
+      not_interested: { id: 2, description: I18n.t('leads.report_outcomes.not_interested') },
+      digitally: { id: 5, description: I18n.t('leads.report_outcomes.digitally') },
+      face_to_face: { id: 7, description: I18n.t('leads.report_outcomes.face_to_face') },
+      digitally_continuing: { id: 8, description: I18n.t('leads.report_outcomes.digitally_continuing') },
+      face_to_face_continuing: { id: 10, description: I18n.t('leads.report_outcomes.face_to_face_continuing') }
+    }
+  end
+
+  def self.REPORT_OUTCOMES_GROUPED_BY_ID
+    Hash[ self.REPORT_OUTCOMES.collect { |k,v| [self.REPORT_OUTCOMES[k][:id], v] } ]
+  end
 
   def status
-    PROGRESS_STATUSES.select { |num|  num[0] == self.status_id  }.flatten[1]
+    self.class.PROGRESS_STATUSES.select { |num|  num[0] == self.status_id  }.flatten[1]
   end
 
   def response
@@ -110,13 +119,13 @@ class Lead < ActiveRecord::Base
 
   def create_contact_completed_note_history
     if self.engagement_level.present? && self.engagement_level_changed? && self.completed?
-      Note.create(subject: 'Completed Initial Follow-up',
+      Note.create(subject: I18n.t('leads.notes.completed_initial_followup_subject'),
                   note: generate_contact_completed_note_body(self.user, self.survey, self.engagement_level),
                   contact_id: self.contact_id)
     end
   end
 
   def generate_contact_completed_note_body(user, survey, engagement_level)
-    "#{ user.to_s } completed initial follow-up of the #{ survey.to_s } survey and recorded a result of #{ REPORT_OUTCOMES_GROUPED_BY_ID[engagement_level.to_i][:description] }."
+    I18n.t('leads.notes.completed_initial_followup_body', user: user.to_s, survey: survey.to_s, result: self.class.REPORT_OUTCOMES_GROUPED_BY_ID[engagement_level.to_i][:description])
   end
 end

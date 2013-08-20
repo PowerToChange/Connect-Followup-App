@@ -3,7 +3,7 @@ module SurveysHelper
     f.input attribute, {
       collection: options_for_filter_select_for_attribute(attribute),
       selected: params[:filters].try(:[], attribute),
-      include_blank: 'All',
+      include_blank: t('all'),
       required: false,
       label: attribute }.merge(options)
   end
@@ -13,9 +13,9 @@ module SurveysHelper
     when :target_contact_relationship_contact_id_b
       school_options_for_filter_select
     when :priority_id
-      Response::PRIORITIES
+      Response.PRIORITIES
     when :target_contact_gender_id
-      Response::GENDERS
+      Response.GENDERS
     else # custom fields
       field = @survey.fields.where(field_name: attribute).first
       field.present? ? field.option_values_to_select_options : []
@@ -37,11 +37,11 @@ module SurveysHelper
 
       filter_desc = case filter.to_sym
       when :target_contact_relationship_contact_id_b
-        "campus"
+        t('school')
       when :priority_id
-        "priority"
+        t('followup_priority')
       when :target_contact_gender_id
-        "gender"
+        t('gender')
       else # custom fields
         @survey.fields.where(field_name: filter.to_sym).first.try(:label)
       end
@@ -50,7 +50,7 @@ module SurveysHelper
     end
 
     current_filter_values = current_filter_values.compact.to_sentence
-    current_filter_values.present? ? "Showing contacts with #{ current_filter_values }." : ''
+    current_filter_values.present? ? t('surveys.show.showing_contacts_with_filter', filter: current_filter_values) : ''
   end
 
   def label_from_options_for_value(options, value)

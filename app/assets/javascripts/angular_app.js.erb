@@ -25,10 +25,10 @@ App.config(["$routeProvider","$compileProvider",function($routeProvider,$compile
 App.run(["$rootScope","$location", function($rootScope,$location){
   $rootScope.engagement_level = null;
   $rootScope.levels = {
-    digital: <%= Lead::REPORT_OUTCOMES[:digitally][:id] %>,
-    face: <%= Lead::REPORT_OUTCOMES[:face_to_face][:id] %>,
-    digital_cont: <%= Lead::REPORT_OUTCOMES[:digitally_continuing][:id] %>,
-    face_cont: <%= Lead::REPORT_OUTCOMES[:face_to_face_continuing][:id] %>
+    digital: <%= Lead.REPORT_OUTCOMES[:digitally][:id] %>,
+    face: <%= Lead.REPORT_OUTCOMES[:face_to_face][:id] %>,
+    digital_cont: <%= Lead.REPORT_OUTCOMES[:digitally_continuing][:id] %>,
+    face_cont: <%= Lead.REPORT_OUTCOMES[:face_to_face_continuing][:id] %>
   };
   $rootScope.authtoken = $('meta[name="csrf-token"]').attr('content');
 }]);

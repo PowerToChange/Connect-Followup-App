@@ -10,39 +10,39 @@ script type="text/ng-template" id="progress.html"
   #spinner_dialog
 
 script type="text/ng-template" id="index.html"
-  progressbar percentage="25" message="Onward Ho!"
+  progressbar percentage="25" message="#{ t('.how_did_it_go.message') }"
   div class="well square item"
-    h4 How did it go?
+    h4= t('.how_did_it_go.title')
     .panel
-      = link_to "Didn't work out", "#/not_work", class: 'btn btn-large btn-block'
-      = link_to "We connected digitally", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_OUTCOMES[:digitally][:id] })"
-      = link_to "We connected face-to-face", "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead::REPORT_OUTCOMES[:face_to_face][:id] })"
+      = link_to t('.how_did_it_go.did_not_work_out'), "#/not_work", class: 'btn btn-large btn-block'
+      = link_to t('.how_did_it_go.connected_digitally'), "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead.REPORT_OUTCOMES[:digitally][:id] })"
+      = link_to t('.how_did_it_go.connected_face_to_face'), "#/worked_out", class: 'btn btn-large btn-block', 'ng-click' => "setEngagementLevel(#{Lead.REPORT_OUTCOMES[:face_to_face][:id] })"
 
 script type="text/ng-template" id="not_work.html"
-  progressbar percentage="50" message="Giddy Up!"
+  progressbar percentage="50" message="#{ t('.did_not_work_out.message') }"
   div class="well square item active"
-    h4 It didn't work out. What happened?
+    h4= t('.did_not_work_out.title')
     .panel
-      = link_to 'Bad Information', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_OUTCOMES[:bad_info][:id] })"
-      = link_to 'No Response', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_OUTCOMES[:no_response][:id] })"
-      = link_to 'No Longer Interested', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead::REPORT_OUTCOMES[:not_interested][:id] })"
-      = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
+      = link_to t('.did_not_work_out.bad_info'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead.REPORT_OUTCOMES[:bad_info][:id] })"
+      = link_to t('.did_not_work_out.no_response'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead.REPORT_OUTCOMES[:no_response][:id] })"
+      = link_to t('.did_not_work_out.no_longer_interested'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead.REPORT_OUTCOMES[:not_interested][:id] })"
+      = link_to t('back'), 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
 
 script type="text/ng-template" id="worked_out.html"
-  progressbar percentage="75" message="The Final Stretch"
+  progressbar percentage="75" message="#{ t('.worked_out.message') }"
   div class="well square item active"
-    h4 Your connection worked out!
-    h4 Are they open to further engagement?
+    h4= t('.worked_out.title')
+    h4= t('.worked_out.are_they_open_to_more_engagement')
     .panel
-      = link_to 'Yes, I will continue this relationship', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit('continuing')"
-      = link_to 'No, not at this time', 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit('ending')"
-      = link_to 'Back', 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
+      = link_to t('.worked_out.continue_relationship'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit('continuing')"
+      = link_to t('.worked_out.ending_relationship'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit('ending')"
+      = link_to t('back'), 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
 
 script type="text/ng-template" id="ending.html"
-  progressbar percentage="100" message="Completed"
+  progressbar percentage="100" message="#{ t('.completed.message') }"
   div class="well square item active"
-    h1 Great!
-    h4 Way to trust God in following up
+    h1= t('.completed.great')
+    h4= t('.completed.way_to_trust_god_following_up')
     h4= @lead.contact.display_name
     .panel
-      = link_to "Take Me Home To<br/>My Connections".html_safe, connections_path, class: 'btn btn-large btn-block btn-success'
+      = link_to t('.completed.go_home_html'), connections_path, class: 'btn btn-large btn-block btn-success'

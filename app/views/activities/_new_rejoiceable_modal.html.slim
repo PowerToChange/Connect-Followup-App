@@ -1,7 +1,7 @@
 #newRejoiceableModal.modal.hide.fade role="dialog"
   .modal-header
     button.close type="button" data-dismiss="modal" ×
-    h3 Woo hoo! <br> Add a Rejoiceable
+    h3= t('.title_html')
   .modal-body
     .row-fluid
       - rejoiceables_collection.each do |rejoiceable_id, label|
@@ -13,4 +13,4 @@
           = f.input :campaign_id, as: :hidden, input_html: { value: survey.campaign_id }
           = f.submit label, class: 'btn btn-primary'
   .modal-footer
-    = link_to 'Close', '#', data: { dismiss: 'modal' }, class: 'btn'
+    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn'

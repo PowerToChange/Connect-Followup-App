@@ -1,0 +1,9 @@
+en:
+  connections:
+    index:
+      title: "My Connections"
+      add_contact: "Add Contact"
+      click_add_contact_to_start_followup_html: "Click the <i class='icon icon-plus-sign'></i> button to start follow-up"
+      no_connections: "There are no assigned surveys for your user account. Please contact your administrator to find out more."
+      show_school: "Show Campus"
+      show_completed: "Show Completed"
