@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
   # then set the session[:cas_user]
   # Upon logout, the the CASClient filter will reset the session[:cas_user] to nil via the destroy action
 
-  before_filter CASClient::Frameworks::Rails::Filter, except: [:new, :destroy, :create]
+  before_filter CASClient::Frameworks::Rails::Filter, except: [:new, :destroy]
   before_filter :authenticate_user!, :after_login, only: :index
 
   def index
-    redirect_to connections_path
+    redirect_to connections_path if logged_in?
   end
 
   def new
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    CASClient::Frameworks::Rails::Filter.filter(self)
+    redirect_to connections_path if logged_in?
   end
 
   def destroy
