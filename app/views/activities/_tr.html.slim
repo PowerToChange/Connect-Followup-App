@@ -1,7 +1,8 @@
 tr
   td
     strong #{ activity_icon(activity) } #{ activity.activity_name.presence || activity_name(activity.activity_type_id) }
-    small.pull-right title= activity.activity_date_time
-      #{ t('time_ago_in_words_ago', time_ago_in_words: time_ago_in_words(activity.activity_date_time)) }
+    - if activity.activity_date_time.present?
+      small.pull-right title= activity.activity_date_time
+        #{ t('time_ago_in_words_ago', time_ago_in_words: time_ago_in_words(activity.activity_date_time)) }
     br
     '#{ activity_details(activity) }
