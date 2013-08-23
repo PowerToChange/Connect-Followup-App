@@ -34,6 +34,7 @@
         = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
 div class=['well','square']
   = t('.number_of_contacts_that_need_followup', count: @responses.size)
+  | &nbsp;
   = current_filters_description.html_safe
 div class=['well','square']
   = link_to t('.filter_options'), '#filterModal', class: 'btn btn-inverse', 'data-toggle' => 'modal', role: 'button'
