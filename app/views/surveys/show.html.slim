@@ -16,9 +16,10 @@
               p
                 strong
                   big= response.contact.display_name
-              - if response.school.present?
-                .label.label-inverse = response.school.to_s_shorter
-              = priority_label(response.response.priority_id)
+              p
+                - if response.school.present?
+                  .label.label-inverse = response.school.to_s_shorter
+                = priority_label(response.response.priority_id)
           .more
             .btn-group
               = render 'layouts/add_delete_lead', response: response, survey: response.survey
