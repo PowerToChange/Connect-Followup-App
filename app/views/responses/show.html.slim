@@ -5,8 +5,9 @@ ul.contacts
     .avatar
       = contact_image_tag(@response.contact)
     .info
-      h5
-        = @response.contact.display_name
+      p
+        strong
+          big= @response.contact.display_name
       .more
         - if @response.lead.present? && @response.lead.user_id != current_user.id
           p= t('leads.assigned_to_user_html', user: @response.lead.user.to_s)
