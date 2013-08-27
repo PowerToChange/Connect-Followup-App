@@ -125,27 +125,24 @@ small {
   font-size: 75%;
 }
 
-.report-progress {
-  // for small iPhone screens
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-}
 
-.report-progress .form-inline label {
-  margin-left: 5px; // for small iPhone screens
+// Responsive button sizes
+.responsive-btn-large {
+  .btn.btn-responsive-size {
+    padding: 11px 19px;
+  }
+  .btn-group .btn-responsive-size {
+    font-size: 17.5px;
+  }
 }
-
-.report-progress .form-inline input {
-  margin-left: 5px; // for small iPhone screens
-}
-
-.report-progress .report-result {
-  text-align: center;
-  min-height: 30px;
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  .responsive-btn-large
 }
 
 
 // Fix Bootstrap modals on mobile
+/* Landscape phones and down */
 @media (max-width: 480px) {
   .modal-body {
     height: 60%;

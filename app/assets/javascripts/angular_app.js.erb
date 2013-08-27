@@ -73,11 +73,12 @@ App.directive("phone", ["$rootScope","$http", function($rootScope,$http){
       tel: "@",
       tourl: "@",
       campaignid: "@",
-      hiddenphoneclass: "@"
+      hiddenphoneclass: "@",
+      size: "@"
     },
     replace: true,
     restrict: "E",
-    template: "<a href='tel:{{tel}}' class='btn'><i class='icon-phone icon-large'></i><span class='{{hiddenphoneclass}}'>&nbsp;{{tel}}</span></a>",
+    template: "<a href='tel:{{tel}}' class='btn btn-{{size}}'><i class='icon-phone icon-large'></i><span class='{{hiddenphoneclass}}'>&nbsp;{{tel}}</span></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
         e.stopPropagation();
@@ -107,11 +108,12 @@ App.directive("sms", ["$rootScope","$http", function($rootScope,$http){
       tel: "@",
       tourl: "@",
       campaignid: "@",
-      hiddenphoneclass: "@"
+      hiddenphoneclass: "@",
+      size: "@"
     },
     replace: true,
     restrict: "E",
-    template: "<a href='sms:{{tel}}' class='btn'><i class='icon-comment icon-large'></i></a>",
+    template: "<a href='sms:{{tel}}' class='btn btn-{{size}}'><i class='icon-comment icon-large'></i></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
         e.stopPropagation();
@@ -141,11 +143,12 @@ App.directive("email", ["$rootScope","$http", function($rootScope,$http){
       address: "@",
       tourl: "@",
       campaignid: "@",
-      hiddenphoneclass: "@"
+      hiddenphoneclass: "@",
+      size: "@"
     },
     replace: true,
     restrict: "E",
-    template: "<a href='mailto:{{address}}' class='btn' target='_blank'><i class='icon-envelope icon-large'></i><span class='{{hiddenphoneclass}}'>&nbsp;{{address}}</span></a>",
+    template: "<a href='mailto:{{address}}' class='btn btn-{{size}}' target='_blank'><i class='icon-envelope icon-large'></i><span class='{{hiddenphoneclass}}'>&nbsp;{{address}}</span></a>",
     link: function(scope, iElement, iAttrs, controller) {
       $(iElement).on('click',function(e){
         e.stopPropagation();

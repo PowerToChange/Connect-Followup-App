@@ -1,5 +1,6 @@
 - contact_id = local_assigns[:lead].present? ? lead.contact_id : local_assigns[:contact_id]
 - hidden_phone_class = local_assigns[:hidden_phone] == true ? 'hidden-phone' : ''
+- size = local_assigns[:size].presence || 'responsive-size'
 - if tel.present?
-  phone tel= number_to_phone(tel) tourl= survey_contact_response_activities_path(survey_id: survey.id, contact_id: contact_id, response_id: response_id) campaignid= survey.campaign_id hiddenphoneclass= hidden_phone_class
-  sms tel= number_to_phone(tel) tourl= survey_contact_response_activities_path(survey_id: survey.id, contact_id: contact_id, response_id: response_id) campaignid= survey.campaign_id
+  phone tel= number_to_phone(tel) tourl= survey_contact_response_activities_path(survey_id: survey.id, contact_id: contact_id, response_id: response_id) campaignid= survey.campaign_id hiddenphoneclass= hidden_phone_class size=size
+  sms tel= number_to_phone(tel) tourl= survey_contact_response_activities_path(survey_id: survey.id, contact_id: contact_id, response_id: response_id) campaignid= survey.campaign_id size=size

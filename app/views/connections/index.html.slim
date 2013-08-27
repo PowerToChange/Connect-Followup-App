@@ -6,7 +6,7 @@ div.list-title = t('.title')
   .survey
     .title-row data-url=all_survey_path(conn.survey)
       .title-actions
-        = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: t('.add_contact'), class: "btn add-lead"
+        = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: t('.add_contact'), class: 'btn add-lead'
       .title
         = "#{ conn.survey.title } "
         = number_of_survey_responses_not_yet_being_followed_up(conn.survey)

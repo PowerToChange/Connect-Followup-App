@@ -61,7 +61,7 @@ body.list_view {
 
     .title-actions + .title {
       @media (max-width: 480px) {
-        max-width: 210px;
+        max-width: 200px;
       }
     }
 
@@ -141,7 +141,8 @@ ul.contacts {
 
 div.contacts {
   .item {
-    padding: 15px;
+    @media (max-width: 767px) { min-height: 100px; }
+    padding: 10px;
     border-bottom: 1px solid #ddd;
     overflow: hidden;
     .actions {
@@ -180,8 +181,8 @@ div.contacts {
 }
 
 .avatar {
-  width: 64px;
-  height: 64px;
+  width: 90px;
+  height: 90px;
   background: #eee;
   float: left;
   .border-radius(100px);
@@ -189,10 +190,23 @@ div.contacts {
     .border-radius(100px);
   }
 }
+@media (max-width: 767px) {
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .info {
-  padding-left: 70px;
+  padding-left: 100px;
   h5 { line-height: 0; font-size: 16px;}
 }
+@media (max-width: 767px) {
+  .info {
+    padding-left: 45px;
+  }
+}
+
 .well.square {
   padding: 10px;
   .border-radius(0);
@@ -254,6 +268,24 @@ h4 {
   .form-inline label { margin: 0; margin-left: 8px; line-height: 0.7; }
   .form-inline input { vertical-align: top; }
   .form-inline > span { margin-right: 10px }
+}
+.report-progress {
+  // for small iPhone screens
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+.report-progress .form-inline label {
+  margin-left: 5px; // for small iPhone screens
+}
+.report-progress .form-inline input {
+  margin-left: 5px; // for small iPhone screens
+}
+.report-progress .form-inline > span {
+  margin-right: 5px; // for small iPhone screens
+}
+.report-progress .report-result {
+  text-align: center;
+  min-height: 30px;
 }
 
 .label {

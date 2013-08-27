@@ -38,11 +38,11 @@ div class=['well','square']
       tr
         td= t('phone')
         td.btn-container
-          .btn-group = render 'layouts/phone_sms', tel: @response.contact.phone, survey: @response.survey, contact_id: @response.contact_id, response_id: @response.id
+          .btn-group = render 'layouts/phone_sms', tel: @response.contact.phone, survey: @response.survey, contact_id: @response.contact_id, response_id: @response.id, size: 'mini'
     - if @response.contact.email.present?
       tr
         td= t('email')
-        td.btn-container= render 'layouts/email', address: @response.contact.email, survey: @response.survey, contact_id: @response.contact_id, response_id: @response.id
+        td.btn-container= render 'layouts/email', address: @response.contact.email, survey: @response.survey, contact_id: @response.contact_id, response_id: @response.id, size: 'mini'
 
 
 div class=['well','square']
@@ -64,8 +64,8 @@ div class=['well','square']
 div class=['well','square']
   .actions.pull-right
     div class='btn-group'
-      = link_to_icon 'certificate', '#newRejoiceableModal', label_hidden_phone: t('.add_rejoiceable'), data: { toggle: 'modal' }, class: 'btn btn-primary'
-      = link_to_icon 'pencil', '#newNoteModal', label_hidden_phone: t('.add_note'), data: { toggle: 'modal' }, class: 'btn btn-warning'
+      = link_to_icon 'certificate', '#newRejoiceableModal', label_hidden_phone: t('.add_rejoiceable'), data: { toggle: 'modal' }, class: 'btn btn-responsive-size btn-primary'
+      = link_to_icon 'pencil', '#newNoteModal', label_hidden_phone: t('.add_note'), data: { toggle: 'modal' }, class: 'btn btn-responsive-size btn-warning'
 
   ul.nav.nav-tabs.response-history
     li.active
