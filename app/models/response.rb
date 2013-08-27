@@ -10,11 +10,11 @@ class Response
     [[I18n.t('responses.genders.female'), 1], [I18n.t('responses.genders.male'), 2]]
   end
 
-  def initialize(survey, response, contact, school = nil)
+  def initialize(survey, activity, contact =  nil, school = nil)
     @survey = survey
-    @response = response
-    @contact = contact
-    @school = school
+    @response = activity
+    @contact = contact.presence || @response.try(:contacts).try(:first)
+    @school = school.presence || School.find_by_relationship(@contact.try(:relationships).try(:last))
   end
 
   def to_param
@@ -36,7 +36,8 @@ class Response
 
       survey.fields.sort_by(&:label).collect do |field|
         next if excluded_fields.include?(field.field_name.to_sym)
-        custom_values = [self.contact.send(field.field_name)].flatten # It may be an array or not, we always want an array
+        custom_values = self.response.send(field.field_name).presence || self.contact.send(field.field_name)
+        custom_values = [custom_values].flatten # It may or may not be an array, we always want an array
         value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join(', ')
         OpenStruct.new(label: field.label, answer: value_label)
       end.compact
@@ -58,7 +59,7 @@ class Response
   def contact_id
     @contact_id ||= begin
       if @contact.present?
-        @contact.id
+        @contact.id.presence || @contact.contact_id
       else
         response.target_contact_id.is_a?(Array) ? response.target_contact_id.try(:first) : response.target_contact_id
       end

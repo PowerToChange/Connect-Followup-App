@@ -3,9 +3,15 @@ require 'spec_helper'
 describe Response, :vcr do
   let!(:survey) { create(:survey_without_callbacks) }
   let!(:field) { create(:field, custom_field_id: 61, survey_id: survey.id, label: "I am an international student") }
-  let(:answer) { double(id: 1, custom_64: "Montreal", target_contact_id: [11]) }
+
   let(:contact) { CiviCrm::Contact.new(id: 11, display_name: 'Adrian Teh', email: 'adrian@ballistiq.com') }
-  let(:response) { Response.new(survey, answer, contact) }
+  let(:relationship) { CiviCrm::Relationship.new(id: 11, contact_id: create(:school).civicrm_id) }
+
+  let(:activity_attributes) { {}.tap { |this| survey.fields.each { |f| this[f.field_name] = f.field_name } } }
+  let(:activity) { double({ id: 1, contacts: [contact], relationships: [relationship] }.merge(activity_attributes)) }
+
+  let(:response) { Response.new(survey, activity) }
+
   let(:lead) { create(:lead, survey: survey, response_id: response.id) }
 
   describe '#answers' do

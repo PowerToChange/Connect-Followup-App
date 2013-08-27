@@ -47,7 +47,7 @@ gem 'configatron'
 gem 'angularjs-rails'
 
 gem 'rubycas-client'
-gem 'civicrm', git: 'git@github.com:PowerToChange/civicrm_gem.git'
+gem 'civicrm', git: 'git@github.com:PowerToChange/civicrm_gem.git', branch: 'master'
 gem 'pulse', git: 'git@github.com:PowerToChange/pulse_gem.git'
 gem 'activeadmin', '0.5.1'
 gem 'gravatar_image_tag'

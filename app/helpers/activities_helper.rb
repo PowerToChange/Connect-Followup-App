@@ -16,7 +16,7 @@ module ActivitiesHelper
     # Survey
     icon_class = (Survey.all.collect(&:activity_type_id).include?(activity.activity_type_id.to_i) ? "icon-file-alt" : nil) unless icon_class
     # Email
-    icon_class = (activity.activity_name.downcase.include?(t('activities.name.email').downcase) ? "icon-envelope" : nil) unless icon_class
+    icon_class = (activity.activity_name.try(:downcase).try(:include?, t('activities.name.email').downcase) ? "icon-envelope" : nil) unless icon_class
 
     %(<i class="#{icon_class} icon-large"></i>).html_safe
   end

@@ -14,10 +14,10 @@ describe ResponsesController do
       response.should be_success
     end
 
-    it 'assigns @contact', :vcr do
+    it 'initializes contact in the response', :vcr do
       subject
-      assigns(:contact).should_not be_nil
-      assigns(:contact).id.to_i.should eq lead.contact_id.to_i
+      assigns(:response).contact.should_not be_nil
+      assigns(:response).contact_id.to_i.should eq lead.contact_id.to_i
     end
 
     it 'assigns @response', :vcr do

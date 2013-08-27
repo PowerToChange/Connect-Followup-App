@@ -17,32 +17,21 @@ class Survey < ActiveRecord::Base
 
   def responses(options = {})
     @responses ||= begin
-      params = responses_query_params.merge!(options)
-      responses_query = PtcActivityQuery.where(params).includes(contacts: { contact_id: "$value.target_contact_id" })
+      responses_query = PtcActivityQuery.where_survey(options, self)
 
       # We are anticipating this query to be called simultaneously by many people, cache it for a small period to ease the load
       Rails.cache.fetch(responses_query.url, expires_in: 2.minutes) do
-        # Get all activities that match the params, and include their contacts, but only the contact with the matching target_contact_id
+
         responses = responses_query.all
         update_responses_count_cache(responses.size) if options.blank? # Update the survey responses count cache only if there are no filters in place
-        responses.collect do |response|
-          next if response.contacts.blank?
-          Response.new(self, response, response.contacts.first)
-        end
+        responses.collect { |response| Response.new(self, response) } # Build the responses
+
       end
     end
   end
 
   private
 
-  def responses_query_params
-    {
-      campaign_id: self.campaign_id,
-      activity_type_id: ActivityType::PETITION_TYPE_ID,
-      source_record_id: self.survey_id,
-      'return' => 'target_contact_id'
-    }
-  end
 
   def sync
     survey = CiviCrm::Survey.where(:id => self.survey_id).first
@@ -61,7 +50,7 @@ class Survey < ActiveRecord::Base
   end
 
   def update_responses_count_cache(count = nil)
-    count = PtcActivityQuery.where(responses_query_params).count if count.blank?
+    count = PtcActivityQuery.where_survey({}, self).count if count.blank?
     self.update_column(:responses_count_cache, count) # update without invoking callbacks
   end
 

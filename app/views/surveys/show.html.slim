@@ -7,22 +7,23 @@
 
   #responses class=['carousel','slide']
     div class=['carousel-inner','contacts']
-      - @responses.each do |r|
-        div class=['item', r == @responses.first ? 'active' : '' ]
+      - @responses.each do |response|
+        div class=['item', response == @responses.first ? 'active' : '' ]
           .avatar
-            = contact_image_tag(r.contact)
+            = contact_image_tag(response.contact)
           .info
             strong
-              big = r.contact.display_name
-            - if r.school.present?
-              .label.label-inverse = r.school.to_s_shorter
+              big = response.contact.display_name
+            - if response.school.present?
+              .label.label-inverse = response.school.to_s_shorter
+            = priority_label(response.response.priority_id)
             .more
               .btn-group
-                = render 'layouts/add_delete_lead', response: r, survey: @survey
-                = link_to_icon 'info-sign', survey_contact_response_path(survey_id: @survey.id, contact_id: r.contact_id, id: r.id), label_hidden_phone: t('.info'), class: 'btn btn-info'
+                = render 'layouts/add_delete_lead', response: response, survey: response.survey
+                = link_to_icon 'info-sign', survey_contact_response_path(survey_id: response.survey.id, contact_id: response.contact_id, id: response.id), label_hidden_phone: t('.info'), class: 'btn btn-info'
               .btn-group
-                = render 'layouts/phone_sms', tel: r.contact.phone, survey: r.survey, contact_id: r.contact_id, response_id: r.id, hidden_phone: true
-                = render 'layouts/email', address: r.contact.email, survey: r.survey, contact_id: r.contact_id, response_id: r.id, hidden_phone: true
+                = render 'layouts/phone_sms', tel: response.contact.phone, survey: response.survey, contact_id: response.contact_id, response_id: response.id, hidden_phone: true
+                = render 'layouts/email', address: response.contact.email, survey: response.survey, contact_id: response.contact_id, response_id: response.id, hidden_phone: true
 
       - if @responses.empty?
         div class=['item','active']

@@ -10,7 +10,7 @@ FactoryGirl.define do
 
     factory :survey_without_callbacks do
       after(:build) { |survey| survey.stub(:sync) }
-      after(:build) { |survey| survey.stub(:fetch_custom_fields) }
+      after(:build) { |survey| survey.stub(:fetch_fields) }
       after(:build) { |survey| survey.stub(:update_responses_count_cache) }
 
       factory :survey_without_callbacks_with_schools do

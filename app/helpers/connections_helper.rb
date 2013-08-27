@@ -15,18 +15,16 @@ module ConnectionsHelper
     end
   end
 
-  def lead_labels(lead_or_response)
-    if lead_or_response.is_a?(Lead)
-      lead = lead_or_response
-      response = lead.response
-    else
-      response = lead_or_response
-      lead = response.lead
-    end
+  def lead_labels(lead)
     return '' unless lead.present?
+    "<span class='label #{ lead.status.gsub(" ", "") }'>#{ lead.status }</span> ".html_safe
+  end
+
+  def response_labels(response)
+    return '' unless response.present?
     labels = ''
     labels += "<span class='label label-inverse'>#{ response.school.to_s_shorter }</span> " if response.school.present?
-    labels += "<span class='label #{ lead.status.gsub(" ", "") }'>#{ lead.status }</span> "
+    labels += priority_label(response.response.priority_id)
     labels.html_safe
   end
 end

@@ -25,13 +25,20 @@ class User < ActiveRecord::Base
   end
 
   def connections
-    leads_grouped_by_survey_id = Lead.find_and_preset_all_by_leads(self.leads).group_by(&:survey_id)
+    @connections ||= begin
+      @activities = PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(PtcActivityQuery.params_to_return_school).all
 
-    surveys.map do |survey|
-      OpenStruct.new(
-        survey: survey,
-        leads: leads_grouped_by_survey_id[survey.id] || []
-      )
+      # Group all activities by their survey
+      activities_grouped_by_source_record_id = @activities.group_by(&:source_record_id)
+
+      self.surveys.collect do |survey|
+        # Build the responses
+        responses = (activities_grouped_by_source_record_id[survey.survey_id.to_s].presence || []).collect { |activity| Response.new(survey, activity) }
+        OpenStruct.new(
+          survey: survey,
+          responses: responses.presence || []
+        )
+      end
     end
   end
 

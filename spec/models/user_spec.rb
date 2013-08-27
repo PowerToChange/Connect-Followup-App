@@ -4,8 +4,8 @@ describe User do
 
   let!(:survey) { create(:survey_without_callbacks, activity_type_id: ActivityType::PETITION_TYPE_ID) }
   let(:user) { create(:user, surveys: [survey]) }
-  let!(:lead_1) { create(:lead, survey_id: survey.id, user_id: user.id, response_id: '104254', contact_id: 60083) }
-  let!(:lead_2) { create(:lead, survey_id: survey.id, user_id: user.id, response_id: '104252', contact_id: 60082) }
+  let!(:lead_1) { create(:lead, survey_id: survey.id, user_id: user.id, response_id: '104122', contact_id: 60051) }
+  let!(:lead_2) { create(:lead, survey_id: survey.id, user_id: user.id, response_id: '104124', contact_id: 60053) }
 
   describe '#connections', :vcr do
     subject { user.connections }
@@ -13,17 +13,17 @@ describe User do
     it 'returns an array' do
       subject.should be_a_kind_of(Array)
     end
-    it 'returns 1 survey - leads objects' do
+    it 'returns 1 object' do
       subject.size.should == 1
     end
     it 'returns correct survey' do
       subject.first.survey.should == survey
     end
-    it 'returns 1 survey with 2 leads' do
-      subject.first.leads.size.should == 2
+    it 'returns 1 survey with 2 responses' do
+      subject.first.responses.size.should == 2
     end
-    it 'returns correct leads' do
-      subject.first.leads.collect(&:response_id).should =~ ['104254','104252']
+    it 'returns correct responses' do
+      subject.first.responses.collect(&:response_id).should =~ ['104122','104124']
     end
   end
 

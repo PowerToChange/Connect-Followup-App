@@ -12,12 +12,12 @@ div.list-title = t('.title')
         = number_of_survey_responses_not_yet_being_followed_up(conn.survey)
       .arrow
         i class="icon-chevron-right"
-    - if conn.leads.size.zero?
+    - if conn.responses.size.zero?
       .well = t('.click_add_contact_to_start_followup_html')
     - else
       ul.contacts
-        - conn.leads.each do |lead|
-          = render 'responses/li', lead: lead, response: lead.response
+        - conn.responses.each do |response|
+          = render 'responses/li', lead: response.lead, response: response
 - if @connections.empty?
   .well
     = t('.no_connections')
