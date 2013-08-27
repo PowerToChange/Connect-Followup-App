@@ -9,7 +9,7 @@
     div class=['carousel-inner','contacts']
       - @responses.each do |response|
         div class=['item', response == @responses.first ? 'active' : '' ]
-          .row
+          .row.marginless
             .avatar
               = contact_image_tag(response.contact)
             .info
