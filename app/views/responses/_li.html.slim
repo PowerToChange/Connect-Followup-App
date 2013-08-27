@@ -13,10 +13,9 @@ li data-status-id=lead.try(:status_id) data-school-id=response.school.try(:id) d
             | &nbsp;
           = lead_labels(lead)
         = response_labels(response)
-      - if local_assigns[:add_delete_lead] == true
-        .btn-group
-          = render 'layouts/add_delete_lead', response: response, survey: response.survey
       .btn-group
+        - if local_assigns[:add_delete_lead] == true
+          = render 'layouts/add_delete_lead', response: response, survey: response.survey
         = render 'layouts/phone_sms', tel: response.contact.phone, survey: response.survey, contact_id: response.contact_id, response_id: response.id, hidden_phone: true
         = render 'layouts/email', address: response.contact.email, survey: response.survey, contact_id: response.contact_id, response_id: response.id, hidden_phone: true
   .arrow
