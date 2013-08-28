@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
 
   def connections
     @connections ||= begin
+      return [] unless self.leads.present?
+
       @activities = PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(PtcActivityQuery.params_to_return_school).all
 
       # Group all activities by their survey
