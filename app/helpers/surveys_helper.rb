@@ -46,7 +46,7 @@ module SurveysHelper
         @survey.fields.where(field_name: filter.to_sym).first.try(:label)
       end
 
-      "#{ filter_desc } <i>#{ label }</i>".strip
+      "#{ filter_desc } <strong><i>#{ label }</i></strong>".strip
     end
 
     current_filter_values = current_filter_values.compact.to_sentence

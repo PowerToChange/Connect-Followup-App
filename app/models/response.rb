@@ -38,7 +38,7 @@ class Response
         next if excluded_fields.include?(field.field_name.to_sym)
         custom_values = self.response.send(field.field_name).presence || self.contact.send(field.field_name)
         custom_values = [custom_values].flatten # It may or may not be an array, we always want an array
-        value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join(', ')
+        value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join('; ')
         OpenStruct.new(label: field.label, answer: value_label)
       end.compact
     end
