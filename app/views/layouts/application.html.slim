@@ -12,8 +12,6 @@ html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "application", :media => "all"
     link href="assets/apple-touch-icon.png" rel="apple-touch-icon-precomposed"
-    link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"
-    link rel="icon" href="/favicon.ico" type="image/x-icon"
 
   body class="#{controller_name} #{action_name} #{yield(:body_class)}"
     .navbar.navbar-fluid-top
