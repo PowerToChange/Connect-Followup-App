@@ -25,6 +25,6 @@ module ApplicationHelper
   end
 
   def contact_image_tag(contact)
-    gravatar_image_tag(contact.email, gravatar: { default: "#{ request.protocol }#{ request.host_with_port }#{ asset_path('no_photo.png') }" })
+    gravatar_image_tag(contact.email, gravatar: { default: "#{ request.protocol }#{ request.host_with_port }#{ asset_path('no_photo.png') }" }, class: 'img-circle')
   end
 end

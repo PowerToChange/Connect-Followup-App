@@ -10,20 +10,31 @@ describe User do
   describe '#connections', :vcr do
     subject { user.connections }
 
-    it 'returns an array' do
-      subject.should be_a_kind_of(Array)
+    context 'user has no leads' do
+      before do
+        user.leads.each(&:destroy)
+      end
+      it 'returns an array' do
+        subject.should be_a_kind_of(Array)
+      end
     end
-    it 'returns 1 object' do
-      subject.size.should == 1
-    end
-    it 'returns correct survey' do
-      subject.first.survey.should == survey
-    end
-    it 'returns 1 survey with 2 responses' do
-      subject.first.responses.size.should == 2
-    end
-    it 'returns correct responses' do
-      subject.first.responses.collect(&:response_id).should =~ ['104122','104124']
+
+    context 'user has some leads' do
+      it 'returns an array' do
+        subject.should be_a_kind_of(Array)
+      end
+      it 'returns 1 object' do
+        subject.size.should == 1
+      end
+      it 'returns correct survey' do
+        subject.first.survey.should == survey
+      end
+      it 'returns 1 survey with 2 responses' do
+        subject.first.responses.size.should == 2
+      end
+      it 'returns correct responses' do
+        subject.first.responses.collect(&:response_id).should =~ ['104122','104124']
+      end
     end
   end
 

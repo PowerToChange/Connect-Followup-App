@@ -1,7 +1,6 @@
 - content_for(:body_class) { 'list_view' }
-div class=['well','square']
+div class=['well','well-large','square']
   - if cas_logged_in?
-    = link_to t('.log_out_of_cas'), log_out_path, :class => 'btn btn-large btn-block'
+    = link_to t('.log_out_of_cas'), log_out_path, class: 'btn btn-large btn-block'
   - else
-    = simple_form_for :session, :url => sessions_path do |f|
-      = f.button :submit, t('.login'), :class => 'btn btn-large btn-primary btn-block'
+    = link_to %(#{ t('.login') }&nbsp;&nbsp;<i class='icon icon-circle-arrow-right'></i>).html_safe, sessions_path, method: :post, class: 'btn btn-large btn-primary btn-block'
