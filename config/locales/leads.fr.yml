@@ -14,7 +14,7 @@ fr:
       face_to_face_continuing: "Communication face à face et conversation à poursuivre"
     notes:
       completed_initial_followup_subject: "Suivi initial complété"
-      completed_initial_followup_body: "%{user} suivi initial complété du %{survey} sondage et le résultat obtenu est de %{result}."
+      completed_initial_followup_body: "%{user} a complété le suivi initial du sondage %{survey} et le résultat enregistré est %{result}."
     report:
       how_did_it_go:
         title: "Comment ça s’est passé ?"
