@@ -3,7 +3,7 @@ fr:
     index:
       title: "Mes Connections"
       add_contact: "Ajouter un Contact"
-      click_add_contact_to_start_followup_html: "Click the <i class='icon icon-plus-sign'></i> bouton pour commencer un suivi"
+      click_add_contact_to_start_followup_html: "Cliquez ici <i class='icon icon-plus-sign'></i> bouton pour commencer un suivi"
       no_connections: "Il n’y a présentement aucun sondage assigné pour votre compte d’utilisateur. Veuillez communiquer avec l’administration afin d’obtenir plus d’informations."
       show_school: "Montrer les Campus"
       show_completed: "Affichage Terminé"
