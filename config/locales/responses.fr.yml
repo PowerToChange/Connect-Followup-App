@@ -1,26 +1,26 @@
 fr:
   responses:
     priorities:
-      hot: "Hot"
-      medium: "Medium"
-      mild: "Mild"
+      hot: "Important"
+      medium: "Moyen"
+      mild: "Faible"
     genders:
-      female: "Female"
-      male: "Male"
+      female: "Femme"
+      male: "Homme"
     filter_years:
-      first_year: "First Year"
+      first_year: "Première année"
     contact_info:
       school: "Campus"
-      gender: "Gender"
-      year: "Year"
-      degree: "Degree"
+      gender: "Genre"
+      year: "Année"
+      degree: "Domaine d’études"
       international: "International"
     show:
-      contact_info: "Contact Info"
-      submitted_time_ago_in_words_ago: "submitted %{time_ago_in_words} ago"
-      add_note: "Add Note"
-      add_rejoiceable: "Rejoiceable!"
-      history: "History"
+      contact_info: "Information du contact"
+      submitted_time_ago_in_words_ago: "Soumis %{time_ago_in_words} il y a."
+      add_note: "Ajouter une note"
+      add_rejoiceable: "Louange !"
+      history: "Historique"
       notes: "Notes"
-      no_more_history: "No more history"
-      no_more_notes: "No more notes"
+      no_more_history: "Aucun historique"
+      no_more_notes: "Aucune autre note"
