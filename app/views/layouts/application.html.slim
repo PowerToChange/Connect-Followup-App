@@ -45,7 +45,9 @@ html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
       footer
         br
         - if logged_in?
-          p = link_to_icon('file', "#{ ENV['CIVICRM_DOMAIN'] }/reports", label: t('reports'), target: '_blank')
+          p
+           = link_to_icon('question-sign', 'https://getsatisfaction.com/powertochange/products/powertochange_connect', label: t('help'), target: '_blank', class: 'btn btn-link')
+           = link_to_icon('file', "#{ ENV['CIVICRM_DOMAIN'] }/reports", label: t('reports'), target: '_blank', class: 'btn btn-link')
           p.muted = t('logged_in_as_html', user: current_user.to_s)
         small
           p.muted &copy; #{ t('p2c') } #{ Time.now.year }
