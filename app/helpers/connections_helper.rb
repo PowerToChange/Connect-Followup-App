@@ -17,7 +17,7 @@ module ConnectionsHelper
 
   def lead_labels(lead)
     return '' unless lead.present?
-    "<span class='label #{ lead.status.gsub(" ", "") }'>#{ lead.status }</span> ".html_safe
+    "<span class='label status-#{ lead.status_id }'>#{ lead.status }</span> ".html_safe
   end
 
   def response_labels(response)
