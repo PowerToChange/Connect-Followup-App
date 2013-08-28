@@ -1,7 +1,7 @@
 fr:
   activities:
     new_rejoiceable_modal:
-      title_html: "Woo hoo! <br> Add a Rejoiceable"
+      title_html: "Youpi! <br> Ajouter une Louange"
     name:
       phone: "Phone call"
       sms: "Text/SMS"
