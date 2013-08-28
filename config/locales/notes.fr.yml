@@ -1,9 +1,9 @@
 fr:
   notes:
     new_note_modal:
-      title: "Add a Note"
-      type_your_note: "Type your note"
-      add_note: "Add Note"
+      title: "Ajouter une note"
+      type_your_note: "Écrit ta note"
+      add_note: "Ajouter une note"
     create:
-      success: "Note added."
-      error: "Oops, could not add the note!"
+      success: "Note ajoutée"
+      error: "Désolé, la note n’a pas pu être ajouté !"
