@@ -1,6 +1,6 @@
 fr:
-  title: "Connect Follow-up"
-  brand_title: "Connect"
-  home: "My Connections"
-  log_off: "Log Off"
-  logged_in_as_html: "Logged in as <i>%{user}</i>"
+  title: "Connecter avec Les Suivis"
+  brand_title: "Connecter"
+  home: "Mes Connections"
+  log_off: "Fermer La Session"
+  logged_in_as_html: "Ouvrir une session <i>%{user}</i>"
