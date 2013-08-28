@@ -2,7 +2,8 @@
 
 SECRET_TOKEN: "run `rake secret` and put the output here"
 
-CIVICRM_SITE_KEY: ""
+CIVICRM_DOMAIN: ""
 CIVICRM_API_BASE: ""
-CIVICRM_API_KEY:  ""
+CIVICRM_SITE_KEY: ""
+CIVICRM_API_KEY: ""
 CIVICRM_TIME_ZONE: "Mountain Time (US & Canada)"
