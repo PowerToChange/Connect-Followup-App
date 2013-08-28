@@ -1,14 +1,14 @@
 fr:
   activities:
     new_rejoiceable_modal:
-      title_html: "Woo hoo! <br> Add a Rejoiceable"
+      title_html: "Youpi! <br> Ajouter une Louange"
     name:
-      phone: "Phone call"
-      sms: "Text/SMS"
-      email: "Email"
-      rejoiceable: "Rejoiceable"
-      item: "Item"
+      phone: "Appel Téléphonique"
+      sms: "Texto/SMS"
+      email: "Courriel"
+      rejoiceable: "Louange"
+      item: "Information"
     create:
-      success: "%{activity_name} history added!"
-      error: "Oops, could not add %{activity_name} history!"
-    contact_added: "This contact has now been added to your connections."
+      success: "%{activity_name} historique ajouté !"
+      error: "Désolé, l’information n’a pas pu être ajoutée %{activity_name} historique !"
+    contact_added: "Ce contact a été ajouté à tes connections."

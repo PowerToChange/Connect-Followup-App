@@ -2,13 +2,13 @@ fr:
   surveys:
     show:
       info: "Info"
-      no_contacts: "No contacts found."
-      filter_options: "Filter Options"
+      no_contacts: "Aucun contact n’a été trouvé"
+      filter_options: "Options de filtres"
       filter_school: "Campus"
       number_of_contacts_that_need_followup:
-        one: "1 contact needs follow-up."
-        other: "%{count} contacts need follow-up."
-      showing_contacts_with_filter: "Showing contacts with %{filter}."
+        one: "1 contact nécessite un suivi."
+        other: "%{count} contacts nécessitent un suivi."
+      showing_contacts_with_filter: "Affichage des contacts avec %{filter}."
     filters_modal:
-      title: "Filter Options"
-      filter: "Filter"
+      title: "Options de filtres"
+      filter: "Filtre"
