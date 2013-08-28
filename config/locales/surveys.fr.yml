@@ -10,8 +10,8 @@ fr:
         other: "%{count} contacts nécessitent un suivi."
       showing_contacts_with_filter: "Affichage des contacts avec %{filter}."
     all:
-      no_responses: "No responses found for this survey."
-      showing_all_count_responses: "Showing all %{count} responses."
+      no_responses: "Pas de réponse pour cette sondage."
+      showing_all_count_responses: "Voici les %{count} réponses."
     filters_modal:
       title: "Options de filtres"
       filter: "Filtre"
