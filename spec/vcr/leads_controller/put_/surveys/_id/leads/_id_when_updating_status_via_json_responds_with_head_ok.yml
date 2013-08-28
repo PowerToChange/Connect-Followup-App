@@ -608,4 +608,139 @@ http_interactions:
       string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":4698,\"values\":{\"4698\":{\"id\":\"4698\",\"entity_table\":\"civicrm_contact\",\"entity_id\":\"60110\",\"note\":\"adrian@ballistiq.com completed initial follow-up of the Power survey - July21-1 survey and recorded a result of connected face-to-face and will continue the conversation.\",\"contact_id\":\"60110\",\"modified_date\":\"20130827120135\",\"subject\":\"Completed Initial Follow-up\",\"privacy\":\"0\"}}}"
     http_version: 
   recorded_at: Tue, 27 Aug 2013 17:59:39 GMT
+- request: 
+    method: post
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: entity=Activity&action=create&id=55412&assignee_contact_id=2394823&json=1
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+      Content-Length: 
+      - "73"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:37:05 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:37:05 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707825\""
+      Content-Length: 
+      - "52"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:35:09 GMT
+- request: 
+    method: post
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: entity=Activity&action=create&id=55412&status_id=2&engagement_level=10&json=1
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+      Content-Length: 
+      - "77"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:37:06 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:37:06 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707826\""
+      Content-Length: 
+      - "491"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":55412,\"values\":{\"55412\":{\"id\":\"55412\",\"source_contact_id\":\"\",\"source_record_id\":\"\",\"activity_type_id\":\"\",\"subject\":\"\",\"activity_date_time\":\"\",\"duration\":\"\",\"location\":\"\",\"phone_id\":\"\",\"phone_number\":\"\",\"details\":\"\",\"status_id\":\"2\",\"priority_id\":\"\",\"parent_id\":\"\",\"is_test\":\"\",\"medium_id\":\"\",\"is_auto\":\"\",\"relationship_id\":\"\",\"is_current_revision\":\"\",\"original_id\":\"\",\"result\":\"\",\"is_deleted\":\"\",\"campaign_id\":\"\",\"engagement_level\":\"10\",\"weight\":\"\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:35:10 GMT
+- request: 
+    method: post
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: entity=Note&action=create&subject=Completed%20Initial%20Follow-up&note=adrian%40ballistiq.com%20completed%20initial%20follow-up%20of%20the%20Power%20survey%20-%20July21-1%20survey%20and%20recorded%20a%20result%20of%20connected%20face-to-face%20and%20will%20continue%20the%20conversation.&contact_id=60110&entity_id=60110&json=1
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+      Content-Length: 
+      - "327"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:37:07 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:37:07 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707827\""
+      Content-Length: 
+      - "419"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":4712,\"values\":{\"4712\":{\"id\":\"4712\",\"entity_table\":\"civicrm_contact\",\"entity_id\":\"60110\",\"note\":\"adrian@ballistiq.com completed initial follow-up of the Power survey - July21-1 survey and recorded a result of connected face-to-face and will continue the conversation.\",\"contact_id\":\"60110\",\"modified_date\":\"20130828103707\",\"subject\":\"Completed Initial Follow-up\",\"privacy\":\"0\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:35:10 GMT
 recorded_with: VCR 2.5.0

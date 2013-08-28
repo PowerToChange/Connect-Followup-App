@@ -518,4 +518,49 @@ http_interactions:
       string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
     http_version: 
   recorded_at: Tue, 27 Aug 2013 18:00:19 GMT
+- request: 
+    method: post
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: entity=Activity&action=create&id=55412&assignee_contact_id=2394823&json=1
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+      Content-Length: 
+      - "73"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:37:12 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:37:12 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707832\""
+      Content-Length: 
+      - "52"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:35:15 GMT
 recorded_with: VCR 2.5.0

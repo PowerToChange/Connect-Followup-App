@@ -301,4 +301,305 @@ http_interactions:
       string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
     http_version: 
   recorded_at: Tue, 27 Aug 2013 18:02:32 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=2&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:36:10 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:36:10 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707770\""
+      Content-Length: 
+      - "297"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":2,\"values\":{\"2\":{\"id\":\"2\",\"title\":\"Sept 2012 petition\",\"campaign_id\":\"2\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_date\":\"2012-05-29 11:05:52\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2012-09-04 21:20:13\",\"bypass_confirm\":\"1\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:34:14 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&survey_id=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:36:11 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:36:11 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707771\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:34:14 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entities=target_contact,relationships&entity=PtcActivityQuery&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&source_record_id=2&target_contact_relationship_type_id=10
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:36:11 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:36:11 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707771\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:34:16 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&survey_id=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:36:13 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:36:13 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707773\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:34:16 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entities=target_contact,relationships&entity=PtcActivityQuery&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&source_record_id=2&target_contact_relationship_type_id=10
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:36:13 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:36:13 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707773\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:34:18 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&survey_id=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:36:15 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:36:15 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707775\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:34:19 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=2&entities=target_contact,relationships&entity=PtcActivityQuery&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&source_record_id=2&target_contact_relationship_type_id=10
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:36:16 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:36:16 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707776\""
+      Content-Length: 
+      - "48"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":0,\"values\":[]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:34:21 GMT
 recorded_with: VCR 2.5.0

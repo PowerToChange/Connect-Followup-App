@@ -647,4 +647,651 @@ http_interactions:
       string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":0,\"values\":[{\"id\":\"104210\",\"campaign_id\":\"8\",\"source_record_id\":\"12\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"4\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-29 13:29:58\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/54\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60058\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-success\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-4\",\"custom_159\":\"\",\"custom_143\":\"\",\"custom_160\":\"\",\"contacts\":[{\"relationships\":[{\"id\":\"59353\",\"contact_id\":\"57173\",\"relationship_type_id\":\"10\"}],\"notes\":[],\"activities\":[],\"contact_id\":\"60058\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"Russ Martin\",\"first_name\":\"Russ\",\"last_name\":\"Martin\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-07-29 17:29:58\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58358\",\"email\":\"russ.l.martin@gmail.com\",\"custom_57\":\"5\",\"custom_58\":\"\",\"custom_59\":\"CS\",\"custom_60\":\"\",\"custom_61\":\"no\"}]}]}"
     http_version: 
   recorded_at: Tue, 27 Aug 2013 18:06:13 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=Survey&id=11&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:38:56 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:38:56 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707936\""
+      Content-Length: 
+      - "322"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":11,\"values\":{\"11\":{\"id\":\"11\",\"title\":\"Power survey - July21-1\",\"campaign_id\":\"8\",\"activity_type_id\":\"32\",\"is_active\":\"1\",\"is_default\":\"0\",\"created_id\":\"1\",\"created_date\":\"2013-07-20 23:53:31\",\"last_modified_id\":\"1\",\"last_modified_date\":\"2013-07-20 23:53:31\",\"bypass_confirm\":\"0\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:00 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=8&entity=CustomSurveyFields&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&survey_id=11
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:38:57 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:38:57 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707937\""
+      Content-Length: 
+      - "2553"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":16,\"values\":[{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"18\",\"custom_field_id\":\"149\",\"field_name\":\"custom_149\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"22\",\"custom_field_id\":\"155\",\"field_name\":\"custom_155\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"22\",\"custom_field_id\":\"156\",\"field_name\":\"custom_156\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"22\",\"custom_field_id\":\"157\",\"field_name\":\"custom_157\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"22\",\"custom_field_id\":\"159\",\"field_name\":\"custom_159\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"activity\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"details\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"contact\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"first_name\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"contact\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"last_name\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"contact\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"gender_id\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"57\",\"field_name\":\"custom_57\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"58\",\"field_name\":\"custom_58\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"59\",\"field_name\":\"custom_59\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"60\",\"field_name\":\"custom_60\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"customgroup\",\"custom_group_id\":\"7\",\"custom_field_id\":\"61\",\"field_name\":\"custom_61\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"phone\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"phone\"},{\"activity_type_id\":\"32\",\"campaign_id\":\"8\",\"survey_id\":\"11\",\"entity_type\":\"email\",\"custom_group_id\":\"\",\"custom_field_id\":\"\",\"field_name\":\"email\"}]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:00 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=149&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:38:57 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:38:57 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707937\""
+      Content-Length: 
+      - "407"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":149,\"values\":{\"149\":{\"id\":\"149\",\"custom_group_id\":\"18\",\"name\":\"I_would_rather\",\"label\":\"I would rather\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"10\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_would_rather_149\",\"option_group_id\":\"127\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:01 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=155&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:38:58 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:38:58 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707938\""
+      Content-Length: 
+      - "426"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":155,\"values\":{\"155\":{\"id\":\"155\",\"custom_group_id\":\"22\",\"name\":\"MyCravings_Magazine\",\"label\":\"MyCravings - Magazine\",\"data_type\":\"String\",\"html_type\":\"CheckBox\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"4\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"mycravings_magazine_155\",\"option_group_id\":\"107\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:01 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=156&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:38:58 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:38:58 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707938\""
+      Content-Length: 
+      - "423"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":156,\"values\":{\"156\":{\"id\":\"156\",\"custom_group_id\":\"22\",\"name\":\"MyCravings_Journey\",\"label\":\"MyCravings - Journey\",\"data_type\":\"String\",\"html_type\":\"CheckBox\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"6\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"mycravings_journey_156\",\"option_group_id\":\"109\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:02 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=157&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:38:59 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:38:59 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707939\""
+      Content-Length: 
+      - "414"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":157,\"values\":{\"157\":{\"id\":\"157\",\"custom_group_id\":\"22\",\"name\":\"MyCravings_Gauge\",\"label\":\"MyCravings - Gauge\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"8\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"mycravings_gauge_157\",\"option_group_id\":\"108\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:02 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=159&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:38:59 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:38:59 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707939\""
+      Content-Length: 
+      - "413"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":159,\"values\":{\"159\":{\"id\":\"159\",\"custom_group_id\":\"22\",\"name\":\"MyCravings_Data_inputter\",\"label\":\"MyCravings - Data inputter\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"0\",\"is_search_range\":\"0\",\"weight\":\"9\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"mycravings_data_inputter_159\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:03 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=57&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:00 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:00 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707940\""
+      Content-Length: 
+      - "425"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":57,\"values\":{\"57\":{\"id\":\"57\",\"custom_group_id\":\"7\",\"name\":\"Year_in_School\",\"label\":\"Year in School\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"37\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"6\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"year_in_school_57\",\"option_group_id\":\"102\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:03 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=58&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:00 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:00 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707940\""
+      Content-Length: 
+      - "369"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":58,\"values\":{\"58\":{\"id\":\"58\",\"custom_group_id\":\"7\",\"name\":\"Year__Other\",\"label\":\"Year - Other\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"47\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"year__other_58\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:04 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=59&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:01 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:01 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707941\""
+      Content-Length: 
+      - "394"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":59,\"values\":{\"59\":{\"id\":\"59\",\"custom_group_id\":\"7\",\"name\":\"Faculty_or_Degree\",\"label\":\"Faculty or Degree (Major)\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"55\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"faculty_or_degree_59\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:05 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=60&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:01 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:01 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707941\""
+      Content-Length: 
+      - "392"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":60,\"values\":{\"60\":{\"id\":\"60\",\"custom_group_id\":\"7\",\"name\":\"On_Campus_Residence\",\"label\":\"On Campus Residence\",\"data_type\":\"String\",\"html_type\":\"Text\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"64\",\"is_active\":\"1\",\"is_view\":\"0\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"on_campus_residence_60\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:05 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entity=CustomField&id=61&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:02 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:02 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707942\""
+      Content-Length: 
+      - "470"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":61,\"values\":{\"61\":{\"id\":\"61\",\"custom_group_id\":\"7\",\"name\":\"I_am_an_international_student\",\"label\":\"I am an international student\",\"data_type\":\"String\",\"html_type\":\"Radio\",\"is_required\":\"0\",\"is_searchable\":\"1\",\"is_search_range\":\"0\",\"weight\":\"70\",\"is_active\":\"1\",\"is_view\":\"0\",\"options_per_line\":\"2\",\"text_length\":\"255\",\"note_columns\":\"60\",\"note_rows\":\"4\",\"column_name\":\"i_am_an_international_student_61\",\"option_group_id\":\"103\"}}}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:06 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&activity_type_id=32&api_key=676c3fcae94c0a6c452417a11b2b7c11&campaign_id=8&entities=target_contact,relationships&entity=PtcActivityQuery&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=100&source_record_id=11&target_contact_relationship_type_id=10
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:02 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:02 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707942\""
+      Transfer-Encoding: 
+      - chunked
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":34,\"values\":[{\"id\":\"104118\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"4\",\"engagement_level\":\"2\",\"activity_date_time\":\"2013-07-20 21:57:51\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/41\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60047\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60047\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-no\"],\"custom_156\":[\"journey-nothing\"],\"custom_157\":\"gauge-1\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60047\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 july21\",\"first_name\":\"testuser1\",\"last_name\":\"july21\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 03:57:51\",\"contact_modified_date\":\"2013-07-21 03:57:51\",\"phone_id\":\"51255\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"58352\",\"email\":\"testuser1@july21.com\",\"custom_57\":\"\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"\",\"relationships\":[{\"id\":\"59350\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104119\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"0\",\"activity_date_time\":\"2013-07-20 22:09:12\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/42\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60048\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60048\",\"custom_149\":\"\",\"custom_155\":\"\",\"custom_156\":\"\",\"custom_157\":\"\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60048\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 july21\",\"first_name\":\"testuser2\",\"last_name\":\"july21\",\"gender_id\":\"\",\"contact_created_date\":\"2013-07-21 04:09:12\",\"contact_modified_date\":\"2013-07-21 04:09:12\",\"phone_id\":\"51256\",\"phone\":\"226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"58353\",\"email\":\"testuser2@july21.com\",\"custom_57\":\"\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"\",\"relationships\":[]}]},{\"id\":\"104120\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"8\",\"activity_date_time\":\"2013-07-20 22:33:32\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/43\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60049\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60049\",\"custom_149\":\"\",\"custom_155\":\"\",\"custom_156\":\"\",\"custom_157\":\"\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60049\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser3 july21\",\"first_name\":\"testuser3\",\"last_name\":\"july21\",\"gender_id\":\"\",\"contact_created_date\":\"2013-07-21 04:33:31\",\"contact_modified_date\":\"2013-07-21 04:33:32\",\"phone_id\":\"51257\",\"phone\":\"226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"\",\"relationships\":[]}]},{\"id\":\"104121\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"4\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-20 22:34:50\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/44\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60050\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60050\",\"custom_149\":\"\",\"custom_155\":\"\",\"custom_156\":\"\",\"custom_157\":\"gauge-1\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60050\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser4 july21\",\"first_name\":\"testuser4\",\"last_name\":\"july21\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 04:34:50\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51258\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"2\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"no\",\"relationships\":[]}]},{\"id\":\"104122\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"3\",\"priority_id\":\"4\",\"engagement_level\":\"0\",\"activity_date_time\":\"2013-07-20 22:36:54\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/45\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60051\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60051\",\"custom_149\":\"power-family\",\"custom_155\":[\"magazine-success\"],\"custom_156\":[\"journey-grow\"],\"custom_157\":\"gauge-5\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60051\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser5 july21\",\"first_name\":\"testuser5\",\"last_name\":\"july21\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 04:36:54\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51259\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"58354\",\"email\":\"testuser5@july21.com\",\"custom_57\":\"3\",\"custom_58\":\"sdfasdf\",\"custom_59\":\"asdfadsf\",\"custom_60\":\"rez\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104123\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"1\",\"engagement_level\":\"10\",\"activity_date_time\":\"2013-07-20 22:42:42\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/46\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60052\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60052\",\"custom_149\":\"\",\"custom_155\":[\"magazine-justice\"],\"custom_156\":[\"journey-grow\"],\"custom_157\":\"gauge-5\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60052\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser6 july21\",\"first_name\":\"testuser6\",\"last_name\":\"july21\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 04:42:41\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51260\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"2\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"\",\"relationships\":[]}]},{\"id\":\"104124\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"1\",\"engagement_level\":\"8\",\"activity_date_time\":\"2013-07-20 22:44:54\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/47\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60053\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60053\",\"custom_149\":\"\",\"custom_155\":[\"magazine-love\"],\"custom_156\":\"\",\"custom_157\":\"gauge-4\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60053\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser7 july21\",\"first_name\":\"testuser7\",\"last_name\":\"july21\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 04:44:53\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51261\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"1\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"\",\"relationships\":[]}]},{\"id\":\"104126\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"3\",\"priority_id\":\"1\",\"engagement_level\":\"10\",\"activity_date_time\":\"2013-07-20 23:34:25\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/49\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60054\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60054\",\"custom_149\":\"\",\"custom_155\":[\"magazine-no\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-5\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104127\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"7\",\"activity_date_time\":\"2013-07-20 23:36:00\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/50\\\">View Webform Submission<\\/a><\\/p>\\r\\n\",\"source_contact_id\":\"60055\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60055\",\"custom_149\":\"\",\"custom_155\":[\"magazine-escape\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60055\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser10 july21\",\"first_name\":\"testuser10\",\"last_name\":\"july21\",\"gender_id\":\"0\",\"contact_created_date\":\"2013-07-21 05:36:02\",\"contact_modified_date\":\"2013-07-21 05:36:02\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"\",\"relationships\":[]}]},{\"id\":\"104134\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"3\",\"priority_id\":\"4\",\"engagement_level\":\"2\",\"activity_date_time\":\"2013-07-22 18:15:20\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/51\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"25\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60056\",\"custom_149\":\"power-family\",\"custom_155\":[\"magazine-escape\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60056\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 july22\",\"first_name\":\"testuser1\",\"last_name\":\"july22\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-07-23 00:15:19\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51262\",\"phone\":\"1-1234567890\",\"phone_type_id\":\"2\",\"email_id\":\"58356\",\"email\":\"testuser1@july22.com\",\"custom_57\":\"1\",\"custom_58\":\"year1\",\"custom_59\":\"major1\",\"custom_60\":\"rez1\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59351\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104136\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"4\",\"engagement_level\":\"8\",\"activity_date_time\":\"2013-07-23 14:22:09\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/52\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"60029\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60029\",\"custom_149\":\"power-technology\",\"custom_155\":[\"magazine-escape\"],\"custom_156\":[\"journey-grow\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60029\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"Adrian Teh\",\"first_name\":\"Adrian\",\"last_name\":\"Teh\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-06-20 16:10:10\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51249\",\"phone\":\"1-5145607311\",\"phone_type_id\":\"2\",\"email_id\":\"58337\",\"email\":\"adrian@ballistiq.com\",\"custom_57\":\"4\",\"custom_58\":\"2013\",\"custom_59\":\"Science\",\"custom_60\":\"Yes\",\"custom_61\":\"yes\",\"relationships\":[{\"id\":\"59343\",\"contact_id\":\"60039\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104246\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"4\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-30 22:14:16\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/73\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60077\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-spiritual\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-2\",\"custom_159\":\"\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60077\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser13 july30\",\"first_name\":\"testuser13\",\"last_name\":\"july30\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-31 02:14:16\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58373\",\"email\":\"testuser13@july30.com\",\"custom_57\":\"1\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[{\"id\":\"59371\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104256\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"3\",\"engagement_level\":\"10\",\"activity_date_time\":\"2013-07-31 15:13:39\",\"details\":\"Some details about this activity<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/81\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60084\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-spiritual\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-2\",\"custom_159\":\"The data inputter\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60084\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 july31\",\"first_name\":\"testuser1\",\"last_name\":\"july31\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-31 19:13:39\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58380\",\"email\":\"testuser1@july31.com\",\"custom_57\":\"1\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[{\"id\":\"59377\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104276\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"3\",\"engagement_level\":\"8\",\"activity_date_time\":\"2013-08-01 21:03:25\",\"details\":\"From matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/91\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60093\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-2\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60093\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug1\",\"first_name\":\"testuser1\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:03:25\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51270\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[{\"id\":\"59387\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104279\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 21:38:21\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/92\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60094\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60094\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:38:21\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51271\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[{\"id\":\"59388\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104280\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"0\",\"activity_date_time\":\"2013-08-01 21:39:47\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/93\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60095\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60095\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:39:46\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51272\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104281\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 21:41:51\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/94\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60096\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60096\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:41:50\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51273\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104282\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 21:42:26\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/95\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60097\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60097\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:42:26\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51274\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104283\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 21:43:54\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/96\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60098\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60098\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:43:53\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51275\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104284\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 21:45:22\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/97\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60099\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60099\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:45:22\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51276\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104285\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 21:47:30\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/98\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60100\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60100\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 01:47:30\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51277\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104286\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"0\",\"activity_date_time\":\"2013-08-01 22:21:44\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/99\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60101\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60101\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 02:21:44\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51278\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104287\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 22:24:04\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/100\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60102\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60102\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 02:24:03\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51279\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104288\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-01 23:00:29\",\"details\":\"from matt<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/101\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60103\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60103\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug1\",\"first_name\":\"testuser2\",\"last_name\":\"aug1\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 03:00:29\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51280\",\"phone\":\"1-226-338-9385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"yes\",\"relationships\":[]}]},{\"id\":\"104371\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 17:29:07\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/112\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60109\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60109\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug2\",\"first_name\":\"testuser2\",\"last_name\":\"aug2\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 21:29:07\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58388\",\"email\":\"testuser2@aug2.com\",\"custom_57\":\"1\",\"custom_58\":\"sdf\",\"custom_59\":\"df\",\"custom_60\":\"\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59398\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104373\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 17:30:59\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/113\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60109\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60109\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser2 aug2\",\"first_name\":\"testuser2\",\"last_name\":\"aug2\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-02 21:29:07\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58388\",\"email\":\"testuser2@aug2.com\",\"custom_57\":\"1\",\"custom_58\":\"sdf\",\"custom_59\":\"df\",\"custom_60\":\"\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59398\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104375\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 17:32:18\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/114\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60054\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104377\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"3\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 17:33:38\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/115\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60054\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104379\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"0\",\"activity_date_time\":\"2013-08-02 17:35:23\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/116\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60054\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104381\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"3\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 17:36:42\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/117\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60054\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104383\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 18:42:39\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/118\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60054\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104385\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 18:45:14\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/119\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60054\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104387\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-08-02 20:04:51\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/120\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60054\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60054\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser1 aug23\",\"first_name\":\"testuser1\",\"last_name\":\"aug23\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-21 05:34:24\",\"contact_modified_date\":\"2013-08-23 17:24:00\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58355\",\"email\":\"matt@mikitka.net\",\"custom_57\":\"4\",\"custom_58\":\"sdf\",\"custom_59\":\"sdf\",\"custom_60\":\"rez\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59399\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"},{\"id\":\"59400\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"},{\"id\":\"59401\",\"contact_id\":\"27\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104391\",\"campaign_id\":\"8\",\"source_record_id\":\"11\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"2\",\"engagement_level\":\"1\",\"activity_date_time\":\"2013-08-02 20:06:19\",\"details\":\"sdf<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/10\\/submission\\/122\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-1\",\"assignee_contact_id\":\"82288\",\"target_contact_id\":\"60110\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-love\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-3\",\"custom_159\":\"MM\",\"custom_151\":\"\",\"custom_152\":\"\",\"custom_64\":\"\",\"custom_162\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60110\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"0\",\"is_opt_out\":\"0\",\"display_name\":\"testuser3 aug2\",\"first_name\":\"testuser3\",\"last_name\":\"aug2\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-08-03 00:06:19\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"51286\",\"phone\":\"1-2263389385\",\"phone_type_id\":\"2\",\"email_id\":\"\",\"email\":\"\",\"custom_57\":\"3\",\"custom_58\":\"\",\"custom_59\":\"\",\"custom_60\":\"\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59402\",\"contact_id\":\"38\",\"relationship_type_id\":\"10\"}]}]}]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:07 GMT
+- request: 
+    method: post
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
+    body: 
+      encoding: US-ASCII
+      string: entity=Activity&action=create&id=104210&assignee_contact_id=2394823&json=1
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+      Content-Length: 
+      - "74"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:05 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:05 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707945\""
+      Content-Length: 
+      - "52"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:09 GMT
+- request: 
+    method: get
+    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entities=target_contact,relationships,notes,activities&entity=PtcActivityQuery&id=104210&json=1&key=382adce875611f9b75d294b83a77a5f2&return=custom_149,custom_155,custom_156,custom_157,custom_159,details,first_name,last_name,gender_id,custom_57,custom_58,custom_59,custom_60,custom_61,phone,email,display_name,custom_143,custom_160,custom_57,custom_59,custom_61&rowCount=1
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      Accept: 
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding: 
+      - gzip, deflate
+      User-Agent: 
+      - CiviCrm RubyClient/1.0.1
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Wed, 28 Aug 2013 16:39:05 GMT
+      Server: 
+      - Apache/2.2.22 (Ubuntu)
+      X-Powered-By: 
+      - PHP/5.4.6-1ubuntu1.2
+      X-Drupal-Cache: 
+      - MISS
+      Expires: 
+      - Sun, 19 Nov 1978 05:00:00 GMT
+      Last-Modified: 
+      - Wed, 28 Aug 2013 16:39:05 +0000
+      Cache-Control: 
+      - no-cache, must-revalidate, post-check=0, pre-check=0
+      Etag: 
+      - "\"1377707945\""
+      Content-Length: 
+      - "1292"
+      Content-Type: 
+      - text/javascript
+    body: 
+      encoding: US-ASCII
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":0,\"values\":[{\"id\":\"104210\",\"campaign_id\":\"8\",\"source_record_id\":\"12\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"4\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-29 13:29:58\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/54\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-2\",\"assignee_contact_id\":\"\",\"target_contact_id\":\"60058\",\"custom_149\":\"power-backpack\",\"custom_155\":[\"magazine-success\"],\"custom_156\":[\"journey-p2c\"],\"custom_157\":\"gauge-4\",\"custom_159\":\"\",\"custom_143\":\"\",\"custom_160\":\"\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60058\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"1\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"Russ Martin\",\"first_name\":\"Russ\",\"last_name\":\"Martin\",\"gender_id\":\"2\",\"contact_created_date\":\"2013-07-29 17:29:58\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58358\",\"email\":\"russ.l.martin@gmail.com\",\"custom_57\":\"5\",\"custom_58\":\"\",\"custom_59\":\"CS\",\"custom_60\":\"\",\"custom_61\":\"no\",\"relationships\":[{\"id\":\"59353\",\"contact_id\":\"57173\",\"relationship_type_id\":\"10\"}],\"notes\":[],\"activities\":[]}]}]}"
+    http_version: 
+  recorded_at: Wed, 28 Aug 2013 16:37:09 GMT
 recorded_with: VCR 2.5.0
