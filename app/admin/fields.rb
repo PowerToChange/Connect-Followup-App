@@ -3,10 +3,10 @@ ActiveAdmin.register Field do
   actions :all, :except => [:edit,:update,:destroy,:new,:create]
 
   index do
-    column 'Field' do |f|
-      f.field
-    end
+    column :field_name
     column :label
+    column :custom_field_id
+    column :option_group_id
     default_actions
   end
 end
