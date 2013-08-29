@@ -19,8 +19,11 @@ ActiveAdmin.register Survey do
     column 'Has All Schools' do |s|
       s.has_all_schools
     end
-    column 'Number Of Schools' do |s|
+    column 'Schools' do |s|
       s.schools.count
+    end
+    column 'Fields' do |s|
+      s.fields.count
     end
     default_actions
   end
@@ -32,11 +35,21 @@ ActiveAdmin.register Survey do
       end
     end
 
+    panel "Fields" do
+      table_for survey.fields.sort_by(&:field_name) do
+        column :field_name
+        column :label
+      end
+    end
+
     panel "Associated Schools" do
       table_for survey.schools.sort_by(&:display_name) do
         column "School Name" do |school|
           school.display_name
         end
+        column :nick_name
+        column :civicrm_id
+        column :pulse_id
       end
     end
   end
