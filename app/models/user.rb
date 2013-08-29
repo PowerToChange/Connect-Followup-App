@@ -26,9 +26,8 @@ class User < ActiveRecord::Base
 
   def connections
     @connections ||= begin
-      return [] unless self.leads.present?
 
-      @activities = PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(PtcActivityQuery.params_to_return_school).all
+      @activities = self.leads.present? ? PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(PtcActivityQuery.params_to_return_school).all : []
 
       # Group all activities by their survey
       activities_grouped_by_source_record_id = @activities.group_by(&:source_record_id)
@@ -41,6 +40,7 @@ class User < ActiveRecord::Base
           responses: responses.presence || []
         )
       end
+
     end
   end
 
