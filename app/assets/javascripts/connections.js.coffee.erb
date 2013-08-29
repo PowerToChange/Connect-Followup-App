@@ -4,9 +4,8 @@
 
 $ ->
   $('.toggle-completed-leads').prop('checked', false)
-  $('.toggle-campus-leads').val('')
 
-  $('.toggle-completed-leads, .toggle-campus-leads').on 'change', (e) ->
+  $('.toggle-completed-leads').on 'change', (e) ->
     scroll_top = $(document).height() - $(document).scrollTop() # save and restore scoll position relative to the bottom of the document
     toggle_visible_leads()
     $('html, body').animate({ scrollTop: $(document).height() - scroll_top }, 0)
@@ -17,9 +16,6 @@ toggle_visible_leads = () ->
 
   if $('.toggle-completed-leads').prop('checked') == false
     show_leads_selector += "[data-status-id!='<%= Lead::COMPLETED_STATUS_ID %>']"
-
-  if $('.toggle-campus-leads').val() != ""
-    show_leads_selector += "[data-school-id='#{ $('.toggle-campus-leads').val() }']"
 
   $('ul.contacts li').hide()
   $(show_leads_selector).show()

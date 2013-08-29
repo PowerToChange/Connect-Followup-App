@@ -17,7 +17,7 @@ module SurveysHelper
     when :target_contact_gender_id
       Response.GENDERS
     else # custom fields
-      field = @survey.fields.where(field_name: attribute).first
+      field = Field.where(field_name: attribute).first
       field.present? ? field.option_values_to_select_options : []
     end
   end
@@ -28,8 +28,10 @@ module SurveysHelper
     end
   end
 
-  def current_filters_description
-    return '' unless params[:filters].present?
+  def current_filters_description(count)
+    current_filter_count = t('filters.showing_count_contacts_html', count: count)
+
+    return "#{ current_filter_count }." unless params[:filters].present?
 
     current_filter_values = params[:filters].collect do |filter, value|
       label = label_from_options_for_value options_for_filter_select_for_attribute(filter), value
@@ -43,14 +45,15 @@ module SurveysHelper
       when :target_contact_gender_id
         t('gender')
       else # custom fields
-        @survey.fields.where(field_name: filter.to_sym).first.try(:label)
+        Field.where(field_name: filter.to_sym).first.try(:label)
       end
 
       "#{ filter_desc } <strong><i>#{ label }</i></strong>".strip
     end
-
     current_filter_values = current_filter_values.compact.to_sentence
-    current_filter_values.present? ? t('surveys.show.showing_contacts_with_filter', filter: current_filter_values) : ''
+    current_filter_values = current_filter_values.present? ? t('filters.showing_contacts_with_filter', filter: current_filter_values) : ''
+
+    "#{ current_filter_count }#{ current_filter_values.present? ? " #{ current_filter_values }." : '.' }"
   end
 
   def label_from_options_for_value(options, value)

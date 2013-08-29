@@ -4,3 +4,12 @@ fr:
   home: "Mes Connections"
   log_off: "Fermer La Session"
   logged_in_as_html: "Ouvrir une session <i>%{user}</i>"
+  confirm_delete_existing_lead_that_is_not_yours: "HEY! This contact is assigned to someone else, are you sure you want to release it from them?"
+  filters:
+    filter_options: "Filter Options"
+    filter: "Filter"
+    showing_contacts_with_filter: "with %{filter}"
+    try_filtering: "Use the Filter Options to narrow down your results."
+    showing_count_contacts_html:
+      one: "Showing <strong>1</strong> contact"
+      other: "Showing <strong>%{count}</strong> contacts"

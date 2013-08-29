@@ -24,10 +24,10 @@ class User < ActiveRecord::Base
     [self.first_name, self.last_name].select(&:present?).join(' ')
   end
 
-  def connections
+  def connections(options = {})
     @connections ||= begin
 
-      @activities = self.leads.present? ? PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(PtcActivityQuery.params_to_return_school).all : []
+      @activities = self.leads.present? ? PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(options).where(PtcActivityQuery.params_to_return_school).all : []
 
       # Group all activities by their survey
       activities_grouped_by_source_record_id = @activities.group_by(&:source_record_id)
@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
       self.surveys.collect do |survey|
         # Build the responses
         responses = (activities_grouped_by_source_record_id[survey.survey_id.to_s].presence || []).collect { |activity| Response.new(survey, activity) }
+        responses.try(:sort_by!) { |r| r.contact.try(:display_name) }
         OpenStruct.new(
           survey: survey,
           responses: responses.presence || []

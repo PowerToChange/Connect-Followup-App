@@ -19,16 +19,14 @@ div.list-title = t('.title')
         - conn.responses.each do |response|
           = render 'responses/li', lead: response.lead, response: response
 - if @connections.empty?
-  .well
+  .well.square
     = t('.no_connections')
 
-.list-actions-bar.form-inline
-  div
-    = label_tag :show_school, class: 'select'
-      = t('.show_school')
-      '&nbsp;
-      = select_tag :show_school, options_from_collection_for_select(current_user.schools.sort_by(&:display_name), 'id', 'to_s'), prompt: t('all'), class: 'select input-medium toggle-campus-leads'
-  div
+.filters-container
+  p
     = label_tag :show_completed, class: 'checkbox'
       = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
       = t('.show_completed')
+  = render '/layouts/filter_options', count_t: '.connections_html', count: @connections.inject(0) { |sum, conn| sum + conn.responses.size }
+
+= render '/layouts/filters_modal', url: connections_path

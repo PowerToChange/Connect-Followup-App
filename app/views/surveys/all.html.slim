@@ -4,10 +4,14 @@
   .title-row
     .title
       = "#{ @survey.title } "
-      .muted= t('.showing_all_count_responses', count: @survey.responses_count_cache)
+      small.muted = render '/layouts/filter_options', count: @responses.size
   - if @responses.blank?
-    .well = t('.no_responses')
+    .well = t('surveys.no_contacts')
   - else
     ul.contacts
       - @responses.each do |response|
         = render 'responses/li', response: response, add_delete_lead: true, assigned_to: true
+
+= render '/layouts/filter_pagination', url: all_survey_path(@survey), count: @responses.size
+
+= render '/layouts/filters_modal', url: all_survey_path(@survey), survey: @survey

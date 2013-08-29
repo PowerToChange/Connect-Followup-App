@@ -11,16 +11,21 @@
     width: 200px;
   }
 
-  select { width: 100px; }
 
   div.input {
     display: inline-block;
     width: 100%;
   }
 
-  @media (max-width: 480px) {
-    label, label.select.inline {
-      width: 100px !important;
+  .smaller_form_elements {
+    label, label.select.inline, select {
+      width: 110px !important;
     }
+  }
+  @media (max-width: 767px) {
+    .smaller_form_elements
+  }
+  @media (max-width: 480px) {
+    .smaller_form_elements
   }
 }

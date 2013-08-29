@@ -2,6 +2,7 @@ module ApplicationHelper
   def link_to_icon(icon, url, options = {})
     content = %(<i class="icon icon-#{ icon } icon-large"></i>)
     content = %(#{ content }&nbsp;#{ options[:label] }) if options[:label].present?
+    content = %(#{ options[:prelabel] }&nbsp;#{ content }) if options[:prelabel].present?
     content = %(#{ content }<span class="hidden-phone">&nbsp;#{ options[:label_hidden_phone] }</span>) if options[:label_hidden_phone].present?
     link_to content.html_safe, url, options
   end

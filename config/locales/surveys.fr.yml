@@ -2,16 +2,4 @@ fr:
   surveys:
     show:
       info: "Info"
-      no_contacts: "Aucun contact n’a été trouvé"
-      filter_options: "Options de filtres"
-      filter_school: "Campus"
-      number_of_contacts_that_need_followup:
-        one: "1 contact nécessite un suivi."
-        other: "%{count} contacts nécessitent un suivi."
-      showing_contacts_with_filter: "Affichage des contacts avec %{filter}."
-    all:
-      no_responses: "Pas de réponse pour cette sondage."
-      showing_all_count_responses: "Voici les %{count} réponses."
-    filters_modal:
-      title: "Options de filtres"
-      filter: "Filtre"
+    no_contacts: "No contacts found for current filter options."

@@ -24,8 +24,40 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.where(guid: session[:cas_extra_attributes][:ssoGuid]).first_or_create if cas_logged_in? && session[:cas_extra_attributes]
   end
 
+  def filters(default_show_all = false)
+    params[:filters] = (params[:filters].presence || default_filter(default_show_all)).select { |_, value| value.present? }
+    params[:filters].each { |key, value| cookies[filter_cookie_key(key)] = value }
+    params[:filters]
+  end
+
 
   private
+
+  def default_filter(default_show_all = false)
+    # We want to limit the default result set
+    filter = { target_contact_relationship_contact_id_b: cookies[filter_cookie_key(:target_contact_relationship_contact_id_b)] }
+
+    if filter[:target_contact_relationship_contact_id_b].blank?
+      filter[:target_contact_relationship_contact_id_b] = default_show_all ? {} : schools_associated_to_current_user_and_to_survey.first.try(:civicrm_id)
+    end
+
+    filter
+  end
+
+  def schools_associated_to_current_user_and_to_survey
+    if @survey.present?
+      @survey.schools & current_user.schools
+    else
+      current_user.schools
+    end
+  end
+
+  def filter_cookie_key(filter)
+    key = "filter_#{ filter }"
+    key = "#{ key }_for_controller_#{ controller_name }"
+    key = "#{ key }_survey_#{ @survey.id }" if @survey.present?
+    key
+  end
 
   def set_locale
     # For manual override

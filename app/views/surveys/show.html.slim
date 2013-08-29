@@ -8,7 +8,7 @@
   #responses class=['carousel','slide']
     div class=['carousel-inner','contacts']
       - @responses.each do |response|
-        div class=['item', response == @responses.first ? 'active' : '' ]
+        div class=['well','square','item', response == @responses.first ? 'active' : '' ]
           p.row.marginless
             .avatar
               = contact_image_tag(response.contact)
@@ -29,17 +29,14 @@
 
       - if @responses.empty?
         div class=['active']
-          p.well= t('.no_contacts')
+          p.well= t('surveys.no_contacts')
 
     - if !@responses.empty?
       .carousel-nav
         = link_to_icon "chevron-left", "#responses", 'data-slide'=>'prev'
         = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
-div class=['well','square']
-  = t('.number_of_contacts_that_need_followup', count: @responses.size)
-  | &nbsp;
-  = current_filters_description.html_safe
-div class=['well','square']
-  = link_to t('.filter_options'), '#filterModal', class: 'btn btn-inverse', 'data-toggle' => 'modal', role: 'button'
 
-= render 'filters_modal', survey: @survey
+.filters-container
+  = render '/layouts/filter_options', count_t: 'surveys.number_of_contacts_that_need_followup_html', count: @responses.size
+
+= render '/layouts/filters_modal', url: survey_path(@survey), survey: @survey

@@ -11,6 +11,6 @@
           = f.input :subject, as: :hidden, input_html: { value: label }
           = f.input :activity_type_id, as: :hidden, input_html: { value: ActivityType::REJOICEABLE_TYPE_ID }
           = f.input :campaign_id, as: :hidden, input_html: { value: survey.campaign_id }
-          = f.submit label, class: 'btn btn-primary'
+          = f.submit label, class: 'btn btn-primary btn-responsive-size'
   .modal-footer
-    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn'
+    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn btn-responsive-size'
