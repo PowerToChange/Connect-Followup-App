@@ -41,8 +41,9 @@ $ cp config/database.yml.example config/database.yml
 $ cp config/application.yml.example config/application.yml
 $ subl config/application.yml
 $ rake db:setup
-$ rails server
 ```
+
+You will also have to [install memcached](https://google.com/search?q=how+to+install+memcached), this is platform-specific.
 
 ## Admin Access
 
