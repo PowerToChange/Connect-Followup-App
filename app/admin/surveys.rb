@@ -57,10 +57,10 @@ ActiveAdmin.register Survey do
   form do |f|
     f.inputs "Survey Details" do
       f.input :survey_id, label: 'Survey ID', hint: 'Enter the survey id from CiviCrm, other attributes will be synced from CiviCrm based on this id.'
-      f.input :has_all_schools, hint: 'Always associate this survey with every school.'
+      f.input :has_all_schools, hint: "Always associate this survey with every school. #{ f.object.new_record? ? 'After you create the survey you may associate it with a few specific schools.' : '' }"
     end
 
-    unless f.object.has_all_schools?
+    if !f.object.has_all_schools? && !f.object.new_record?
       f.inputs "Associated Schools" do
         f.input :schools, as: :check_boxes, collection: School.all.sort_by(&:display_name), hint: "Select the schools that should be associated to this survey."
       end
