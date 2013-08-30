@@ -1,5 +1,5 @@
 p
-  - if count >= CiviCrm.default_row_count.to_i
+  - if count >= (CiviCrm.default_row_count.to_i - 20)
     = t('filters.try_filtering')
     | &nbsp;
   = current_filters_description(count).html_safe

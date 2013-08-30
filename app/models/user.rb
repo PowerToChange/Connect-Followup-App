@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
       self.surveys.collect do |survey|
         # Build the responses
         responses = (activities_grouped_by_source_record_id[survey.survey_id.to_s].presence || []).collect { |activity| Response.new(survey, activity) }
-        responses.try(:sort_by!) { |r| r.contact.try(:display_name) }
+        responses.try(:sort_by!) { |r| r.contact.try(:display_name).try(:downcase) }
         OpenStruct.new(
           survey: survey,
           responses: responses.presence || []

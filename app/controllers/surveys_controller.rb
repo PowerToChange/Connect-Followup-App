@@ -7,7 +7,7 @@ class SurveysController < ApplicationController
   end
 
   def all
-    @responses = @survey.responses(filters).sort_by { |r| r.contact.display_name }
+    @responses = @survey.responses(filters).sort_by { |r| r.contact.try(:display_name).try(:downcase) }
   end
 
   private
