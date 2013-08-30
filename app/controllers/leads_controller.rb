@@ -85,5 +85,8 @@ class LeadsController < ApplicationController
   def get_survey_and_lead
     @survey = Survey.find(params[:survey_id])
     @lead = Lead.find(params[:id])
+  rescue ActiveRecord::RecordNotFound => e
+    flash[:error] = t('error')
+    redirect_to :back
   end
 end

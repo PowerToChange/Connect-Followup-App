@@ -49,4 +49,3 @@ $ ->
   # Hide Bootstrap modal when form is submitted
   $('.modal').on 'click', 'input[type="submit"]', (e) ->
     $(this).closest('.modal').modal('hide')
-    $('html, body').animate({ scrollTop: 0 }) # scroll to top so that mobile users can see flash message
