@@ -31,4 +31,15 @@ module ResponsesHelper
     end
     %(<span class="label #{ label_class }">#{ priority_label }</span>).html_safe
   end
+
+  def answer_label(field, value)
+    case field
+    when CiviCrm.custom_fields.contact.year
+      year_label(value)
+    when :gender_id
+      gender_label(value)
+    else
+      value
+    end
+  end
 end

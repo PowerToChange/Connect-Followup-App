@@ -2,6 +2,19 @@ class Response
   attr_accessor :survey, :response, :school, :contact
   include ResponsesHelper
 
+  CONTACT_INFO_FIELDS = [
+    :first_name,
+    :last_name,
+    :gender_id,
+    :email,
+    :phone,
+    CiviCrm.custom_fields.contact.year,
+    CiviCrm.custom_fields.contact.year_other,
+    CiviCrm.custom_fields.contact.international,
+    CiviCrm.custom_fields.contact.degree,
+    CiviCrm.custom_fields.contact.residence
+  ]
+
   def self.PRIORITIES
     [[I18n.t('responses.priorities.hot'), 1], [I18n.t('responses.priorities.medium'), 2], [I18n.t('responses.priorities.mild'), 3]]
   end
@@ -32,27 +45,29 @@ class Response
 
   def answers
     @answers ||= begin
-      excluded_fields = [:first_name, :last_name, :gender_id, :email, :phone, CiviCrm.custom_fields.contact.year, CiviCrm.custom_fields.contact.international, CiviCrm.custom_fields.contact.degree]
 
       survey.fields.sort_by(&:label).collect do |field|
-        next if excluded_fields.include?(field.field_name.to_sym)
+        next if CONTACT_INFO_FIELDS.include?(field.field_name.to_sym)
+
         custom_values = self.response.send(field.field_name).presence || self.contact.send(field.field_name)
         custom_values = [custom_values].flatten # It may or may not be an array, we always want an array
         value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join('; ')
         OpenStruct.new(label: field.label, answer: value_label)
+
       end.compact
+
     end
   end
 
   def contact_infos
     @contact_infos ||= begin
-      [
-        OpenStruct.new(field: nil, label: I18n.t('responses.contact_info.school'), value: school.try(:display_name)),
-        OpenStruct.new(field: :gender_id, label: I18n.t('responses.contact_info.gender'), value: gender_label(contact.gender_id)),
-        OpenStruct.new(field: CiviCrm.custom_fields.contact.year, label: I18n.t('responses.contact_info.year'), value: year_label(contact.send(CiviCrm.custom_fields.contact.year))),
-        OpenStruct.new(field: CiviCrm.custom_fields.contact.degree, label: I18n.t('responses.contact_info.degree'), value: contact.send(CiviCrm.custom_fields.contact.degree)),
-        OpenStruct.new(field: CiviCrm.custom_fields.contact.international, label: I18n.t('responses.contact_info.international'), value: contact.send(CiviCrm.custom_fields.contact.international))
-      ]
+
+      [ OpenStruct.new(field: nil, label: I18n.t('responses.contact_info.school'), value: school.try(:display_name)) ] +
+
+      CONTACT_INFO_FIELDS.reject { |f| [:email, :phone, :first_name, :last_name].include?(f) }.collect do |field|
+        OpenStruct.new(field: field, label: Field.where(field_name: field).first.try(:label), value: answer_label(field, contact.send(field)))
+      end.compact
+
     end
   end
 

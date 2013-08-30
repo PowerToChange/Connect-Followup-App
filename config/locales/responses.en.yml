@@ -11,10 +11,6 @@ en:
       first_year: "First Year"
     contact_info:
       school: "Campus"
-      gender: "Gender"
-      year: "Year"
-      degree: "Degree"
-      international: "International"
     show:
       contact_info: "Contact Info"
       submitted_time_ago_in_words_ago: "submitted %{time_ago_in_words} ago"

@@ -11,10 +11,6 @@ fr:
       first_year: "Première année"
     contact_info:
       school: "Campus"
-      gender: "Genre"
-      year: "Année"
-      degree: "Domaine d’études"
-      international: "International"
     show:
       contact_info: "Information du contact"
       submitted_time_ago_in_words_ago: "Soumis %{time_ago_in_words} il y a."
