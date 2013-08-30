@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:PowerToChange/civicrm_gem.git
-  revision: cbca348672bf517edf7cb57148d5c1cc624d357a
+  revision: 3edc4d1f2bfa5cb035b2ae231e80cade22d07789
   branch: master
   specs:
     civicrm (1.0.1)
