@@ -40,13 +40,24 @@ describe User do
 
   describe '#sync_from_pulse', :vcr do
     let(:user) { create(:user, civicrm_id: 1, schools: []) }
-    let(:school) { create(:school, pulse_id: 1) }
+    let(:school_1) { create(:school, pulse_id: 1) }
+    let(:school_2) { create(:school, pulse_id: 2) }
+    let(:school_3) { create(:school, pulse_id: 3) }
 
     before do
-      school
+      school_1
+      school_2
+      school_3
       Pulse::MinistryInvolvement.stub(:where).and_return([
           double(user: { civicrm_id: 34904383 },
-                 ministry: { campus: [{ campus_id: 1 }, { campus_id: 2 }] })
+                 ministry: { campus: [{ campus_id: 1 }] },
+                 role: { name: 'Team Member' }),
+          double(user: { civicrm_id: 34904383 },
+                 ministry: { campus: [{ campus_id: 2 }] },
+                 role: { name: 'Student Leader' }),
+          double(user: { civicrm_id: 34904383 },
+                 ministry: { campus: [{ campus_id: 3 }] },
+                 role: { name: 'Student' })
         ])
     end
 
@@ -55,12 +66,18 @@ describe User do
     it 'associates schools to the user' do
       user.schools.should eq []
       subject
-      user.schools.should eq [school]
+      user.schools.should eq [school_1, school_2]
+    end
+
+    it 'does not associate schools on ministry involvements with invalid roles' do
+      user.schools.should eq []
+      subject
+      user.schools.should_not include(school_3)
     end
 
     it 'removes all schools if user not found in Pulse' do
       Pulse::MinistryInvolvement.stub(:where).and_raise(Pulse::Errors::BadRequest)
-      user.schools << school
+      user.schools << school_1
       user.schools.should be_present
       subject
       user.schools.should be_blank

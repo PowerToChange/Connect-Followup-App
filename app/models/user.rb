@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :civicrm_id, presence: true
 
   DEFAULT_CIVICRM_ID = 1
+  VALID_PULSE_MINISTRY_INVOLVEMENT_ROLES = ["student leader", "ministry leader", "team member", "team leader"]
 
   def to_s
     if self.name.present?
@@ -49,7 +50,7 @@ class User < ActiveRecord::Base
     pulse_campus_ids = []
     civicrm_id_from_pulse = nil
 
-    Pulse::MinistryInvolvement.where(guid: self.guid).each do |ministry_involvement|
+    Pulse::MinistryInvolvement.where(guid: self.guid).select { |mi| valid_pulse_ministry_involvement?(mi) }.each do |ministry_involvement|
       # Get the CiviCrm id of the user from the Pulse
       civicrm_id_from_pulse ||= ministry_involvement.try(:user).try(:[], :civicrm_id)
 
@@ -70,6 +71,10 @@ class User < ActiveRecord::Base
   else
     self.schools = School.where(pulse_id: pulse_campus_ids)
     self.update_attribute(:civicrm_id, civicrm_id_from_pulse) if civicrm_id_from_pulse.present?
+  end
+
+  def valid_pulse_ministry_involvement?(ministry_involvement)
+    VALID_PULSE_MINISTRY_INVOLVEMENT_ROLES.include?(ministry_involvement.try(:role).try(:[], :name).try(:downcase))
   end
 
 end
