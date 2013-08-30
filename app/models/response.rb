@@ -16,7 +16,7 @@ class Response
   ]
 
   def self.PRIORITIES
-    [[I18n.t('responses.priorities.hot'), 1], [I18n.t('responses.priorities.medium'), 2], [I18n.t('responses.priorities.mild'), 3]]
+    [[I18n.t('responses.priorities.hot'), 1], [I18n.t('responses.priorities.medium'), 2], [I18n.t('responses.priorities.mild'), 3], [I18n.t('responses.priorities.not_interested'), 4], [I18n.t('responses.priorities.not_applicable'), 5]]
   end
 
   def self.GENDERS

@@ -26,8 +26,10 @@ module ResponsesHelper
       'label-important'
     when t('responses.priorities.medium')
       'label-warning'
-    else
+    when t('responses.priorities.mild')
       'label-info'
+    else
+      'label-default'
     end
     %(<span class="label #{ label_class }">#{ priority_label }</span>).html_safe
   end

@@ -4,6 +4,8 @@ en:
       hot: "Hot"
       medium: "Medium"
       mild: "Mild"
+      not_interested: "Not Interested"
+      not_applicable: "Priority N/A"
     genders:
       female: "Female"
       male: "Male"
