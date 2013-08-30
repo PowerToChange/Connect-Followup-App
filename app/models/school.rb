@@ -27,6 +27,7 @@ class School < ActiveRecord::Base
   end
 
   def self.find_by_relationship(relationship)
+    return nil unless relationship.present?
     civicrm_id = relationship.try(:contact_id_b).presence || relationship.try(:contact_id).presence
     self.where(civicrm_id: civicrm_id).first
   end
