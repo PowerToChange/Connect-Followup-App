@@ -26,9 +26,10 @@ class User < ActiveRecord::Base
   end
 
   def connections(options = {})
-    @connections ||= begin
+    # Cache based on the user's surveys, leads and filter options
+    Rails.cache.fetch([self.leads, self.surveys, options]) do
 
-      @activities = self.leads.present? ? PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(options).where(PtcActivityQuery.params_to_return_school).all : []
+      @activities = self.leads.present? ? PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(options).where(PtcActivityQuery.params_to_return_school).all(1000) : []
 
       # Group all activities by their survey
       activities_grouped_by_source_record_id = @activities.group_by(&:source_record_id)
