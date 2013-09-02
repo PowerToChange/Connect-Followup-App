@@ -38,18 +38,14 @@ class ApplicationController < ActionController::Base
     filter = { target_contact_relationship_contact_id_b: cookies[filter_cookie_key(:target_contact_relationship_contact_id_b)] }
 
     if filter[:target_contact_relationship_contact_id_b].blank?
-      filter[:target_contact_relationship_contact_id_b] = default_show_all ? {} : schools_associated_to_current_user_and_to_survey.sort_by(&:display_name).first.civicrm_id
+      filter[:target_contact_relationship_contact_id_b] = default_show_all ? {} : schools_associated_to_current_user_and_to_survey.sort_by(&:display_name).first.try(:civicrm_id)
     end
 
     filter
   end
 
   def schools_associated_to_current_user_and_to_survey
-    if @survey.present?
-      @survey.schools & current_user.schools
-    else
-      current_user.schools
-    end
+    @survey.present? ? @survey.schools & current_user.schools : current_user.schools
   end
 
   def filter_cookie_key(filter)
