@@ -5,10 +5,10 @@
   - params[:filters][:offset] ||= 0
 
   - previous_offset = params[:filters][:offset].to_i - page_size
-  - previous_url = previous_offset >= 0 ? url_for(params.merge(filters: { offset: previous_offset })) : ''
+  - previous_url = previous_offset >= 0 ? url_for(params.deep_merge(filters: { offset: previous_offset })) : ''
 
   - next_offset = params[:filters][:offset].to_i + page_size
-  - next_url = count >= page_size ? url_for(params.merge(filters: { offset: next_offset })) : ''
+  - next_url = count >= page_size ? url_for(params.deep_merge(filters: { offset: next_offset })) : ''
 
   .row.text-center
     .carousel-nav
