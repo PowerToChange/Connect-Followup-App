@@ -2,96 +2,6 @@
 http_interactions: 
 - request: 
     method: post
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
-    body: 
-      encoding: US-ASCII
-      string: entity=Activity&action=create&id=55412&assignee_contact_id=2394823&json=1
-    headers: 
-      Accept: 
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding: 
-      - gzip, deflate
-      User-Agent: 
-      - CiviCrm RubyClient/1.0.1
-      Content-Length: 
-      - "73"
-  response: 
-    status: 
-      code: 200
-      message: OK
-    headers: 
-      Date: 
-      - Wed, 28 Aug 2013 14:47:54 GMT
-      Server: 
-      - Apache/2.2.22 (Ubuntu)
-      X-Powered-By: 
-      - PHP/5.4.6-1ubuntu1.2
-      X-Drupal-Cache: 
-      - MISS
-      Expires: 
-      - Sun, 19 Nov 1978 05:00:00 GMT
-      Last-Modified: 
-      - Wed, 28 Aug 2013 14:47:54 +0000
-      Cache-Control: 
-      - no-cache, must-revalidate, post-check=0, pre-check=0
-      Etag: 
-      - "\"1377701274\""
-      Content-Length: 
-      - "52"
-      Content-Type: 
-      - text/javascript
-    body: 
-      encoding: US-ASCII
-      string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
-    http_version: 
-  recorded_at: Wed, 28 Aug 2013 14:45:57 GMT
-- request: 
-    method: post
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
-    body: 
-      encoding: US-ASCII
-      string: entity=Note&action=create&subject=Completed%20Initial%20Follow-up&note=adrian%40ballistiq.com%20completed%20initial%20follow-up%20of%20the%20Power%20survey%20-%20July21-1%20survey%20and%20recorded%20a%20result%20of%20connected%20digitally%20and%20will%20continue%20the%20conversation.&contact_id=60110&entity_id=60110&json=1
-    headers: 
-      Accept: 
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding: 
-      - gzip, deflate
-      User-Agent: 
-      - CiviCrm RubyClient/1.0.1
-      Content-Length: 
-      - "324"
-  response: 
-    status: 
-      code: 200
-      message: OK
-    headers: 
-      Date: 
-      - Wed, 28 Aug 2013 14:47:54 GMT
-      Server: 
-      - Apache/2.2.22 (Ubuntu)
-      X-Powered-By: 
-      - PHP/5.4.6-1ubuntu1.2
-      X-Drupal-Cache: 
-      - MISS
-      Expires: 
-      - Sun, 19 Nov 1978 05:00:00 GMT
-      Last-Modified: 
-      - Wed, 28 Aug 2013 14:47:54 +0000
-      Cache-Control: 
-      - no-cache, must-revalidate, post-check=0, pre-check=0
-      Etag: 
-      - "\"1377701274\""
-      Content-Length: 
-      - "416"
-      Content-Type: 
-      - text/javascript
-    body: 
-      encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":4710,\"values\":{\"4710\":{\"id\":\"4710\",\"entity_table\":\"civicrm_contact\",\"entity_id\":\"60110\",\"note\":\"adrian@ballistiq.com completed initial follow-up of the Power survey - July21-1 survey and recorded a result of connected digitally and will continue the conversation.\",\"contact_id\":\"60110\",\"modified_date\":\"20130828084755\",\"subject\":\"Completed Initial Follow-up\",\"privacy\":\"0\"}}}"
-    http_version: 
-  recorded_at: Wed, 28 Aug 2013 14:45:58 GMT
-- request: 
-    method: post
     uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
     body: 
       encoding: US-ASCII
@@ -111,7 +21,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Wed, 28 Aug 2013 16:37:33 GMT
+      - Mon, 02 Sep 2013 01:46:29 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -121,11 +31,11 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Wed, 28 Aug 2013 16:37:33 +0000
+      - Mon, 02 Sep 2013 01:46:29 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1377707853\""
+      - "\"1378086389\""
       Content-Length: 
       - "52"
       Content-Type: 
@@ -134,7 +44,7 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
     http_version: 
-  recorded_at: Wed, 28 Aug 2013 16:35:37 GMT
+  recorded_at: Mon, 02 Sep 2013 01:44:36 GMT
 - request: 
     method: post
     uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
@@ -156,7 +66,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Wed, 28 Aug 2013 16:37:34 GMT
+      - Mon, 02 Sep 2013 01:46:30 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -166,18 +76,18 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Wed, 28 Aug 2013 16:37:34 +0000
+      - Mon, 02 Sep 2013 01:46:30 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1377707854\""
+      - "\"1378086390\""
       Content-Length: 
       - "416"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":4714,\"values\":{\"4714\":{\"id\":\"4714\",\"entity_table\":\"civicrm_contact\",\"entity_id\":\"60110\",\"note\":\"adrian@ballistiq.com completed initial follow-up of the Power survey - July21-1 survey and recorded a result of connected digitally and will continue the conversation.\",\"contact_id\":\"60110\",\"modified_date\":\"20130828103734\",\"subject\":\"Completed Initial Follow-up\",\"privacy\":\"0\"}}}"
+      string: "{\"is_error\":0,\"version\":3,\"count\":1,\"id\":4726,\"values\":{\"4726\":{\"id\":\"4726\",\"entity_table\":\"civicrm_contact\",\"entity_id\":\"60110\",\"note\":\"adrian@ballistiq.com completed initial follow-up of the Power survey - July21-1 survey and recorded a result of connected digitally and will continue the conversation.\",\"contact_id\":\"60110\",\"modified_date\":\"20130901194630\",\"subject\":\"Completed Initial Follow-up\",\"privacy\":\"0\"}}}"
     http_version: 
-  recorded_at: Wed, 28 Aug 2013 16:35:37 GMT
+  recorded_at: Mon, 02 Sep 2013 01:44:37 GMT
 recorded_with: VCR 2.5.0
