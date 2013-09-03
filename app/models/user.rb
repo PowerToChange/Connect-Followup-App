@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   def connections(options = {})
     # Cache based on the user's surveys, leads and filter options
-    Rails.cache.fetch([self.leads, self.surveys, options]) do
+    Rails.cache.fetch(connections_cache_key) do
 
       @activities = self.leads.present? ? PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(options).where(PtcActivityQuery.params_to_return_school).all(1000) : []
 
@@ -76,6 +76,12 @@ class User < ActiveRecord::Base
 
   def valid_pulse_ministry_involvement?(ministry_involvement)
     VALID_PULSE_MINISTRY_INVOLVEMENT_ROLES.include?(ministry_involvement.try(:role).try(:[], :name).try(:downcase))
+  end
+
+  private
+
+  def connections_cache_key
+    ['user:', self, 'leads:', self.leads, 'surveys:', self.surveys, 'options:', options]
   end
 
 end
