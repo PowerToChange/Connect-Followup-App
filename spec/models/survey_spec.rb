@@ -38,11 +38,6 @@ describe Survey do
         Field.should_receive(:sync).with(an_instance_of(Survey))
         subject
       end
-      it 'updates responses count cache' do
-        PtcActivityQuery.stub_chain(:where, :count).and_return(324823)
-        subject
-        Survey.last.responses_count_cache.should eq 324823
-      end
 
       context 'when survey does not exist' do
         let(:survey_response) { nil }

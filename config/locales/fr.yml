@@ -21,3 +21,5 @@ fr:
   help: "Aide"
   more: "Plus"
   error: "Oops! That didn't work."
+  assigned: "Assigned"
+  unassigned: "Unassigned"

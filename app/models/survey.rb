@@ -9,7 +9,7 @@ class Survey < ActiveRecord::Base
   validates_presence_of :survey_id
 
   before_validation :sync
-  after_save :fetch_fields, :associate_all_schools, :update_responses_count_cache
+  after_save :fetch_fields, :associate_all_schools
 
   def to_s
     self.title
@@ -23,7 +23,6 @@ class Survey < ActiveRecord::Base
       Rails.cache.fetch(responses_query.url, expires_in: 2.minutes) do
 
         responses = responses_query.all
-        update_responses_count_cache(responses.size) if options.blank? # Update the survey responses count cache only if there are no filters in place
         responses.collect { |response| Response.new(self, response) } # Build the responses
 
       end
@@ -47,11 +46,6 @@ class Survey < ActiveRecord::Base
 
   def fetch_fields
     Field.sync(self)
-  end
-
-  def update_responses_count_cache(count = nil)
-    count = PtcActivityQuery.where_survey({}, self).count if count.blank?
-    self.update_column(:responses_count_cache, count) # update without invoking callbacks
   end
 
   def associate_all_schools

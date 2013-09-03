@@ -9,7 +9,6 @@ div.list-title = t('.title')
         = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: t('.add_contact'), class: 'btn add-lead btn-responsive-size'
       .title
         = "#{ conn.survey.title } "
-        = number_of_survey_responses_not_yet_being_followed_up(conn.survey)
       .arrow
         i class="icon-chevron-right"
     - if conn.responses.size.zero?
@@ -29,4 +28,4 @@ div.list-title = t('.title')
       = t('.show_completed')
   = render '/layouts/filter_options', count_t: '.connections_html', count: @connections.inject(0) { |sum, conn| sum + conn.responses.size }
 
-= render '/layouts/filters_modal', url: connections_path
+= render '/layouts/filters_modal', url: connections_path, filters: { assignee_contact_id: false }

@@ -9,6 +9,7 @@
       = filter_input_for_attribute(f, :priority_id, label: t('followup_priority'))
       = filter_input_for_attribute(f, :target_contact_gender_id, label: t('gender'))
       = filter_input_for_attribute(f, CiviCrm.custom_fields.contact.year, label: t('year_in_school'))
+      = filter_input_for_attribute(f, :assignee_contact_id, label: t('assigned')) unless local_assigns[:filters].try(:[], :assignee_contact_id) == false
       - if local_assigns[:survey].present?
         - survey.fields.with_option_group.sort_by(&:label).reject { |field| field.field_name.to_sym == CiviCrm.custom_fields.contact.year }.each do |field|
           = filter_input_for_attribute(f, field.field_name, label: field.label)
