@@ -10,6 +10,7 @@ en:
     filter: "Filter"
     showing_contacts_with_filter: "with %{filter}"
     try_filtering: "Use the Filter Options to narrow down your results."
+    showing_contacts: "Showing contacts"
     showing_count_contacts_html:
       one: "Showing <strong>1</strong> contact"
       other: "Showing <strong>%{count}</strong> contacts"

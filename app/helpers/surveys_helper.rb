@@ -30,10 +30,13 @@ module SurveysHelper
     end
   end
 
-  def current_filters_description(count)
-    current_filter_count = count < CiviCrm.default_row_count ? t('filters.showing_count_contacts_html', count: count) : t('filters.showing_count_contacts_of_many_html', count: count)
-
-    return "#{ current_filter_count }." unless params[:filters].present?
+  def current_filters_description(count = false)
+    if count != false
+      current_filter_count = count < CiviCrm.default_row_count ? t('filters.showing_count_contacts_html', count: count) : t('filters.showing_count_contacts_of_many_html', count: count)
+      return "#{ current_filter_count }." unless params[:filters].present?
+    else
+      return '' unless params[:filters].present?
+    end
 
     current_filter_values = params[:filters].collect do |filter, value|
       label = label_from_options_for_value options_for_filter_select_for_attribute(filter), value
@@ -55,7 +58,8 @@ module SurveysHelper
     current_filter_values = current_filter_values.compact.to_sentence
     current_filter_values = current_filter_values.present? ? t('filters.showing_contacts_with_filter', filter: current_filter_values) : ''
 
-    "#{ current_filter_count }#{ current_filter_values.present? ? " #{ current_filter_values }." : '.' }"
+    showing_contacts = current_filter_count.present? ? current_filter_count : t('filters.showing_contacts')
+    "#{ showing_contacts }#{ current_filter_values.present? ? " #{ current_filter_values }." : '.' }"
   end
 
   def label_from_options_for_value(options, value)

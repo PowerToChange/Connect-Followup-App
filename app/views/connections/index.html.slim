@@ -26,6 +26,6 @@ div.list-title = t('.title')
     = label_tag :show_completed, class: 'checkbox'
       = check_box_tag :show_completed, true, false, class: 'toggle-completed-leads'
       = t('.show_completed')
-  = render '/layouts/filter_options', count_t: '.connections_html', count: @connections.inject(0) { |sum, conn| sum + conn.responses.size }
+  = render '/layouts/filter_options', count: false
 
 = render '/layouts/filters_modal', url: connections_path, filters: { assignee_contact_id: false }
