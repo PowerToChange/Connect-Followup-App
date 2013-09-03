@@ -13,3 +13,4 @@ fr:
     showing_count_contacts_html:
       one: "Showing <strong>1</strong> contact"
       other: "Showing <strong>%{count}</strong> contacts"
+    showing_count_contacts_of_many_html: "Showing <strong>%{count}</strong> of many contacts"

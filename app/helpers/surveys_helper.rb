@@ -16,6 +16,8 @@ module SurveysHelper
       Response.PRIORITIES
     when :target_contact_gender_id
       Response.GENDERS
+    when :assignee_contact_id
+      [[I18n.t('unassigned'), 'NULL']]
     else # custom fields
       field = Field.where(field_name: attribute).first
       field.present? ? field.option_values_to_select_options : []
@@ -29,7 +31,7 @@ module SurveysHelper
   end
 
   def current_filters_description(count)
-    current_filter_count = t('filters.showing_count_contacts_html', count: count)
+    current_filter_count = count < CiviCrm.default_row_count ? t('filters.showing_count_contacts_html', count: count) : t('filters.showing_count_contacts_of_many_html', count: count)
 
     return "#{ current_filter_count }." unless params[:filters].present?
 

@@ -3,7 +3,6 @@
   .title-row
     .title
       = "#{ @survey.title } "
-      = number_of_survey_responses_not_yet_being_followed_up(@survey)
 
   #responses class=['carousel','slide']
     div class=['carousel-inner','contacts']
@@ -39,4 +38,4 @@
 .filters-container
   = render '/layouts/filter_options', count_t: 'surveys.number_of_contacts_that_need_followup_html', count: @responses.size
 
-= render '/layouts/filters_modal', url: survey_path(@survey), survey: @survey
+= render '/layouts/filters_modal', url: survey_path(@survey), survey: @survey, filters: { assignee_contact_id: false }

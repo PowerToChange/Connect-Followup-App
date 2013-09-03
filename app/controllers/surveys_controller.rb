@@ -2,8 +2,7 @@ class SurveysController < ApplicationController
   before_filter :authenticate_user!, :get_survey
 
   def show
-    response_ids_with_leads = Lead.all.collect(&:response_id)
-    @responses = @survey.responses(filters).select { |response| !response_ids_with_leads.include?(response.id) }.shuffle
+    @responses = @survey.responses(filters.merge(assignee_contact_id: 'NULL')).shuffle
   end
 
   def all
