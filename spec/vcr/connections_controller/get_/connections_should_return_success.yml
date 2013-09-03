@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Mon, 02 Sep 2013 01:47:13 GMT
+      - Tue, 03 Sep 2013 21:16:11 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -31,57 +31,20 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Mon, 02 Sep 2013 01:47:13 +0000
+      - Tue, 03 Sep 2013 21:16:11 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1378086433\""
+      - "\"1378242971\""
       Content-Length: 
       - "52"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: &id001 !str 
-        str: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
-        :@args: 
-          :method: :post
-          :timeout: 80
-          :headers: 
-            :user_agent: CiviCrm RubyClient/1.0.1
-          :payload: entity=Activity&action=create&id=104254&assignee_contact_id=2394823&json=1
-          :url: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?&api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
-        :@code: 200
-        :@net_http_res: !ruby/object:Net::HTTPOK 
-          __read_body_previously_called: true
-          body: *id001
-          code: "200"
-          header: 
-            date: 
-            - Mon, 02 Sep 2013 01:47:13 GMT
-            server: 
-            - Apache/2.2.22 (Ubuntu)
-            x-powered-by: 
-            - PHP/5.4.6-1ubuntu1.2
-            x-drupal-cache: 
-            - MISS
-            expires: 
-            - Sun, 19 Nov 1978 05:00:00 GMT
-            last-modified: 
-            - Mon, 02 Sep 2013 01:47:13 +0000
-            cache-control: 
-            - no-cache, must-revalidate, post-check=0, pre-check=0
-            etag: 
-            - "\"1378086433\""
-            content-length: 
-            - "52"
-            content-type: 
-            - text/javascript
-          http_version: "1.0"
-          message: OK
-          read: true
+      string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
     http_version: 
-  recorded_at: Mon, 02 Sep 2013 01:45:20 GMT
+  recorded_at: Tue, 03 Sep 2013 21:14:11 GMT
 - request: 
     method: post
     uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
@@ -103,7 +66,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Mon, 02 Sep 2013 01:47:14 GMT
+      - Tue, 03 Sep 2013 21:16:12 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -113,100 +76,20 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Mon, 02 Sep 2013 01:47:14 +0000
+      - Tue, 03 Sep 2013 21:16:12 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1378086434\""
+      - "\"1378242972\""
       Content-Length: 
       - "52"
       Content-Type: 
       - text/javascript
     body: 
       encoding: US-ASCII
-      string: &id002 !str 
-        str: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
-        :@args: 
-          :method: :post
-          :timeout: 80
-          :headers: 
-            :user_agent: CiviCrm RubyClient/1.0.1
-          :payload: entity=Activity&action=create&id=104252&assignee_contact_id=2394823&json=1
-          :url: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?&api_key=676c3fcae94c0a6c452417a11b2b7c11&key=382adce875611f9b75d294b83a77a5f2
-        :@code: 200
-        :@net_http_res: !ruby/object:Net::HTTPOK 
-          __read_body_previously_called: true
-          body: *id002
-          code: "200"
-          header: 
-            date: 
-            - Mon, 02 Sep 2013 01:47:14 GMT
-            server: 
-            - Apache/2.2.22 (Ubuntu)
-            x-powered-by: 
-            - PHP/5.4.6-1ubuntu1.2
-            x-drupal-cache: 
-            - MISS
-            expires: 
-            - Sun, 19 Nov 1978 05:00:00 GMT
-            last-modified: 
-            - Mon, 02 Sep 2013 01:47:14 +0000
-            cache-control: 
-            - no-cache, must-revalidate, post-check=0, pre-check=0
-            etag: 
-            - "\"1378086434\""
-            content-length: 
-            - "52"
-            content-type: 
-            - text/javascript
-          http_version: "1.0"
-          message: OK
-          read: true
+      string: "{\"is_error\":1,\"error_message\":\"Invalid  Contact Id\"}"
     http_version: 
-  recorded_at: Mon, 02 Sep 2013 01:45:20 GMT
-- request: 
-    method: get
-    uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entities=target_contact,relationships&entity=PtcActivityQuery&id=104254,104252&json=1&key=382adce875611f9b75d294b83a77a5f2&rowCount=1000&target_contact_relationship_type_id=10
-    body: 
-      encoding: US-ASCII
-      string: ""
-    headers: 
-      Accept: 
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding: 
-      - gzip, deflate
-      User-Agent: 
-      - CiviCrm RubyClient/1.0.1
-  response: 
-    status: 
-      code: 200
-      message: OK
-    headers: 
-      Date: 
-      - Mon, 02 Sep 2013 01:47:14 GMT
-      Server: 
-      - Apache/2.2.22 (Ubuntu)
-      X-Powered-By: 
-      - PHP/5.4.6-1ubuntu1.2
-      X-Drupal-Cache: 
-      - MISS
-      Expires: 
-      - Sun, 19 Nov 1978 05:00:00 GMT
-      Last-Modified: 
-      - Mon, 02 Sep 2013 01:47:14 +0000
-      Cache-Control: 
-      - no-cache, must-revalidate, post-check=0, pre-check=0
-      Etag: 
-      - "\"1378086434\""
-      Content-Length: 
-      - "1997"
-      Content-Type: 
-      - text/javascript
-    body: 
-      encoding: US-ASCII
-      string: "{\"is_error\":0,\"version\":3,\"count\":2,\"values\":[{\"id\":\"104252\",\"campaign_id\":\"8\",\"source_record_id\":\"12\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"3\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-30 22:47:52\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/79\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-2\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60082\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60082\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser23 july30\",\"first_name\":\"testuser23\",\"last_name\":\"july30\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-31 02:47:52\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58378\",\"email\":\"testuser23@july30.com\",\"relationships\":[{\"id\":\"59375\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104254\",\"campaign_id\":\"8\",\"source_record_id\":\"12\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"3\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-30 22:53:12\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/80\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-2\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60083\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60083\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser24 july30\",\"first_name\":\"testuser24\",\"last_name\":\"july30\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-31 02:53:12\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58379\",\"email\":\"testuser24@july30.com\",\"relationships\":[{\"id\":\"59376\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"}]}]}]}"
-    http_version: 
-  recorded_at: Mon, 02 Sep 2013 01:45:22 GMT
+  recorded_at: Tue, 03 Sep 2013 21:14:11 GMT
 - request: 
     method: get
     uri: https://stagehub.p2c.com/sites/all/modules/civicrm/extern/rest.php/civicrm/extern/rest.php?action=get&api_key=676c3fcae94c0a6c452417a11b2b7c11&entities=target_contact,relationships&entity=PtcActivityQuery&id=104254,104252&json=1&key=382adce875611f9b75d294b83a77a5f2&target_contact_relationship_type_id=10
@@ -226,7 +109,7 @@ http_interactions:
       message: OK
     headers: 
       Date: 
-      - Tue, 03 Sep 2013 19:02:47 GMT
+      - Tue, 03 Sep 2013 21:16:12 GMT
       Server: 
       - Apache/2.2.22 (Ubuntu)
       X-Powered-By: 
@@ -236,11 +119,11 @@ http_interactions:
       Expires: 
       - Sun, 19 Nov 1978 05:00:00 GMT
       Last-Modified: 
-      - Tue, 03 Sep 2013 19:02:47 +0000
+      - Tue, 03 Sep 2013 21:16:12 +0000
       Cache-Control: 
       - no-cache, must-revalidate, post-check=0, pre-check=0
       Etag: 
-      - "\"1378234967\""
+      - "\"1378242972\""
       Content-Length: 
       - "1997"
       Content-Type: 
@@ -249,5 +132,5 @@ http_interactions:
       encoding: US-ASCII
       string: "{\"is_error\":0,\"version\":3,\"count\":2,\"values\":[{\"id\":\"104252\",\"campaign_id\":\"8\",\"source_record_id\":\"12\",\"activity_type_id\":\"32\",\"status_id\":\"2\",\"priority_id\":\"3\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-30 22:47:52\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/79\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-2\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60082\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60082\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser23 july30\",\"first_name\":\"testuser23\",\"last_name\":\"july30\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-31 02:47:52\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58378\",\"email\":\"testuser23@july30.com\",\"relationships\":[{\"id\":\"59375\",\"contact_id\":\"25\",\"relationship_type_id\":\"10\"}]}]},{\"id\":\"104254\",\"campaign_id\":\"8\",\"source_record_id\":\"12\",\"activity_type_id\":\"32\",\"status_id\":\"4\",\"priority_id\":\"3\",\"engagement_level\":\"\",\"activity_date_time\":\"2013-07-30 22:53:12\",\"details\":\"<p><a href=\\\"https:\\/\\/stagehub.p2c.com\\/node\\/11\\/submission\\/80\\\">View Webform Submission<\\/a><\\/p>\",\"source_contact_id\":\"1\",\"subject\":\"Power survey - July21-2\",\"assignee_contact_id\":\"1\",\"target_contact_id\":\"60083\",\"activity_name\":\"Petition\",\"contacts\":[{\"contact_id\":\"60083\",\"contact_type\":\"Individual\",\"contact_sub_type\":\"\",\"do_not_email\":\"0\",\"do_not_phone\":\"0\",\"do_not_mail\":\"0\",\"do_not_sms\":\"1\",\"is_opt_out\":\"0\",\"display_name\":\"testuser24 july30\",\"first_name\":\"testuser24\",\"last_name\":\"july30\",\"gender_id\":\"1\",\"contact_created_date\":\"2013-07-31 02:53:12\",\"contact_modified_date\":\"2013-08-20 14:45:48\",\"phone_id\":\"\",\"phone\":\"\",\"phone_type_id\":\"\",\"email_id\":\"58379\",\"email\":\"testuser24@july30.com\",\"relationships\":[{\"id\":\"59376\",\"contact_id\":\"22\",\"relationship_type_id\":\"10\"}]}]}]}"
     http_version: 
-  recorded_at: Tue, 03 Sep 2013 19:00:47 GMT
+  recorded_at: Tue, 03 Sep 2013 21:14:12 GMT
 recorded_with: VCR 2.5.0
