@@ -4,7 +4,7 @@ div.list-title = t('.title')
 
 - @connections.each do |conn|
   .survey
-    .title-row data-url=all_survey_path(conn.survey)
+    .title-row.navigate-to-url-on-click data-url=all_survey_path(conn.survey)
       .title-actions
         = link_to_icon "plus-sign", survey_path(conn.survey), label_hidden_phone: t('.add_contact'), class: 'btn add-lead btn-responsive-size'
       .title
