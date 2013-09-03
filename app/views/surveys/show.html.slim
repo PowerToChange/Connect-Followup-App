@@ -36,6 +36,6 @@
         = link_to_icon "chevron-right", "#responses", 'data-slide'=>'next'
 
 .filters-container
-  = render '/layouts/filter_options', count_t: 'surveys.number_of_contacts_that_need_followup_html', count: @responses.size
+  = render '/layouts/filter_options', count: @responses.size
 
 = render '/layouts/filters_modal', url: survey_path(@survey), survey: @survey, filters: { assignee_contact_id: false }
