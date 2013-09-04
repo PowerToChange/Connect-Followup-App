@@ -2,19 +2,6 @@ class Response
   attr_accessor :survey, :response, :school, :contact
   include ResponsesHelper
 
-  CONTACT_INFO_FIELDS = [
-    :first_name,
-    :last_name,
-    :gender_id,
-    :email,
-    :phone,
-    CiviCrm.custom_fields.contact.year,
-    CiviCrm.custom_fields.contact.year_other,
-    CiviCrm.custom_fields.contact.international,
-    CiviCrm.custom_fields.contact.degree,
-    CiviCrm.custom_fields.contact.residence
-  ]
-
   def self.PRIORITIES
     [[I18n.t('responses.priorities.hot'), 1], [I18n.t('responses.priorities.medium'), 2], [I18n.t('responses.priorities.mild'), 3], [I18n.t('responses.priorities.not_interested'), 4], [I18n.t('responses.priorities.not_applicable'), 5]]
   end
@@ -46,8 +33,7 @@ class Response
   def answers
     @answers ||= begin
 
-      survey.fields.sort_by(&:label).collect do |field|
-        next if CONTACT_INFO_FIELDS.include?(field.field_name.to_sym)
+      survey.fields.answers.sort_by(&:label).collect do |field|
 
         custom_values = self.response.send(field.field_name).presence || self.contact.send(field.field_name)
         custom_values = [custom_values].flatten # It may or may not be an array, we always want an array
@@ -64,7 +50,7 @@ class Response
 
       [ OpenStruct.new(field: nil, label: I18n.t('responses.contact_info.school'), value: school.try(:display_name)) ] +
 
-      CONTACT_INFO_FIELDS.reject { |f| [:email, :phone, :first_name, :last_name].include?(f) }.collect do |field|
+      Field::CONTACT_INFO_FIELD_NAMES.reject { |f| [:email, :phone, :first_name, :last_name].include?(f) }.collect do |field|
         OpenStruct.new(field: field, label: Field.where(field_name: field).first.try(:label), value: answer_label(field, contact.send(field)))
       end.compact
 

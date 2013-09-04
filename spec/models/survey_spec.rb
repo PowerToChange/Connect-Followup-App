@@ -102,14 +102,46 @@ describe Survey do
 
     subject { survey.responses }
 
-    it 'returns an array' do
-      subject.should be_a_kind_of(Array)
-    end
     it 'returns an array of Response objects' do
+      subject.should be_present
+      subject.should be_a_kind_of(Array)
       subject.each { |r| r.should be_a_kind_of(Response) }
     end
     it 'should initialize the contact on each response' do
+      subject.should be_present
       subject.each { |r| r.contact.should be_a_kind_of(Contact) }
+    end
+  end
+
+  describe '#all_of_the_responses!', :vcr do
+    let(:survey) { create(:survey_without_callbacks, activity_type_id: ActivityType::PETITION_TYPE_ID) }
+    subject { survey.all_of_the_responses! }
+
+    it 'returns an array of Response objects' do
+      subject.should be_present
+      subject.should be_a_kind_of(Array)
+      subject.each { |r| r.should be_a_kind_of(Response) }
+    end
+    it 'should initialize the contact on each response' do
+      subject.should be_present
+      subject.each { |r| r.contact.should be_a_kind_of(Contact) }
+    end
+  end
+
+  describe '#fields_to_return_from_civicrm' do
+    let(:survey) { create(:survey_without_callbacks, activity_type_id: ActivityType::PETITION_TYPE_ID) }
+    subject { survey.fields_to_return_from_civicrm }
+
+    it 'should include survey fields' do
+      create(:field, survey_id: survey.id)
+      survey.fields.should be_present
+      survey.fields.each do |field|
+        subject.should include(field.field_name)
+      end
+    end
+    it 'should include some other fields' do
+      subject.should include('display_name')
+      subject.should include(CiviCrm.custom_fields.activity.rejoiceable.rejoiceable_id.to_s)
     end
   end
 end

@@ -16,17 +16,42 @@ class Survey < ActiveRecord::Base
   end
 
   def responses(options = {})
-    @responses ||= begin
-      responses_query = PtcActivityQuery.where_survey(options, self)
+    responses_query = PtcActivityQuery.where_survey(options, self)
 
-      # We are anticipating this query to be called simultaneously by many people, cache it for a small period to ease the load
-      Rails.cache.fetch(responses_query.url, expires_in: 2.minutes) do
+    # We are anticipating this query to be called simultaneously by many people, cache it for a small period to ease the load
+    Rails.cache.fetch(responses_query.url, expires_in: 1.minute) do
 
-        responses = responses_query.all
-        responses.collect { |response| Response.new(self, response) } # Build the responses
+      responses = responses_query.all
+      responses.collect { |response| Response.new(self, response) } # Build the responses
 
-      end
     end
+  end
+
+  def all_of_the_responses!(options = {})
+    responses = []
+    page_of_responses = []
+    offset = 0
+    page_size = 100
+
+    begin
+      page_of_responses = self.responses(options.merge(offset: offset, 'rowCount' => page_size))
+      responses += page_of_responses
+      offset += page_size
+    end until page_of_responses.length < page_size
+
+    responses
+  end
+
+  def fields_to_return_from_civicrm
+    extra_fields = [
+      :display_name,
+      CiviCrm.custom_fields.activity.rejoiceable.rejoiceable_id,
+      CiviCrm.custom_fields.activity.rejoiceable.survey_id,
+      CiviCrm.custom_fields.contact.year,
+      CiviCrm.custom_fields.contact.degree,
+      CiviCrm.custom_fields.contact.international
+    ]
+    (self.fields.collect(&:field_name) + extra_fields).join(',')
   end
 
   private
