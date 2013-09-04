@@ -1,0 +1,6 @@
+en:
+  exports:
+    export: "Export"
+    download_csv: "Download CSV"
+    explain_html: "Download an export of all responses to <i>%{survey_title}</i> in a CSV file."
+    warning_html: "<i class='icon icon-exclamation-sign'></i> The export may take a long time and degrade the experience for other users."

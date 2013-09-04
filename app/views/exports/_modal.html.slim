@@ -1,0 +1,16 @@
+- if local_assigns[:survey].present?
+  = link_to %(<i class="icon icon-download-alt"></i> #{ t('exports.export') }).html_safe, '#exportModal', class: 'btn btn-link btn-responsive-size', 'data-toggle' => 'modal', role: 'button'
+
+  #exportModal.modal.hide.fade.text-left style="display: none;" role="dialog"
+    .modal-header
+      button.close type="button" data-dismiss="modal" ×
+      h3 = t('exports.export')
+
+    .modal-body
+      = simple_form_for :exports, url: export_survey_path(id: survey.id), html: { id: 'exports', class: 'form-horizontal filters', method: :get } do |f|
+        p = t('exports.explain_html', survey_title: @survey.title)
+        p = t('exports.warning_html')
+
+    .modal-footer
+      button.btn.btn-responsive-size data-dismiss="modal" = t('close')
+      = submit_tag t('exports.download_csv'), class: 'btn btn-primary btn-responsive-size', form: 'exports'

@@ -5,6 +5,21 @@ class Field < ActiveRecord::Base
   validates_presence_of :field_name, :survey_id
 
   scope :with_option_group, -> { where('option_group_id IS NOT NULL') }
+  scope :answers, -> { all.reject { |field| Field::CONTACT_INFO_FIELD_NAMES.include?(field.field_name.to_sym) } }
+  scope :contact_infos, -> { all.select { |field| Field::CONTACT_INFO_FIELD_NAMES.include?(field.field_name.to_sym) } }
+
+  CONTACT_INFO_FIELD_NAMES = [
+    :first_name,
+    :last_name,
+    :gender_id,
+    :email,
+    :phone,
+    CiviCrm.custom_fields.contact.year,
+    CiviCrm.custom_fields.contact.year_other,
+    CiviCrm.custom_fields.contact.international,
+    CiviCrm.custom_fields.contact.degree,
+    CiviCrm.custom_fields.contact.residence
+  ]
 
   def option_values
     @option_values ||= CiviCrm::OptionValue.where(option_group_id: self.option_group_id, rowCount: 1000)

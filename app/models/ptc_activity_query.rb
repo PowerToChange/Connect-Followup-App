@@ -14,7 +14,7 @@ class PtcActivityQuery < CiviCrm::BaseResource
     end
 
     def where_survey(params, survey)
-      self.where(params.merge!(params_to_find_responses_to_survey(survey)).merge!(params_to_return_school))
+      self.where(params.deep_merge(params_to_find_responses_to_survey(survey)).deep_merge(params_to_return_school))
     end
 
     def params_to_find_responses_to_survey(survey)
@@ -36,22 +36,8 @@ class PtcActivityQuery < CiviCrm::BaseResource
     def params_to_return_everything_about_a_contact_for_survey(survey)
       {
         entities: 'target_contact,relationships,notes,activities',
-        return: contact_return_fields(survey)
+        return: survey.fields_to_return_from_civicrm
       }
-    end
-
-    private
-
-    def contact_return_fields(survey)
-      extra_fields = [
-        :display_name,
-        CiviCrm.custom_fields.activity.rejoiceable.rejoiceable_id,
-        CiviCrm.custom_fields.activity.rejoiceable.survey_id,
-        CiviCrm.custom_fields.contact.year,
-        CiviCrm.custom_fields.contact.degree,
-        CiviCrm.custom_fields.contact.international
-      ]
-      (survey.fields.collect(&:field_name) + extra_fields).join(',')
     end
 
   end
