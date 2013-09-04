@@ -47,5 +47,5 @@ $ ->
     $(this).tab('show')
 
   # Hide Bootstrap modal when form is submitted
-  $('.modal').on 'click', 'input[type="submit"]', (e) ->
+  $('.modal form').submit ->
     $(this).closest('.modal').modal('hide')
