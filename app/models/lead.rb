@@ -11,8 +11,8 @@ class Lead < ActiveRecord::Base
   scope :for_survey, ->(s) { where(survey_id: s.id) }
 
   before_save :update_status_engagement_level_to_civicrm, :create_contact_completed_note_history, if: :persisted?
-  before_create :update_activity_assigned_user_on_civicrm
-  after_destroy :update_activity_assigned_user_on_civicrm
+  before_create :assign_user_to_activity_in_civicrm
+  after_destroy :unassign_user_from_activity_in_civicrm
 
   COMPLETED_STATUS_ID = 2
   WIP_STATUS_ID = 3
@@ -111,10 +111,12 @@ class Lead < ActiveRecord::Base
     CiviCrm::Activity.update(update_params)
   end
 
-  def update_activity_assigned_user_on_civicrm
-    # Assign/Unassign the user to the lead in CiviCrm
-    contact_id = self.destroyed? ? User::DEFAULT_CIVICRM_ID : self.user.civicrm_id
-    CiviCrm::Activity.update({ id: self.response_id, assignee_contact_id: contact_id })
+  def assign_user_to_activity_in_civicrm
+    CiviCrm::Activity.update(id: self.response_id, assignee_contact_id: self.user.civicrm_id)
+  end
+
+  def unassign_user_from_activity_in_civicrm
+    ActivityAssignment.delete(activity_id: self.response_id)
   end
 
   def create_contact_completed_note_history
