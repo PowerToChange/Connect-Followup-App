@@ -71,7 +71,8 @@ class ExportsController < ApplicationController
     ]
 
     # Survey custom fields
-    survey.fields.answers.each do |field|
+    @survey_answer_fields ||= survey.fields.answers
+    @survey_answer_fields.each do |field|
       line_headers << field.label
     end
 
@@ -114,7 +115,8 @@ class ExportsController < ApplicationController
     ]
 
     # Survey custom fields
-    survey.fields.answers.each do |field|
+    @survey_answer_fields ||= survey.fields.answers
+    @survey_answer_fields.each do |field|
       attributes << response.build_answer_to_field(field).answer
     end
 
