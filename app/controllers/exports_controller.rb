@@ -8,17 +8,22 @@ class ExportsController < ApplicationController
   def survey
     @survey = Survey.find(params[:id])
 
+    Rails.logger.debug("=============== In ExportsController#survey for survey #{ @survey.id } #{ @survey.title }...")
+
     @responses = @survey.all_of_the_responses!(return: @survey.fields_to_return_from_civicrm)
 
+    Rails.logger.debug("=============== Generating CSV for survey #{ @survey.id } #{ @survey.title }...")
     csv = CSV.generate do |csv|
       csv << line_headers_for_survey_export(@survey)
       @responses.each do |response|
+        Rails.logger.debug("=============== Adding response to CSV #{ response.response_id } #{ response.contact_id } for survey #{ @survey.id } #{ @survey.title }...")
         csv << attributes_from_response_to_survey_for_export(response, @survey)
       end
     end
 
     filename = filename_for_survey_export(@survey)
 
+    Rails.logger.debug("=============== Returning from ExportsController#survey for survey #{ @survey.id } #{ @survey.title }")
     send_data csv, filename: filename, type: 'text/csv; charset=utf-8; header=present', disposition: "attachment; filename=#{ filename }"
 
   rescue => e
