@@ -32,16 +32,9 @@ class Response
 
   def answers
     @answers ||= begin
-
       survey.fields.answers.sort_by(&:label).collect do |field|
-
-        custom_values = self.response.send(field.field_name).presence || self.contact.send(field.field_name)
-        custom_values = [custom_values].flatten # It may or may not be an array, we always want an array
-        value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join('; ')
-        OpenStruct.new(label: field.label, answer: value_label)
-
+        build_answer_to_field(field)
       end.compact
-
     end
   end
 
@@ -99,6 +92,13 @@ class Response
 
     # Initialize the response
     Response.new(survey, activity, contact, school)
+  end
+
+  def build_answer_to_field(field)
+    custom_values = self.response.send(field.field_name).presence || self.contact.send(field.field_name)
+    custom_values = [custom_values].flatten # It may or may not be an array, we always want an array
+    value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join('; ')
+    OpenStruct.new(label: field.label, answer: value_label)
   end
 
 end
