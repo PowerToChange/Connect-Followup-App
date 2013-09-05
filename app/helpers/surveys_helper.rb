@@ -1,10 +1,17 @@
 module SurveysHelper
-  def filter_input_for_attribute(f, attribute, options = {})
+  def filter_select_for_attribute(f, attribute, options = {})
     f.input attribute, {
       collection: options_for_filter_select_for_attribute(attribute),
       selected: params[:filters].try(:[], attribute),
       include_blank: t('all'),
       required: false,
+      label: attribute }.merge(options)
+  end
+
+  def field_text_field_for_attribute(f, attribute, options = {})
+    f.input attribute, {
+      required: false,
+      input_html: { value: params[:filters].try(:[], attribute) },
       label: attribute }.merge(options)
   end
 
@@ -40,6 +47,7 @@ module SurveysHelper
 
     current_filter_values = params[:filters].collect do |filter, value|
       label = label_from_options_for_value options_for_filter_select_for_attribute(filter), value
+      label = label.presence || value.presence
       next unless label.present?
 
       filter_desc = case filter.to_sym
@@ -49,6 +57,10 @@ module SurveysHelper
         t('followup_priority')
       when :target_contact_gender_id
         t('gender')
+      when :target_contact_first_name
+        t('first_name')
+      when :target_contact_last_name
+        t('last_name')
       else # custom fields
         Field.where(field_name: filter.to_sym).first.try(:label)
       end
