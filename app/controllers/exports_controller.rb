@@ -27,6 +27,7 @@ class ExportsController < ApplicationController
     send_data csv, filename: filename, type: 'text/csv; charset=utf-8; header=present', disposition: "attachment; filename=#{ filename }"
 
   rescue => e
+    Rails.logger.error "Export failed: #{ e }"
     flash[:error] = I18n.t('error')
     redirect_to :back
   end

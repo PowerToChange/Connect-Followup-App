@@ -1,6 +1,6 @@
 module ConnectionsHelper
-  def lead_li_style(lead)
-    if lead.try(:status_id) == Lead::COMPLETED_STATUS_ID
+  def lead_li_style(lead, options = {})
+    if options[:show_completed] == false && lead.try(:status_id) == Lead::COMPLETED_STATUS_ID
       'display: none;'
     else
       ''
