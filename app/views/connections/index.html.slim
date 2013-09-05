@@ -16,7 +16,7 @@ div.list-title = t('.title')
     - else
       ul.contacts
         - conn.responses.each do |response|
-          = render 'responses/li', lead: response.lead, response: response
+          = render 'responses/li', lead: response.lead, response: response, show_completed: cookies[:show_completed].presence == 'true'
 - if @connections.empty?
   .well.square
     = t('.no_connections')

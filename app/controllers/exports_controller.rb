@@ -27,6 +27,7 @@ class ExportsController < ApplicationController
     send_data csv, filename: filename, type: 'text/csv; charset=utf-8; header=present', disposition: "attachment; filename=#{ filename }"
 
   rescue => e
+    Rails.logger.error "Export failed: #{ e }"
     flash[:error] = I18n.t('error')
     redirect_to :back
   end
@@ -71,7 +72,8 @@ class ExportsController < ApplicationController
     ]
 
     # Survey custom fields
-    survey.fields.answers.each do |field|
+    @survey_answer_fields ||= survey.fields.answers
+    @survey_answer_fields.each do |field|
       line_headers << field.label
     end
 
@@ -114,7 +116,8 @@ class ExportsController < ApplicationController
     ]
 
     # Survey custom fields
-    survey.fields.answers.each do |field|
+    @survey_answer_fields ||= survey.fields.answers
+    @survey_answer_fields.each do |field|
       attributes << response.build_answer_to_field(field).answer
     end
 

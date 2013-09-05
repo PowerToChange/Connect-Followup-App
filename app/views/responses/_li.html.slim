@@ -1,6 +1,7 @@
 - lead = local_assigns[:lead].presence || response.lead
+- show_completed = local_assigns[:show_completed] == false ? false : true
 
-li.navigate-to-url-on-click data-status-id=lead.try(:status_id) data-school-id=response.school.try(:id) data-url=survey_contact_response_path(survey_id: response.survey.id, contact_id: response.contact_id, id: response.id) style=lead_li_style(lead)
+li.navigate-to-url-on-click data-status-id=lead.try(:status_id) data-school-id=response.school.try(:id) data-url=survey_contact_response_path(survey_id: response.survey.id, contact_id: response.contact_id, id: response.id) style=lead_li_style(lead, show_completed: show_completed)
   .avatar= contact_image_tag(response.contact)
   .info
     strong

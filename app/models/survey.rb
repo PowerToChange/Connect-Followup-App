@@ -33,7 +33,7 @@ class Survey < ActiveRecord::Base
     responses = []
     page_of_responses = []
     offset = 0
-    page_size = 100
+    page_size = 500
 
     begin
       Rails.logger.debug("======================================== Fetching offset #{offset} page_size #{page_size} for survey #{ self.id } #{ self.title }...")

@@ -10,7 +10,7 @@
   - else
     ul.contacts
       - @responses.each do |response|
-        = render 'responses/li', response: response, add_delete_lead: true, assigned_to: true
+        = render 'responses/li', response: response, add_delete_lead: true, assigned_to: true, show_completed: true
 
 = render '/layouts/filter_pagination', url: all_survey_path(@survey), count: @responses.size
 

@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('.toggle-completed-leads').prop('checked', false)
+  $('.toggle-completed-leads').prop('checked', $.cookie('show_completed') == 'true')
 
   $('.toggle-completed-leads').on 'change', (e) ->
     scroll_top = $(document).height() - $(document).scrollTop() # save and restore scoll position relative to the bottom of the document
@@ -15,7 +15,10 @@ toggle_visible_leads = () ->
   show_leads_selector = "ul.contacts li"
 
   if $('.toggle-completed-leads').prop('checked') == false
+    $.removeCookie('show_completed')
     show_leads_selector += "[data-status-id!='<%= Lead::COMPLETED_STATUS_ID %>']"
+  else
+    $.cookie('show_completed', true)
 
   $('ul.contacts li').hide()
   $(show_leads_selector).show()
