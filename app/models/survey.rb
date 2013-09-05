@@ -28,17 +28,21 @@ class Survey < ActiveRecord::Base
   end
 
   def all_of_the_responses!(options = {})
+    Rails.logger.debug("======================================== In Survey#all_of_the_responses! for survey #{ self.id } #{ self.title }...")
+
     responses = []
     page_of_responses = []
     offset = 0
     page_size = 100
 
     begin
+      Rails.logger.debug("======================================== Fetching offset #{offset} page_size #{page_size} for survey #{ self.id } #{ self.title }...")
       page_of_responses = self.responses(options.merge(offset: offset, 'rowCount' => page_size))
       responses += page_of_responses
       offset += page_size
     end until page_of_responses.length < page_size
 
+    Rails.logger.debug("======================================== Returning from Survey#all_of_the_responses! for survey #{ self.id } #{ self.title }")
     responses
   end
 
