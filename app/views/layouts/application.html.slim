@@ -48,6 +48,7 @@ html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
           p
             = link_to_icon('question-sign', 'https://getsatisfaction.com/powertochange/products/powertochange_connect', label: t('help'), target: '_blank', class: 'btn btn-link btn-responsive-size')
             = link_to_icon('file', "#{ ENV['CIVICRM_DOMAIN'] }/reports", label: t('reports'), target: '_blank', class: 'btn btn-link btn-responsive-size')
+            = link_to_icon('inbox', 'http://p2c.sh/surveys', label: t('data_input'), target: '_blank', class: 'btn btn-link btn-responsive-size')
             = render '/exports/modal', survey: @survey if @survey.present?
           p.muted = t('logged_in_as_html', user: current_user.to_s)
         small
