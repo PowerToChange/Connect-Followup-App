@@ -70,6 +70,9 @@ class ExportsController < ApplicationController
       line_headers << field.label
     end
 
+    # Lead
+    line_headers << "Assigned to"
+
     line_headers
   end
 
@@ -107,8 +110,11 @@ class ExportsController < ApplicationController
 
     # Survey custom fields
     survey.fields.answers.each do |field|
-      attributes << response.response.send(field.field_name)
+      attributes << response.build_answer_to_field(field).answer
     end
+
+    # Lead
+    attributes << response.lead.try(:user).try(:to_s)
 
     attributes
   end
