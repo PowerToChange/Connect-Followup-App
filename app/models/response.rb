@@ -95,9 +95,11 @@ class Response
   end
 
   def build_answer_to_field(field)
+    time_start = Time.now
     custom_values = self.response.send(field.field_name).presence || self.contact.send(field.field_name)
     custom_values = [custom_values].flatten # It may or may not be an array, we always want an array
     value_label = custom_values.collect { |custom_value| field.label_for_option_value(custom_value) }.join('; ')
+    Rails.logger.debug("build_answer_to_field done in #{ (Time.now - time_start) * 1000.0 }ms")
     OpenStruct.new(label: field.label, answer: value_label)
   end
 

@@ -26,7 +26,9 @@ class Field < ActiveRecord::Base
   end
 
   def label_for_option_value(value)
-    option_values.select { |ov| ov.value == value }.first.try(:label) || value
+    Rails.cache.fetch([self.inspect, value], expires_in: 1.day) do
+      option_values.detect { |ov| ov.value == value }.try(:label) || value
+    end
   end
 
   def option_values_to_select_options
