@@ -90,6 +90,8 @@ class ExportsController < ApplicationController
 
     school = @school.presence || response.school
 
+    Rails.logger.debug("attributes_from_response_to_survey_for_export 1 in #{ (Time.now - time_start) * 1000.0 }ms")
+
     attributes = [
       # Contact
       response.contact.contact_id,
@@ -121,16 +123,20 @@ class ExportsController < ApplicationController
       response.response.activity_date_time
     ]
 
+    Rails.logger.debug("attributes_from_response_to_survey_for_export 2 in #{ (Time.now - time_start) * 1000.0 }ms")
+
     # Survey custom fields
     @survey_answer_fields ||= survey.fields.answers
     @survey_answer_fields.each do |field|
       attributes << response.build_answer_to_field(field).answer
     end
 
+    Rails.logger.debug("attributes_from_response_to_survey_for_export 3 in #{ (Time.now - time_start) * 1000.0 }ms")
+
     # Lead
     attributes << response.lead.try(:user).try(:to_s)
 
-    Rails.logger.debug("attributes_from_response_to_survey_for_export in #{ (Time.now - time_start) * 1000.0 }ms")
+    Rails.logger.debug("attributes_from_response_to_survey_for_export 4 done in #{ (Time.now - time_start) * 1000.0 }ms")
 
     attributes
   end
