@@ -1,6 +1,6 @@
 class Field < ActiveRecord::Base
   belongs_to :survey
-  attr_accessible :field, :label, :option_group_id
+  attr_accessible :field, :label, :option_group_id, :field_name, :custom_field_id
 
   validates_presence_of :field_name, :survey_id
 
@@ -40,6 +40,7 @@ class Field < ActiveRecord::Base
 
     def sync(survey)
       @survey = survey
+      fields = []
 
       survey_fields.each do |survey_field|
         if survey_field.custom_field_id.present?
@@ -48,9 +49,15 @@ class Field < ActiveRecord::Base
         else
           label = survey_field.field_name.humanize
         end
-        field = survey.fields.where(field_name: survey_field.field_name, custom_field_id: survey_field.custom_field_id).first_or_initialize
-        field.update_attributes(label: label, option_group_id: custom_field.try(:option_group_id))
+        fields << Field.new(field_name: survey_field.field_name,
+                            custom_field_id: survey_field.custom_field_id,
+                            label: label,
+                            option_group_id: custom_field.try(:option_group_id))
       end
+    rescue => e
+      Rails.logger.error "Field sync failed! #{self.inspect} #{e}"
+    else # Don't create the new fields unless there were no exceptions
+      survey.fields = fields
     end
 
     private

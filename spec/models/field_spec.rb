@@ -27,8 +27,10 @@ describe Field, :vcr do
     it 'creates new field records' do
       expect { subject }.to change { survey.reload.fields.count }.by(1)
     end
-    it 'updates existing field record' do
-      expect { subject }.to change { field.reload.label }.from('Full Name').to('Name')
+    it 'replaces existing field record' do
+      subject
+      Field.where(id: field.id).all.should be_blank
+      Field.where(field_name: field.field_name).all.should be_present
     end
   end
 
