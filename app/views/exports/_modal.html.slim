@@ -1,4 +1,5 @@
-- if local_assigns[:survey].present?
+- if @survey.present?
+
   = link_to %(<i class="icon icon-download-alt"></i> #{ t('exports.export') }).html_safe, '#exportModal', class: 'btn btn-link btn-responsive-size', 'data-toggle' => 'modal', role: 'button'
 
   #exportModal.modal.hide.fade.text-left style="display: none;" role="dialog"
@@ -9,7 +10,9 @@
     .modal-body
       p = t('exports.explain_html', survey_title: @survey.title)
       p = t('exports.warning_html')
+      p = simple_form_for :export, url: export_survey_path(id: @survey.id), html: { id: 'export', class: 'form-horizontal filters', method: :get } do |f|
+          = filter_input_for_attribute(f, :target_contact_relationship_contact_id_b, label: t('school'))
 
     .modal-footer
       button.btn.btn-responsive-size data-dismiss="modal" = t('close')
-      = button_to t('exports.download_csv'), export_survey_path(id: survey.id), method: :get, class: 'btn btn-primary btn-responsive-size'
+      = submit_tag t('exports.download_csv'), form: 'export', class: 'btn btn-primary btn-responsive-size'

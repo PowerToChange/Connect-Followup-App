@@ -10,7 +10,11 @@ class ExportsController < ApplicationController
 
     Rails.logger.debug("=============== In ExportsController#survey for survey #{ @survey.id } #{ @survey.title }...")
 
-    @responses = @survey.all_of_the_responses!(return: @survey.fields_to_return_from_civicrm)
+    if params[:export][:target_contact_relationship_contact_id_b].present?
+      params[:export].merge!(exclude_nested_school: true) # for performance reasons
+      @school = School.where(civicrm_id: params[:export][:target_contact_relationship_contact_id_b]).first
+    end
+    @responses = @survey.all_of_the_responses!(params[:export].merge!(return: @survey.fields_to_return_from_civicrm))
 
     Rails.logger.debug("=============== Generating CSV for survey #{ @survey.id } #{ @survey.title }...")
     csv = CSV.generate do |csv|
@@ -84,6 +88,8 @@ class ExportsController < ApplicationController
   end
 
   def attributes_from_response_to_survey_for_export(response, survey)
+    school = @school.presence || response.school
+
     attributes = [
       # Contact
       response.contact.contact_id,
@@ -104,8 +110,8 @@ class ExportsController < ApplicationController
       response.contact.send(CiviCrm.custom_fields.contact.residence),
 
       # School
-      response.school.try(:display_name),
-      response.school.try(:nick_name),
+      school.try(:display_name),
+      school.try(:nick_name),
 
       # Response
       survey.title,
