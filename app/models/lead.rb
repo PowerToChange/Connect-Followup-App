@@ -32,7 +32,8 @@ class Lead < ActiveRecord::Base
       digitally: { id: 5, description: I18n.t('leads.report_outcomes.digitally') },
       face_to_face: { id: 7, description: I18n.t('leads.report_outcomes.face_to_face') },
       digitally_continuing: { id: 8, description: I18n.t('leads.report_outcomes.digitally_continuing') },
-      face_to_face_continuing: { id: 10, description: I18n.t('leads.report_outcomes.face_to_face_continuing') }
+      face_to_face_continuing: { id: 10, description: I18n.t('leads.report_outcomes.face_to_face_continuing') },
+      no_followup_required: { id: 3, description: I18n.t('leads.report_outcomes.no_followup_required') }
     }
   end
 
