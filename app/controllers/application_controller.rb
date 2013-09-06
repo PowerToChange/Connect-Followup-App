@@ -71,7 +71,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    redirect_to log_in_path unless logged_in?
+    unless logged_in?
+      redirect_to log_in_path
+      return false
+    end
   end
 
   # This is used to display flash messages on ajax requests
