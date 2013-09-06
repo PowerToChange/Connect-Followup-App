@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def schools_associated_to_current_user_and_to_survey
+    @survey.present? ? @survey.schools & current_user.schools : current_user.schools
+  end
+
   def link_to_icon(icon, url, options = {})
     content = %(<i class="icon icon-#{ icon } icon-large"></i>)
     content = %(#{ content }&nbsp;#{ options[:label] }) if options[:label].present?
@@ -27,5 +31,12 @@ module ApplicationHelper
 
   def contact_image_tag(contact)
     gravatar_image_tag(contact.email, gravatar: { default: "#{ request.protocol }#{ request.host_with_port }#{ asset_path('no_photo.png') }" }, class: 'img-circle')
+  end
+
+  # This helper can be used to cache an entire method by wrapping the method in a block passed to this helper
+  # The cache key will be based on the name of the method, the method's class, and the method's local variables
+  def cache_method(caller_binding, &block)
+    locals = caller_binding.eval('local_variables').collect { |local| "#{ local }=#{ caller_binding.eval("#{ local.to_s }.inspect") }" }
+    Rails.cache.fetch([caller_binding.eval('self.class.name'), locals]) { block.call }
   end
 end

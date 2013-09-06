@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
+
   protect_from_forgery
 
   helper_method :current_user, :logged_in?, :cas_logged_in?
@@ -42,10 +44,6 @@ class ApplicationController < ActionController::Base
     end
 
     filter
-  end
-
-  def schools_associated_to_current_user_and_to_survey
-    @survey.present? ? @survey.schools & current_user.schools : current_user.schools
   end
 
   def filter_cookie_key(filter)

@@ -23,6 +23,15 @@ describe ExportsController do
       controller.should_receive(:send_data).and_return{ controller.render nothing: true }
       subject
     end
+
+    context 'filtering by school' do
+      subject { get :survey, id: survey.id, export: { target_contact_relationship_contact_id_b: create(:school).civicrm_id } }
+
+      it 'assigns @school' do
+        subject
+        assigns(:school).should_not be_nil
+      end
+    end
   end
 
 end

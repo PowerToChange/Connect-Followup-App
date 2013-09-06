@@ -14,7 +14,7 @@ class PtcActivityQuery < CiviCrm::BaseResource
     end
 
     def where_survey(params, survey)
-      self.where(params.deep_merge(params_to_find_responses_to_survey(survey)).deep_merge(params_to_return_school))
+      self.where(params.deep_merge(params_to_find_responses_to_survey(survey)).merge(params_to_return_target_contact))
     end
 
     def params_to_find_responses_to_survey(survey)
@@ -23,6 +23,12 @@ class PtcActivityQuery < CiviCrm::BaseResource
         campaign_id: survey.campaign_id,
         activity_type_id: ActivityType::PETITION_TYPE_ID,
         source_record_id: survey.survey_id
+      }
+    end
+
+    def params_to_return_target_contact
+      {
+        entities: 'target_contact'
       }
     end
 
