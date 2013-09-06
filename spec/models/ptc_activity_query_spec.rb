@@ -55,21 +55,26 @@ describe PtcActivityQuery, :vcr do
         subject.first.contacts.should be_present
         subject.first.contacts.first.should be_a Contact
       end
-      it 'should initialize relationships' do
-        subject.first.contacts.first.relationships.should be_present
-        subject.first.contacts.first.relationships.first.should be_a Relationship
-      end
-      it 'should return only school relationships' do
-        subject.first.contacts.first.relationships.each do |r|
-          r.relationship_type_id.to_i.should eq(Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID)
-        end
-      end
       it 'should return responses to this survey' do
         subject.each do |activity|
           # These three attributes are used to request responses to a survey
           activity.source_record_id.to_i.should eq(survey.survey_id)
           activity.campaign_id.to_i.should eq(survey.campaign_id)
           activity.activity_type_id.to_i.should eq(ActivityType::PETITION_TYPE_ID)
+        end
+      end
+
+      context 'with params_to_return_school' do
+        subject { PtcActivityQuery.where_survey(params, survey).where(PtcActivityQuery.params_to_return_school) }
+
+        it 'should initialize relationships' do
+          subject.first.contacts.first.relationships.should be_present
+          subject.first.contacts.first.relationships.first.should be_a Relationship
+        end
+        it 'should return only school relationships' do
+          subject.first.contacts.first.relationships.each do |r|
+            r.relationship_type_id.to_i.should eq(Relationship::SCHOOL_CURRENTLY_ATTENDING_TYPE_ID)
+          end
         end
       end
     end

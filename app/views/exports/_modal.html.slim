@@ -10,8 +10,9 @@
     .modal-body
       p = t('exports.explain_html', survey_title: @survey.title)
       p = t('exports.warning_html')
+      hr
       p = simple_form_for :export, url: export_survey_path(id: @survey.id), html: { id: 'export', class: 'form-horizontal filters', method: :get } do |f|
-          = filter_input_for_attribute(f, :target_contact_relationship_contact_id_b, label: t('school'))
+          = render '/layouts/filter_inputs_for_f', f: f, survey: @survey
 
     .modal-footer
       button.btn.btn-responsive-size data-dismiss="modal" = t('close')
