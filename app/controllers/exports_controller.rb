@@ -9,9 +9,9 @@ class ExportsController < ApplicationController
     @survey = Survey.find(params[:id])
 
     # This special case with school is just for performance reasons
-    if params[:export].try(:[], :target_contact_relationship_contact_id_b).present?
+    if params[:export] && params[:export].try(:[], :target_contact_relationship_contact_id_b).present?
       params[:export].merge!(exclude_nested_school: true)
-      @school = School.where(civicrm_id: params[:export][:target_contact_relationship_contact_id_b].first)
+      @school = School.where(civicrm_id: params[:export][:target_contact_relationship_contact_id_b]).first
     end
 
     @responses = @survey.all_of_the_responses!((params[:export].presence || {}).merge!(return: @survey.fields_to_return_from_civicrm))
