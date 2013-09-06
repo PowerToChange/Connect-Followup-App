@@ -1,5 +1,6 @@
 fr:
   leads:
+    assigned_to_user_html: "Assigned to <i>%{user}</i>"
     progress_statuses:
       uncontacted: "Non-contacté"
       in_progress: "En Progrès"
@@ -12,6 +13,7 @@ fr:
       face_to_face: "Communication face à face"
       digitally_continuing: "Communication digitale et conversation à poursuivre"
       face_to_face_continuing: "Communication face à face et conversation à poursuivre"
+      no_followup_required: "no follow-up required"
     notes:
       completed_initial_followup_subject: "Suivi initial complété"
       completed_initial_followup_body: "%{user} a complété le suivi initial du sondage %{survey} et le résultat enregistré est %{result}."
@@ -28,6 +30,7 @@ fr:
         bad_info: "Mauvaise Information"
         no_response: "Pas de Réponse"
         no_longer_interested: "N’est plus actuellement intéressé(e)"
+        no_followup_required: "No Follow-up Required"
       worked_out:
         title: "Ta connection a été réussi !"
         message: "Sprint Final"
