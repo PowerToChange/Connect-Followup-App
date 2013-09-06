@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def schools_associated_to_current_user_and_to_survey
+    @survey.present? ? @survey.schools & current_user.schools : current_user.schools
+  end
+
   def link_to_icon(icon, url, options = {})
     content = %(<i class="icon icon-#{ icon } icon-large"></i>)
     content = %(#{ content }&nbsp;#{ options[:label] }) if options[:label].present?

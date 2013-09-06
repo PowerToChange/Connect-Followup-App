@@ -17,6 +17,7 @@ class Survey < ActiveRecord::Base
 
   def responses(options = {})
     responses_query = PtcActivityQuery.where_survey(options, self)
+    responses_query.where(PtcActivityQuery.params_to_return_school) unless options.delete(:exclude_nested_school) == true # allow this for performance reasons
 
     # We are anticipating this query to be called simultaneously by many people, cache it for a small period to ease the load
     Rails.cache.fetch(responses_query.url, expires_in: 1.minute) do
@@ -28,21 +29,20 @@ class Survey < ActiveRecord::Base
   end
 
   def all_of_the_responses!(options = {})
-    Rails.logger.debug("======================================== In Survey#all_of_the_responses! for survey #{ self.id } #{ self.title }...")
-
+    time_start = Time.now
     responses = []
     page_of_responses = []
     offset = 0
     page_size = 500
 
     begin
-      Rails.logger.debug("======================================== Fetching offset #{offset} page_size #{page_size} for survey #{ self.id } #{ self.title }...")
       page_of_responses = self.responses(options.merge(offset: offset, 'rowCount' => page_size))
       responses += page_of_responses
       offset += page_size
     end until page_of_responses.length < page_size
 
-    Rails.logger.debug("======================================== Returning from Survey#all_of_the_responses! for survey #{ self.id } #{ self.title }")
+    Rails.logger.debug("all_of_the_responses! in #{ (Time.now - time_start) * 1000.0 }ms for #{ responses.size } responses")
+
     responses
   end
 

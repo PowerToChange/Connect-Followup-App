@@ -32,7 +32,7 @@ module SurveysHelper
   end
 
   def school_options_for_filter_select
-    current_user.schools.sort_by(&:display_name).collect do |s|
+    schools_associated_to_current_user_and_to_survey.sort_by(&:display_name).collect do |s|
       [s.display_name, s.civicrm_id]
     end
   end

@@ -8,25 +8,27 @@ class ExportsController < ApplicationController
   def survey
     @survey = Survey.find(params[:id])
 
-    Rails.logger.debug("=============== In ExportsController#survey for survey #{ @survey.id } #{ @survey.title }...")
+    # This special case with school is just for performance reasons
+    if params[:export].try(:[], :target_contact_relationship_contact_id_b).present?
+      params[:export].merge!(exclude_nested_school: true)
+      @school = School.where(civicrm_id: params[:export][:target_contact_relationship_contact_id_b].first)
+    end
 
-    @responses = @survey.all_of_the_responses!(return: @survey.fields_to_return_from_civicrm)
+    @responses = @survey.all_of_the_responses!((params[:export].presence || {}).merge!(return: @survey.fields_to_return_from_civicrm))
 
-    Rails.logger.debug("=============== Generating CSV for survey #{ @survey.id } #{ @survey.title }...")
     csv = CSV.generate do |csv|
       csv << line_headers_for_survey_export(@survey)
       @responses.each do |response|
-        Rails.logger.debug("=============== Adding response to CSV #{ response.response_id } #{ response.contact_id } for survey #{ @survey.id } #{ @survey.title }...")
         csv << attributes_from_response_to_survey_for_export(response, @survey)
       end
     end
 
     filename = filename_for_survey_export(@survey)
 
-    Rails.logger.debug("=============== Returning from ExportsController#survey for survey #{ @survey.id } #{ @survey.title }")
     send_data csv, filename: filename, type: 'text/csv; charset=utf-8; header=present', disposition: "attachment; filename=#{ filename }"
 
   rescue => e
+    puts e
     Rails.logger.error "Export failed: #{ e }"
     flash[:error] = I18n.t('error')
     redirect_to :back
@@ -84,6 +86,10 @@ class ExportsController < ApplicationController
   end
 
   def attributes_from_response_to_survey_for_export(response, survey)
+    time_start = Time.now
+
+    school = @school.presence || response.school
+
     attributes = [
       # Contact
       response.contact.contact_id,
@@ -104,8 +110,8 @@ class ExportsController < ApplicationController
       response.contact.send(CiviCrm.custom_fields.contact.residence),
 
       # School
-      response.school.try(:display_name),
-      response.school.try(:nick_name),
+      school.try(:display_name),
+      school.try(:nick_name),
 
       # Response
       survey.title,
@@ -123,6 +129,8 @@ class ExportsController < ApplicationController
 
     # Lead
     attributes << response.lead.try(:user).try(:to_s)
+
+    Rails.logger.debug("attributes_from_response_to_survey_for_export in #{ (Time.now - time_start) * 1000.0 }ms")
 
     attributes
   end
