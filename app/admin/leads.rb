@@ -1,5 +1,12 @@
 ActiveAdmin.register Lead, :as => "Connection" do
   actions :index, :show
+
+  filter :response_id, label: 'Activity ID'
+  filter :survey
+  filter :user
+  filter :status_id, label: 'Status ID'
+  filter :created_at
+
   index do
     column 'Activity ID' do |l|
       l.response_id
