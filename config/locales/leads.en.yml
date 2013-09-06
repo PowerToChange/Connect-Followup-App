@@ -13,6 +13,7 @@ en:
       face_to_face: "connected face-to-face"
       digitally_continuing: "connected digitally and will continue the conversation"
       face_to_face_continuing: "connected face-to-face and will continue the conversation"
+      no_followup_required: "no follow-up required"
     notes:
       completed_initial_followup_subject: "Completed Initial Follow-up"
       completed_initial_followup_body: "%{user} completed initial follow-up of the %{survey} survey and recorded a result of %{result}."
@@ -29,6 +30,7 @@ en:
         bad_info: "Bad Information"
         no_response: "No Response"
         no_longer_interested: "No Longer Interested"
+        no_followup_required: "No Follow-up Required"
       worked_out:
         title: "Your connection worked out!"
         message: "The Final Stretch"

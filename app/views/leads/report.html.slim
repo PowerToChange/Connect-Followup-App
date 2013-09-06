@@ -26,6 +26,7 @@ script type="text/ng-template" id="not_work.html"
       = link_to t('.did_not_work_out.bad_info'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead.REPORT_OUTCOMES[:bad_info][:id] })"
       = link_to t('.did_not_work_out.no_response'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead.REPORT_OUTCOMES[:no_response][:id] })"
       = link_to t('.did_not_work_out.no_longer_interested'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead.REPORT_OUTCOMES[:not_interested][:id] })"
+      = link_to t('.did_not_work_out.no_followup_required'), 'javascript:void(0)', class: 'btn btn-large btn-block', 'ng-click' => "submit(#{ Lead.REPORT_OUTCOMES[:no_followup_required][:id] })"
       = link_to t('back'), 'javascript:void(0)', class: 'btn btn-large btn-block btn-inverse', 'ng-click' => "goBack()"
 
 script type="text/ng-template" id="worked_out.html"
