@@ -8,3 +8,4 @@ strong = filter_select_for_attribute(f, :priority_id, label: t('followup_priorit
     = filter_select_for_attribute(f, field.field_name, label: field.label)
 = field_text_field_for_attribute(f, :target_contact_first_name, label: t('first_name'), placeholder: t('exact_match'))
 = field_text_field_for_attribute(f, :target_contact_last_name, label: t('last_name'), placeholder: t('exact_match'))
+= field_text_field_for_attribute(f, CiviCrm.custom_fields.contact.degree, label: t('degree'), placeholder: t('exact_match'))

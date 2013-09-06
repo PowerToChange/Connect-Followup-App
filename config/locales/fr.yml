@@ -27,3 +27,4 @@ fr:
   first_name: "First Name"
   last_name: "Last Name"
   exact_match: "Exact match"
+  degree: "Faculty or Degree"
