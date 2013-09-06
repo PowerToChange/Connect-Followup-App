@@ -3,12 +3,10 @@ module ResponsesHelper
   include ActivitiesHelper
 
   def lead_report_description(lead)
-    cache_method(binding) do
-      if lead.completed? && lead.engagement_level.present?
-        "#{ engagement_level_label(lead.engagement_level) }."
-      else
-        ''
-      end
+    if lead.completed? && lead.engagement_level.present?
+      "#{ engagement_level_label(lead.engagement_level) }."
+    else
+      ''
     end
   end
 
@@ -55,10 +53,10 @@ module ResponsesHelper
     end
   end
 
-  def answer_label(field, value)
+  def answer_label(field_name, value)
     cache_method(binding) do
-      return '' unless field.present? && value.present?
-      case field
+      return '' unless field_name.present? && value.present?
+      case field_name
       when CiviCrm.custom_fields.contact.year
         year_label(value)
       when :gender_id
