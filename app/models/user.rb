@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
   def connections(options = {})
     # Cache based on the user's surveys, leads and filter options
-    Rails.cache.fetch(connections_cache_key(options)) do
+    # Rails.cache.fetch(connections_cache_key(options)) do
 
       @activities = self.leads.present? ? PtcActivityQuery.where(id: self.leads.collect(&:response_id).join(',')).where(options).where(PtcActivityQuery.params_to_return_school).all(1000) : []
 
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
         )
       end
 
-    end
+    # end
   end
 
   def sync_from_pulse
