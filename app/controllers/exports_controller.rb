@@ -66,6 +66,7 @@ class ExportsController < ApplicationController
       'School nick name',
 
       # Response
+      'Activity id',
       'Survey title',
       'Priority',
       'Status',
@@ -114,6 +115,7 @@ class ExportsController < ApplicationController
       school.try(:nick_name),
 
       # Response
+      response.response_id,
       survey.title,
       priority_label(response.response.priority_id, true),
       status_label(response.response.status_id),

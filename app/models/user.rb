@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :guid, :first_name, :last_name, :civicrm_id
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }, allow_blank: true
   validates :guid, presence: true
-  validates :civicrm_id, presence: true
 
   DEFAULT_CIVICRM_ID = 1
   VALID_PULSE_MINISTRY_INVOLVEMENT_ROLES = ["student leader", "ministry leader", "team member", "team leader"]
@@ -63,7 +62,9 @@ class User < ActiveRecord::Base
 
   rescue Pulse::Errors::BadRequest
     Rails.logger.error "Pulse::Errors::BadRequest: User does not exist in the Pulse! #{self.inspect}"
-    self.schools = [] # Unassign all of the user's schools, they may have been intentionally removed from the Pulse
+    # This user may have been intentionally removed from the Pulse
+    self.schools = []
+    self.update_attribute(:civicrm_id, nil)
 
   rescue => e # Unknown failure
     Rails.logger.error "Failed to sync user from Pulse: #{e} #{self.inspect}"

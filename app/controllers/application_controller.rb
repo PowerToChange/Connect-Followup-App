@@ -27,8 +27,17 @@ class ApplicationController < ActionController::Base
   end
 
   def filters(default_show_all = false)
-    params[:filters] = (params[:filters].presence || default_filter(default_show_all)).select { |_, value| value.present? }
-    params[:filters].each { |key, value| cookies[filter_cookie_key(key)] = value }
+    # select only filters that are not blank
+    params[:filters] = (params[:filters].presence || {}).select { |_, value| value.present? }
+
+    if params[:filters].present?
+      # if filters exist store them in cookies
+      params[:filters].each { |key, value| cookies[filter_cookie_key(key)] = value }
+    else
+      # if we're not filtering apply a default filter
+      params[:filters] = default_filter(default_show_all)
+    end
+
     params[:filters]
   end
 
@@ -36,11 +45,13 @@ class ApplicationController < ActionController::Base
   private
 
   def default_filter(default_show_all = false)
+    return {} if default_show_all
+
     # We want to limit the default result set
     filter = { target_contact_relationship_contact_id_b: cookies[filter_cookie_key(:target_contact_relationship_contact_id_b)] }
 
     if filter[:target_contact_relationship_contact_id_b].blank?
-      filter[:target_contact_relationship_contact_id_b] = default_show_all ? {} : schools_associated_to_current_user_and_to_survey.sort_by(&:display_name).first.try(:civicrm_id)
+      filter[:target_contact_relationship_contact_id_b] = schools_associated_to_current_user_and_to_survey.sort_by(&:display_name).first.try(:civicrm_id)
     end
 
     filter
@@ -50,6 +61,7 @@ class ApplicationController < ActionController::Base
     key = "filter_#{ filter }"
     key = "#{ key }_for_controller_#{ controller_name }"
     key = "#{ key }_survey_#{ @survey.id }" if @survey.present?
+    key = "#{ key }_v2" # add versioning to expire old cookies
     key
   end
 
@@ -71,7 +83,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    redirect_to log_in_path unless logged_in?
+    unless logged_in?
+      redirect_to log_in_path
+      return false
+    end
   end
 
   # This is used to display flash messages on ajax requests
