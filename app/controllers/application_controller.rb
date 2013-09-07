@@ -27,14 +27,14 @@ class ApplicationController < ActionController::Base
   end
 
   def filters(default_show_all = false)
-    # select only filters that are not blank
-    params[:filters] = (params[:filters].presence || {}).select { |_, value| value.present? }
-
     if params[:filters].present?
-      # if filters exist store them in cookies
+      # Select only filters that are not blank
+      params[:filters] = (params[:filters].presence || {}).select { |_, value| value.present? }
+      # Store filters in cookies
       params[:filters].each { |key, value| cookies[filter_cookie_key(key)] = value }
+
     else
-      # if we're not filtering apply a default filter
+      # If we're not filtering at all then apply a default filter
       params[:filters] = default_filter(default_show_all)
     end
 
