@@ -1,5 +1,5 @@
 fr:
   surveys:
     show:
-      info: "Info"
-    no_contacts: "No contacts found for current filter options."
+      info: "Information"
+    no_contacts: "Aucun contact trouvé suivant les filtres actuels."

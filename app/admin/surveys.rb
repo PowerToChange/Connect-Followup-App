@@ -2,7 +2,8 @@ ActiveAdmin.register Survey do
   actions :all
 
   action_item only: :show do
-    link_to('Survey Fields', admin_survey_fields_path(resource))
+    link_to 'Survey Fields', admin_survey_fields_path(resource)
+    link_to 'Re-Sync Survey Fields From CiviCrm', "/admin/surveys/#{ resource.id }/sync_survey_fields_from_civicrm", method: :post, confirm: 'Really?'
   end
 
   index do
@@ -67,6 +68,19 @@ ActiveAdmin.register Survey do
     end
 
     f.actions
+  end
+
+  member_action :sync_survey_fields_from_civicrm, method: :post do
+    begin
+      survey = Survey.find(params[:id])
+      Field.sync(survey)
+    rescue => e
+      Rails.logger.error "Failed to sync survey fields from CiviCrm: #{ e }"
+      flash[:error] = 'Oops! There was a problem syncing survey fields from CiviCrm!'
+    else
+      flash[:notice] = 'Synced survey fields from CiviCrm.'
+    end
+    redirect_to action: :show
   end
 
 end
