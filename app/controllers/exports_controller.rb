@@ -132,8 +132,6 @@ class ExportsController < ApplicationController
     # Lead
     attributes << response.lead.try(:user).try(:to_s)
 
-    Rails.logger.debug("attributes_from_response_to_survey_for_export 4 done in #{ (Time.now - time_start) * 1000.0 }ms")
-
     attributes
   end
 
