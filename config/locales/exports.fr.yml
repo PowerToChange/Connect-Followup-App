@@ -1,6 +1,6 @@
 fr:
   exports:
-    export: "Export"
-    download_csv: "Download CSV"
-    explain_html: "Download an export of responses to <i>%{survey_title}</i> in a CSV file."
-    warning_html: "<i class='icon icon-exclamation-sign'></i> The export may take a long time and degrade the experience for other users. Please use the filter options to limit the number of contacts you're exporting."
+    export: "Exporter"
+    download_csv: "Télécharger CSV"
+    explain_html: "Télécharger une exportation de réponses à <i>%{survey_title}</i> dans un fichier CSV."
+    warning_html: "<i class='icon icon-exclamation-sign'></i> L’exportation peut durer un long moment et cela peut nuire aux autres utilisateurs. Veuillez utiliser les options de filtre pour limiter le nombre de contacts que vous exportez."
