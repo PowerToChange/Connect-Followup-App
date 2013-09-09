@@ -7,7 +7,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "Recent Connections" do
-          table_for Lead.last(10).map do
+          table_for Lead.order("created_at desc").limit(10).map do
             column do |lead|
               link_to("#{ lead.user } added #{ lead.response_id } #{ time_ago_in_words lead.created_at } ago", "/admin/connections/#{ lead.id }")
             end
