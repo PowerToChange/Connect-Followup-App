@@ -42,7 +42,7 @@ class Lead < ActiveRecord::Base
   end
 
   def status
-    self.class.PROGRESS_STATUSES.select { |num|  num[0] == self.status_id  }.flatten[1]
+    self.class.PROGRESS_STATUSES.detect { |num|  num[0] == self.status_id  }.flatten[1]
   end
 
   def response
