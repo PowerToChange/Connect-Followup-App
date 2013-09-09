@@ -41,8 +41,6 @@ class Survey < ActiveRecord::Base
       offset += page_size
     end until page_of_responses.length < page_size
 
-    Rails.logger.debug("all_of_the_responses! in #{ (Time.now - time_start) * 1000.0 }ms for #{ responses.size } responses")
-
     responses
   end
 
