@@ -9,7 +9,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Connections" do
           table_for Lead.order("created_at desc").limit(10).map do
             column do |lead|
-              link_to("#{ lead.user } added a connection #{ time_ago_in_words lead.created_at } ago (#{ lead.survey.title })", "/admin/connections/#{ lead.id }")
+              link_to("<strong>#{ lead.user }</strong> added a connection #{ time_ago_in_words lead.created_at } ago (#{ lead.survey.title })".html_safe, "/admin/connections/#{ lead.id }")
             end
           end
         end
@@ -19,7 +19,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "New Users" do
           table_for User.order("created_at desc").limit(10).map do
             column do |user|
-              link_to("#{ user } signed in for the first time #{ time_ago_in_words user.created_at } ago", "/admin/users/#{ user.id }")
+              link_to("<strong>#{ user }</strong> signed in for the first time #{ time_ago_in_words user.created_at } ago".html_safe, "/admin/users/#{ user.id }")
             end
           end
         end
@@ -29,7 +29,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recently Completed Connections" do
           table_for Lead.order("updated_at desc").where("engagement_level IS NOT NULL").limit(10).map do
             column do |lead|
-              link_to("#{ lead.user } connected with engagement level #{ engagement_level_label(lead.engagement_level) } #{ time_ago_in_words lead.updated_at } ago", "/admin/connections/#{ lead.id }")
+              link_to("<strong>#{ lead.user }</strong> connected with engagement level <strong>#{ engagement_level_label(lead.engagement_level) }</strong> #{ time_ago_in_words lead.updated_at } ago".html_safe, "/admin/connections/#{ lead.id }")
             end
           end
         end
