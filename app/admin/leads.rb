@@ -3,7 +3,7 @@ ActiveAdmin.register Lead, :as => "Connection" do
 
   filter :response_id, label: 'Activity ID'
   filter :survey
-  filter :user
+  filter :user, collection: proc { User.order('first_name, last_name').all }
   filter :status_id, label: 'Status ID'
   filter :created_at
 
