@@ -45,6 +45,12 @@ $ rake db:setup
 
 You will also have to [install memcached](https://google.com/search?q=how+to+install+memcached), this is platform-specific.
 
+#### Testing
+
+Tests are written in Rspec, to run them type `rake spec`
+
+Because the app is coupled to the CiviCRM API we use VCR to record API responses for testing purposes. When API requests change then the relevant tape needs to be removed and re-recorded for tests to pass. Simply delete the relevant *.yml files and they will automatically be regenerated.
+
 ## Admin Access
 
 1. Go to `/admin`
