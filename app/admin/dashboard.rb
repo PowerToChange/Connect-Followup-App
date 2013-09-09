@@ -9,7 +9,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Connections" do
           table_for Lead.order("created_at desc").limit(10).map do
             column do |lead|
-              link_to("#{ lead.user } added #{ lead.response_id } #{ time_ago_in_words lead.created_at } ago", "/admin/connections/#{ lead.id }")
+              link_to("#{ lead.user } added a connection #{ time_ago_in_words lead.created_at } ago (#{ lead.survey.title })", "/admin/connections/#{ lead.id }")
             end
           end
         end
@@ -26,7 +26,17 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Info" do
+        panel "Recently Completed Connections" do
+          table_for Lead.order("updated_at desc").where("engagement_level IS NOT NULL").limit(10).map do
+            column do |lead|
+              link_to("#{ lead.user } connected with engagement level #{ engagement_level_label(lead.engagement_level) } #{ time_ago_in_words lead.updated_at } ago", "/admin/connections/#{ lead.id }")
+            end
+          end
+        end
+      end
+
+      column do
+        panel "Counts" do
           ul do
             li pluralize Lead.count, 'Connection'
             li pluralize User.count, 'User'
