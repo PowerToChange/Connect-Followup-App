@@ -68,3 +68,7 @@ Visit the Schools page inside the admin interface and click 'Sync All Schools Fr
 Clearing this cache should typically not be necessary because it automatically invalidates itself. It requires sudo access to the server.
 
 To clear the cache ssh into the server and then type `sudo service memcached restart`
+
+## Restart
+
+To restart the application server ssh in and type `touch /home/ubuntu/Connect-Followup-App/current/tmp/restart.txt`
