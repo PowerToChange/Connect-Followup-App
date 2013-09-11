@@ -19,6 +19,8 @@ class ActivitiesController < ApplicationController
     else
       flash[:error] = t('activities.create.error', activity_name: activity_name.downcase)
     end
+
+    respond_to { |format| format.js }
   end
 
   private
