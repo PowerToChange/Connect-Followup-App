@@ -95,6 +95,6 @@ class LeadsController < ApplicationController
     @lead = Lead.find(params[:id]) if params[:id].present?
   rescue ActiveRecord::RecordNotFound => e
     flash[:error] = t('error')
-    redirect_to :back
+    redirect_to connections_path
   end
 end
