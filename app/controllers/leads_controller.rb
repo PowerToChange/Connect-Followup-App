@@ -2,6 +2,14 @@ class LeadsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :get_survey_and_lead, except: [:create]
 
+  def index
+    redirect_to connections_path
+  end
+
+  def show
+    redirect_to survey_contact_response_path(survey_id: @lead.survey_id, contact_id: @lead.contact_id, id: @lead.response_id)
+  end
+
   def create
     @survey = Survey.find(params[:survey_id])
     @lead = @survey.leads.new(params[:lead])
@@ -84,9 +92,9 @@ class LeadsController < ApplicationController
 
   def get_survey_and_lead
     @survey = Survey.find(params[:survey_id])
-    @lead = Lead.find(params[:id])
+    @lead = Lead.find(params[:id]) if params[:id].present?
   rescue ActiveRecord::RecordNotFound => e
     flash[:error] = t('error')
-    redirect_to :back
+    redirect_to connections_path
   end
 end
