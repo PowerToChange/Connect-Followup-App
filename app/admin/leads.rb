@@ -41,4 +41,18 @@ ActiveAdmin.register Lead, :as => "Connection" do
     end
     active_admin_comments
   end
+
+  csv do
+    column :user_id
+    column :survey_id
+    column 'Activity' do |l|
+      l.response_id
+    end
+    column :created_at
+    column :updated_at
+    column :status_id
+    column :engagement_level
+    column :contact_id
+  end
+
 end
