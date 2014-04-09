@@ -22,3 +22,6 @@
 /config/application.yml
 # Ignore New Relic configuration
 /config/newrelic.yml
+
+# Aptana project
+.project
