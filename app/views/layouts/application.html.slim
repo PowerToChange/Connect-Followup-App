@@ -32,6 +32,23 @@ html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
                 div class=['btn-group','pull-left']
                   = link_to_icon "arrow-left", "javascript:void(0)", class: "btn prev-page"
                   = link_to_icon "home", root_path, label_hidden_phone: t('home'), class: "btn"
+                  = link_to_icon "file", "#{ ENV['CIVICRM_DOMAIN'] }/reports", label_hidden_phone: t('reports'), target: '_blank', class: 'btn'
+                  = link_to_icon "inbox", 'http://pulse2.p2c.com/insights/survey/results/', label_hidden_phone: t('data_input'), target: '_blank', class: 'btn'
+                  span class="dropdown"
+                    = link_to_icon "th", '#', { :label_hidden_phone => t('pulse'), 'target'  => '_blank', 'class' => 'btn', 'data-toggle' => 'dropdown'}
+                    ul class="dropdown-menu"
+                      li
+                        = link_to t("dashboard"), "https://pulse.p2c.com/", class: "btn"
+                      li
+                        = link_to t("profile"), "https://pulse.p2c.com/", class: "btn"
+                      li
+                        = link_to t("groups"), "https://pulse.p2c.com/groups", class: "btn"
+                      li
+                        = link_to t("discover"), "https://pulse2.p2c.com/discover", class: "btn"
+                      li
+                        = link_to t("discipleship"), "https://pulse.p2c.com/campus_discipleship", class: "btn"
+                      li
+                        = link_to t("insights"), "https://pulse.p2c.com/insights", class: "btn"
                 div class=['btn-group','pull-right']
                   = link_to_icon "off", log_out_path, label_hidden_phone: t('log_off'), class: "btn"
 
@@ -47,8 +64,6 @@ html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
         - if logged_in?
           p
             = link_to_icon('question-sign', 'https://getsatisfaction.com/powertochange/products/powertochange_connect', label: t('help'), target: '_blank', class: 'btn btn-link btn-responsive-size')
-            = link_to_icon('file', "#{ ENV['CIVICRM_DOMAIN'] }/reports", label: t('reports'), target: '_blank', class: 'btn btn-link btn-responsive-size')
-            = link_to_icon('inbox', 'http://p2c.sh/surveys', label: t('data_input'), target: '_blank', class: 'btn btn-link btn-responsive-size')
             = render '/exports/modal'
           p.muted = t('logged_in_as_html', user: current_user.to_s)
         small

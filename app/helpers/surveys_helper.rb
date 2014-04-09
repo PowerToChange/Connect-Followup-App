@@ -23,6 +23,8 @@ module SurveysHelper
       Response.PRIORITIES
     when :target_contact_gender_id
       Response.GENDERS
+    when :target_contact_created_date_between
+      semester_options_for_filter_select
     when :assignee_contact_id
       [[I18n.t('unassigned'), 'NULL']]
     else # custom fields
@@ -57,6 +59,8 @@ module SurveysHelper
         t('followup_priority')
       when :target_contact_gender_id
         t('gender')
+      when :target_contact_created_date_between
+        t('semester')
       when :target_contact_first_name
         t('first_name')
       when :target_contact_last_name
@@ -80,5 +84,46 @@ module SurveysHelper
 
   def add_delete_lead_button_id(id)
     "add-release-response-#{ id }"
+  end
+  
+  def semester_name(time)
+    case time.month
+      when 1..5 then t('winter') + ' ' + time.year.to_s
+      when 6..8 then t('summer') + ' ' + time.year.to_s
+      when 9..12 then t('fall') + ' ' + time.year.to_s
+    end
+  end
+  
+  def semester_between_dates(time)
+    y = time.year.to_s
+    case time.month
+      when 1..5 then "#{y}0101000000-#{y}0601000000"
+      when 6..8 then "#{y}0601000000-#{y}0901000000"
+      when 9..12 then "#{y}0901000000-#{y}1231235959"
+    end    
+  end
+  
+  def semester_go_back(time)
+    case time.month
+    when 1..5 then Time.new(time.year - 1, 9, 1, 0, 0, 0)
+      when 6..8 then Time.new(time.year, 1, 1, 0, 0, 0)
+      when 9..12 then Time.new(time.year, 6, 1, 0, 0, 0)
+    end    
+  end
+  
+  
+  def semester_options_for_filter_select
+    time = Time.new
+
+    # add current semester
+    semester_options = [ [semester_name(time), semester_between_dates(time)] ]
+    
+    # add 5 previous semesters
+    for i in 1..5
+      time = semester_go_back(time)
+      semester_options << [semester_name(time), semester_between_dates(time)]
+    end
+    
+    semester_options
   end
 end
