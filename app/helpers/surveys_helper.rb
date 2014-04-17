@@ -86,32 +86,46 @@ module SurveysHelper
     "add-release-response-#{ id }"
   end
   
-  def semester_name(time)
+  def semester(time)
+    the_semester = nil
     case time.month
-      when 1..5 then t('winter') + ' ' + time.year.to_s
-      when 6..8 then t('summer') + ' ' + time.year.to_s
-      when 9..12 then t('fall') + ' ' + time.year.to_s
+      when 1..4 then the_semester = :winter
+      when 5..8 then
+        if time.month < 8 && time.day < 15 
+          the_semester = :summer
+        else 
+          the_semester = :fall
+        end
+      when 9..12 then the_semester = :fall
+    end
+    the_semester
+  end
+  
+  def semester_name(time)
+    case semester(time)
+      when :winter then t('winter') + ' ' + time.year.to_s
+      when :summer then t('summer') + ' ' + time.year.to_s
+      when :fall then t('fall') + ' ' + time.year.to_s
     end
   end
   
   def semester_between_dates(time)
     y = time.year.to_s
-    case time.month
-      when 1..5 then "#{y}0101000000-#{y}0601000000"
-      when 6..8 then "#{y}0601000000-#{y}0901000000"
-      when 9..12 then "#{y}0901000000-#{y}1231235959"
+    case semester(time)
+      when :winter then "#{y}0101000000-#{y}0501000000"
+      when :summer then "#{y}0501000000-#{y}0815000000"
+      when :fall then "#{y}0815000000-#{y}1231235959"
     end    
   end
   
   def semester_go_back(time)
-    case time.month
-    when 1..5 then Time.new(time.year - 1, 9, 1, 0, 0, 0)
-      when 6..8 then Time.new(time.year, 1, 1, 0, 0, 0)
-      when 9..12 then Time.new(time.year, 6, 1, 0, 0, 0)
+    case semester(time)
+    when :winter then Time.new(time.year - 1, 8, 15, 0, 0, 0)
+      when :summer then Time.new(time.year, 1, 1, 0, 0, 0)
+      when :fall then Time.new(time.year, 5, 1, 0, 0, 0)
     end    
   end
-  
-  
+    
   def semester_options_for_filter_select
     time = Time.new
 

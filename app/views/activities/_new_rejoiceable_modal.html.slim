@@ -11,6 +11,12 @@
           = f.input :subject, as: :hidden, input_html: { value: label }
           = f.input :activity_type_id, as: :hidden, input_html: { value: ActivityType::REJOICEABLE_TYPE_ID }
           = f.input :campaign_id, as: :hidden, input_html: { value: survey.campaign_id }
+          - if rejoiceable_id == '4'
+            = f.input :assignee_contact_id, as: :hidden, input_html: { value: @response.school.civicrm_id }
+            = f.input :engagement_level, as: :hidden, input_html: { value: '0' }
+            = f.input :custom_218, as: :hidden, input_html: { value: '8' }
+            = f.input :custom_219, as: :hidden, input_html: { value: current_user.to_s }
+            = f.input :details, as: :hidden, input_html: { value: "Add story in Insights" }
           = f.submit label, class: 'btn btn-primary btn-responsive-size'
   .modal-footer
     = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn btn-responsive-size'

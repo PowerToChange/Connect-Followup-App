@@ -7,9 +7,10 @@ class ActivitiesController < ApplicationController
     params[:activity].merge!({
       source_contact_id: current_user.civicrm_id,
       status_id: Activity::STATUS_COMPLETED_ID,
-      details: current_user.to_s,
       target_contact_id: params[:contact_id]
     })
+    params[:activity].merge!({details: current_user.to_s}) if params[:activity][:details].blank?
+    
     @activity = Activity.new(params[:activity])
 
     activity_name = activity_name(@activity.activity_type_id)

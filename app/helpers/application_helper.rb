@@ -14,6 +14,12 @@ module ApplicationHelper
   def link_to_phone(icon, option, tel=nil)
     link_to_icon icon, tel.present? ? "#{option}:#{tel}" : "javascript:void(0)", class: "btn #{'disabled' if tel.blank?}"
   end
+  
+  def pulse_profile
+    the_link = "https://pulse.p2c.com/people/"
+    the_link += current_user.pulse_id.to_s if current_user.pulse_id.present?
+    the_link
+  end
 
   def days_ago_in_words(date)
     return '' unless date.present?

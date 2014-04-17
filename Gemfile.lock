@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git@github.com:PowerToChange/pulse_gem.git
-  revision: 2bc13de2757596170a14e7fbf25794a7c49df41b
+  revision: 2a6bc843bb64c7a81006dac771e760525c4bcec1
   specs:
     pulse (0.0.1)
       activemodel

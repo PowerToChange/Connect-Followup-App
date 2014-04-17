@@ -43,6 +43,8 @@ html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
                     b.caret.connectgray
                   ul class="dropdown-menu"
                     li
+                      = link_to t("profile"), pulse_profile
+                    li
                       = link_to t("dashboard"), "https://pulse.p2c.com/"
                     li
                       = link_to t("groups"), "https://pulse.p2c.com/groups"

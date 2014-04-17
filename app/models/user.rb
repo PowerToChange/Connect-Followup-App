@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :schools
   has_many :surveys, through: :schools, uniq: true
 
-  attr_accessible :email, :guid, :first_name, :last_name, :civicrm_id
+  attr_accessible :email, :guid, :first_name, :last_name, :civicrm_id, :pulse_id
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }, allow_blank: true
   validates :guid, presence: true
 
@@ -49,14 +49,16 @@ class User < ActiveRecord::Base
   def sync_from_pulse
     pulse_campus_ids = []
     civicrm_id_from_pulse = nil
-
+    pulse_id_from_pulse = nil 
+    
     Pulse::MinistryInvolvement.where(guid: self.guid).select { |mi| valid_pulse_ministry_involvement?(mi) }.each do |ministry_involvement|
-      # Get the CiviCrm id of the user from the Pulse
+      # Get the CiviCrm id and pulse id of the user from the Pulse
       civicrm_id_from_pulse ||= ministry_involvement.try(:user).try(:[], :civicrm_id)
+      pulse_id_from_pulse ||= ministry_involvement.try(:user).try(:[], :id)
 
       # Collect the school ids that this user is associated to
       #   ministry_involvement.ministry[:campus] will be an array only if there are multiple campuses
-      pulse_campus_ids += [ministry_involvement.ministry[:campus]].flatten.collect { |c| c[:campus_id] }
+      pulse_campus_ids += [ministry_involvement.ministry[:campus]].flatten.collect { |c| c[:campus_id] }    
     end
     pulse_campus_ids.uniq!
 
@@ -65,6 +67,7 @@ class User < ActiveRecord::Base
     # This user may have been intentionally removed from the Pulse
     self.schools = []
     self.update_attribute(:civicrm_id, nil)
+    self.update_attribute(:pulse_id, nil)
 
   rescue => e # Unknown failure
     Rails.logger.error "Failed to sync user from Pulse: #{e} #{self.inspect}"
@@ -73,6 +76,7 @@ class User < ActiveRecord::Base
   else
     self.schools = School.where(pulse_id: pulse_campus_ids)
     self.update_attribute(:civicrm_id, civicrm_id_from_pulse) if civicrm_id_from_pulse.present?
+    self.update_attribute(:pulse_id, pulse_id_from_pulse) if pulse_id_from_pulse.present?
   end
 
   def valid_pulse_ministry_involvement?(ministry_involvement)

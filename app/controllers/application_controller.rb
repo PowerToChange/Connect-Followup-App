@@ -42,6 +42,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+
   private
 
   def default_filter(default_show_all = false)
@@ -53,8 +54,34 @@ class ApplicationController < ActionController::Base
     if filter[:target_contact_relationship_contact_id_b].blank?
       filter[:target_contact_relationship_contact_id_b] = schools_associated_to_current_user_and_to_survey.sort_by(&:display_name).first.try(:civicrm_id)
     end
+    
+    if filter[:target_contact_created_date_between].blank?
+      filter[:target_contact_created_date_between] = semester_default_between_dates
+    end
 
     filter
+  end
+
+  def semester_default_between_dates
+    time = Time.new
+    the_semester = nil
+    case time.month
+      when 1..4 then the_semester = :winter
+      when 5..8 then
+        if time.month < 8 && time.day < 15 
+          the_semester = :summer
+        else 
+          the_semester = :fall
+        end
+      when 9..12 then the_semester = :fall
+    end
+    
+    y = time.year.to_s
+    case the_semester
+      when :winter then "#{y}0101000000-#{y}0501000000"
+      when :summer then "#{y}0501000000-#{y}0815000000"
+      when :fall then "#{y}0815000000-#{y}1231235959"
+    end    
   end
 
   def filter_cookie_key(filter)
@@ -113,4 +140,6 @@ class ApplicationController < ActionController::Base
       return type unless flash[type].blank?
     end
   end
+
+
 end
