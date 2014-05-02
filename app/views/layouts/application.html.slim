@@ -69,7 +69,7 @@ html lang="#{ I18n.locale.to_s }" ng-app="connectapp"
         br
         - if logged_in?
           p
-            = link_to_icon('question-sign', 'https://getsatisfaction.com/powertochange/products/powertochange_connect', label: t('help'), target: '_blank', class: 'btn btn-link btn-responsive-size')
+            = link_to_icon('question-sign', 'https://groups.google.com/a/p2c.com/forum/#!forum/p2c-s-help-desk', label: t('help'), target: '_blank', class: 'btn btn-link btn-responsive-size')
             = render '/exports/modal'
           p.muted = t('logged_in_as_html', user: current_user.to_s)
         small
