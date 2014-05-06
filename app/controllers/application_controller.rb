@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    current_user.present?
+    cas_logged_in? && current_user.present?
   end
 
   def cas_logged_in?

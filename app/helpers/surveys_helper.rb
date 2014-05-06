@@ -91,9 +91,8 @@ module SurveysHelper
     case time.month
       when 1..4 then the_semester = :winter
       when 5..8 then
-        if time.month < 8 && time.day < 15 
-          the_semester = :summer
-        else 
+        the_semester = :summer
+        if time.month == 8 && time.day >= 15 
           the_semester = :fall
         end
       when 9..12 then the_semester = :fall
@@ -120,7 +119,7 @@ module SurveysHelper
   
   def semester_go_back(time)
     case semester(time)
-    when :winter then Time.new(time.year - 1, 8, 15, 0, 0, 0)
+      when :winter then Time.new(time.year - 1, 8, 15, 0, 0, 0)
       when :summer then Time.new(time.year, 1, 1, 0, 0, 0)
       when :fall then Time.new(time.year, 5, 1, 0, 0, 0)
     end    
