@@ -68,9 +68,8 @@ class ApplicationController < ActionController::Base
     case time.month
       when 1..4 then the_semester = :winter
       when 5..8 then
-        if time.month < 8 && time.day < 15 
-          the_semester = :summer
-        else 
+        the_semester = :summer
+        if time.month == 8 && time.day >= 15 
           the_semester = :fall
         end
       when 9..12 then the_semester = :fall
