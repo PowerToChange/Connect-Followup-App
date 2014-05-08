@@ -55,8 +55,8 @@ class ApplicationController < ActionController::Base
       filter[:target_contact_relationship_contact_id_b] = schools_associated_to_current_user_and_to_survey.sort_by(&:display_name).first.try(:civicrm_id)
     end
     
-    if filter[:target_contact_created_date_between].blank?
-      filter[:target_contact_created_date_between] = semester_default_between_dates
+    if filter[:civicrm_activity_date_time_between].blank?
+      filter[:civicrm_activity_date_time_between] = semester_default_between_dates
     end
 
     filter

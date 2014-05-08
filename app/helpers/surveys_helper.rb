@@ -23,7 +23,7 @@ module SurveysHelper
       Response.PRIORITIES
     when :target_contact_gender_id
       Response.GENDERS
-    when :target_contact_created_date_between
+    when :civicrm_activity_date_time_between
       semester_options_for_filter_select
     when :assignee_contact_id
       [[I18n.t('unassigned'), 'NULL']]
@@ -59,7 +59,7 @@ module SurveysHelper
         t('followup_priority')
       when :target_contact_gender_id
         t('gender')
-      when :target_contact_created_date_between
+      when :civicrm_activity_date_time_between
         t('semester')
       when :target_contact_first_name
         t('first_name')

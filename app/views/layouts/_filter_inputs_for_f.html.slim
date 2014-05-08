@@ -1,5 +1,5 @@
 strong = filter_select_for_attribute(f, :target_contact_relationship_contact_id_b, label: t('school'))
-strong = filter_select_for_attribute(f, :target_contact_created_date_between, label: t('semester'))
+strong = filter_select_for_attribute(f, :civicrm_activity_date_time_between, label: t('semester'))
 = hidden_field(:filters, :target_contact_created_date_high)
 strong = filter_select_for_attribute(f, :priority_id, label: t('followup_priority'))
 = filter_select_for_attribute(f, :target_contact_gender_id, label: t('gender'))
